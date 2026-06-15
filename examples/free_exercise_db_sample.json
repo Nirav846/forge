@@ -1,0 +1,76 @@
+[
+  {
+    "name": "Barbell Back Squat",
+    "force": "push",
+    "level": "intermediate",
+    "mechanic": "compound",
+    "equipment": "barbell",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["glutes", "hamstrings", "calves"],
+    "instructions": [
+      "Rest a barbell on your upper back (trapezius), keeping your chest up and feet shoulder-width apart.",
+      "Descend by bending at your hips and knees until your thighs are parallel to the floor.",
+      "Drive back up to the starting position."
+    ],
+    "category": "strength"
+  },
+  {
+    "name": "Barbell Squats",
+    "force": "push",
+    "level": "intermediate",
+    "mechanic": "compound",
+    "equipment": "barbell",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["glutes", "hamstrings"],
+    "instructions": [
+      "Place barbell on back.",
+      "Squat down and push back up."
+    ],
+    "category": "strength"
+  },
+  {
+    "name": "Hex Bar Jump Squat",
+    "force": "push",
+    "level": "expert",
+    "mechanic": "compound",
+    "equipment": "other",
+    "primaryMuscles": ["quadriceps", "glutes"],
+    "secondaryMuscles": ["hamstrings", "calves"],
+    "instructions": [
+      "Step inside the hex bar and grasp the handles.",
+      "Perform a rapid countermovement, then jump explosively into the air.",
+      "Land softly absorbing the impact."
+    ],
+    "category": "plyometrics"
+  },
+  {
+    "name": "Dumbbell Single-Leg Bulgarian Split Squat",
+    "force": "push",
+    "level": "intermediate",
+    "mechanic": "compound",
+    "equipment": "dumbbell",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["glutes", "hamstrings"],
+    "instructions": [
+      "Stand with one foot resting behind you on a bench.",
+      "Hold dumbbells in your hands and bend the front knee to descend.",
+      "Drive back up using the front leg."
+    ],
+    "category": "strength"
+  },
+  {
+    "name": "Single-Leg Hamstring Bridge",
+    "force": "pull",
+    "level": "beginner",
+    "mechanic": "isolation",
+    "equipment": "bodyweight",
+    "primaryMuscles": ["hamstrings"],
+    "secondaryMuscles": ["glutes", "lower back"],
+    "instructions": [
+      "Lie on your back with one foot on the floor and the other leg extended.",
+      "Drive your hips up, squeezing the hamstrings.",
+      "Lower under control."
+    ],
+    "category": "stretching"
+  }
+]

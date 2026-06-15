@@ -1,0 +1,174 @@
+{
+  "sport": "Cricket",
+  "roles": [
+    {
+      "name": "Fast Bowler",
+      "description": "High-intensity bowler requiring extreme lower body bracing forces, shoulder/rotational velocity, and repeat sprint ability.",
+      "performance_drivers": [
+        { "name": "Power", "priority": "Primary" },
+        { "name": "Speed", "priority": "Primary" },
+        { "name": "Shoulder Robustness", "priority": "Primary" },
+        { "name": "Strength", "priority": "Secondary" },
+        { "name": "Work Capacity", "priority": "Secondary" }
+      ]
+    },
+    {
+      "name": "Spinner",
+      "description": "Rotational specialist requiring extreme trunk/hip separation, finger-wrist snap capacity, and shoulder rotator cuff endurance.",
+      "performance_drivers": [
+        { "name": "Rotational Power", "priority": "Primary" },
+        { "name": "Shoulder Robustness", "priority": "Primary" },
+        { "name": "Strength", "priority": "Secondary" },
+        { "name": "Reactive Agility", "priority": "Secondary" }
+      ]
+    },
+    {
+      "name": "Batter",
+      "description": "Requires high-velocity bat speed, quick reaction times, hand-eye coordination, and multi-directional acceleration/deceleration.",
+      "performance_drivers": [
+        { "name": "Acceleration", "priority": "Primary" },
+        { "name": "Speed", "priority": "Primary" },
+        { "name": "Reactive Agility", "priority": "Primary" },
+        { "name": "Strength", "priority": "Secondary" },
+        { "name": "Power", "priority": "Secondary" }
+      ]
+    },
+    {
+      "name": "Wicket Keeper",
+      "description": "Squat-dominant specialist requiring isometric lower body endurance, ultra-fast lateral reactive agility, and hand speed.",
+      "performance_drivers": [
+        { "name": "Reactive Agility", "priority": "Primary" },
+        { "name": "Strength", "priority": "Primary" },
+        { "name": "Power", "priority": "Secondary" },
+        { "name": "Acceleration", "priority": "Secondary" }
+      ]
+    },
+    {
+      "name": "All Rounder",
+      "description": "Generalist requiring balanced development of both high workload capacity (aerobic/anaerobic) and explosive power.",
+      "performance_drivers": [
+        { "name": "Work Capacity", "priority": "Primary" },
+        { "name": "Strength", "priority": "Primary" },
+        { "name": "Power", "priority": "Primary" },
+        { "name": "Acceleration", "priority": "Secondary" },
+        { "name": "Speed", "priority": "Secondary" }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "name": "CMJ",
+      "description": "Countermovement Jump test executed on a force plate or jump mat to evaluate vertical power.",
+      "metric_unit": "cm",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": 55.0, "max_value": null },
+        { "classification": "Optimal", "min_value": 45.0, "max_value": 54.99 },
+        { "classification": "Sub-optimal", "min_value": 35.0, "max_value": 44.99 },
+        { "classification": "Poor", "min_value": null, "max_value": 34.99 }
+      ]
+    },
+    {
+      "name": "Broad Jump",
+      "description": "Standing horizontal jump test measuring horizontal explosive power and force projection.",
+      "metric_unit": "m",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": 2.60, "max_value": null },
+        { "classification": "Optimal", "min_value": 2.20, "max_value": 2.59 },
+        { "classification": "Sub-optimal", "min_value": 1.80, "max_value": 2.19 },
+        { "classification": "Poor", "min_value": null, "max_value": 1.79 }
+      ]
+    },
+    {
+      "name": "10m Sprint",
+      "description": "Linear sprint test from stationary start to evaluate acceleration mechanics.",
+      "metric_unit": "s",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": null, "max_value": 1.60 },
+        { "classification": "Optimal", "min_value": 1.61, "max_value": 1.80 },
+        { "classification": "Sub-optimal", "min_value": 1.81, "max_value": 2.00 },
+        { "classification": "Poor", "min_value": 2.01, "max_value": null }
+      ]
+    },
+    {
+      "name": "20m Sprint",
+      "description": "Linear sprint test evaluating transitional speed and near-maximum velocity.",
+      "metric_unit": "s",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": null, "max_value": 2.80 },
+        { "classification": "Optimal", "min_value": 2.81, "max_value": 3.10 },
+        { "classification": "Sub-optimal", "min_value": 3.11, "max_value": 3.40 },
+        { "classification": "Poor", "min_value": 3.41, "max_value": null }
+      ]
+    },
+    {
+      "name": "Pull Up",
+      "description": "Bodyweight pull up test to assess upper body pulling relative strength and shoulder girdle robustness.",
+      "metric_unit": "reps",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": 18.0, "max_value": null },
+        { "classification": "Optimal", "min_value": 12.0, "max_value": 17.99 },
+        { "classification": "Sub-optimal", "min_value": 6.0, "max_value": 11.99 },
+        { "classification": "Poor", "min_value": null, "max_value": 5.99 }
+      ]
+    },
+    {
+      "name": "Trap Bar Deadlift",
+      "description": "Maximal load deadlift performed using a hex bar to evaluate absolute lower body strength.",
+      "metric_unit": "kg",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": 200.0, "max_value": null },
+        { "classification": "Optimal", "min_value": 160.0, "max_value": 199.99 },
+        { "classification": "Sub-optimal", "min_value": 120.0, "max_value": 159.99 },
+        { "classification": "Poor", "min_value": null, "max_value": 119.99 }
+      ]
+    },
+    {
+      "name": "Rotational Med Ball Throw",
+      "description": "Transverse medicine ball throw against a wall to evaluate rotational power output.",
+      "metric_unit": "m/s",
+      "benchmarks": [
+        { "classification": "Elite", "min_value": 13.0, "max_value": null },
+        { "classification": "Optimal", "min_value": 11.0, "max_value": 12.99 },
+        { "classification": "Sub-optimal", "min_value": 9.0, "max_value": 10.99 },
+        { "classification": "Poor", "min_value": null, "max_value": 8.99 }
+      ]
+    }
+  ],
+  "deficits": [
+    {
+      "name": "Power Deficit",
+      "evaluated_by_assessment": "CMJ",
+      "description": "Athlete is lacking lower body elastic force development and vertical power output.",
+      "resolved_by_methods": ["Dynamic Effort", "Plyometrics", "Rotational Power"],
+      "prescribed_templates": ["Lower Body Power", "Rotational Power"]
+    },
+    {
+      "name": "Strength Deficit",
+      "evaluated_by_assessment": "Trap Bar Deadlift",
+      "description": "Athlete falls below absolute lower body force requirements.",
+      "resolved_by_methods": ["Max Strength"],
+      "prescribed_templates": ["Lower Body Power"]
+    },
+    {
+      "name": "Acceleration Deficit",
+      "evaluated_by_assessment": "10m Sprint",
+      "description": "Athlete displays sub-optimal initial drive phase speeds.",
+      "resolved_by_methods": ["Sprint Training", "COD Training"],
+      "prescribed_templates": ["Acceleration Development"]
+    },
+    {
+      "name": "Speed Deficit",
+      "evaluated_by_assessment": "20m Sprint",
+      "description": "Athlete exhibits sub-optimal maximum linear running speeds.",
+      "resolved_by_methods": ["Sprint Training"],
+      "prescribed_templates": ["Acceleration Development"]
+    },
+    {
+      "name": "Mobility Restriction",
+      "evaluated_by_assessment": "Broad Jump",
+      "description": "Athlete exhibits joint restriction limiting full triple extension dynamics.",
+      "resolved_by_methods": ["Mobility"],
+      "prescribed_templates": ["Shoulder Robustness"]
+    }
+  ]
+}

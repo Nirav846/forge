@@ -1,0 +1,21 @@
+2026-06-15 12:26:26,628 - INFO - ============================================================
+2026-06-15 12:26:26,629 - INFO - Auditing S&C Knowledge Graph Seed: d:/forge/examples/cricket_knowledge_graph_seed.json
+2026-06-15 12:26:26,630 - INFO - ============================================================
+2026-06-15 12:26:26,633 - INFO - Verified target Sport: 'Cricket'
+2026-06-15 12:26:26,634 - INFO - Auditing Role: 'Fast Bowler'
+2026-06-15 12:26:26,634 - INFO - Auditing Role: 'Spinner'
+2026-06-15 12:26:26,634 - INFO - Auditing Role: 'Batter'
+2026-06-15 12:26:26,634 - INFO - Auditing Role: 'Wicket Keeper'
+2026-06-15 12:26:26,635 - INFO - Auditing Role: 'All Rounder'
+2026-06-15 12:26:26,636 - INFO - Auditing Deficit: 'Power Deficit'
+2026-06-15 12:26:26,636 - INFO - Auditing Deficit: 'Strength Deficit'
+2026-06-15 12:26:26,636 - INFO - Auditing Deficit: 'Acceleration Deficit'
+2026-06-15 12:26:26,637 - INFO - Auditing Deficit: 'Speed Deficit'
+2026-06-15 12:26:26,637 - INFO - Auditing Deficit: 'Mobility Restriction'
+2026-06-15 12:26:26,637 - INFO - ============================================================
+2026-06-15 12:26:26,637 - INFO - Validation Audit Complete. Results:
+2026-06-15 12:26:26,638 - INFO -   - Total Roles Audited: 5
+2026-06-15 12:26:26,638 - INFO -   - Total Assessments Audited: 7
+2026-06-15 12:26:26,638 - INFO -   - Total Errors Encountered: 0
+2026-06-15 12:26:26,638 - INFO -   - Total Warnings Issued: 0
+2026-06-15 12:26:26,638 - INFO - ============================================================
