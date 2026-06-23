@@ -1,0 +1,543 @@
+"""FORGE program generator — single entry point."""
+from __future__ import annotations
+from typing import Optional
+from .models import (
+    AthleteProfile, AthleteLevel, EquipmentProfile,
+    SeasonPhase, Objective, GeneratedProgram, Session,
+    SessionBlock, FamilyCode, Exercise
+)
+from .data import (
+    BLUEPRINTS, get_max_difficulty, get_equipment_for_profile,
+    EXERCISE_BY_ID, EXERCISES_BY_FAMILY, SELECTION_PRIORITIES,
+)
+from .blueprint_engine import (
+    select_blueprint, determine_level, resolve_slots, get_equipment_profile,
+    apply_time_constraint,
+)
+from .exercise_selector import select_exercise
+from .conditioning_engine import generate_conditioning, _resolve_comp_window
+from .renderer import render_program, render_coach_program
+from .validator import verify_credibility, calculate_credibility_score
+from .warmup_engine import select_warmup
+from .recovery_engine import select_recovery
+from .data import BLUEPRINT_BY_ID
+from .models import WarmupProtocol, RecoveryProtocol, Session, OBJECTIVE_REST_MAP, OBJECTIVE_INTENSITY_MAP
+from .prescription_rules import get_prescription, resolve_comp_window
+from .progression_engine import (
+    select_or_continue, WEEK_INDEX_TO_TYPE, progress_conditioning,
+    verify_program_credibility, calculate_program_credibility_score,
+    program_exposure_summary, plan_weeks, plan_testing,
+    review_week, adjust_next_week,
+)
+from .athlete_profile_rules import (
+    get_weekly_emphasis_bias, describe_weekly_bias,
+    get_role_weekly_notes,
+)
+from .role_week_planning import (
+    get_role_week_profile, apply_role_slot_bias,
+    should_add_conditioning_for_role, get_role_week_notes,
+    render_role_week_summary, get_role_exposure_limits,
+)
+from .session_rules import (
+    check_session_identity_preserved,
+    check_session_flow_credible,
+    check_high_value_families_not_dropped_before_low_value,
+    check_role_bias_not_overriding_blueprint,
+    check_taper_drop_logic_credible,
+    check_post_filter_session_balance,
+    check_repeated_family_progression_credible,
+)
+from .session_assembly import (
+    apply_time_constraint_v2,
+    apply_competition_taper,
+    rebuild_session_flow,
+    rebalance_session_blocks,
+    get_within_week_variation_family,
+    get_within_week_variation_rationale,
+    session_composition_rationale,
+)
+
+
+def _sport_to_environment(sport: str) -> str:
+    """Map sport to training environment."""
+    sport_lower = sport.lower()
+    if any(keyword in sport_lower for keyword in ["tennis", "badminton", "basketball", "volleyball", "squash"]):
+        return "court"
+    elif any(keyword in sport_lower for keyword in ["soccer", "football", "rugby", "cricket", "hockey", "track", "field"]):
+        return "ground"
+    else:
+        return "gym"
+
+
+def _adjust_session_type_for_environment(session_type: str, environment: str, blueprint_id: int = 1) -> str:
+    """Adjust session type based on environment."""
+    if session_type == "speed" and environment == "court":
+        return "court_speed"
+    if session_type == "strength" and environment == "court":
+        return "court_strength"
+    return session_type
+
+
+def _rest_sec_to_str(secs: int) -> str:
+    if secs >= 180:
+        return f"{secs // 60}-{secs // 60 + 1}min"
+    return f"{secs}s"
+
+
+def _parse_weeks(duration_str: str) -> int:
+    return 8
+
+
+def _parse_freq(freq_str: str) -> int:
+    import re
+    m = re.search(r"\d+", freq_str)
+    return int(m.group()) if m else 3
+
+
+def _get_session_type(athlete: AthleteProfile, blueprint_id: int) -> str:
+    goal = athlete.goal
+    if goal in ("speed", "conditioning"):
+        return "conditioning"
+    if blueprint_id == 4 or goal == "power":
+        return "power"
+    if blueprint_id == 10 or goal == "speed":
+        return "speed"
+    if athlete.days_to_match == 0:
+        return "competition"
+    if blueprint_id == 13 or goal == "deload":
+        return "deload"
+    # Differentiate strength types
+    if blueprint_id == 5:  # Upper / Lower Split
+        # Default to full body strength — each day alternates, warmup covers both
+        return "strength"
+    if blueprint_id == 1:  # Full Body Strength
+        return "strength"
+    if blueprint_id in (2, 3):  # Strength + Power, Strength + Conditioning
+        return "strength"
+    return "strength"
+
+
+def _build_light_session(athlete: AthleteProfile, level: AthleteLevel,
+                          equipment: EquipmentProfile, slots: list[FamilyCode],
+                          running_recent: dict, days_to_match: Optional[int] = None,
+                          blueprint_id: int = 1) -> Session:
+    half_slots = slots[:max(3, len(slots) // 2)]
+    blocks = []
+    comp_window = resolve_comp_window(days_to_match)
+    for family in half_slots:
+        ex = select_exercise(
+            family, level, equipment, running_recent, athlete.injury_history,
+            days_to_match, technique_consistency=athlete.technique_consistency,
+            strength_base_met=athlete.strength_base_met,
+            athlete_profile=athlete,
+        )
+        if ex:
+            running_recent[ex.id] = {"last_used": "light_session", "technique_score": 1.0}
+        obj = ex.objective.value if ex else "STR"
+        block = SessionBlock(
+            family=family,
+            family_name=family.value,
+            exercises=[ex] if ex else [],
+            target_intensity=OBJECTIVE_INTENSITY_MAP.get(obj),
+            rest_period=OBJECTIVE_REST_MAP.get(obj),
+        )
+        if ex:
+            presc = get_prescription(ex, level, blueprint_id, comp_window, week=1, athlete_profile=athlete)
+            block.prescription = presc
+            block.rest_period = _rest_sec_to_str(presc.rest_seconds)
+        blocks.append(block)
+    total_duration = sum(len(b.exercises) * 5 for b in blocks)
+    return Session(blocks=blocks, total_duration_min=total_duration)
+
+
+def _build_recovery_session() -> Session:
+    return Session(blocks=[], total_duration_min=0)
+
+
+def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
+    days_to_match = athlete.days_to_match
+    if days_to_match == 0:
+        return _generate_recovery_program(athlete)
+    if days_to_match == 1:
+        return _generate_light_program(athlete)
+
+    blueprint = select_blueprint(athlete)
+    level = determine_level(athlete)
+    equipment = athlete.equipment_profile
+    slots = resolve_slots(blueprint, level)
+
+    preferred = getattr(athlete, 'preferred_families', 6)
+    avail_min = getattr(athlete, 'available_minutes', 60)
+    comp_window = _resolve_comp_window(days_to_match)
+
+    # Wave 8: role-aware week profile (needed before time constraint)
+    role_profile = get_role_week_profile(athlete.sport, athlete.position_role)
+
+    # Volume taper: reduce families near competition
+    if comp_window == 4:  # MODERATE (4-5 days)
+        preferred = min(preferred, 7)
+    elif comp_window == 2:  # LIGHT (2-3 days)
+        preferred = min(preferred, 5)
+    elif comp_window == 1:  # PRIMER (<=1 day)
+        preferred = min(preferred, 4)
+
+    # Wave 9: use tier-aware time constraint with blueprint awareness
+    slots, time_drop_notes = apply_time_constraint_v2(
+        slots, blueprint, avail_min, preferred, comp_window, role_profile
+    )
+    # Also apply competition taper if needed
+    if comp_window and comp_window <= 4:
+        slots, taper_notes = apply_competition_taper(slots, blueprint, comp_window, role_profile)
+        time_drop_notes.extend(taper_notes)
+
+    # Rebuild session flow after time/taper drops
+    slots = rebuild_session_flow(slots, blueprint)
+
+    # Wave 8: apply role slot bias to final slot ordering
+    slots = apply_role_slot_bias(slots, role_profile)
+
+    # Wave 5: athlete profile weekly bias
+    weekly_bias = get_weekly_emphasis_bias(athlete)
+    personalization_notes = describe_weekly_bias(weekly_bias)
+
+    # Wave 6: role-based weekly notes
+    role_notes = get_role_weekly_notes(athlete.sport, athlete.position_role)
+    personalization_notes.extend(role_notes)
+
+    sessions = []
+    running_recent: dict[str, dict] = {}
+    prev_slot_exercises: dict[str, str] = {}
+
+    weeks = _parse_weeks(blueprint.typical_duration)
+    freq = _parse_freq(blueprint.best_frequency)
+    conditioning_goal = _get_conditioning_goal(athlete.goal)
+    session_type = _get_session_type(athlete, blueprint.id)
+
+    # Wave 4: deterministic week structure
+    week_plan = plan_weeks(blueprint.id, level, athlete.goal, athlete.age, days_to_match)
+    test_plan = plan_testing(week_plan, blueprint.id, level, athlete.goal, athlete.age, days_to_match)
+
+    weekly_loads: list[int] = []
+    next_week_adjustments: dict[int, dict] = {}
+    program_adjustments: list[str] = time_drop_notes
+    testing_summary: list[tuple[int, list[str]]] = []
+
+    for week in range(1, weeks + 1):
+        week_type = week_plan[week - 1] if week <= len(week_plan) else "accumulation"
+
+        # Apply auto-adjustments for this week
+        adj = next_week_adjustments.get(week, {})
+        slot_reduction = adj.get("slot_reduction", 0)
+        cond_mod = adj.get("conditioning_mod")
+        intent_override = adj.get("intent_override")
+        adj_note = adj.get("note", "")
+
+        if intent_override:
+            week_type = intent_override
+        effective_slots = slots[:max(3, len(slots) - slot_reduction)] if slot_reduction else slots
+        effective_cond_goal = _get_conditioning_mod(conditioning_goal, cond_mod)
+
+        # Check if this session/day should have testing
+        week_tests = test_plan.get(week, [])
+
+        week_exercises = []
+        for day in range(1, freq + 1):
+            session = _build_session(
+                athlete=athlete,
+                level=level,
+                equipment=equipment,
+                slots=effective_slots,
+                week=week,
+                day=day,
+                freq=freq,
+                recent_exercises=running_recent,
+                prev_slot_exercises=prev_slot_exercises,
+                conditioning_goal=effective_cond_goal,
+                days_to_match=days_to_match,
+                blueprint_id=blueprint.id,
+                week_type=week_type,
+                testing_categories=week_tests,
+                adjustment_note=adj_note,
+                role_profile=role_profile,
+            )
+            sessions.append(session)
+            week_exercises.extend([ex for b in session.blocks for ex in b.exercises if ex])
+
+        if adj_note:
+            program_adjustments.append(f"Week {week}: {adj_note}")
+
+        # Track testing for summary
+        if week_tests:
+            testing_summary.append((week, week_tests))
+
+        # Compute weekly load proxy (sum of difficulty * 2)
+        week_load = sum(ex.difficulty * 2 for ex in week_exercises)
+        weekly_loads.append(week_load)
+
+        # Wave 4: review week and plan adjustment for next week
+        if week < weeks:
+            week_sessions = sessions[-(freq if freq <= len(sessions) else len(sessions)):]
+            risk_flags = review_week(week_sessions, week_type, role_profile)
+            next_adj = adjust_next_week(risk_flags, week_plan[week] if week < len(week_plan) else "accumulation", blueprint.id, athlete.goal)
+            if next_adj.get("slot_reduction") or next_adj.get("conditioning_mod") or next_adj.get("intent_override"):
+                next_week_adjustments[week + 1] = next_adj
+
+    # Load spike prevention: cap week-over-week at 15%
+    for i in range(1, len(weekly_loads)):
+        prev = weekly_loads[i - 1] or 1
+        curr = weekly_loads[i]
+        if curr > prev * 1.15:
+            scale = (prev * 1.15) / curr
+            weekly_loads[i] = int(prev * 1.15)
+            for j in range(min(freq, len(sessions))):
+                sess_idx = (i - 1) * freq + j
+                if sess_idx < len(sessions):
+                    sessions[sess_idx].load_capped = True
+
+    check = verify_credibility(sessions[0], athlete)
+    credibility = calculate_credibility_score(check)
+
+    environment = _sport_to_environment(athlete.sport)
+    adjusted_session_type = _adjust_session_type_for_environment(session_type, environment, blueprint.id)
+    warmup = select_warmup(athlete, adjusted_session_type, environment)
+    recovery = select_recovery(athlete, session_type)
+
+    # Wave 8: role week bias notes
+    role_week_notes = get_role_week_notes(athlete.sport, athlete.position_role)
+    personalization_notes.extend(role_week_notes)
+
+    program = GeneratedProgram(
+        athlete=f"{athlete.sport} Athlete ({athlete.goal})",
+        blueprint_id=blueprint.id,
+        blueprint_name=blueprint.name.value,
+        level=level.value,
+        duration=weeks,
+        frequency=freq,
+        goal=athlete.goal,
+        equipment_profile=equipment.value,
+        sessions=sessions,
+        athlete_profile=athlete,
+        credibility_score=credibility,
+        warmup=warmup,
+        recovery=recovery,
+    )
+
+    program_checks = verify_program_credibility(program)
+    program_score = calculate_program_credibility_score(program_checks)
+    program.credibility_score = program_score
+
+    # Wave 6: prescription personalization notes
+    from .prescription_rules import describe_prescription_modifiers
+    fp = athlete.force_profile
+    if fp == "force_deficient":
+        personalization_notes.append("Force-deficient profile -> lower-rep strength prescriptions; heavier loading bias")
+    elif fp == "velocity_deficient":
+        personalization_notes.append("Velocity-deficient profile -> velocity-friendly loading; explosive emphasis")
+    if athlete.landing_competency == "poor":
+        personalization_notes.append("Landing competency poor -> plyo sets capped; controlled landing prescription")
+    if athlete.patellar_tendon_risk:
+        personalization_notes.append("Patellar tendon risk -> reactive jump density reduced")
+    if athlete.hamstring_risk:
+        personalization_notes.append("Hamstring risk -> sprint density capped; controlled exposure")
+    if athlete.lumbar_risk:
+        personalization_notes.append("Lumbar risk -> hinge dosing lumbar-aware; spinal loading moderated")
+
+    # Wave 7: block review notes
+    if hasattr(athlete, 'block_response') and athlete.block_response is not None:
+        br = athlete.block_response
+        # Build a concise block review string
+        notes_part = "; ".join(br.notes) if br.notes else ""
+        shift_part = br.recommended_shift.strip()
+        if notes_part and shift_part:
+            block_review_note = f"Block Review: {notes_part}; {shift_part}"
+        elif notes_part:
+            block_review_note = f"Block Review: {notes_part}"
+        elif shift_part:
+            block_review_note = f"Block Review: {shift_part}"
+        else:
+            block_review_note = None
+        if block_review_note:
+            personalization_notes.append(block_review_note)
+
+    program.personalization_notes = personalization_notes
+
+    return program
+
+
+def _generate_recovery_program(athlete: AthleteProfile) -> GeneratedProgram:
+    recovery = select_recovery(athlete, "strength")
+    return GeneratedProgram(
+        athlete=f"{athlete.sport} Athlete (Recovery — Match Day)",
+        blueprint_id=13,
+        blueprint_name="Deload / Active Recovery",
+        level="N/A",
+        duration=0,
+        frequency=0,
+        goal="recovery",
+        equipment_profile=athlete.equipment_profile.value,
+        sessions=[_build_recovery_session()],
+        athlete_profile=athlete,
+        credibility_score=1.0,
+        warmup=None,
+        recovery=recovery,
+    )
+
+
+def _generate_light_program(athlete: AthleteProfile) -> GeneratedProgram:
+    days_to_match = athlete.days_to_match
+    blueprint = select_blueprint(athlete)
+    level = determine_level(athlete)
+    equipment = athlete.equipment_profile
+    slots = resolve_slots(blueprint, level)
+
+    preferred = getattr(athlete, 'preferred_families', 6)
+    avail_min = getattr(athlete, 'available_minutes', 30)
+    slots = apply_time_constraint(slots, avail_min, preferred)
+
+    running_recent: dict[str, dict] = {}
+    session = _build_light_session(athlete, level, equipment, slots, running_recent, days_to_match, blueprint.id)
+    session_type = _get_session_type(athlete, blueprint.id)
+
+    check = verify_credibility(session, athlete)
+    credibility = calculate_credibility_score(check)
+    environment = _sport_to_environment(athlete.sport)
+    adjusted_session_type = _adjust_session_type_for_environment(session_type, environment, blueprint.id)
+    warmup = select_warmup(athlete, adjusted_session_type, environment)
+    recovery = select_recovery(athlete, session_type)
+
+    return GeneratedProgram(
+        athlete=f"{athlete.sport} Athlete (Pre-Match — Light)",
+        blueprint_id=blueprint.id,
+        blueprint_name=blueprint.name.value,
+        level=level.value,
+        duration=1,
+        frequency=1,
+        goal="light_session",
+        equipment_profile=equipment.value,
+        sessions=[session],
+        athlete_profile=athlete,
+        credibility_score=credibility,
+        warmup=warmup,
+        recovery=recovery,
+    )
+
+
+def _build_session(
+    athlete: AthleteProfile,
+    level: AthleteLevel,
+    equipment: EquipmentProfile,
+    slots: list[FamilyCode],
+    week: int,
+    day: int,
+    freq: int,
+    recent_exercises: dict[str, dict],
+    prev_slot_exercises: dict[str, str],
+    conditioning_goal: str = "aerobic_capacity",
+    days_to_match: Optional[int] = None,
+    blueprint_id: int = 1,
+    week_type: str = "accumulation",
+    testing_categories: Optional[list[str]] = None,
+    adjustment_note: str = "",
+    role_profile: Optional[object] = None,
+) -> Session:
+    blocks: list[SessionBlock] = []
+    comp_window = resolve_comp_window(days_to_match)
+
+    for family in slots:
+        ex = select_or_continue(
+            family=family,
+            week=week,
+            prev_slot_exercises=prev_slot_exercises,
+            athlete_level=level,
+            equipment_profile=equipment,
+            recent_exercises=recent_exercises,
+            injury_history=athlete.injury_history,
+            technique_consistency=athlete.technique_consistency,
+            days_to_match=days_to_match,
+            athlete_profile=athlete,
+        )
+        if ex:
+            prev_slot_exercises[family.value] = ex.id
+        obj = ex.objective.value if ex else "STR"
+        rest = OBJECTIVE_REST_MAP.get(obj)
+        intensity = OBJECTIVE_INTENSITY_MAP.get(obj)
+        block = SessionBlock(
+            family=family,
+            family_name=family.value,
+            exercises=[ex] if ex else [],
+            target_intensity=intensity,
+            rest_period=rest,
+        )
+        if ex:
+            presc = get_prescription(ex, level, blueprint_id, comp_window, week, athlete_profile=athlete)
+            block.prescription = presc
+            block.rest_period = _rest_sec_to_str(presc.rest_seconds)
+            technique = min(athlete.technique_consistency + 0.05 * week, 1.0)
+            recent_exercises[ex.id] = {
+                "last_used": f"week_{week}",
+                "technique_score": technique,
+            }
+        blocks.append(block)
+
+    # Wave 9: rebalance session — remove empty blocks and reorder
+    blocks, rebalance_notes = rebalance_session_blocks(blocks, None)
+
+    if should_add_conditioning_for_role(week, day, freq, conditioning_goal, role_profile):
+        conditioning = progress_conditioning(
+            week_type=week_type,
+            prev_conditioning_id=prev_slot_exercises.get("_conditioning"),
+            week=week,
+            goal=conditioning_goal,
+            athlete_level=level,
+            environment=_sport_to_environment(athlete.sport),
+            sport=athlete.sport,
+            days_to_match=athlete.days_to_match,
+            athlete_profile=athlete,
+        )
+        if conditioning:
+            prev_slot_exercises["_conditioning"] = conditioning.id
+    else:
+        conditioning = None
+
+    total_duration = sum(
+        len(b.exercises) * 5 for b in blocks
+    ) + (10 if conditioning else 0)
+
+    cats = testing_categories if testing_categories else []
+    return Session(
+        blocks=blocks,
+        conditioning=conditioning,
+        total_duration_min=total_duration,
+        week_type=week_type,
+        testing_categories=cats,
+        adjustment_note=adjustment_note,
+    )
+
+
+def _get_conditioning_mod(base_goal: str, modifier: Optional[str]) -> str:
+    if modifier == "light":
+        return "recovery"
+    return base_goal
+
+
+def _get_conditioning_goal(strength_goal: str) -> str:
+    goal_map = {
+        "general": "extensive_tempo",
+        "strength": "aerobic_capacity",
+        "hypertrophy": "aerobic_capacity",
+        "power": "alactic_speed",
+        "speed": "alactic_speed",
+        "conditioning": "aerobic_power",
+        "mass": "extensive_tempo",
+        "fat_loss": "extensive_tempo",
+        "return_to_sport": "recovery",
+        "power_maintenance": "power_maintenance",
+        "power_peak": "alactic_speed",
+    }
+    return goal_map.get(strength_goal, "aerobic_capacity")
+
+
+def _should_add_conditioning(week: int, day: int, freq: int, goal: str) -> bool:
+    if goal in ("conditioning", "return_to_sport"):
+        return True
+    return (week + day) % 2 == 0

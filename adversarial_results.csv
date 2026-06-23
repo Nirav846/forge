@@ -1,0 +1,101 @@
+name,category,blueprint,blueprint_id,level,expected_level,sessions,cred_score,cred_failures,empty_slots,dup_sessions,cond_ratio,sport,equipment,training_age,fatigue,injury_status,injury_history,goal,season
+youth_00,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,cricket,Basic Gym,0.1,normal,none,none,power,in_season
+youth_01,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,badminton,Basic Gym,0.1,normal,none,none,power,off_season
+youth_02,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,badminton,Basic Gym,0.4,high,none,none,strength,in_season
+youth_03,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,soccer,Field Only,1.4,high,none,none,strength,in_season
+youth_04,youth,Deload / Active Recovery,13,Beginner,Beginner,16,0.9,volume_load_match,0,0,0.5,tennis,Field Only,1.2,high,none,none,mass,transition
+youth_05,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,tennis,Basic Gym,0.9,normal,none,none,strength,off_season
+youth_06,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,badminton,Commercial Gym,0.5,high,none,none,power,in_season
+youth_07,youth,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Elite Facility,1.0,normal,none,none,power,pre_season
+youth_08,youth,Youth Foundation (U14-U20),7,Beginner,Beginner,16,1.0,,0,0,0.5,cricket,Elite Facility,0.4,high,none,none,speed,off_season
+youth_09,youth,Deload / Active Recovery,13,Beginner,Beginner,16,0.9,volume_load_match,0,0,0.5,badminton,Commercial Gym,0.7,high,none,none,power,transition
+masters_00,masters,Deload / Active Recovery,13,Advanced,Advanced,16,0.9,volume_load_match,0,0,0.5,badminton,Basic Gym,23.3,high,none,low_back,speed,transition
+masters_01,masters,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Elite Facility,22.6,high,none,knee,power,pre_season
+masters_02,masters,Court Sport Athletic Development,8,Advanced,Advanced,24,0.9,session_flow,0,0,0.5,badminton,Commercial Gym,17.0,normal,none,"shoulder,hamstring",strength,off_season
+masters_03,masters,Court Sport Athletic Development,8,Beginner,Beginner,24,0.9,session_flow,0,0,0.5,badminton,Basic Gym,10.7,high,none,none,speed,off_season
+masters_04,masters,Sprint Development,10,Beginner,Beginner,24,0.9,volume_load_match,0,0,0.5,rugby,Basic Gym,18.4,high,none,none,speed,pre_season
+masters_05,masters,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Basic Gym,9.9,normal,none,none,speed,in_season
+masters_06,masters,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,badminton,Elite Facility,21.9,high,none,low_back,power,pre_season
+masters_07,masters,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,rugby,Basic Gym,15.2,high,none,knee,general,pre_season
+masters_08,masters,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Field Only,15.7,normal,none,low_back,power,pre_season
+masters_09,masters,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,cricket,Field Only,20.0,normal,none,"shoulder,hamstring",power,off_season
+return_to_play_00,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Basic Gym,4.1,high,active,"acl_left,shoulder",return_to_sport,transition
+return_to_play_01,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,badminton,Field Only,9.9,high,active,shoulder,return_to_sport,pre_season
+return_to_play_02,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,badminton,Field Only,10.5,normal,active,shoulder,return_to_sport,off_season
+return_to_play_03,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Basic Gym,3.1,normal,active,hamstring,return_to_sport,transition
+return_to_play_04,return_to_play,Return to Sport (Foundation),12,Advanced,Advanced,24,1.0,,0,0,0.5,badminton,Field Only,9.9,normal,active,acl_left,return_to_sport,off_season
+return_to_play_05,return_to_play,Return to Sport (Foundation),12,Advanced,Advanced,24,1.0,,0,0,0.5,soccer,Basic Gym,5.5,high,active,low_back,return_to_sport,transition
+return_to_play_06,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,badminton,Commercial Gym,3.9,high,active,"acl_left,shoulder",return_to_sport,transition
+return_to_play_07,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,soccer,Field Only,4.3,high,active,acl_left,return_to_sport,off_season
+return_to_play_08,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Basic Gym,2.7,high,active,low_back,return_to_sport,off_season
+return_to_play_09,return_to_play,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,rugby,Field Only,3.7,high,active,"acl_left,shoulder",return_to_sport,off_season
+equipment_poor_00,equipment_poor,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Field Only,6.9,normal,none,none,power,in_season
+equipment_poor_01,equipment_poor,Court Sport Athletic Development,8,Advanced,Advanced,24,0.8,"appropriate_difficulty,session_flow",0,0,0.5,badminton,Field Only,3.5,normal,none,none,strength,off_season
+equipment_poor_02,equipment_poor,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,cricket,Field Only,5.6,normal,none,none,power,in_season
+equipment_poor_03,equipment_poor,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,tennis,Field Only,3.2,normal,none,none,general,transition
+equipment_poor_04,equipment_poor,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,6.8,normal,none,none,strength,in_season
+equipment_poor_05,equipment_poor,Youth Foundation (U14-U20),7,Intermediate,Intermediate,16,1.0,,0,0,0.5,rugby,Field Only,2.0,normal,none,none,general,in_season
+equipment_poor_06,equipment_poor,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,tennis,Field Only,5.3,normal,none,none,strength,in_season
+equipment_poor_07,equipment_poor,Sprint Development,10,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,0.5,normal,none,none,speed,pre_season
+equipment_poor_08,equipment_poor,Court Sport Athletic Development,8,Advanced,Advanced,24,0.9,session_flow,0,0,0.5,badminton,Field Only,5.8,normal,none,none,strength,off_season
+equipment_poor_09,equipment_poor,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,8.4,normal,none,none,mass,pre_season
+travel_00,travel,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,11.0,normal,none,none,conditioning,in_season
+travel_01,travel,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,rugby,Field Only,10.8,normal,none,none,speed,in_season
+travel_02,travel,Power Maintenance,6,Advanced,Advanced,8,1.0,,0,0,0.5,soccer,Field Only,10.8,high,none,none,power_maintenance,in_season
+travel_03,travel,Power Maintenance,6,Advanced,Advanced,8,1.0,,0,0,0.5,soccer,Field Only,4.7,high,none,none,power_maintenance,in_season
+travel_04,travel,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Field Only,10.2,normal,none,none,speed,in_season
+travel_05,travel,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,8.6,normal,none,none,speed,in_season
+travel_06,travel,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,tennis,Field Only,8.4,high,none,none,speed,in_season
+travel_07,travel,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,cricket,Field Only,10.8,high,none,none,general,in_season
+travel_08,travel,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,cricket,Field Only,8.0,high,none,none,general,in_season
+travel_09,travel,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Field Only,3.2,high,none,none,conditioning,in_season
+tournament_week_00,tournament_week,Power Maintenance,6,Advanced,Advanced,8,0.9,volume_load_match,0,0,0.5,tennis,Commercial Gym,7.4,high,none,hamstring,power_maintenance,in_season
+tournament_week_01,tournament_week,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,cricket,Commercial Gym,11.6,high,none,low_back,speed,in_season
+tournament_week_02,tournament_week,Full Body Strength,1,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,soccer,Commercial Gym,11.4,high,none,hamstring,conditioning,in_season
+tournament_week_03,tournament_week,Power Maintenance,6,Advanced,Advanced,8,0.9,volume_load_match,0,0,0.5,soccer,Commercial Gym,11.1,high,none,none,power_maintenance,in_season
+tournament_week_04,tournament_week,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,badminton,Commercial Gym,6.4,high,none,low_back,speed,in_season
+tournament_week_05,tournament_week,Full Body Strength,1,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,tennis,Commercial Gym,9.1,high,none,low_back,conditioning,in_season
+tournament_week_06,tournament_week,Power Maintenance,6,Advanced,Advanced,8,0.9,volume_load_match,0,0,0.5,badminton,Commercial Gym,4.1,high,none,none,power_maintenance,in_season
+tournament_week_07,tournament_week,Power Maintenance,6,Advanced,Advanced,8,0.9,volume_load_match,0,0,0.5,tennis,Commercial Gym,3.3,high,none,none,power_maintenance,in_season
+tournament_week_08,tournament_week,Full Body Strength,1,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,soccer,Commercial Gym,8.0,high,none,low_back,conditioning,in_season
+tournament_week_09,tournament_week,Power Maintenance,6,Advanced,Advanced,8,1.0,,0,0,0.5,soccer,Commercial Gym,7.8,high,none,none,power_maintenance,in_season
+high_fatigue_00,high_fatigue,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,badminton,Field Only,2.1,high,none,none,general,in_season
+high_fatigue_01,high_fatigue,Full Body Strength,1,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,cricket,Commercial Gym,3.9,high,none,none,general,in_season
+high_fatigue_02,high_fatigue,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,rugby,Basic Gym,3.7,high,none,none,general,in_season
+high_fatigue_03,high_fatigue,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,badminton,Commercial Gym,2.4,high,none,none,speed,in_season
+high_fatigue_04,high_fatigue,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Commercial Gym,2.6,high,none,none,strength,in_season
+high_fatigue_05,high_fatigue,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,tennis,Basic Gym,7.2,high,none,none,strength,in_season
+high_fatigue_06,high_fatigue,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Elite Facility,5.8,high,none,none,strength,in_season
+high_fatigue_07,high_fatigue,Full Body Strength,1,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,badminton,Elite Facility,3.6,high,none,none,speed,in_season
+high_fatigue_08,high_fatigue,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Elite Facility,7.6,high,none,none,strength,in_season
+high_fatigue_09,high_fatigue,Full Body Strength,1,Intermediate,Intermediate,24,1.0,,0,0,0.5,tennis,Elite Facility,2.7,high,none,none,general,in_season
+low_training_age_00,low_training_age,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Elite Facility,0.3,high,none,none,power,pre_season
+low_training_age_01,low_training_age,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Elite Facility,0.2,high,none,none,general,pre_season
+low_training_age_02,low_training_age,Strength + Conditioning,3,Beginner,Beginner,24,0.8,"session_flow,no_duplicate_exercises",0,23,0.5,rugby,Field Only,0.2,high,none,none,conditioning,pre_season
+low_training_age_03,low_training_age,Sprint Development,10,Beginner,Beginner,24,0.9,volume_load_match,0,0,0.5,badminton,Elite Facility,0.1,high,none,none,speed,pre_season
+low_training_age_04,low_training_age,Strength + Conditioning,3,Beginner,Beginner,24,0.9,session_flow,0,0,0.5,tennis,Commercial Gym,0.3,high,none,none,conditioning,pre_season
+low_training_age_05,low_training_age,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,0.2,high,none,none,general,pre_season
+low_training_age_06,low_training_age,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Field Only,0.3,normal,none,none,general,pre_season
+low_training_age_07,low_training_age,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Basic Gym,0.3,normal,none,none,power,pre_season
+low_training_age_08,low_training_age,Sprint Development,10,Beginner,Beginner,24,0.9,volume_load_match,0,0,0.5,soccer,Commercial Gym,0.2,normal,none,none,speed,pre_season
+low_training_age_09,low_training_age,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,tennis,Commercial Gym,0.1,high,none,none,strength,pre_season
+extreme_goals_00,extreme_goals,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Commercial Gym,0.8,high,active,none,power_peak,pre_season
+extreme_goals_01,extreme_goals,Court Sport Athletic Development,8,Advanced,Advanced,24,0.8,"appropriate_difficulty,session_flow",0,0,0.5,badminton,Commercial Gym,3.5,high,none,none,power_maintenance,off_season
+extreme_goals_02,extreme_goals,Deload / Active Recovery,13,Advanced,Advanced,16,0.9,volume_load_match,0,0,0.5,badminton,Commercial Gym,3.7,high,none,hamstring,mass,transition
+extreme_goals_03,extreme_goals,Power + Speed,4,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Commercial Gym,1.7,high,none,hamstring,power_peak,pre_season
+extreme_goals_04,extreme_goals,Strength + Conditioning,3,Advanced,Advanced,24,0.9,session_flow,0,0,0.5,badminton,Basic Gym,4.3,normal,none,shoulder,conditioning,pre_season
+extreme_goals_05,extreme_goals,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,soccer,Basic Gym,0.9,normal,none,hamstring,conditioning,transition
+extreme_goals_06,extreme_goals,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,tennis,Commercial Gym,1.5,high,none,shoulder,return_to_sport,pre_season
+extreme_goals_07,extreme_goals,Power + Speed,4,Beginner,Beginner,24,1.0,,0,0,0.5,tennis,Basic Gym,1.9,normal,none,low_back,power_peak,pre_season
+extreme_goals_08,extreme_goals,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,badminton,Basic Gym,1.7,normal,active,none,power_peak,in_season
+extreme_goals_09,extreme_goals,Full Body Strength,1,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,cricket,Elite Facility,4.9,high,none,hamstring,mass,in_season
+mixed_constraints_00,mixed_constraints,Return to Sport (Foundation),12,Advanced,Advanced,24,0.9,appropriate_difficulty,0,0,0.5,tennis,Elite Facility,3.8,normal,active,"hamstring,patellar",mass,off_season
+mixed_constraints_01,mixed_constraints,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,cricket,Basic Gym,3.1,high,active,acl_left,power,in_season
+mixed_constraints_02,mixed_constraints,Full Body Strength,1,Advanced,Advanced,24,1.0,,0,0,0.5,badminton,Field Only,6.0,normal,none,acl_left,mass,transition
+mixed_constraints_03,mixed_constraints,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,cricket,Field Only,3.2,high,active,"hamstring,patellar",return_to_sport,pre_season
+mixed_constraints_04,mixed_constraints,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,soccer,Field Only,5.8,high,active,acl_left,power_maintenance,in_season
+mixed_constraints_05,mixed_constraints,Return to Sport (Foundation),12,Beginner,Beginner,24,1.0,,0,0,0.5,rugby,Basic Gym,4.6,high,active,"low_back,shoulder",mass,pre_season
+mixed_constraints_06,mixed_constraints,Deload / Active Recovery,13,Beginner,Beginner,16,0.9,volume_load_match,0,0,0.5,badminton,Elite Facility,13.8,high,none,"hamstring,patellar",mass,transition
+mixed_constraints_07,mixed_constraints,Full Body Strength,1,Beginner,Beginner,24,1.0,,0,0,0.5,tennis,Commercial Gym,0.6,high,none,"hamstring,patellar",strength,pre_season
+mixed_constraints_08,mixed_constraints,Return to Sport (Foundation),12,Beginner,Beginner,24,0.9,no_duplicate_exercises,0,23,0.5,soccer,Field Only,19.9,normal,active,"low_back,shoulder",power_maintenance,transition
+mixed_constraints_09,mixed_constraints,Deload / Active Recovery,13,Beginner,Beginner,16,0.9,volume_load_match,0,0,0.5,tennis,Elite Facility,8.3,high,none,"low_back,shoulder",mass,transition

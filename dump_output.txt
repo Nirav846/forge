@@ -1,0 +1,5244 @@
+==============================================================================
+ALL EXERCISES ΓÇö FULL DATA
+==============================================================================
+
+ID:          DLKD-001
+Name:        Air Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Goblet Squat
+Regression:  Wall Sit
+
+ID:          DLKD-002
+Name:        Wall Sit
+Family:      DLKD
+Secondary:   Acc
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Air Squat
+Regression:  None
+
+ID:          DLKD-003
+Name:        Box Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Barbell', 'Box']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Goblet Squat
+Regression:  Air Squat
+
+ID:          DLKD-004
+Name:        Goblet Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['DB/KB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Back Squat
+Regression:  Box Squat
+
+ID:          DLKD-005
+Name:        Leg Press
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Hack Squat
+Regression:  Air Squat
+
+ID:          DLKD-006
+Name:        Tempo Back Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Paused Back Squat
+Regression:  Goblet Squat
+
+ID:          DLKD-007
+Name:        Barbell Back Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Front Squat
+Regression:  Goblet Squat
+
+ID:          DLKD-008
+Name:        Hack Squat
+Family:      DLKD
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Back Squat
+Regression:  Leg Press
+
+ID:          DLKD-009
+Name:        Paused Back Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Front Squat
+Regression:  Tempo Back Squat
+
+ID:          DLKD-010
+Name:        Barbell Front Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Paused Front Squat
+Regression:  Barbell Back Squat
+
+ID:          DLKD-011
+Name:        Landmine Squat
+Family:      DLKD
+Secondary:   VPush
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell', 'Landmine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Back Squat
+Regression:  Goblet Squat
+
+ID:          DLKD-012
+Name:        Paused Front Squat
+Family:      DLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: None
+Regression:  Front Squat
+
+ID:          DLHD-001
+Name:        Glute Bridge
+Family:      DLHD
+Secondary:   Core
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Kettlebell Deadlift
+Regression:  None
+
+ID:          DLHD-002
+Name:        Kettlebell Deadlift
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Kettlebell']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: RDL
+Regression:  Glute Bridge
+
+ID:          DLHD-003
+Name:        Trap Bar Deadlift
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Trap Bar']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: RDL
+Regression:  Kettlebell Deadlift
+
+ID:          DLHD-004
+Name:        45┬░ Back Extension
+Family:      DLHD
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Hyperextension Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Back Extension
+Regression:  Glute Bridge
+
+ID:          DLHD-005
+Name:        Barbell Hip Thrust
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell', 'Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Heavy Hip Thrust
+Regression:  Glute Bridge
+
+ID:          DLHD-006
+Name:        RDL
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Good Morning
+Regression:  Kettlebell Deadlift
+
+ID:          DLHD-007
+Name:        Barbell Rack Pull
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Block Pull
+Regression:  RDL
+
+ID:          DLHD-008
+Name:        Single-Leg RDL
+Family:      DLHD
+Secondary:   SLHD
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted SL RDL
+Regression:  Kettlebell Deadlift
+
+ID:          DLHD-009
+Name:        Block Pull
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Blocks/Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Conventional Deadlift
+Regression:  Rack Pull
+
+ID:          DLHD-010
+Name:        Weighted Back Extension
+Family:      DLHD
+Secondary:   Core
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Hyperextension Bench', 'Plate']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Good Morning
+Regression:  45┬░ Back Extension
+
+ID:          DLHD-011
+Name:        Barbell Good Morning
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Conventional Deadlift
+Regression:  RDL
+
+ID:          DLHD-012
+Name:        Conventional Deadlift
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Barbell', 'Platform']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Deficit Deadlift
+Regression:  Rack Pull
+
+ID:          DLHD-013
+Name:        Sumo Deadlift
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Barbell', 'Platform']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Rack Pull
+
+ID:          DLHD-014
+Name:        Deficit Deadlift
+Family:      DLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Barbell', 'Deficit Platform']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Conventional Deadlift
+
+ID:          SLKD-001
+Name:        Assisted Split Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight', 'Support']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Split Squat
+Regression:  None
+
+ID:          SLKD-002
+Name:        Split Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight/DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Bulgarian Split Squat
+Regression:  Assisted Split Squat
+
+ID:          SLKD-003
+Name:        Step-Up
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Box', 'DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Bulgarian Split Squat
+Regression:  Low Box Step-Up
+
+ID:          SLKD-004
+Name:        Low Box Step-Up
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Box (low)', 'Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Step-Up
+Regression:  None
+
+ID:          SLKD-005
+Name:        Bulgarian Split Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB', 'Bench']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Reverse Lunge
+Regression:  Split Squat
+
+ID:          SLKD-006
+Name:        Walking Lunge
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Reverse Lunge
+Regression:  Split Squat
+
+ID:          SLKD-007
+Name:        Lateral Lunge
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB/Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Cossack Squat
+Regression:  Split Squat
+
+ID:          SLKD-008
+Name:        Barbell Reverse Lunge
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Skater Squat
+Regression:  Bulgarian Split Squat
+
+ID:          SLKD-009
+Name:        Cossack Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Weighted Cossack Squat
+Regression:  Lateral Lunge
+
+ID:          SLKD-010
+Name:        Skater Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Bodyweight/DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Pistol Squat
+Regression:  Bulgarian Split Squat
+
+ID:          SLKD-011
+Name:        Single-Leg Box Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Box', 'Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Pistol Squat
+Regression:  Bulgarian Split Squat
+
+ID:          SLKD-012
+Name:        Pistol Squat
+Family:      SLKD
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Single-Leg Box Squat
+
+ID:          SLHD-001
+Name:        Single-Leg Glute Bridge
+Family:      SLHD
+Secondary:   Core
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg Bridge (elevated)
+Regression:  None
+
+ID:          SLHD-002
+Name:        Split Stance RDL
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['DB/Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: SL RDL (floor touch)
+Regression:  Single-Leg Glute Bridge
+
+ID:          SLHD-003
+Name:        SL RDL (floor touch)
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight/Light DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted SL RDL
+Regression:  Split Stance RDL
+
+ID:          SLHD-004
+Name:        Single-Leg Bridge (elevated)
+Family:      SLHD
+Secondary:   Core
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bench']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg Hip Thrust
+Regression:  Single-Leg Glute Bridge
+
+ID:          SLHD-005
+Name:        Weighted SL RDL
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg RDL (loaded)
+Regression:  SL RDL (floor touch)
+
+ID:          SLHD-006
+Name:        Single-Leg Hip Thrust
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell/Bench']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Hip Thrust (bilateral)
+Regression:  Single-Leg Bridge (elevated)
+
+ID:          SLHD-007
+Name:        Isometric Hamstring Hold
+Family:      SLHD
+Secondary:   Acc
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['Partner/Wall']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: SL RDL (weighted)
+Regression:  Single-Leg Glute Bridge
+
+ID:          SLHD-008
+Name:        Single-Leg RDL (loaded)
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['DB/KB (heavy)']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Weighted SL RDL
+
+ID:          SLHD-009
+Name:        Nordic Hamstring Curl
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Partner/Strap']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Nordic
+Regression:  Band-Resisted Nordic
+
+ID:          SLHD-010
+Name:        Band-Resisted Nordic
+Family:      SLHD
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Band', 'Strap']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Nordic Hamstring Curl
+Regression:  Isometric Hamstring Hold
+
+ID:          HPush-001
+Name:        Wall Push-Up
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Incline Push-Up
+Regression:  None
+
+ID:          HPush-002
+Name:        Incline Push-Up
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Push-Up
+Regression:  Wall Push-Up
+
+ID:          HPush-003
+Name:        Push-Up
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Dumbbell Floor Press
+Regression:  Incline Push-Up
+
+ID:          HPush-004
+Name:        Dumbbell Floor Press
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Dumbbell Bench Press
+Regression:  Push-Up
+
+ID:          HPush-005
+Name:        Dumbbell Bench Press
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB', 'Bench']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Bench Press
+Regression:  Dumbbell Floor Press
+
+ID:          HPush-006
+Name:        Barbell Bench Press
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Barbell', 'Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Incline Barbell Bench Press
+Regression:  Dumbbell Bench Press
+
+ID:          HPush-007
+Name:        Incline Dumbbell Press
+Family:      HPush
+Secondary:   VPush
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB', 'Incline Bench']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Incline Bench Press
+Regression:  Push-Up
+
+ID:          HPush-008
+Name:        Incline Barbell Bench Press
+Family:      HPush
+Secondary:   VPush
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Incline Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Flat Barbell Bench Press
+
+ID:          HPush-009
+Name:        Band-Resisted Push-Up
+Family:      HPush
+Secondary:   None
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Weighted Push-Up
+Regression:  Push-Up
+
+ID:          HPush-010
+Name:        Weighted Push-Up
+Family:      HPush
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Weight Vest/Belt']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Push-Up
+
+ID:          HPull-001
+Name:        Scapular Retraction
+Family:      HPull
+Secondary:   Acc
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Band Row
+Regression:  None
+
+ID:          HPull-002
+Name:        Band Row
+Family:      HPull
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Inverted Row
+Regression:  Scapular Retraction
+
+ID:          HPull-003
+Name:        Inverted Row
+Family:      HPull
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Barbell/Suspension Trainer']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Chest-Supported Row
+Regression:  Band Row
+
+ID:          HPull-004
+Name:        Chest-Supported Row
+Family:      HPull
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['DB', 'Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Dumbbell Row
+Regression:  Inverted Row
+
+ID:          HPull-005
+Name:        Dumbbell Row
+Family:      HPull
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB', 'Bench']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Row
+Regression:  Chest-Supported Row
+
+ID:          HPull-006
+Name:        Seal Row
+Family:      HPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Barbell', 'Elevated Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Row
+Regression:  Chest-Supported Row
+
+ID:          HPull-007
+Name:        Single-Arm Cable Row
+Family:      HPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Cable Machine']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Row
+Regression:  Band Row
+
+ID:          HPull-008
+Name:        T-Bar Row
+Family:      HPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['T-Bar Handle']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Row
+Regression:  Chest-Supported Row
+
+ID:          HPull-009
+Name:        Barbell Row
+Family:      HPull
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Pendlay Row
+Regression:  Dumbbell Row
+
+ID:          HPull-010
+Name:        Meadows Row
+Family:      HPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  4
+Equipment:   ['Barbell', 'Landmine']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Row
+Regression:  Dumbbell Row
+
+ID:          HPull-011
+Name:        Pendlay Row
+Family:      HPull
+Secondary:   None
+Objective:   POW
+Difficulty:  5
+Equipment:   ['Barbell', 'Platform']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Barbell Row
+
+ID:          VPush-001
+Name:        Band Overhead Press
+Family:      VPush
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Half-Kneeling Landmine Press
+Regression:  None
+
+ID:          VPush-002
+Name:        Half-Kneeling Landmine Press
+Family:      VPush
+Secondary:   Core
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Barbell', 'Landmine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Standing Landmine Press
+Regression:  Band Overhead Press
+
+ID:          VPush-003
+Name:        Standing Landmine Press
+Family:      VPush
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Barbell', 'Landmine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Single-Arm DB Press
+Regression:  Half-Kneeling Landmine Press
+
+ID:          VPush-004
+Name:        Single-Arm DB Press (standing)
+Family:      VPush
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Standing DB Press
+Regression:  Landmine Press
+
+ID:          VPush-005
+Name:        Seated DB Press
+Family:      VPush
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB', 'Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Standing DB Press
+Regression:  Single-Arm DB Press
+
+ID:          VPush-006
+Name:        Standing DB Press
+Family:      VPush
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Overhead Press
+Regression:  Seated DB Press
+
+ID:          VPush-007
+Name:        Arnold Press
+Family:      VPush
+Secondary:   None
+Objective:   HYP
+Difficulty:  4
+Equipment:   ['DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Standing DB Press
+Regression:  Seated DB Press
+
+ID:          VPush-008
+Name:        Barbell Overhead Press
+Family:      VPush
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Push Press
+Regression:  Standing DB Press
+
+ID:          VPush-009
+Name:        Push Press
+Family:      VPush
+Secondary:   Ball
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Power Jerk
+Regression:  Barbell Overhead Press
+
+ID:          VPush-010
+Name:        Power Jerk
+Family:      VPush
+Secondary:   Ball
+Objective:   POW
+Difficulty:  5
+Equipment:   ['Barbell', 'Rack']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Push Press
+
+ID:          VPull-001
+Name:        Lat Pulldown
+Family:      VPull
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Cable Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Pull-Up
+Regression:  Band-Assisted Pull-Up
+
+ID:          VPull-002
+Name:        Band-Assisted Pull-Up
+Family:      VPull
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Band', 'Pull-Up Bar']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Pull-Up
+Regression:  Lat Pulldown
+
+ID:          VPull-003
+Name:        Neutral-Grip Lat Pulldown
+Family:      VPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  2
+Equipment:   ['Cable Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Pull-Up
+Regression:  Lat Pulldown
+
+ID:          VPull-004
+Name:        Seated Cable Row
+Family:      VPull
+Secondary:   HPull
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Cable Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Row
+Regression:  Band Row
+
+ID:          VPull-005
+Name:        Pull-Up
+Family:      VPull
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Pull-Up Bar']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Pull-Up
+Regression:  Band-Assisted Pull-Up
+
+ID:          VPull-006
+Name:        Chin-Up
+Family:      VPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Pull-Up Bar']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Chin-Up
+Regression:  Band-Assisted Chin-Up
+
+ID:          VPull-007
+Name:        V-Grip Pulldown
+Family:      VPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Cable Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Pull-Up
+Regression:  Lat Pulldown
+
+ID:          VPull-008
+Name:        Single-Arm Lat Pulldown
+Family:      VPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Cable Machine']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Pull-Up
+Regression:  Lat Pulldown
+
+ID:          VPull-009
+Name:        Weighted Pull-Up
+Family:      VPull
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Pull-Up Bar', 'Weight Belt']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Muscle-Up
+Regression:  Pull-Up
+
+ID:          VPull-010
+Name:        Weighted Chin-Up
+Family:      VPull
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Pull-Up Bar', 'Weight Belt']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Muscle-Up
+Regression:  Chin-Up
+
+ID:          VPull-011
+Name:        Wide-Grip Pulldown
+Family:      VPull
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['Cable Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Pull-Up
+Regression:  Lat Pulldown
+
+ID:          VPull-012
+Name:        Muscle-Up
+Family:      VPull
+Secondary:   HPush
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Rings/Pull-Up Bar']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Weighted Pull-Up
+
+ID:          Plyo-001
+Name:        Pogo Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Box Jump
+Regression:  None
+
+ID:          Plyo-002
+Name:        Squat Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Box Jump
+Regression:  Pogo Jump
+
+ID:          Plyo-003
+Name:        Box Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Box']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Depth Jump
+Regression:  Squat Jump
+
+ID:          Plyo-004
+Name:        Broad Jump
+Family:      Plyo
+Secondary:   Sprint
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Bounding
+Regression:  Squat Jump
+
+ID:          Plyo-005
+Name:        Lateral Bound
+Family:      Plyo
+Secondary:   Sprint
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Skater Jump
+Regression:  Lateral Hop
+
+ID:          Plyo-006
+Name:        Lateral Hop
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Lateral Bound
+Regression:  None
+
+ID:          Plyo-007
+Name:        Split Squat Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg Box Jump
+Regression:  Squat Jump
+
+ID:          Plyo-008
+Name:        Bounding
+Family:      Plyo
+Secondary:   Sprint
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg Bound
+Regression:  Broad Jump
+
+ID:          Plyo-009
+Name:        Single-Leg Box Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Box']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Depth Jump
+Regression:  Box Jump
+
+ID:          Plyo-010
+Name:        Tuck Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Depth Jump
+Regression:  Squat Jump
+
+ID:          Plyo-011
+Name:        Skater Jump
+Family:      Plyo
+Secondary:   Sprint
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg Bound
+Regression:  Lateral Bound
+
+ID:          Plyo-012
+Name:        Single-Leg Bound
+Family:      Plyo
+Secondary:   Sprint
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Bounding
+
+ID:          Plyo-013
+Name:        Depth Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Box']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Weighted Depth Jump
+Regression:  Box Jump
+
+ID:          Plyo-014
+Name:        Weighted Depth Jump
+Family:      Plyo
+Secondary:   None
+Objective:   POW
+Difficulty:  5
+Equipment:   ['Weight Vest', 'Box']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Depth Jump
+
+ID:          Ball-001
+Name:        Med Ball Slam
+Family:      Ball
+Secondary:   None
+Objective:   POW
+Difficulty:  1
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Rotational Slam
+Regression:  None
+
+ID:          Ball-002
+Name:        Chest Pass (wall)
+Family:      Ball
+Secondary:   HPush
+Objective:   POW
+Difficulty:  1
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Overhead Throw
+Regression:  None
+
+ID:          Ball-003
+Name:        Overhead Throw
+Family:      Ball
+Secondary:   None
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Scoop Throw
+Regression:  Chest Pass
+
+ID:          Ball-004
+Name:        Rotational Slam
+Family:      Ball
+Secondary:   Rot
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Rotational Throw
+Regression:  Med Ball Slam
+
+ID:          Ball-005
+Name:        Scoop Throw
+Family:      Ball
+Secondary:   DLHD
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Wall Ball
+Regression:  Overhead Throw
+
+ID:          Ball-006
+Name:        Side Throw
+Family:      Ball
+Secondary:   Rot
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Rotational Throw
+Regression:  Rotational Slam
+
+ID:          Ball-007
+Name:        Wall Ball
+Family:      Ball
+Secondary:   DLKD
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Wall Ball (heavy)
+Regression:  Scoop Throw
+
+ID:          Ball-008
+Name:        Rotational Throw
+Family:      Ball
+Secondary:   Rot
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Rotational Throw (reactive)
+Regression:  Side Throw
+
+ID:          Ball-009
+Name:        Med Ball Push Press
+Family:      Ball
+Secondary:   VPush
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Overhead Throw
+
+ID:          Ball-010
+Name:        Med Ball Clean
+Family:      Ball
+Secondary:   DLHD
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Scoop Throw
+
+ID:          Ball-011
+Name:        Single-Arm Slam
+Family:      Ball
+Secondary:   None
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Med Ball']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Rotational Slam
+Regression:  Med Ball Slam
+
+ID:          Ball-012
+Name:        Single-Arm Throw
+Family:      Ball
+Secondary:   Rot
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Med Ball']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: None
+Regression:  Rotational Throw
+
+ID:          Ball-013
+Name:        Wall Ball (heavy)
+Family:      Ball
+Secondary:   DLKD
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Med Ball (heavy)']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Wall Ball
+
+ID:          Sprint-001
+Name:        Marching
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: A-Skip
+Regression:  None
+
+ID:          Sprint-002
+Name:        Wall Drill
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Wall']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Fall-In Sprint
+Regression:  None
+
+ID:          Sprint-003
+Name:        A-Skip
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: A-Run
+Regression:  Marching
+
+ID:          Sprint-004
+Name:        Fall-In Sprint
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Flying 10s
+Regression:  Wall Drill
+
+ID:          Sprint-005
+Name:        B-Skip
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: B-Run
+Regression:  Marching
+
+ID:          Sprint-006
+Name:        Pogo Sprint
+Family:      Sprint
+Secondary:   Plyo
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Stride Freq Sprint
+Regression:  A-Skip
+
+ID:          Sprint-007
+Name:        A-Run
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Accel Sprint
+Regression:  A-Skip
+
+ID:          Sprint-008
+Name:        B-Run
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Stride Freq Sprint
+Regression:  B-Skip
+
+ID:          Sprint-009
+Name:        Flying 10s
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Flying 20s
+Regression:  Fall-In Sprint
+
+ID:          Sprint-010
+Name:        Stride Frequency Sprint
+Family:      Sprint
+Secondary:   Plyo
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Max-V Sprint
+Regression:  Pogo Sprint
+
+ID:          Sprint-011
+Name:        Accel Sprint
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Sled Sprint
+Regression:  Flying 10s
+
+ID:          Sprint-012
+Name:        Max-V Sprint
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Sled Sprint (light)
+Regression:  Flying 10s
+
+ID:          Sprint-013
+Name:        Flying 20s
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Max-V Sprint
+Regression:  Flying 10s
+
+ID:          Sprint-014
+Name:        Stride Length Sprint
+Family:      Sprint
+Secondary:   Plyo
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Max-V Sprint
+Regression:  Bounding
+
+ID:          Sprint-015
+Name:        Sled Sprint (heavy)
+Family:      Sprint
+Secondary:   None
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Sled']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Sled Sprint (light)
+Regression:  Accel Sprint
+
+ID:          Sprint-016
+Name:        Sled Sprint (light)
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Sled']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Sled Sprint (heavy)
+
+ID:          Sprint-017
+Name:        Resisted Sprint (band)
+Family:      Sprint
+Secondary:   None
+Objective:   POW
+Difficulty:  4
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Sled Sprint (light)
+Regression:  Accel Sprint
+
+ID:          Sprint-018
+Name:        Flying 30s
+Family:      Sprint
+Secondary:   None
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Flying 20s
+
+ID:          Rot-001
+Name:        Pallof Press
+Family:      Rot
+Secondary:   Core
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Cable/Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Half-Kneeling Chop
+Regression:  None
+
+ID:          Rot-002
+Name:        Half-Kneeling Chop
+Family:      Rot
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Cable/Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Standing Chop
+Regression:  Pallof Press
+
+ID:          Rot-003
+Name:        Standing Chop
+Family:      Rot
+Secondary:   Core
+Objective:   POW
+Difficulty:  2
+Equipment:   ['Cable/Band']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Rotational Med Ball Slam
+Regression:  Half-Kneeling Chop
+
+ID:          Rot-004
+Name:        Half-Kneeling Lift
+Family:      Rot
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Cable/Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Standing Lift
+Regression:  Pallof Press
+
+ID:          Rot-005
+Name:        Standing Lift
+Family:      Rot
+Secondary:   Core
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Cable/Band']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Rotational Med Ball Slam
+Regression:  Half-Kneeling Lift
+
+ID:          Rot-006
+Name:        Rotational Med Ball Wall Slam
+Family:      Rot
+Secondary:   Ball
+Objective:   POW
+Difficulty:  3
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Rotational Throw (reactive)
+Regression:  Standing Chop
+
+ID:          Rot-007
+Name:        Cable Rotational Row
+Family:      Rot
+Secondary:   HPull
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Cable Machine']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Single-Arm Cable Row
+Regression:  Band Row
+
+ID:          Rot-008
+Name:        Single-Arm KB Swing
+Family:      Rot
+Secondary:   DLHD
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Kettlebell']
+Unilateral:  True
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: Double KB Swing
+Regression:  Two-Arm KB Swing
+
+ID:          Rot-009
+Name:        Windmill
+Family:      Rot
+Secondary:   Acc
+Objective:   STR
+Difficulty:  4
+Equipment:   ['KB/DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: None
+Regression:  Half-Kneeling Chop
+
+ID:          Rot-010
+Name:        Rotational Throw (reactive)
+Family:      Rot
+Secondary:   Ball
+Objective:   POW
+Difficulty:  5
+Equipment:   ['Med Ball']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  True
+Progression: None
+Regression:  Rotational Med Ball Wall Slam
+
+ID:          Carry-001
+Name:        Farmer Carry
+Family:      Carry
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['DB/KB']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Heavy Farmer Carry
+Regression:  None
+
+ID:          Carry-002
+Name:        Suitcase Carry
+Family:      Carry
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Heavy Suitcase Carry
+Regression:  Farmer Carry
+
+ID:          Carry-003
+Name:        Overhead Carry
+Family:      Carry
+Secondary:   VPush
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Heavy Overhead Carry
+Regression:  Farmer Carry
+
+ID:          Carry-004
+Name:        Front Rack Carry
+Family:      Carry
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['KB/DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Goblet Carry
+Regression:  Farmer Carry
+
+ID:          Carry-005
+Name:        Goblet Carry
+Family:      Carry
+Secondary:   Core
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['KB/DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Waiter Carry
+Regression:  Front Rack Carry
+
+ID:          Carry-006
+Name:        Waiter Carry
+Family:      Carry
+Secondary:   VPush
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Heavy Overhead Carry
+Regression:  Overhead Carry
+
+ID:          Carry-007
+Name:        Racked Carry
+Family:      Carry
+Secondary:   None
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['KB/DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Suitcase Carry
+Regression:  Farmer Carry
+
+ID:          Carry-008
+Name:        Cross-Body Carry
+Family:      Carry
+Secondary:   Core
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  True
+Progression: Suitcase Carry (offset)
+Regression:  Suitcase Carry
+
+ID:          Carry-009
+Name:        Zercher Carry
+Family:      Carry
+Secondary:   Core
+Objective:   STAB
+Difficulty:  4
+Equipment:   ['Barbell']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Bear Hug Carry
+Regression:  Front Rack Carry
+
+ID:          Carry-010
+Name:        Bear Hug Carry
+Family:      Carry
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Med Ball/Sandbag']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Heavy Bear Hug Carry
+Regression:  Zercher Carry
+
+ID:          Carry-011
+Name:        Suitcase Carry (offset)
+Family:      Carry
+Secondary:   Core
+Objective:   STAB
+Difficulty:  4
+Equipment:   ['DB/KB (heavy)']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  True
+Progression: None
+Regression:  Cross-Body Carry
+
+ID:          Carry-012
+Name:        Heavy Farmer Carry
+Family:      Carry
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Heavy DB/KB']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: None
+Regression:  Farmer Carry
+
+ID:          Carry-013
+Name:        Heavy Suitcase Carry
+Family:      Carry
+Secondary:   Core
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Heavy DB/KB']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: None
+Regression:  Suitcase Carry
+
+ID:          Core-001
+Name:        Dead Bug
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Band Dead Bug
+Regression:  None
+
+ID:          Core-002
+Name:        Plank
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Side Plank
+Regression:  None
+
+ID:          Core-003
+Name:        Side Plank
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Side Plank (reach through)
+Regression:  Plank
+
+ID:          Core-004
+Name:        Bird Dog
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Bird Dog
+Regression:  None
+
+ID:          Core-005
+Name:        Crunches
+Family:      Core
+Secondary:   None
+Objective:   HYP
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Sit-Up
+Regression:  None
+
+ID:          Core-006
+Name:        Reverse Crunch
+Family:      Core
+Secondary:   None
+Objective:   HYP
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Hanging Knee Raise
+Regression:  Crunches
+
+ID:          Core-007
+Name:        Dead Bug (band)
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Dead Bug
+Regression:  Dead Bug
+
+ID:          Core-008
+Name:        Side Plank (reach through)
+Family:      Core
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  True
+Progression: Side Plank (rotation)
+Regression:  Side Plank
+
+ID:          Core-009
+Name:        Weighted Bird Dog
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Bird Dog
+Regression:  Bird Dog
+
+ID:          Core-010
+Name:        Weighted Sit-Up
+Family:      Core
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['DB', 'Plate']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: GHD Sit-Up
+Regression:  Crunches
+
+ID:          Core-011
+Name:        Hanging Knee Raise
+Family:      Core
+Secondary:   VPull
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Pull-Up Bar']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Hanging Leg Raise
+Regression:  Reverse Crunch
+
+ID:          Core-012
+Name:        Barbell Bird Dog
+Family:      Core
+Secondary:   None
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['Barbell']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Landmine Anti-Rotation
+Regression:  Weighted Bird Dog
+
+ID:          Core-013
+Name:        Ab-Wheel Rollout
+Family:      Core
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Ab-Wheel']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Barbell Rollout
+Regression:  Plank
+
+ID:          Core-014
+Name:        Side Plank (rotation)
+Family:      Core
+Secondary:   Rot
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  True
+Progression: Weighted Side Plank
+Regression:  Side Plank (reach through)
+
+ID:          Core-015
+Name:        Landmine Anti-Rotation
+Family:      Core
+Secondary:   Rot
+Objective:   STAB
+Difficulty:  4
+Equipment:   ['Barbell', 'Landmine']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  True
+Progression: Pallof Press (standing)
+Regression:  Barbell Bird Dog
+
+ID:          Core-016
+Name:        Hanging Leg Raise
+Family:      Core
+Secondary:   VPull
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Pull-Up Bar']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Hanging Leg Raise
+Regression:  Hanging Knee Raise
+
+ID:          Core-017
+Name:        GHD Sit-Up
+Family:      Core
+Secondary:   DLHD
+Objective:   STR
+Difficulty:  4
+Equipment:   ['GHD Bench']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted GHD Sit-Up
+Regression:  Weighted Sit-Up
+
+ID:          Core-018
+Name:        Barbell Rollout
+Family:      Core
+Secondary:   None
+Objective:   STR
+Difficulty:  4
+Equipment:   ['Barbell']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Barbell Rollout
+Regression:  Ab-Wheel Rollout
+
+ID:          Core-019
+Name:        Weighted Side Plank
+Family:      Core
+Secondary:   Rot
+Objective:   STR
+Difficulty:  4
+Equipment:   ['DB', 'Plate']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Side Plank Row
+Regression:  Side Plank (rotation)
+
+ID:          Core-020
+Name:        Side Plank Row
+Family:      Core
+Secondary:   HPull
+Objective:   STR
+Difficulty:  5
+Equipment:   ['DB', 'Cable']
+Unilateral:  True
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: None
+Regression:  Weighted Side Plank
+
+ID:          Core-021
+Name:        Weighted Hanging Leg Raise
+Family:      Core
+Secondary:   VPull
+Objective:   STR
+Difficulty:  5
+Equipment:   ['Pull-Up Bar', 'DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Hanging Leg Raise
+
+ID:          Acc-001
+Name:        Calf Raise
+Family:      Acc
+Secondary:   None
+Objective:   HYP
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Calf Raise
+Regression:  None
+
+ID:          Acc-002
+Name:        Band Pull-Apart
+Family:      Acc
+Secondary:   HPull
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Band Face Pull
+Regression:  None
+
+ID:          Acc-003
+Name:        Hollow Body Hold
+Family:      Acc
+Secondary:   Core
+Objective:   STAB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Weighted Hollow Hold
+Regression:  None
+
+ID:          Acc-004
+Name:        Band Face Pull
+Family:      Acc
+Secondary:   HPull
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Cable Face Pull
+Regression:  Band Pull-Apart
+
+ID:          Acc-005
+Name:        Weighted Calf Raise
+Family:      Acc
+Secondary:   None
+Objective:   HYP
+Difficulty:  2
+Equipment:   ['DB', 'Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Single-Leg Calf Raise
+Regression:  Calf Raise
+
+ID:          Acc-006
+Name:        ChildΓÇÖs Pose
+Family:      Acc
+Secondary:   None
+Objective:   MOB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Hip Flexor Stretch
+Regression:  None
+
+ID:          Acc-007
+Name:        WorldΓÇÖs Greatest Stretch
+Family:      Acc
+Secondary:   None
+Objective:   MOB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Cossack Squat
+Regression:  ChildΓÇÖs Pose
+
+ID:          Acc-008
+Name:        Hip Flexor Stretch
+Family:      Acc
+Secondary:   None
+Objective:   MOB
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Couch Stretch
+Regression:  ChildΓÇÖs Pose
+
+ID:          Acc-009
+Name:        Couch Stretch
+Family:      Acc
+Secondary:   None
+Objective:   MOB
+Difficulty:  2
+Equipment:   ['Wall']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Hip Flexor Stretch
+
+ID:          Acc-010
+Name:        5-Way Hip
+Family:      Acc
+Secondary:   None
+Objective:   STR
+Difficulty:  1
+Equipment:   ['Bodyweight']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Banded 5-Way Hip
+Regression:  None
+
+ID:          Acc-011
+Name:        Banded 5-Way Hip
+Family:      Acc
+Secondary:   None
+Objective:   STR
+Difficulty:  2
+Equipment:   ['Band']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Monster Walk
+Regression:  5-Way Hip
+
+ID:          Acc-012
+Name:        Monster Walk
+Family:      Acc
+Secondary:   None
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Banded Lateral Walk
+Regression:  Banded 5-Way Hip
+
+ID:          Acc-013
+Name:        Banded Lateral Walk
+Family:      Acc
+Secondary:   None
+Objective:   STAB
+Difficulty:  3
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Resisted Side Shuffle
+Regression:  Monster Walk
+
+ID:          Acc-014
+Name:        Single-Leg Calf Raise
+Family:      Acc
+Secondary:   None
+Objective:   HYP
+Difficulty:  2
+Equipment:   ['Bodyweight/DB']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Weighted Single-Leg Calf Raise
+Regression:  Weighted Calf Raise
+
+ID:          Acc-015
+Name:        Cable Face Pull
+Family:      Acc
+Secondary:   HPull
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Cable Machine']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: Band Face Pull
+Regression:  Band Face Pull
+
+ID:          Acc-016
+Name:        Weighted Hollow Hold
+Family:      Acc
+Secondary:   Core
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Plate/DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   True
+Rotational:  False
+Progression: Weighted Hollow Rock
+Regression:  Hollow Body Hold
+
+ID:          Acc-017
+Name:        Weighted Hollow Rock
+Family:      Acc
+Secondary:   Core
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Plate/DB']
+Unilateral:  False
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: GHD Sit-Up
+Regression:  Weighted Hollow Hold
+
+ID:          Acc-018
+Name:        Resisted Side Shuffle
+Family:      Acc
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Band']
+Unilateral:  False
+Explosive:   True
+Isometric:   False
+Rotational:  False
+Progression: Banded Lateral Walk
+Regression:  Banded Lateral Walk
+
+ID:          Acc-019
+Name:        Band Shoulder External Rotation
+Family:      Acc
+Secondary:   None
+Objective:   STAB
+Difficulty:  2
+Equipment:   ['Band']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: Cable External Rotation
+Regression:  Band Pull-Apart
+
+ID:          Acc-020
+Name:        Cable External Rotation
+Family:      Acc
+Secondary:   None
+Objective:   STR
+Difficulty:  3
+Equipment:   ['Cable Machine']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  True
+Progression: None
+Regression:  Band Shoulder External Rotation
+
+ID:          Acc-021
+Name:        Weighted Single-Leg Calf Raise
+Family:      Acc
+Secondary:   None
+Objective:   HYP
+Difficulty:  3
+Equipment:   ['DB', 'Box']
+Unilateral:  True
+Explosive:   False
+Isometric:   False
+Rotational:  False
+Progression: None
+Regression:  Single-Leg Calf Raise
+
+Total exercises: 201
+
+------------------------------------------------------------------------------
+EXERCISES BY FAMILY
+------------------------------------------------------------------------------
+
+Acc (21 exercises):
+  Acc-001: Calf Raise [HYP] diff=1 equip=['Bodyweight']
+  Acc-002: Band Pull-Apart [STAB] diff=1 equip=['Band']
+  Acc-003: Hollow Body Hold [STAB] diff=1 equip=['Bodyweight']
+  Acc-004: Band Face Pull [STAB] diff=2 equip=['Band']
+  Acc-005: Weighted Calf Raise [HYP] diff=2 equip=['DB', 'Machine']
+  Acc-006: ChildΓÇÖs Pose [MOB] diff=1 equip=['Bodyweight']
+  Acc-007: WorldΓÇÖs Greatest Stretch [MOB] diff=1 equip=['Bodyweight']
+  Acc-008: Hip Flexor Stretch [MOB] diff=1 equip=['Bodyweight']
+  Acc-009: Couch Stretch [MOB] diff=2 equip=['Wall']
+  Acc-010: 5-Way Hip [STR] diff=1 equip=['Bodyweight']
+  Acc-011: Banded 5-Way Hip [STR] diff=2 equip=['Band']
+  Acc-012: Monster Walk [STAB] diff=2 equip=['Band']
+  Acc-013: Banded Lateral Walk [STAB] diff=3 equip=['Band']
+  Acc-014: Single-Leg Calf Raise [HYP] diff=2 equip=['Bodyweight/DB']
+  Acc-015: Cable Face Pull [STAB] diff=2 equip=['Cable Machine']
+  Acc-016: Weighted Hollow Hold [STAB] diff=2 equip=['Plate/DB']
+  Acc-017: Weighted Hollow Rock [STR] diff=3 equip=['Plate/DB']
+  Acc-018: Resisted Side Shuffle [STR] diff=3 equip=['Band']
+  Acc-019: Band Shoulder External Rotation [STAB] diff=2 equip=['Band']
+  Acc-020: Cable External Rotation [STR] diff=3 equip=['Cable Machine']
+  Acc-021: Weighted Single-Leg Calf Raise [HYP] diff=3 equip=['DB', 'Box']
+
+Ball (13 exercises):
+  Ball-001: Med Ball Slam [POW] diff=1 equip=['Med Ball']
+  Ball-002: Chest Pass (wall) [POW] diff=1 equip=['Med Ball']
+  Ball-003: Overhead Throw [POW] diff=2 equip=['Med Ball']
+  Ball-004: Rotational Slam [POW] diff=2 equip=['Med Ball']
+  Ball-005: Scoop Throw [POW] diff=2 equip=['Med Ball']
+  Ball-006: Side Throw [POW] diff=3 equip=['Med Ball']
+  Ball-007: Wall Ball [STR] diff=3 equip=['Med Ball']
+  Ball-008: Rotational Throw [POW] diff=4 equip=['Med Ball']
+  Ball-009: Med Ball Push Press [POW] diff=4 equip=['Med Ball']
+  Ball-010: Med Ball Clean [POW] diff=4 equip=['Med Ball']
+  Ball-011: Single-Arm Slam [POW] diff=3 equip=['Med Ball']
+  Ball-012: Single-Arm Throw [POW] diff=4 equip=['Med Ball']
+  Ball-013: Wall Ball (heavy) [STR] diff=4 equip=['Med Ball (heavy)']
+
+Carry (13 exercises):
+  Carry-001: Farmer Carry [STR] diff=1 equip=['DB/KB']
+  Carry-002: Suitcase Carry [STAB] diff=2 equip=['DB/KB']
+  Carry-003: Overhead Carry [STAB] diff=2 equip=['DB/KB']
+  Carry-004: Front Rack Carry [STAB] diff=2 equip=['KB/DB']
+  Carry-005: Goblet Carry [STAB] diff=3 equip=['KB/DB']
+  Carry-006: Waiter Carry [STAB] diff=3 equip=['DB/KB']
+  Carry-007: Racked Carry [STAB] diff=3 equip=['KB/DB']
+  Carry-008: Cross-Body Carry [STAB] diff=3 equip=['DB/KB']
+  Carry-009: Zercher Carry [STAB] diff=4 equip=['Barbell']
+  Carry-010: Bear Hug Carry [STR] diff=4 equip=['Med Ball/Sandbag']
+  Carry-011: Suitcase Carry (offset) [STAB] diff=4 equip=['DB/KB (heavy)']
+  Carry-012: Heavy Farmer Carry [STR] diff=4 equip=['Heavy DB/KB']
+  Carry-013: Heavy Suitcase Carry [STR] diff=5 equip=['Heavy DB/KB']
+
+Core (21 exercises):
+  Core-001: Dead Bug [STAB] diff=1 equip=['Bodyweight']
+  Core-002: Plank [STAB] diff=1 equip=['Bodyweight']
+  Core-003: Side Plank [STAB] diff=2 equip=['Bodyweight']
+  Core-004: Bird Dog [STAB] diff=1 equip=['Bodyweight']
+  Core-005: Crunches [HYP] diff=1 equip=['Bodyweight']
+  Core-006: Reverse Crunch [HYP] diff=2 equip=['Bodyweight']
+  Core-007: Dead Bug (band) [STAB] diff=2 equip=['Band']
+  Core-008: Side Plank (reach through) [STR] diff=2 equip=['Bodyweight']
+  Core-009: Weighted Bird Dog [STAB] diff=2 equip=['DB']
+  Core-010: Weighted Sit-Up [HYP] diff=3 equip=['DB', 'Plate']
+  Core-011: Hanging Knee Raise [STR] diff=3 equip=['Pull-Up Bar']
+  Core-012: Barbell Bird Dog [STAB] diff=3 equip=['Barbell']
+  Core-013: Ab-Wheel Rollout [STR] diff=3 equip=['Ab-Wheel']
+  Core-014: Side Plank (rotation) [STR] diff=3 equip=['Bodyweight']
+  Core-015: Landmine Anti-Rotation [STAB] diff=4 equip=['Barbell', 'Landmine']
+  Core-016: Hanging Leg Raise [STR] diff=4 equip=['Pull-Up Bar']
+  Core-017: GHD Sit-Up [STR] diff=4 equip=['GHD Bench']
+  Core-018: Barbell Rollout [STR] diff=4 equip=['Barbell']
+  Core-019: Weighted Side Plank [STR] diff=4 equip=['DB', 'Plate']
+  Core-020: Side Plank Row [STR] diff=5 equip=['DB', 'Cable']
+  Core-021: Weighted Hanging Leg Raise [STR] diff=5 equip=['Pull-Up Bar', 'DB']
+
+DLHD (14 exercises):
+  DLHD-001: Glute Bridge [STAB] diff=1 equip=['Bodyweight']
+  DLHD-002: Kettlebell Deadlift [STR] diff=2 equip=['Kettlebell']
+  DLHD-003: Trap Bar Deadlift [STR] diff=2 equip=['Trap Bar']
+  DLHD-004: 45┬░ Back Extension [STAB] diff=2 equip=['Hyperextension Bench']
+  DLHD-005: Barbell Hip Thrust [STR] diff=3 equip=['Barbell', 'Bench']
+  DLHD-006: RDL [STR] diff=3 equip=['Barbell']
+  DLHD-007: Barbell Rack Pull [STR] diff=3 equip=['Barbell', 'Rack']
+  DLHD-008: Single-Leg RDL [STR] diff=3 equip=['DB/KB']
+  DLHD-009: Block Pull [STR] diff=4 equip=['Barbell', 'Blocks/Rack']
+  DLHD-010: Weighted Back Extension [STR] diff=4 equip=['Hyperextension Bench', 'Plate']
+  DLHD-011: Barbell Good Morning [STR] diff=4 equip=['Barbell', 'Rack']
+  DLHD-012: Conventional Deadlift [STR] diff=5 equip=['Barbell', 'Platform']
+  DLHD-013: Sumo Deadlift [STR] diff=5 equip=['Barbell', 'Platform']
+  DLHD-014: Deficit Deadlift [STR] diff=5 equip=['Barbell', 'Deficit Platform']
+
+DLKD (12 exercises):
+  DLKD-001: Air Squat [STR] diff=1 equip=['Bodyweight']
+  DLKD-002: Wall Sit [STAB] diff=1 equip=['Bodyweight']
+  DLKD-003: Box Squat [STR] diff=2 equip=['Barbell', 'Box']
+  DLKD-004: Goblet Squat [STR] diff=2 equip=['DB/KB']
+  DLKD-005: Leg Press [STR] diff=2 equip=['Machine']
+  DLKD-006: Tempo Back Squat [STR] diff=2 equip=['Barbell', 'Rack']
+  DLKD-007: Barbell Back Squat [STR] diff=3 equip=['Barbell', 'Rack']
+  DLKD-008: Hack Squat [HYP] diff=3 equip=['Machine']
+  DLKD-009: Paused Back Squat [STR] diff=4 equip=['Barbell', 'Rack']
+  DLKD-010: Barbell Front Squat [STR] diff=4 equip=['Barbell', 'Rack']
+  DLKD-011: Landmine Squat [STR] diff=3 equip=['Barbell', 'Landmine']
+  DLKD-012: Paused Front Squat [STR] diff=5 equip=['Barbell', 'Rack']
+
+HPull (11 exercises):
+  HPull-001: Scapular Retraction [STAB] diff=1 equip=['Bodyweight']
+  HPull-002: Band Row [STR] diff=1 equip=['Band']
+  HPull-003: Inverted Row [STR] diff=2 equip=['Barbell/Suspension Trainer']
+  HPull-004: Chest-Supported Row [STR] diff=2 equip=['DB', 'Bench']
+  HPull-005: Dumbbell Row [STR] diff=3 equip=['DB', 'Bench']
+  HPull-006: Seal Row [HYP] diff=3 equip=['Barbell', 'Elevated Bench']
+  HPull-007: Single-Arm Cable Row [HYP] diff=3 equip=['Cable Machine']
+  HPull-008: T-Bar Row [HYP] diff=3 equip=['T-Bar Handle']
+  HPull-009: Barbell Row [STR] diff=4 equip=['Barbell', 'Rack']
+  HPull-010: Meadows Row [HYP] diff=4 equip=['Barbell', 'Landmine']
+  HPull-011: Pendlay Row [POW] diff=5 equip=['Barbell', 'Platform']
+
+HPush (10 exercises):
+  HPush-001: Wall Push-Up [STR] diff=1 equip=['Bodyweight']
+  HPush-002: Incline Push-Up [STR] diff=1 equip=['Bench']
+  HPush-003: Push-Up [STR] diff=2 equip=['Bodyweight']
+  HPush-004: Dumbbell Floor Press [STR] diff=2 equip=['DB']
+  HPush-005: Dumbbell Bench Press [STR] diff=3 equip=['DB', 'Bench']
+  HPush-006: Barbell Bench Press [STR] diff=3 equip=['Barbell', 'Bench']
+  HPush-007: Incline Dumbbell Press [STR] diff=3 equip=['DB', 'Incline Bench']
+  HPush-008: Incline Barbell Bench Press [STR] diff=4 equip=['Barbell', 'Incline Bench']
+  HPush-009: Band-Resisted Push-Up [POW] diff=3 equip=['Band']
+  HPush-010: Weighted Push-Up [STR] diff=4 equip=['Weight Vest/Belt']
+
+Plyo (14 exercises):
+  Plyo-001: Pogo Jump [POW] diff=1 equip=['Bodyweight']
+  Plyo-002: Squat Jump [POW] diff=2 equip=['Bodyweight']
+  Plyo-003: Box Jump [POW] diff=2 equip=['Box']
+  Plyo-004: Broad Jump [POW] diff=2 equip=['Bodyweight']
+  Plyo-005: Lateral Bound [STR] diff=2 equip=['Bodyweight']
+  Plyo-006: Lateral Hop [POW] diff=1 equip=['Bodyweight']
+  Plyo-007: Split Squat Jump [POW] diff=3 equip=['Bodyweight']
+  Plyo-008: Bounding [POW] diff=3 equip=['Bodyweight']
+  Plyo-009: Single-Leg Box Jump [POW] diff=3 equip=['Box']
+  Plyo-010: Tuck Jump [POW] diff=3 equip=['Bodyweight']
+  Plyo-011: Skater Jump [STR] diff=3 equip=['Bodyweight']
+  Plyo-012: Single-Leg Bound [POW] diff=4 equip=['Bodyweight']
+  Plyo-013: Depth Jump [POW] diff=4 equip=['Box']
+  Plyo-014: Weighted Depth Jump [POW] diff=5 equip=['Weight Vest', 'Box']
+
+Rot (10 exercises):
+  Rot-001: Pallof Press [STAB] diff=1 equip=['Cable/Band']
+  Rot-002: Half-Kneeling Chop [STAB] diff=2 equip=['Cable/Band']
+  Rot-003: Standing Chop [POW] diff=2 equip=['Cable/Band']
+  Rot-004: Half-Kneeling Lift [STAB] diff=2 equip=['Cable/Band']
+  Rot-005: Standing Lift [POW] diff=3 equip=['Cable/Band']
+  Rot-006: Rotational Med Ball Wall Slam [POW] diff=3 equip=['Med Ball']
+  Rot-007: Cable Rotational Row [STR] diff=3 equip=['Cable Machine']
+  Rot-008: Single-Arm KB Swing [STR] diff=4 equip=['Kettlebell']
+  Rot-009: Windmill [STR] diff=4 equip=['KB/DB']
+  Rot-010: Rotational Throw (reactive) [POW] diff=5 equip=['Med Ball']
+
+SLHD (10 exercises):
+  SLHD-001: Single-Leg Glute Bridge [STAB] diff=1 equip=['Bodyweight']
+  SLHD-002: Split Stance RDL [STR] diff=2 equip=['DB/Bodyweight']
+  SLHD-003: SL RDL (floor touch) [STR] diff=2 equip=['Bodyweight/Light DB']
+  SLHD-004: Single-Leg Bridge (elevated) [STR] diff=2 equip=['Bench']
+  SLHD-005: Weighted SL RDL [STR] diff=3 equip=['DB/KB']
+  SLHD-006: Single-Leg Hip Thrust [STR] diff=3 equip=['Barbell/Bench']
+  SLHD-007: Isometric Hamstring Hold [STAB] diff=3 equip=['Partner/Wall']
+  SLHD-008: Single-Leg RDL (loaded) [STR] diff=4 equip=['DB/KB (heavy)']
+  SLHD-009: Nordic Hamstring Curl [STR] diff=4 equip=['Partner/Strap']
+  SLHD-010: Band-Resisted Nordic [STR] diff=3 equip=['Band', 'Strap']
+
+SLKD (12 exercises):
+  SLKD-001: Assisted Split Squat [STAB] diff=1 equip=['Bodyweight', 'Support']
+  SLKD-002: Split Squat [STR] diff=2 equip=['Bodyweight/DB']
+  SLKD-003: Step-Up [STR] diff=2 equip=['Box', 'DB']
+  SLKD-004: Low Box Step-Up [STR] diff=1 equip=['Box (low)', 'Bodyweight']
+  SLKD-005: Bulgarian Split Squat [STR] diff=3 equip=['DB', 'Bench']
+  SLKD-006: Walking Lunge [STR] diff=3 equip=['DB']
+  SLKD-007: Lateral Lunge [STR] diff=3 equip=['DB/Bodyweight']
+  SLKD-008: Barbell Reverse Lunge [STR] diff=4 equip=['Barbell', 'Rack']
+  SLKD-009: Cossack Squat [STR] diff=4 equip=['Bodyweight']
+  SLKD-010: Skater Squat [STR] diff=4 equip=['Bodyweight/DB']
+  SLKD-011: Single-Leg Box Squat [STR] diff=4 equip=['Box', 'Bodyweight']
+  SLKD-012: Pistol Squat [STR] diff=5 equip=['Bodyweight']
+
+Sprint (18 exercises):
+  Sprint-001: Marching [STR] diff=1 equip=['Bodyweight']
+  Sprint-002: Wall Drill [STR] diff=1 equip=['Wall']
+  Sprint-003: A-Skip [STR] diff=2 equip=['Bodyweight']
+  Sprint-004: Fall-In Sprint [STR] diff=2 equip=['Bodyweight']
+  Sprint-005: B-Skip [STR] diff=2 equip=['Bodyweight']
+  Sprint-006: Pogo Sprint [STR] diff=2 equip=['Bodyweight']
+  Sprint-007: A-Run [STR] diff=3 equip=['Bodyweight']
+  Sprint-008: B-Run [STR] diff=3 equip=['Bodyweight']
+  Sprint-009: Flying 10s [STR] diff=3 equip=['Bodyweight']
+  Sprint-010: Stride Frequency Sprint [STR] diff=3 equip=['Bodyweight']
+  Sprint-011: Accel Sprint [STR] diff=4 equip=['Bodyweight']
+  Sprint-012: Max-V Sprint [STR] diff=4 equip=['Bodyweight']
+  Sprint-013: Flying 20s [STR] diff=4 equip=['Bodyweight']
+  Sprint-014: Stride Length Sprint [STR] diff=4 equip=['Bodyweight']
+  Sprint-015: Sled Sprint (heavy) [POW] diff=4 equip=['Sled']
+  Sprint-016: Sled Sprint (light) [STR] diff=5 equip=['Sled']
+  Sprint-017: Resisted Sprint (band) [POW] diff=4 equip=['Band']
+  Sprint-018: Flying 30s [STR] diff=5 equip=['Bodyweight']
+
+VPull (12 exercises):
+  VPull-001: Lat Pulldown [STR] diff=2 equip=['Cable Machine']
+  VPull-002: Band-Assisted Pull-Up [STR] diff=2 equip=['Band', 'Pull-Up Bar']
+  VPull-003: Neutral-Grip Lat Pulldown [HYP] diff=2 equip=['Cable Machine']
+  VPull-004: Seated Cable Row [STR] diff=2 equip=['Cable Machine']
+  VPull-005: Pull-Up [STR] diff=3 equip=['Pull-Up Bar']
+  VPull-006: Chin-Up [HYP] diff=3 equip=['Pull-Up Bar']
+  VPull-007: V-Grip Pulldown [HYP] diff=3 equip=['Cable Machine']
+  VPull-008: Single-Arm Lat Pulldown [HYP] diff=3 equip=['Cable Machine']
+  VPull-009: Weighted Pull-Up [STR] diff=4 equip=['Pull-Up Bar', 'Weight Belt']
+  VPull-010: Weighted Chin-Up [STR] diff=4 equip=['Pull-Up Bar', 'Weight Belt']
+  VPull-011: Wide-Grip Pulldown [HYP] diff=3 equip=['Cable Machine']
+  VPull-012: Muscle-Up [STR] diff=5 equip=['Rings/Pull-Up Bar']
+
+VPush (10 exercises):
+  VPush-001: Band Overhead Press [STR] diff=1 equip=['Band']
+  VPush-002: Half-Kneeling Landmine Press [STR] diff=2 equip=['Barbell', 'Landmine']
+  VPush-003: Standing Landmine Press [STR] diff=2 equip=['Barbell', 'Landmine']
+  VPush-004: Single-Arm DB Press (standing) [STAB] diff=2 equip=['DB']
+  VPush-005: Seated DB Press [STR] diff=3 equip=['DB', 'Bench']
+  VPush-006: Standing DB Press [STR] diff=3 equip=['DB']
+  VPush-007: Arnold Press [HYP] diff=4 equip=['DB']
+  VPush-008: Barbell Overhead Press [STR] diff=4 equip=['Barbell', 'Rack']
+  VPush-009: Push Press [POW] diff=4 equip=['Barbell', 'Rack']
+  VPush-010: Power Jerk [POW] diff=5 equip=['Barbell', 'Rack']
+
+==============================================================================
+EXERCISE FAMILIES
+==============================================================================
+
+DLKD: Double Leg Knee Dominant
+  Definition:        Bilateral squat-pattern exercises where knee flexion is the primary joint action.
+  Non-negotiable:    90% of programs
+  Default slot:      mid
+  Selection prios:   [(1, 'DLKD-004'), (2, 'DLKD-007'), (3, 'DLKD-010'), (4, 'DLKD-011'), (5, 'DLKD-003'), (6, 'DLKD-006'), (7, 'DLKD-009'), (8, 'DLKD-012'), (9, 'DLKD-001'), (10, 'DLKD-002'), (11, 'DLKD-005'), (12, 'DLKD-008')]
+
+DLHD: Double Leg Hip Dominant
+  Definition:        Bilateral hinge-pattern exercises where hip flexion/extension is primary.
+  Non-negotiable:    75% of programs
+  Default slot:      mid
+  Selection prios:   [(1, 'DLHD-006'), (2, 'DLHD-012'), (3, 'DLHD-011'), (4, 'DLHD-009'), (5, 'DLHD-014'), (6, 'DLHD-002'), (7, 'DLHD-003'), (8, 'DLHD-007'), (9, 'DLHD-001'), (10, 'DLHD-004'), (11, 'DLHD-005'), (12, 'DLHD-008'), (13, 'DLHD-010'), (14, 'DLHD-013')]
+
+SLKD: Single Leg Knee Dominant
+  Definition:        Unilateral squat/lunge-pattern exercises.
+  Non-negotiable:    70% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'SLKD-005'), (2, 'SLKD-008'), (3, 'SLKD-012'), (4, 'SLKD-002'), (5, 'SLKD-003'), (6, 'SLKD-006'), (7, 'SLKD-007'), (8, 'SLKD-009'), (9, 'SLKD-010'), (10, 'SLKD-011'), (11, 'SLKD-001'), (12, 'SLKD-004')]
+
+SLHD: Single Leg Hip Dominant
+  Definition:        Unilateral hinge-pattern exercises.
+  Non-negotiable:    25% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'SLHD-005'), (2, 'SLHD-008'), (3, 'SLHD-009'), (4, 'SLHD-002'), (5, 'SLHD-003'), (6, 'SLHD-006'), (7, 'SLHD-001'), (8, 'SLHD-004'), (9, 'SLHD-007'), (10, 'SLHD-010')]
+
+HPush: Horizontal Push
+  Definition:        Upper-body pressing where line of force is horizontal.
+  Non-negotiable:    80% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'HPush-006'), (2, 'HPush-005'), (3, 'HPush-008'), (4, 'HPush-003'), (5, 'HPush-004'), (6, 'HPush-007'), (7, 'HPush-001'), (8, 'HPush-002'), (9, 'HPush-009'), (10, 'HPush-010')]
+
+HPull: Horizontal Pull
+  Definition:        Upper-body pulling where line of force is horizontal.
+  Non-negotiable:    90% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'HPull-005'), (2, 'HPull-009'), (3, 'HPull-011'), (4, 'HPull-003'), (5, 'HPull-004'), (6, 'HPull-006'), (7, 'HPull-007'), (8, 'HPull-008'), (9, 'HPull-001'), (10, 'HPull-002'), (11, 'HPull-010')]
+
+VPush: Vertical Push
+  Definition:        Upper-body pressing where line of force is vertical.
+  Non-negotiable:    20% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'VPush-008'), (2, 'VPush-006'), (3, 'VPush-005'), (4, 'VPush-009'), (5, 'VPush-010'), (6, 'VPush-002'), (7, 'VPush-003'), (8, 'VPush-004'), (9, 'VPush-001'), (10, 'VPush-007')]
+
+VPull: Vertical Pull
+  Definition:        Upper-body pulling where line of force is vertical.
+  Non-negotiable:    55% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'VPull-005'), (2, 'VPull-006'), (3, 'VPull-009'), (4, 'VPull-010'), (5, 'VPull-012'), (6, 'VPull-001'), (7, 'VPull-002'), (8, 'VPull-003'), (9, 'VPull-004'), (10, 'VPull-007'), (11, 'VPull-008'), (12, 'VPull-011')]
+
+Plyo: Plyometric
+  Definition:        Fast, high-intensity bodyweight exercises using stretch-shorten cycle.
+  Non-negotiable:    85% of programs
+  Default slot:      early
+  Selection prios:   [(1, 'Plyo-002'), (2, 'Plyo-004'), (3, 'Plyo-003'), (4, 'Plyo-013'), (5, 'Plyo-001'), (6, 'Plyo-005'), (7, 'Plyo-006'), (8, 'Plyo-007'), (9, 'Plyo-008'), (10, 'Plyo-009'), (11, 'Plyo-010'), (12, 'Plyo-011'), (13, 'Plyo-012'), (14, 'Plyo-014')]
+
+Ball: Ballistic
+  Definition:        Loaded explosive exercises where athlete accelerates load through full extension.
+  Non-negotiable:    85% of programs
+  Default slot:      early
+  Selection prios:   [(1, 'Ball-001'), (2, 'Ball-002'), (3, 'Ball-003'), (4, 'Ball-004'), (5, 'Ball-005'), (6, 'Ball-006'), (7, 'Ball-007'), (8, 'Ball-008'), (9, 'Ball-009'), (10, 'Ball-010'), (11, 'Ball-011'), (12, 'Ball-012'), (13, 'Ball-013')]
+
+Sprint: Sprint / Change of Direction
+  Definition:        Locomotion-based speed, acceleration, deceleration, and reacceleration.
+  Non-negotiable:    65% of programs
+  Default slot:      early
+  Selection prios:   [(1, 'Sprint-003'), (2, 'Sprint-007'), (3, 'Sprint-009'), (4, 'Sprint-011'), (5, 'Sprint-012'), (6, 'Sprint-001'), (7, 'Sprint-002'), (8, 'Sprint-004'), (9, 'Sprint-005'), (10, 'Sprint-006'), (11, 'Sprint-008'), (12, 'Sprint-010'), (13, 'Sprint-013'), (14, 'Sprint-014'), (15, 'Sprint-015'), (16, 'Sprint-016'), (17, 'Sprint-017'), (18, 'Sprint-018')]
+
+Rot: Rotational
+  Definition:        Transverse-plane rotation and anti-rotation loaded through the torso.
+  Non-negotiable:    45% of programs
+  Default slot:      variable
+  Selection prios:   [(1, 'Rot-006'), (2, 'Rot-010'), (3, 'Rot-003'), (4, 'Rot-005'), (5, 'Rot-007'), (6, 'Rot-001'), (7, 'Rot-002'), (8, 'Rot-004'), (9, 'Rot-008'), (10, 'Rot-009')]
+
+Carry: Carry
+  Definition:        Loaded ambulation where athlete walks with external load.
+  Non-negotiable:    30% of programs
+  Default slot:      late
+  Selection prios:   [(1, 'Carry-001'), (2, 'Carry-012'), (3, 'Carry-002'), (4, 'Carry-013'), (5, 'Carry-003'), (6, 'Carry-004'), (7, 'Carry-005'), (8, 'Carry-006'), (9, 'Carry-007'), (10, 'Carry-008'), (11, 'Carry-009'), (12, 'Carry-010'), (13, 'Carry-011')]
+
+Core: Core
+  Definition:        Trunk stabilisation including anti-extension, anti-rotation, anti-lateral flexion, and controlled flexion.
+  Non-negotiable:    100% of programs
+  Default slot:      last
+  Selection prios:   [(1, 'Core-002'), (2, 'Core-003'), (3, 'Core-011'), (4, 'Core-016'), (5, 'Core-021'), (6, 'Core-001'), (7, 'Core-004'), (8, 'Core-005'), (9, 'Core-006'), (10, 'Core-007'), (11, 'Core-008'), (12, 'Core-009'), (13, 'Core-010'), (14, 'Core-012'), (15, 'Core-013'), (16, 'Core-014'), (17, 'Core-015'), (18, 'Core-017'), (19, 'Core-018'), (20, 'Core-019'), (21, 'Core-020')]
+
+Acc: Accessory / Prehab
+  Definition:        Targeted isolation, prehabilitation, and injury prevention.
+  Non-negotiable:    Variable
+  Default slot:      early
+  Selection prios:   [(1, 'Acc-002'), (2, 'Acc-015'), (3, 'Acc-001'), (4, 'Acc-005'), (5, 'Acc-014'), (6, 'Acc-021'), (7, 'Acc-003'), (8, 'Acc-004'), (9, 'Acc-006'), (10, 'Acc-007'), (11, 'Acc-008'), (12, 'Acc-009'), (13, 'Acc-010'), (14, 'Acc-011'), (15, 'Acc-012'), (16, 'Acc-013'), (17, 'Acc-016'), (18, 'Acc-017'), (19, 'Acc-018'), (20, 'Acc-019'), (21, 'Acc-020')]
+
+==============================================================================
+BLUEPRINTS ΓÇö FULL DATA
+==============================================================================
+
+ID:              1
+Name:            Full Body Strength
+Purpose:         General strength accrual across all major movement patterns. Highest frequency of each pattern per week.
+Typical athlete: Beginner-intermediate, off-season general population, youth athletes (14-17), sport-generalists
+Best training age: 0-3 years
+Best season phase: ['off_season', 'pre_season']
+Best frequency:  3-4 sessions/week
+Contraindications: Advanced athletes needing specific peak, late pre-season (<4 weeks to competition), in-season maintenance phase
+Typical outcomes: Consistent strength gains across squat, hinge, press, pull patterns. Improved movement competency. Foundation for advanced training. Works best as a 4-8 week block before progressing to more specialised work.
+Progression:     Strength + Power
+Regression:      Youth Foundation (U14-U20)
+Mandatory fams:  ['DLKD', 'DLHD', 'HPush', 'HPull']
+Optional fams:   ['Core', 'Acc', 'VPush', 'VPull']
+Slot order:      ['Ball', 'DLKD', 'HPush', 'DLHD', 'HPull', 'Core']
+Typical duration: 60-75 min
+Min session comp: [{'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Primary squat pattern'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Primary hinge pattern'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Horizontal press'}, {'family': 'HPull', 'mandatory': True, 'count': 1, 'notes': 'Horizontal pull'}]
+
+ID:              2
+Name:            Strength + Power
+Purpose:         Hybrid strength-power development. Heavy strength + explosive work in same session.
+Typical athlete: Intermediate-advanced, field sport off-season, track & field, rugby pre-season, contact sport athletes
+Best training age: 2-5 years
+Best season phase: ['off_season', 'pre_season']
+Best frequency:  4-5 sessions/week
+Contraindications: Athletes with poor movement quality, early post-injury (<4 weeks cleared), hypertrophy-deficient athletes needing mass first, training age <1 year, in-season maintenance phase
+Typical outcomes: Simultaneous strength and power gains without interference effect. Improved RFD alongside maximal strength. Most commonly used blueprint for serious off-season blocks.
+Progression:     Power + Speed
+Regression:      Full Body Strength
+Mandatory fams:  ['Ball', 'DLKD', 'DLHD', 'HPush']
+Optional fams:   ['Carry', 'Sprint', 'Rot', 'Core']
+Slot order:      ['Ball', 'DLKD', 'HPush', 'HPull', 'DLHD', 'Core']
+Typical duration: 75-90 min
+Min session comp: [{'family': 'Ball', 'mandatory': True, 'count': 1, 'notes': 'Explosive primer'}, {'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Heavy compound squat'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Explosive variant hinge'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Heavy press'}]
+
+ID:              3
+Name:            Strength + Conditioning
+Purpose:         Strength maintenance + energy system development. Common in pre-season / GPP blocks.
+Typical athlete: Team sport, pre-season, returning from off-season break, athletes needing work capacity
+Best training age: 1-4 years
+Best season phase: ['pre_season', 'off_season']
+Best frequency:  3-4 sessions/week
+Contraindications: Athletes needing peak strength (conditioning interferes), low recovery capacity, advanced athletes in specific peaking blocks, in-season maintenance (use Power Maintenance instead), 2-a-day training schedules
+Typical outcomes: Improved work capacity and conditioning base. Strength maintained (not maximised). Best used as a 4-6 week bridge between off-season and pre-season. Higher conditioning tolerance over time.
+Progression:     Full Body Strength
+Regression:      Mixed Modal (GPP)
+Mandatory fams:  ['DLKD', 'DLHD', 'HPush', 'HPull']
+Optional fams:   ['Carry', 'Core', 'Acc', 'Sprint']
+Slot order:      ['DLKD', 'DLHD', 'HPush', 'HPull', 'Core']
+Typical duration: 60-75 min
+Min session comp: [{'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Either DLKD or DLHD required (not necessarily both per session)'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Either DLKD or DLHD required (not necessarily both per session)'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Push pattern'}, {'family': 'HPull', 'mandatory': True, 'count': 1, 'notes': 'Pull pattern'}]
+
+ID:              4
+Name:            Power + Speed
+Purpose:         Maximise rate of force development + velocity. Low volume, high intensity, full recovery.
+Typical athlete: Advanced field sport, track sprinters, court sport in-season, peaking phase athletes
+Best training age: 3+ years
+Best season phase: ['pre_season', 'off_season', 'in_season']
+Best frequency:  3-4 sessions/week
+Contraindications: Strength-deficient athletes (<1.5x BW squat M / <1.2x BW squat F), early post-injury, hypertrophy phase, athletes needing general strength foundation, pre-meet taper week
+Typical outcomes: Improved RFD, sprint speed, jump height, reactive strength. Best for peaking power qualities. Short-term (4-6 week) block not sustainable long-term.
+Progression:     Sprint Development
+Regression:      Strength + Power
+Mandatory fams:  ['Sprint', 'Plyo', 'Ball']
+Optional fams:   ['DLHD', 'HPush', 'Core']
+Slot order:      ['Sprint', 'Plyo', 'Ball', 'DLHD', 'Core']
+Typical duration: 45-60 min
+Min session comp: [{'family': 'Sprint', 'mandatory': True, 'count': 1, 'notes': 'Speed primer'}, {'family': 'Plyo', 'mandatory': True, 'count': 1, 'notes': 'Plyometric / reactive'}, {'family': 'Ball', 'mandatory': True, 'count': 1, 'notes': 'Ballistic throw / lift'}]
+
+ID:              5
+Name:            Upper / Lower Split
+Purpose:         Higher per-session volume per region. Two lower sessions, two upper sessions per microcycle.
+Typical athlete: Intermediate-advanced bodybuilding, strength athletes, athletes tolerating high per-session volume well, hypertrophy-focused
+Best training age: 2-5 years
+Best season phase: ['off_season']
+Best frequency:  4 sessions/week (Upper:Lower 2:2)
+Contraindications: Youth/low training age needing full body frequency (3x/week minimum per pattern), in-season with limited session availability, field sport athletes in competition phase, very long season with high practice load
+Typical outcomes: Higher regional volume per session. Good for hypertrophy and strength plateaus. Each body part trained 2x/week with higher per-session volume than full body approaches.
+Progression:     Hypertrophy / Mass Accrual
+Regression:      Full Body Strength
+Mandatory fams:  ['DLKD', 'DLHD', 'HPush', 'HPull']
+Optional fams:   ['Carry', 'Core', 'Acc', 'Rot', 'VPush', 'VPull']
+Slot order:      ['Plyo', 'DLKD', 'DLHD', 'Carry', 'Core', 'VPush', 'HPush', 'VPull', 'HPull', 'Acc']
+Typical duration: 60-75 min
+Min session comp: [{'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Lower day: squat pattern'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Lower day: hinge pattern'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Upper day: horizontal press'}, {'family': 'HPull', 'mandatory': True, 'count': 1, 'notes': 'Upper day: horizontal pull'}]
+
+ID:              6
+Name:            Power Maintenance
+Purpose:         Retain power qualities with minimal fatigue during season. Low dose, high stimulus.
+Typical athlete: In-season team sport, competing court sport, mid-competition phase, tournament blocks
+Best training age: 2+ years
+Best season phase: ['in_season']
+Best frequency:  1-2 sessions/week
+Contraindications: Off-season (use development blueprints instead), deload/recovery weeks, early return from injury, athletes needing strength development (not yet established), pre-season (too early for maintenance)
+Typical outcomes: Power retained with minimal CNS fatigue. Competitive readiness maintained without compromising recovery. Not a development blueprint but a preservation blueprint.
+Progression:     Strength + Power
+Regression:      Deload / Active Recovery
+Mandatory fams:  ['Ball', 'Plyo']
+Optional fams:   ['Sprint', 'DLHD', 'Core', 'Acc']
+Slot order:      ['Sprint', 'Ball', 'Plyo', 'Core']
+Typical duration: 30-45 min
+Min session comp: [{'family': 'Ball', 'mandatory': True, 'count': 1, 'notes': '1-2 explosive lifts'}, {'family': 'Plyo', 'mandatory': True, 'count': 1, 'notes': 'Low volume plyometric'}]
+
+ID:              7
+Name:            Youth Foundation (U14-U20)
+Purpose:         Build movement literacy, general strength, and athleticism. No specialisation. Fun + competence.
+Typical athlete: Adolescents (13-20), beginner training age, multi-sport athletes, late-maturing athletes
+Best training age: 0-2 years
+Best season phase: ['off_season', 'pre_season', 'in_season', 'transition']
+Best frequency:  2-3 sessions/week
+Contraindications: Athletes 20+ (move to adult blueprint), sport-specialised seniors in off-season need more specific loading, post-rehab athletes needing targeted protocol, elite-level athletes in peaking phase
+Typical outcomes: Improved movement competency in squat, hinge, lunge, push, pull. General strength foundation. Athletic skill development. Reduced injury risk in sport practice.
+Progression:     Full Body Strength
+Regression:      None
+Mandatory fams:  ['DLKD', 'DLHD', 'HPush', 'HPull']
+Optional fams:   []
+Slot order:      ['Sprint', 'DLKD', 'DLHD', 'HPush', 'HPull', 'Core']
+Typical duration: 45-60 min
+Min session comp: [{'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Either DLKD or DLHD required per session'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Either DLKD or DLHD required per session'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Push pattern ΓÇö age-appropriate regression'}, {'family': 'HPull', 'mandatory': True, 'count': 1, 'notes': 'Pull pattern ΓÇö age-appropriate regression'}]
+
+ID:              8
+Name:            Court Sport Athletic Development
+Purpose:         Multi-directional power, deceleration, change of direction, and lateral strength.
+Typical athlete: Tennis, badminton, basketball, volleyball, netball ΓÇö all phases; cricket fielding specialists
+Best training age: 1-5 years
+Best season phase: ['off_season', 'pre_season', 'in_season', 'transition']
+Best frequency:  3-4 sessions/week
+Contraindications: Linear-only sport athletes (track, cycling, swimming), early rehab phase (use Return to Sport), athletes without established bilateral strength base
+Typical outcomes: Improved COD speed, single-leg strength, rotational power, deceleration ability. Court-specific athletic qualities developed beyond what general strength programming provides.
+Progression:     Strength + Power
+Regression:      Full Body Strength
+Mandatory fams:  ['Sprint', 'SLKD', 'HPush', 'Rot']
+Optional fams:   ['DLHD', 'Ball', 'Carry', 'Core', 'Acc']
+Slot order:      ['Sprint', 'Plyo', 'SLKD', 'Rot', 'HPull', 'Core']
+Typical duration: 60-75 min
+Min session comp: [{'family': 'Sprint', 'mandatory': True, 'count': 1, 'notes': 'COD primer'}, {'family': 'SLKD', 'mandatory': True, 'count': 1, 'notes': 'Single-leg knee dominant'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Horizontal push'}, {'family': 'Rot', 'mandatory': True, 'count': 1, 'notes': 'Rotational power'}]
+
+ID:              9
+Name:            Rugby Off-Season
+Purpose:         Build collision-ready strength, power, and mass. Contact preparation with conditioning.
+Typical athlete: Rugby union/league, American football, any contact sport ΓÇö off-season phase; forwards especially
+Best training age: 2-5 years
+Best season phase: ['off_season']
+Best frequency:  4-5 sessions/week
+Contraindications: In-season (use Power Maintenance instead), non-contact sport, early off-season recovery phase (first 2-4 weeks off), athletes with training age <2 years, pre-season (too late for this volume)
+Typical outcomes: Significant strength gains (squat, deadlift, press). Collision readiness. Mass accrual. Contact confidence. Most demanding blueprint in the catalog with best results from consistent 8-12 week blocks.
+Progression:     Strength + Power
+Regression:      Full Body Strength
+Mandatory fams:  ['Ball', 'DLKD', 'HPush', 'HPull', 'Carry']
+Optional fams:   ['Sprint', 'Core', 'Rot', 'Acc']
+Slot order:      ['Ball', 'DLKD', 'HPull', 'HPush', 'Carry', 'Sprint', 'Acc']
+Typical duration: 75-90 min
+Min session comp: [{'family': 'Ball', 'mandatory': True, 'count': 1, 'notes': 'Power primer'}, {'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Heavy compound squat'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Horizontal push'}, {'family': 'HPull', 'mandatory': True, 'count': 1, 'notes': 'Horizontal pull'}, {'family': 'Carry', 'mandatory': True, 'count': 1, 'notes': 'Strongman-style carry'}]
+
+ID:              10
+Name:            Sprint Development
+Purpose:         Max velocity and/or acceleration improvement. Strength underpins but speed is priority.
+Typical athlete: Track sprinters (100-400m), field sport speed block, returning from speed loss, acceleration-deficient athletes
+Best training age: 2-5 years
+Best season phase: ['pre_season', 'off_season', 'in_season']
+Best frequency:  3-4 sessions/week (speed + strength combo)
+Contraindications: Injury return (Achilles, hamstring, groin ΓÇö use Return to Sport first), technique-deficient (clean up mechanics at lower intensity first), pre-meet taper week, athletes needing strength foundation first (<1.5x BW squat)
+Typical outcomes: Improved acceleration (0-20m), max velocity (20-60m), sprint mechanics. Strength maintenance. Reactive strength improvement.
+Progression:     Power + Speed
+Regression:      Full Body Strength
+Mandatory fams:  ['Sprint', 'DLHD', 'Plyo']
+Optional fams:   ['DLKD', 'HPull', 'Core', 'Acc']
+Slot order:      ['Sprint', 'Plyo', 'DLHD', 'DLKD', 'Core', 'Acc']
+Typical duration: 60-75 min
+Min session comp: [{'family': 'Sprint', 'mandatory': True, 'count': 2, 'notes': '2-3 sprint variations (accel/maxV)'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Hip-dominant strength'}, {'family': 'Plyo', 'mandatory': True, 'count': 1, 'notes': 'Reactive strength'}]
+
+ID:              11
+Name:            Hypertrophy / Mass Accrual
+Purpose:         Maximise muscle cross-sectional area. Higher volume, moderate loads, shorter rest.
+Typical athlete: Bodybuilding phase, underweight athlete, post-rehab mass return, off-season mass block, young athletes needing weight gain
+Best training age: 1-5 years
+Best season phase: ['off_season']
+Best frequency:  4-6 sessions/week (PPL or Upper-Lower split)
+Contraindications: In-season (unless severely underweight), pre-competition (<6 weeks out), speed/power peaking phases, athletes needing CNS freshness for competition, very long season with high practice volume
+Typical outcomes: Significant muscle mass gain. Improved work capacity and metabolic conditioning. Strength gains secondary to hypertrophy.
+Progression:     Strength + Power
+Regression:      Full Body Strength
+Mandatory fams:  ['DLKD', 'DLHD', 'HPush', 'HPull']
+Optional fams:   []
+Slot order:      ['DLKD', 'DLHD', 'HPush', 'HPull', 'Core']
+Typical duration: 60-90 min
+Min session comp: [{'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Compound squat (lower rep)'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Compound hinge (lower rep)'}, {'family': 'HPush', 'mandatory': True, 'count': 1, 'notes': 'Horizontal press (higher rep)'}, {'family': 'HPull', 'mandatory': True, 'count': 1, 'notes': 'Horizontal pull (higher rep)'}]
+
+ID:              12
+Name:            Return to Sport (Foundation)
+Purpose:         Rebuild movement capacity post-injury. Low intensity, high control, no pain.
+Typical athlete: Post-rehab (cleared by medical/PT), ACL return, hamstring return, shoulder return, general injury return to training
+Best training age: Any (training age is injury-modified ΓÇö current capacity determines starting point, not history)
+Best season phase: ['transition']
+Best frequency:  3-4 sessions/week
+Contraindications: Unreleased by medical team, active pain during exercise, acute injury phase (<6 weeks post-injury for most soft tissue), psychological unreadiness (fear of re-injury, hesitation), unresolved movement compensations
+Typical outcomes: Safe return to sport-specific loading. Movement confidence restored. Pain-free strength development. Injury-specific reconditioning. Foundation for return to full training in 4-8 weeks.
+Progression:     Full Body Strength
+Regression:      None
+Mandatory fams:  ['Acc', 'DLKD', 'DLHD', 'Core']
+Optional fams:   ['SLKD', 'Sprint', 'Rot', 'Carry']
+Slot order:      ['Acc', 'DLKD', 'DLHD', 'SLKD', 'Core', 'Sprint']
+Typical duration: 45-60 min
+Min session comp: [{'family': 'Acc', 'mandatory': True, 'count': 1, 'notes': 'Activation / prehab'}, {'family': 'DLKD', 'mandatory': True, 'count': 1, 'notes': 'Regressed squat variation (either DLKD or DLHD)'}, {'family': 'DLHD', 'mandatory': True, 'count': 1, 'notes': 'Regressed hinge variation (either DLKD or DLHD)'}, {'family': 'Core', 'mandatory': True, 'count': 1, 'notes': 'Core stability'}]
+
+ID:              13
+Name:            Deload / Active Recovery
+Purpose:         Systemic recovery, movement practice, connective tissue health. Intent is not stimulus ΓÇö it's maintenance.
+Typical athlete: Any athlete at end of training block, post-competition, high fatigue state, returning from illness, between mesocycles
+Best training age: Any ΓÇö all athletes need deload periods regardless of training age
+Best season phase: ['transition']
+Best frequency:  2-3 sessions/week
+Contraindications: Athlete needing stimulus (deloading beyond 14 days causes detraining), pre-competition taper week (use specific taper protocol instead), athlete who hasn't completed a full training block, early off-season (first 2 weeks of off-season ARE the deload)
+Typical outcomes: Reduced systemic fatigue. Movement quality maintained. Connective tissue health improved. Psychological freshness restored. Strength losses minimal (<5% over 7 days).
+Progression:     None
+Regression:      None
+Mandatory fams:  []
+Optional fams:   ['Acc', 'Core', 'Carry']
+Slot order:      ['Acc', 'DLKD', 'DLHD', 'Core', 'Acc']
+Typical duration: 30-45 min
+Min session comp: []
+
+ID:              14
+Name:            Mixed Modal (GPP)
+Purpose:         Broad athletic capacity across all domains. Nothing maximised, everything developed. Strength, power, speed, conditioning all touched weekly.
+Typical athlete: Off-season multi-sport, beginner athlete, military/tactical, general fitness, pre-specialisation athlete
+Best training age: 0-3 years
+Best season phase: ['off_season', 'pre_season']
+Best frequency:  4-5 sessions/week (3 rotating emphasis days: Strength, Power, Conditioning)
+Contraindications: Sport-specialised athlete in-season (needs focused blueprint), advanced athlete needing peaking (needs specificity), any block requiring sport-specific emphasis, late pre-season (<6 weeks to competition), post-rehab athlete (needs controlled loading, not rotation)
+Typical outcomes: Broad athletic foundation. Improved capacity across all 15 movement families. General work capacity and fitness. Identification of strength and weakness areas. Best as a 4-8 week foundation block before specialisation.
+Progression:     Full Body Strength
+Regression:      Youth Foundation (U14-U20)
+Mandatory fams:  []
+Optional fams:   []
+Slot order:      ['Sprint', 'DLKD', 'DLHD', 'HPush', 'HPull', 'Plyo', 'Core', 'Carry', 'Acc']
+Typical duration: 60-75 min
+Min session comp: []
+
+Total blueprints: 14
+
+==============================================================================
+CONDITIONING PROTOCOLS ΓÇö FULL DATA
+==============================================================================
+
+ID:           AC-001
+Name:         Long Slow Distance ΓÇö Base Builder
+Objective:    Build aerobic foundation, mitochondrial density, capillary network. Develop ability to sustain low-intensity effort for extended duration.
+System:       Aerobic Capacity
+Level:        Beginner to Elite
+Environment:  ['Field', 'Track', 'Road', 'Trail', 'Turf']
+Duration:     20-30 min
+Work desc:    Continuous running at conversational pace (able to speak in full sentences)
+Rest:         None ΓÇö continuous effort
+Sets:         1
+Total volume: 2-5 km
+Fatigue:      2
+Progression:  Add 2-5 min per week. Max 60 min. Or increase distance by 500m every 2 weeks.
+Regression:   Reduce to walk intervals (5 min jog, 2 min walk). Decrease duration by 50%.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-002
+Name:         Long Slow Distance ΓÇö Aerobic Volume
+Objective:    Increase aerobic capacity and endurance base. Higher volume than base builder.
+System:       Aerobic Capacity
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Track', 'Road']
+Duration:     30-45 min
+Work desc:    Continuous running at 60-70% HRmax. RPE 3-4.
+Rest:         None
+Sets:         1
+Total volume: 5-8 km
+Fatigue:      2
+Progression:  Add 5 min or 1 km every 2 weeks. Increase pace by 5-10s per km every 4 weeks while maintaining HR zone.
+Regression:   Reduce to 20 min. Alternate with 5 min walk breaks.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-003
+Name:         Recovery Jog
+Objective:    Active recovery. Increase blood flow, reduce muscle soreness, maintain movement quality.
+System:       Aerobic Capacity
+Level:        All levels
+Environment:  ['Field', 'Track', 'Grass', 'Turf']
+Duration:     12-20 min
+Work desc:    Very light jogging at 50-60% HRmax. RPE 2-3. Shoes optional (barefoot on grass preferred).
+Rest:         None
+Sets:         1
+Total volume: 1.5-3 km
+Fatigue:      1
+Progression:  N/A ΓÇö this is recovery, not progression. Maintain intensity ceiling.
+Regression:   Walk instead of jog. 10 min.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-004
+Name:         Cross-Training Aerobic
+Objective:    Build aerobic base while reducing impact on joints. Alternative for high-impact athletes or during injury management.
+System:       Aerobic Capacity
+Level:        All levels
+Environment:  ['Gym']
+Duration:     25-40 min
+Work desc:    Continuous effort at 60-70% HRmax. RPE 3-4. Bike, elliptical, rower, or swim.
+Rest:         None
+Sets:         1
+Total volume: N/A ΓÇö time-based
+Fatigue:      2
+Progression:  Add 5 min every 2 weeks. Increase resistance/RPM while maintaining HR zone.
+Regression:   Reduce duration to 15 min. Reduce intensity to RPE 2.
+Tier:         B
+W:R ratio:    None
+
+ID:           AC-005
+Name:         Aerobic Walk-Jog Progression
+Objective:    Transition from walking to continuous jogging. Beginner aerobic building.
+System:       Aerobic Capacity
+Level:        Beginner
+Environment:  ['Track', 'Field', 'Grass']
+Duration:     20-25 min
+Work desc:    3 min jog, 2 min walk. Repeat.
+Rest:         2 min walk between jog segments
+Sets:         4-5 work intervals
+Total volume: 12-15 min jogging, 8-10 min walking
+Fatigue:      2
+Progression:  Increase jog time (4 min jog, 1 min walk). Then reduce walk time. Eventually continuous jog.
+Regression:   Increase walk time (2 min jog, 3 min walk). Reduce total session time.
+Tier:         A
+W:R ratio:    3:2
+
+ID:           AC-006
+Name:         2 km Continuous Timed
+Objective:    Measure and develop aerobic capacity over a fixed distance. Benchmark for off-season base.
+System:       Aerobic Capacity
+Level:        Intermediate to Elite
+Environment:  ['Track', 'Road']
+Duration:     8-12 min
+Work desc:    2 km continuous run at steady effort. RPE 5-6.
+Rest:         None ΓÇö continuous
+Sets:         1
+Total volume: 2 km
+Fatigue:      3
+Progression:  Reduce time by 5-10s per month. Progress to 3 km at same pace.
+Regression:   Reduce to 1 km. Or 1.5 km at easier pace.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-007
+Name:         12-Minute Run (Cooper Test)
+Objective:    Measure VO2 max estimate. Used as periodic benchmark (every 4-8 weeks).
+System:       Aerobic Capacity
+Level:        Intermediate to Elite
+Environment:  ['Track']
+Duration:     12 min
+Work desc:    Cover maximum distance in 12 min at steady pace. RPE 8-9 (maximal sustainable effort).
+Rest:         None
+Sets:         1
+Total volume: Distance covered (standardised laps or 400m)
+Fatigue:      4
+Progression:  Increase distance covered by 50-100m between testing blocks.
+Regression:   Reduce to 8 min or 6 min if not ready for 12 min maximal effort.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-008
+Name:         15-Minute Tempo Walk
+Objective:    Low-impact aerobic foundation. Entry-level conditioning for return-to-sport or deconditioned athletes.
+System:       Aerobic Capacity
+Level:        Beginner
+Environment:  ['Track', 'Field', 'Road']
+Duration:     15 min
+Work desc:    Brisk walking at 6-7 km/h. RPE 2-3.
+Rest:         None
+Sets:         1
+Total volume: 1.5-1.8 km
+Fatigue:      1
+Progression:  Increase duration by 5 min every 2 weeks. Progress to jog segments.
+Regression:   Reduce to 10 min. Reduce pace.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-009
+Name:         2 km Run Assessment
+Objective:    Time-trial benchmark for aerobic capacity. Standardised assessment for field sport athletes.
+System:       Aerobic Capacity
+Level:        Intermediate to Elite
+Environment:  ['Track', 'Road']
+Duration:     8-12 min
+Work desc:    2 km run at maximal sustainable pace. RPE 8-9.
+Rest:         None
+Sets:         1
+Total volume: 2 km
+Fatigue:      4
+Progression:  Improve time by 5-10s per testing block (every 4-8 weeks).
+Regression:   Reduce to 1.5 km. Allow walking if needed.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-010
+Name:         30-Minute Zone 2 Bike
+Objective:    Low-impact aerobic capacity. Alternative for athletes needing lower body impact reduction.
+System:       Aerobic Capacity
+Level:        All levels
+Environment:  ['Gym']
+Duration:     30 min
+Work desc:    Cycling at 60-70% HRmax. Self-selected RPM (80-100). RPE 3-4.
+Rest:         None
+Sets:         1
+Total volume: Time-based
+Fatigue:      2
+Progression:  Increase duration to 40-45 min. Maintain HR zone.
+Regression:   Reduce to 20 min. Reduce resistance.
+Tier:         A
+W:R ratio:    None
+
+ID:           AC-011
+Name:         Fartlek ΓÇö Speed Play
+Objective:    Aerobic capacity with unstructured intensity variation. Builds ability to change pace.
+System:       Aerobic Capacity
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Trail', 'Grass']
+Duration:     20-30 min
+Work desc:    Continuous run with spontaneous surges (20-60s at moderate-fast pace) every 2-3 min. RPE varies 4-7.
+Rest:         None ΓÇö continuous with pace variation
+Sets:         1
+Total volume: 3-6 km
+Fatigue:      3
+Progression:  Increase surge duration. Decrease recovery between surges.
+Regression:   Reduce total duration. Walk during recoveries instead of jog.
+Tier:         B
+W:R ratio:    None
+
+ID:           AC-012
+Name:         20-Minute Aerobic Base
+Objective:    Short-duration aerobic capacity. For days when time is limited but aerobic stimulus is needed.
+System:       Aerobic Capacity
+Level:        All levels
+Environment:  ['Track', 'Field', 'Road']
+Duration:     20 min
+Work desc:    Continuous run at 65-75% HRmax. RPE 4.
+Rest:         None
+Sets:         1
+Total volume: 3-4 km
+Fatigue:      2
+Progression:  Extend to 25 min. Maintain HR zone.
+Regression:   Reduce to 15 min. Use jog-walk intervals if needed.
+Tier:         A
+W:R ratio:    None
+
+ID:           AP-001
+Name:         MAS 60m Standard
+Objective:    Develop maximal aerobic speed. Run at individual MAS pace. A BCCI and ASCA standard protocol.
+System:       Aerobic Power
+Level:        Intermediate to Elite
+Environment:  ['Track', 'Field']
+Duration:     18-24 min
+Work desc:    60m in target time (determined by MAS test: distance covered in 60s all-out = MAS pace per 60m). Typ
+Rest:         27s passive rest (1:3 to 1:4 work:rest ratio)
+Sets:         6 reps ├ù 3 sets. 5 min rest between sets.
+Total volume: 18-30 reps. 1,080-1,800m total.
+Fatigue:      3
+Progression:  Reduce rest (27s ΓåÆ 25s ΓåÆ 20s). Increase reps per set (6 ΓåÆ 8). Decrease set rest (5 ΓåÆ 4 min).
+Regression:   Increase rest (27s ΓåÆ 35s). Reduce reps (6 ΓåÆ 4 per set). Reduce sets (3 ΓåÆ 2). Reduce distance (60m ΓåÆ 50m).
+Tier:         A
+W:R ratio:    1:3
+
+ID:           AP-002
+Name:         Treadmill Threshold Intervals
+Objective:    Develop aerobic power at lactate threshold using controlled treadmill pace.
+System:       Aerobic Power
+Level:        Intermediate to Elite
+Environment:  ['Gym']
+Duration:     20-30 min
+Work desc:    400m at 15-16 km/h (or individual threshold pace). RPE 6-7.
+Rest:         60s passive rest
+Sets:         6-8 reps in 2-3 sets. 3-4 min rest between sets.
+Total volume: 2,400-3,200m
+Fatigue:      3
+Progression:  Increase pace by 0.5 km/h every 2 weeks. Increase reps (6 ΓåÆ 8 per set). Decrease rest (60s ΓåÆ 45s).
+Regression:   Reduce pace to comfortable conversational pace. Reduce reps to 4 per set.
+Tier:         A
+W:R ratio:    1:1
+
+ID:           AP-003
+Name:         1 km Repeats
+Objective:    Develop sustained aerobic power. Shorter rest builds lactate clearance.
+System:       Aerobic Power
+Level:        Intermediate to Elite
+Environment:  ['Track', 'Road']
+Duration:     18-25 min
+Work desc:    1 km at 75-85% effort. Target time e.g., 3:40. RPE 7.
+Rest:         3-4 min walking rest.
+Sets:         3-5 reps
+Total volume: 3-5 km
+Fatigue:      4
+Progression:  Increase reps (3 ΓåÆ 5). Decrease rest (4 ΓåÆ 3 min). Increase pace (3:40 ΓåÆ 3:30 per km).
+Regression:   Reduce distance to 800m. Increase rest to 5 min. Reduce reps to 2-3.
+Tier:         A
+W:R ratio:    1:1
+
+ID:           AP-004
+Name:         800m Repeats
+Objective:    Develop aerobic power at higher intensity than 1 km repeats. Bridge between aerobic power and intensive tempo.
+System:       Aerobic Power
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    800m at 80-90% effort. Target time e.g., 3:00-3:15. RPE 7-8.
+Rest:         3-5 min walking/very light jog
+Sets:         3-5 reps
+Total volume: 2.4-4 km
+Fatigue:      4
+Progression:  Increase reps (3 ΓåÆ 5). Decrease rest (5 ΓåÆ 3 min). Increase pace by 5s per 400m.
+Regression:   Reduce to 600m. Increase rest to 5-6 min. Reduce reps to 2-3.
+Tier:         B
+W:R ratio:    1:1
+
+ID:           AP-005
+Name:         400m Threshold Cruise
+Objective:    High-volume aerobic power with multiple shorter reps. Develop pace judgment and lactate clearance.
+System:       Aerobic Power
+Level:        Intermediate to Advanced
+Environment:  ['Track']
+Duration:     25-30 min
+Work desc:    400m at 75-80% effort. Target time e.g., 75-80s. Avg speed ~19.5 km/h.
+Rest:         60-90s walking rest
+Sets:         5-8 reps
+Total volume: 2-3.2 km
+Fatigue:      3
+Progression:  Increase reps (5 ΓåÆ 8). Decrease rest (90s ΓåÆ 60s). Increase pace (80s ΓåÆ 75s per 400m).
+Regression:   Reduce to 300m. Increase rest to 2 min. Reduce reps to 4.
+Tier:         A
+W:R ratio:    1:1
+
+ID:           AP-006
+Name:         20m MAS Shuttle
+Objective:    Develop MAS with directional change. Court and field sport specific.
+System:       Aerobic Power
+Level:        Intermediate to Advanced
+Environment:  ['Court', 'Field']
+Duration:     15-25 min
+Work desc:    20m shuttles at MAS pace (determined by 20m MAS test or adapted from 60m MAS). Typically 4-5s per sh
+Rest:         15-20s passive rest
+Sets:         6-10 reps ├ù 3 sets. 3-4 min rest between sets.
+Total volume: 360-600m total shuttle distance
+Fatigue:      3
+Progression:  Reduce rest. Increase reps per set. Add directional variation (side shuffle, backpedal).
+Regression:   Increase rest. Reduce distance to 10m. Reduce reps and sets.
+Tier:         B
+W:R ratio:    1:4
+
+ID:           AP-007
+Name:         30-15 IFT (Intermittent Fitness Test)
+Objective:    Develop intermittent aerobic power. Shuttle-based, increasing speed. Court sport specific.
+System:       Aerobic Power
+Level:        Advanced to Elite
+Environment:  ['Court', 'Field']
+Duration:     15-25 min
+Work desc:    30s shuttle runs at progressively increasing speed (determined by 30-15 IFT test result). 20-40m shu
+Rest:         20s passive rest between each 30s effort
+Sets:         Until fatigue (pre-determined number or until can't maintain pace)
+Total volume: 8-16 repetitions (determined by fitness level)
+Fatigue:      4
+Progression:  Run at higher velocity (VIFT) for training sets. Increase number of reps.
+Regression:   Use shorter shuttle distance (20m). Reduce target speed by 1-2 km/h.
+Tier:         B
+W:R ratio:    3:2
+
+ID:           AP-008
+Name:         Yo-Yo IR1 Shuttles
+Objective:    Develop intermittent aerobic power with standardized protocol. Widely used across field sports for pre-season conditioning.
+System:       Aerobic Power
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Court']
+Duration:     10-20 min
+Work desc:    2 ├ù 20m shuttles at progressively increasing speed. Beep dictates pace.
+Rest:         10s active recovery (2 ├ù 5m jog) between each shuttle pair
+Sets:         Until exhaustion (test) or pre-determined level (training)
+Total volume: Distance determined by level reached
+Fatigue:      4
+Progression:  Train at 1-2 levels below max. Increase duration.
+Regression:   Reduce shuttle distance (2 ├ù 15m). Use fixed pace (not progressive).
+Tier:         A
+W:R ratio:    1:1
+
+ID:           AP-009
+Name:         3 km Time Trial
+Objective:    Benchmark for aerobic power and pace judgment. Longer than 2 km but sustainable at threshold.
+System:       Aerobic Power
+Level:        Advanced to Elite
+Environment:  ['Track', 'Road']
+Duration:     12-18 min
+Work desc:    3 km run at maximal sustainable pace. RPE 8-9.
+Rest:         None
+Sets:         1
+Total volume: 3 km
+Fatigue:      4
+Progression:  Improve time by 10-15s per testing block.
+Regression:   Reduce to 2 km.
+Tier:         B
+W:R ratio:    None
+
+ID:           AP-010
+Name:         1 km Cruise ΓÇö Tempo Pace
+Objective:    Aerobic power at sustained threshold pace. Develops ability to hold race pace for extended duration.
+System:       Aerobic Power
+Level:        Intermediate to Elite
+Environment:  ['Track', 'Road']
+Duration:     25-35 min
+Work desc:    1 km at lactate threshold pace (82-87% HRmax). RPE 6-7.
+Rest:         2 min walking rest
+Sets:         4-6 reps
+Total volume: 4-6 km
+Fatigue:      4
+Progression:  Decrease rest (2 min ΓåÆ 90s). Increase reps (4 ΓåÆ 6). Increase pace.
+Regression:   Reduce to 800m. Increase rest to 3 min.
+Tier:         A
+W:R ratio:    2:1
+
+ID:           AP-011
+Name:         5 ├ù 3 min ΓÇö Threshold Set
+Objective:    Aerobic power at threshold with fixed work duration. Time-based, distance-agnostic.
+System:       Aerobic Power
+Level:        Intermediate to Advanced
+Environment:  ['Track', 'Field', 'Road']
+Duration:     25-30 min
+Work desc:    3 min at threshold pace (RPE 7, 85-90% HRmax).
+Rest:         2 min walking recovery
+Sets:         5 reps
+Total volume: 15 min at threshold pace
+Fatigue:      4
+Progression:  Decrease rest (2 min ΓåÆ 90s). Increase work (3 min ΓåÆ 4 min).
+Regression:   Decrease work (3 min ΓåÆ 2 min). Increase rest (2 min ΓåÆ 3 min).
+Tier:         A
+W:R ratio:    3:2
+
+ID:           ET-001
+Name:         60m Tempo ΓÇö BCCI Standard
+Objective:    Develop extensive tempo capacity. Sub-maximal speed with short recovery. BCCI pre-season standard.
+System:       Extensive Tempo
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Track']
+Duration:     12-18 min
+Work desc:    60m at 70-80% max speed. Finish in 10-12s. RPE 5-6.
+Rest:         30s passive rest (walk back to start)
+Sets:         10 reps ├ù 2 sets. 3-4 min rest between sets.
+Total volume: 20 reps. 1,200m total.
+Fatigue:      3
+Progression:  Reduce rest (30s ΓåÆ 20s). Increase reps per set (10 ΓåÆ 12). Decrease set rest (3 ΓåÆ 2 min).
+Regression:   Increase rest (30s ΓåÆ 45s). Reduce reps (10 ΓåÆ 8 per set). Reduce sets to 1.
+Tier:         A
+W:R ratio:    1:3
+
+ID:           ET-002
+Name:         100m Tempo
+Objective:    Extensive tempo over longer distance. Speed maintenance at sub-maximal effort.
+System:       Extensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Track', 'Field']
+Duration:     15-20 min
+Work desc:    100m at 70-80% max speed. RPE 5-6.
+Rest:         Walk back recovery (45-60s)
+Sets:         8-12 reps ├ù 1-2 sets. 3-4 min rest between sets.
+Total volume: 800-2,400m
+Fatigue:      3
+Progression:  Increase reps (8 ΓåÆ 12). Add second set. Reduce rest (walk back ΓåÆ 30s).
+Regression:   Increase rest to 90s. Reduce reps to 6. Reduce to 1 set.
+Tier:         A
+W:R ratio:    1:1
+
+ID:           ET-003
+Name:         80m Tempo ΓÇö Timed Intervals
+Objective:    Tempo running with fixed time-based start. Develop ability to recover between efforts on a clock. Cricket/field sport standard.
+System:       Extensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Field']
+Duration:     15-20 min
+Work desc:    80m run at sub-maximal pace (70-80%).
+Rest:         Start every 40th second (time-based interval). Rest depends on work speed.
+Sets:         3 sets ├ù 8 reps. 4 min rest between sets.
+Total volume: 24 reps. 1,920m total.
+Fatigue:      3
+Progression:  Reduce start interval (40s ΓåÆ 35s). Increase reps per set (8 ΓåÆ 10). Increase distance (80 ΓåÆ 100m).
+Regression:   Increase start interval (40s ΓåÆ 50s). Reduce reps (8 ΓåÆ 6 per set). Reduce to 2 sets.
+Tier:         B
+W:R ratio:    1:1
+
+ID:           ET-004
+Name:         70m Run / 30m Walk Continuous
+Objective:    Extensive tempo in continuous format. Run-walk pattern maintains steady moderate intensity.
+System:       Extensive Tempo
+Level:        Beginner to Intermediate
+Environment:  ['Field', 'Track']
+Duration:     18-22 min
+Work desc:    70m run at 65-75% max speed. RPE 4-5.
+Rest:         30m walk (active recovery, keep moving)
+Sets:         Continuous for 20 min. Approximately 12-15 cycles.
+Total volume: 840-1,050m running volume in 20 min
+Fatigue:      2
+Progression:  Increase run segment (70m ΓåÆ 90m). Decrease walk segment (30m ΓåÆ 20m). Increase pace.
+Regression:   Decrease run segment (70m ΓåÆ 50m). Increase walk segment (30m ΓåÆ 40m).
+Tier:         A
+W:R ratio:    7:3
+
+ID:           ET-005
+Name:         6 ├ù 100m Build-up
+Objective:    Extensive tempo with acceleration patterning. Each rep builds speed progressively.
+System:       Extensive Tempo
+Level:        All levels
+Environment:  ['Track', 'Field']
+Duration:     15-20 min
+Work desc:    100m starting at 50% speed, building 10% per 20m. Finish at ~100% in final 20m.
+Rest:         Walk back recovery (60-90s)
+Sets:         6 reps
+Total volume: 600m
+Fatigue:      3
+Progression:  Increase reps (6 ΓåÆ 8). Add second set.
+Regression:   Reduce to 80m. Hold lower top speed (80% max). Reduce reps to 4.
+Tier:         B
+W:R ratio:    1:1
+
+ID:           ET-006
+Name:         Cricket Ground Circuit
+Objective:    Extensive tempo using cricket ground perimeter. Builds sport-specific aerobic base. BCCI/ECB standard.
+System:       Extensive Tempo
+Level:        Intermediate to Elite
+Environment:  ['Field']
+Duration:     18-22 min
+Work desc:    12 rounds of a cricket ground (~400-450m per round) in 20 min. Target time: 1:35-1:45 per round. RPE
+Rest:         None ΓÇö continuous effort
+Sets:         12 rounds
+Total volume: ~5 km
+Fatigue:      3
+Progression:  Reduce total time (20 min ΓåÆ 18 min for same rounds). Increase rounds (12 ΓåÆ 14).
+Regression:   Reduce rounds (12 ΓåÆ 8-10). Walk recovery between rounds.
+Tier:         B
+W:R ratio:    None
+
+ID:           ET-007
+Name:         2-4-6 Ladder
+Objective:    Extensive/intensive tempo with escalating volumes. Builds both capacity and tolerance. Cricket standard.
+System:       Extensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Field']
+Duration:     15-20 min
+Work desc:    Level 1: 2 runs within 6s total. 15s rest. Level 2: 4 runs within 13s total. 30s rest. Level 3: 6 ru
+Rest:         Between levels: 15-30s. Between sets: 2 min.
+Sets:         4 sets. Each set = 1 round of 2-4-6.
+Total volume: 12 runs per set ├ù 4 sets = 48 runs. Distance per run = 15-20m. Total ~720-960m.
+Fatigue:      4
+Progression:  Reduce target times. Increase runs per level. Reduce set rest (2 min ΓåÆ 90s).
+Regression:   Increase target times. Reduce to 2-4 ladder (omit 6). Reduce to 3 sets.
+Tier:         B
+W:R ratio:    1:2
+
+ID:           ET-008
+Name:         50m Sprint ├ù 8 ΓÇö Tempo
+Objective:    Short tempo at slightly higher intensity. Builds speed endurance base.
+System:       Extensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Field', 'Track']
+Duration:     10-15 min
+Work desc:    50m at medium-high intensity (~80%). Finish in ~8-10s.
+Rest:         Walk back recovery (40-50s)
+Sets:         8 reps
+Total volume: 400m
+Fatigue:      3
+Progression:  Increase reps (8 ΓåÆ 12). Add second set.
+Regression:   Reduce intensity to 70%. Reduce reps to 6. Increase rest to 90s.
+Tier:         A
+W:R ratio:    1:5
+
+ID:           ET-009
+Name:         Grass Sprints ΓÇö 40m Tempo
+Objective:    Low-impact tempo on grass. Reduced joint stress while developing tempo capacity. Rugby/Soccer standard.
+System:       Extensive Tempo
+Level:        All levels
+Environment:  ['Field']
+Duration:     12-18 min
+Work desc:    40m at 70-80% on grass. Barefoot or flat shoes optional. RPE 5.
+Rest:         Walk-back recovery (30-40s)
+Sets:         12-15 reps ├ù 1-2 sets. 3 min rest between sets.
+Total volume: 480-1,200m
+Fatigue:      3
+Progression:  Increase reps. Add second set.
+Regression:   Reduce to 30m. Increase walk-back time.
+Tier:         A
+W:R ratio:    1:4
+
+ID:           ET-010
+Name:         30m Tempo ΓÇö Short and Quick
+Objective:    Very short tempo. Quicker turnover at moderate intensity. Develops rhythm.
+System:       Extensive Tempo
+Level:        All levels
+Environment:  ['Field', 'Track']
+Duration:     10-15 min
+Work desc:    30m at 75-80% speed. Finish in 5-6s.
+Rest:         15-20s walk-back
+Sets:         15-20 reps
+Total volume: 450-600m
+Fatigue:      2
+Progression:  Increase reps. Decrease walk-back time.
+Regression:   Reduce to 20m. Increase rest.
+Tier:         A
+W:R ratio:    1:3
+
+ID:           IT-001
+Name:         400m Repeats ΓÇö Pre-Season Classic
+Objective:    Develop intensive tempo capacity. Build speed endurance at moderate-high intensity. Classic pre-season protocol across all field sports.
+System:       Intensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Track']
+Duration:     30-40 min
+Work desc:    400m at 80-87% max effort. Target: 70-80s per 400m. RPE 7-8.
+Rest:         3-5 min walking rest
+Sets:         5 reps
+Total volume: 2,000m
+Fatigue:      4
+Progression:  Increase reps (5 ΓåÆ 7). Decrease rest (4 ΓåÆ 3 min). Increase pace (75s ΓåÆ 68s per 400m).
+Regression:   Reduce to 300m. Increase rest to 5-6 min. Reduce to 3 reps.
+Tier:         A
+W:R ratio:    1:3
+
+ID:           IT-002
+Name:         Descending Ladder ΓÇö 800-400-200-100
+Objective:    Intensive tempo with increasing intensity as distance decreases. Builds speed endurance across multiple paces.
+System:       Intensive Tempo
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     30-40 min
+Work desc:    800m at 75-80% (3:00-3:15). Rest 4 min. 400m at 80-85% (65-72s). Rest 3 min. 200m at 85-90% (28-32s)
+Rest:         Between reps: decreasing (4 ΓåÆ 3 ΓåÆ 2 min). Between sets: 6-8 min.
+Sets:         1-3 sets of the descending ladder
+Total volume: 1,500m per set. 1,500-4,500m total.
+Fatigue:      5
+Progression:  Add second set. Decrease rest between reps. Increase pace on each segment.
+Regression:   Omit the 800m (start at 400m). Increase all rest times by 1 min. Single set only.
+Tier:         C
+W:R ratio:    1:2
+
+ID:           IT-003
+Name:         200m Repeats
+Objective:    Intensive tempo at higher speed. Develop speed endurance at 85-90% effort.
+System:       Intensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    200m at 85-90% max speed. Target: 30-35s per 200m. RPE 8.
+Rest:         2-3 min walking rest
+Sets:         6-10 reps
+Total volume: 1,200-2,000m
+Fatigue:      4
+Progression:  Increase reps (6 ΓåÆ 10). Decrease rest (3 ΓåÆ 2 min). Increase pace (35s ΓåÆ 30s per 200m).
+Regression:   Reduce to 150m. Increase rest to 4 min. Reduce to 4 reps.
+Tier:         A
+W:R ratio:    1:4
+
+ID:           IT-004
+Name:         300m Repeats
+Objective:    Intensive tempo bridging 200m and 400m pace. Develop feel for middle-distance pacing.
+System:       Intensive Tempo
+Level:        Advanced
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    300m at 82-88% max speed. Target: 48-55s per 300m. RPE 7-8.
+Rest:         3-4 min walking rest
+Sets:         4-6 reps
+Total volume: 1,200-1,800m
+Fatigue:      4
+Progression:  Increase reps (4 ΓåÆ 6). Decrease rest (4 ΓåÆ 3 min). Increase pace.
+Regression:   Reduce to 250m. Increase rest to 5 min. Reduce to 3 reps.
+Tier:         B
+W:R ratio:    1:4
+
+ID:           IT-005
+Name:         600m Repeats
+Objective:    Longer intensive tempo. Develop aerobic power overlap with lactate threshold.
+System:       Intensive Tempo
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    600m at 80-85% max effort. Target: 2:10-2:30 per 600m. RPE 7-8.
+Rest:         4-5 min walking rest
+Sets:         3-5 reps
+Total volume: 1,800-3,000m
+Fatigue:      4
+Progression:  Increase reps (3 ΓåÆ 5). Decrease rest (5 ΓåÆ 4 min). Increase pace.
+Regression:   Reduce to 500m. Increase rest to 6 min. Reduce to 2 reps.
+Tier:         B
+W:R ratio:    1:3
+
+ID:           IT-006
+Name:         500m Repeats
+Objective:    Bridge between 400m and 600m intensive tempo. Develop pace judgment at intermediate distance.
+System:       Intensive Tempo
+Level:        Intermediate to Advanced
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    500m at 82-87% max effort. Target: 1:40-2:00 per 500m. RPE 7-8.
+Rest:         3-4 min walking rest
+Sets:         4-6 reps
+Total volume: 2,000-3,000m
+Fatigue:      4
+Progression:  Increase reps. Decrease rest. Increase pace by 2-3s per 500m.
+Regression:   Reduce to 400m. Increase rest to 5 min.
+Tier:         B
+W:R ratio:    1:3
+
+ID:           IT-007
+Name:         Pyramid ΓÇö Build and Descend
+Objective:    Intensive tempo across multiple distances within one session. Develop pace awareness and versatility.
+System:       Intensive Tempo
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     35-45 min
+Work desc:    100m ΓåÆ 200m ΓåÆ 400m ΓåÆ 600m ΓåÆ 400m ΓåÆ 200m ΓåÆ 100m. Each rep at 80-90% of best effort for that distance.
+Rest:         2 min between shorter reps (100-200m). 4 min between longer reps (400-600m).
+Sets:         1 pyramid = 7 reps. 1-2 sets with 8-10 min rest between sets.
+Total volume: 2,000m per pyramid
+Fatigue:      5
+Progression:  Decrease rest between all reps. Add second set.
+Regression:   Omit 600m (100-200-400-200-100). Increase all rest times.
+Tier:         C
+W:R ratio:    1:2
+
+ID:           IT-008
+Name:         Negative Split 800s
+Objective:    Intensive tempo with pacing strategy. First half slower than second half ΓÇö develops finishing speed.
+System:       Intensive Tempo
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    800m: first 400m at 75%, second 400m at 85-90%. Target overall: 2:40-3:00.
+Rest:         5-6 min walking rest
+Sets:         3-4 reps
+Total volume: 2,400-3,200m
+Fatigue:      5
+Progression:  Tighten the negative split margin. Decrease rest.
+Regression:   Reduce to 600m negative split. Increase rest.
+Tier:         C
+W:R ratio:    1:4
+
+ID:           RSA-001
+Name:         30m Every 30s ΓÇö Basic RSA
+Objective:    Develop repeated sprint ability. Fixed time-based starts build ability to recover and reproduce maximal effort. BCCI standard.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Track']
+Duration:     5-8 min
+Work desc:    30m maximal sprint.
+Rest:         Start every 30s. Rest = 30s minus sprint time (~25-26s passive rest).
+Sets:         1 set ├ù 6-12 reps (5-6 min total)
+Total volume: 180-360m of max sprinting
+Fatigue:      4
+Progression:  Reduce start interval (30s ΓåÆ 25s). Increase duration (5 ΓåÆ 10 min = 20 reps). Increase sprint distance (30 ΓåÆ 40m).
+Regression:   Increase start interval (30s ΓåÆ 40s). Reduce duration to 3 min. Reduce to 70% intensity.
+Tier:         A
+W:R ratio:    1:5
+
+ID:           RSA-002
+Name:         30m Every 20s ΓÇö Fatigue Maintenance
+Objective:    Power maintenance under increasing fatigue. Shorter recovery than standard RSA. Tests ability to maintain speed with incomplete recovery.
+System:       Repeated Sprint Ability
+Level:        Advanced to Elite
+Environment:  ['Field']
+Duration:     2-3 min
+Work desc:    30m maximal sprint.
+Rest:         Start every 20s. Rest = 20s minus sprint time (~15-16s).
+Sets:         6-10 reps
+Total volume: 180-300m
+Fatigue:      5
+Progression:  Increase reps (6 ΓåÆ 10). Reduce interval (20s ΓåÆ 18s). Increase distance (30 ΓåÆ 40m).
+Regression:   Increase interval (20s ΓåÆ 25s). Reduce reps to 4. Reduce intensity to 90%.
+Tier:         A
+W:R ratio:    1:3
+
+ID:           RSA-003
+Name:         40m RSA ΓÇö Field Sport
+Objective:    Develop RSA over longer sprint distance. More specific to field sports with longer high-speed runs.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Advanced
+Environment:  ['Field', 'Track']
+Duration:     8-12 min
+Work desc:    40m maximal sprint.
+Rest:         60s passive rest
+Sets:         6-10 reps
+Total volume: 240-400m
+Fatigue:      4
+Progression:  Reduce rest (60s ΓåÆ 45s). Increase reps (6 ΓåÆ 10). Add second set with 4 min rest between sets.
+Regression:   Increase rest (60s ΓåÆ 90s). Reduce to 30m. Reduce reps to 5.
+Tier:         A
+W:R ratio:    1:8
+
+ID:           RSA-004
+Name:         RSA Cluster ΓÇö 3x30m
+Objective:    High-density RSA. Cluster format allows more work in less time with intra-cluster incomplete recovery.
+System:       Repeated Sprint Ability
+Level:        Advanced to Elite
+Environment:  ['Field']
+Duration:     18-25 min
+Work desc:    3 ├ù 30m maximal sprints per cluster. Intra-cluster rest: 20s between sprints.
+Rest:         Between clusters: 4 min passive rest.
+Sets:         3-4 clusters ├ù 3 sprints = 9-12 total sprints
+Total volume: 270-360m
+Fatigue:      5
+Progression:  Increase clusters (3 ΓåÆ 5). Reduce intra-cluster rest (20s ΓåÆ 15s). Reduce inter-cluster rest (4 ΓåÆ 3 min).
+Regression:   Reduce to 2 sprints per cluster. Increase inter-cluster rest to 5 min. Reduce to 2 clusters.
+Tier:         B
+W:R ratio:    1:4
+
+ID:           RSA-005
+Name:         20m Shuttle RSA
+Objective:    Develop RSA with directional change. Court and field sport specific repeated sprint ability.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Advanced
+Environment:  ['Court', 'Field']
+Duration:     6-10 min
+Work desc:    20m sprint, touch line, 20m sprint back (40m total per rep with change of direction).
+Rest:         60s passive rest
+Sets:         5-8 reps
+Total volume: 200-320m total
+Fatigue:      4
+Progression:  Reduce rest (60s ΓåÆ 45s). Add second set. Increase reps.
+Regression:   Single 20m (no return). Increase rest to 90s. Reduce reps to 4.
+Tier:         B
+W:R ratio:    1:6
+
+ID:           RSA-006
+Name:         25m ├ù 6 ΓÇö Tight Rest
+Objective:    Short RSA with very tight rest. Develop ability to reproduce short explosive efforts under fatigue.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Advanced
+Environment:  ['Field']
+Duration:     10-15 min
+Work desc:    25m sprint in 4-5s.
+Rest:         15s passive rest between reps. 3-4 min between sets.
+Sets:         6 reps ├ù 2-3 sets
+Total volume: 300-450m
+Fatigue:      5
+Progression:  Reduce rest (15s ΓåÆ 12s). Increase reps per set (6 ΓåÆ 8). Increase sets (2 ΓåÆ 3).
+Regression:   Increase rest (15s ΓåÆ 20s). Reduce reps (6 ΓåÆ 4). Reduce to 1 set.
+Tier:         B
+W:R ratio:    1:3
+
+ID:           RSA-007
+Name:         20m ├ù 6 ΓÇö 30s On, 60s Off
+Objective:    Time-based shuttle RSA. Work window is fixed, making this a pacing challenge.
+System:       Repeated Sprint Ability
+Level:        Intermediate
+Environment:  ['Field']
+Duration:     8-12 min
+Work desc:    Complete minimum 11 runs of 20m in 60s. More runs = better performance. Target: 11+ runs per set.
+Rest:         60s passive rest between sets
+Sets:         3 sets
+Total volume: 660m+ (11+ runs ├ù 20m ├ù 3 sets)
+Fatigue:      4
+Progression:  Increase target runs per set (11 ΓåÆ 13 ΓåÆ 15). Reduce set rest (60s ΓåÆ 45s). Add fourth set.
+Regression:   Reduce target (<11 runs per set). Increase set rest (60s ΓåÆ 90s). Reduce to 2 sets.
+Tier:         B
+W:R ratio:    1:1
+
+ID:           RSA-008
+Name:         Agility 4├ù10m Shuttle Continuous
+Objective:    Short RSA with multiple directional changes. Develop COD speed under fatigue.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Advanced
+Environment:  ['Court', 'Field']
+Duration:     6-10 min
+Work desc:    4 ├ù 10m shuttles continuous (40m total per rep). Target: minimum 21s per rep.
+Rest:         60-90s passive rest between reps
+Sets:         6-10 reps
+Total volume: 240-400m total
+Fatigue:      4
+Progression:  Reduce target time per rep. Decrease rest. Increase reps.
+Regression:   Reduce to 2 ├ù 10m shuttle. Increase rest to 2 min. Reduce reps to 4.
+Tier:         B
+W:R ratio:    1:2
+
+ID:           RSA-009
+Name:         10m Shuttle RSA ΓÇö Court Sport
+Objective:    Court-specific RSA with multiple short-direction changes. Simulates badminton/tennis rally demands.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Elite
+Environment:  ['Court']
+Duration:     8-12 min
+Work desc:    5 ├ù 10m shuttles (touch and go, 5 direction changes). One rep = ~50m total distance.
+Rest:         45-60s passive rest
+Sets:         6-8 reps ├ù 2-3 sets. 3-4 min rest between sets.
+Total volume: 300-400m per set
+Fatigue:      5
+Progression:  Increase shuttles per rep (5 ΓåÆ 7). Decrease rest.
+Regression:   Reduce shuttles per rep (5 ΓåÆ 3). Increase rest.
+Tier:         B
+W:R ratio:    1:4
+
+ID:           RSA-010
+Name:         German Volume RSA
+Objective:    High-volume RSA. Develop repeated sprint work capacity with controlled rest.
+System:       Repeated Sprint Ability
+Level:        Advanced to Elite
+Environment:  ['Field']
+Duration:     20-30 min
+Work desc:    30m sprint ├ù 10 reps per set.
+Rest:         30s between reps. 4 min between sets.
+Sets:         3 sets ├ù 10 reps
+Total volume: 900m
+Fatigue:      5
+Progression:  Increase sets (3 ΓåÆ 4). Decrease inter-set rest.
+Regression:   Reduce reps per set (10 ΓåÆ 6). Increase rest.
+Tier:         C
+W:R ratio:    1:3
+
+ID:           RSA-011
+Name:         Direction Change RSA
+Objective:    RSA with integrated directional changes. Sport-specific repeated agility.
+System:       Repeated Sprint Ability
+Level:        Intermediate to Advanced
+Environment:  ['Field', 'Court']
+Duration:     10-15 min
+Work desc:    20m sprint ΓåÆ 90┬░ cut ΓåÆ 10m sprint ΓåÆ 90┬░ cut ΓåÆ 10m sprint. One rep = various path total ~40m.
+Rest:         60s passive rest
+Sets:         6-8 reps
+Total volume: 240-320m
+Fatigue:      4
+Progression:  Increase cut angle (90┬░ ΓåÆ 135┬░ ΓåÆ 180┬░). Decrease rest.
+Regression:   Reduce cuts. Flatten the path. Increase rest.
+Tier:         B
+W:R ratio:    1:6
+
+ID:           SE-001
+Name:         150m Repeats
+Objective:    Develop speed endurance at near-maximal speed. Improve ability to maintain velocity beyond 100m.
+System:       Speed Endurance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    150m at 90-95% max speed. RPE 9.
+Rest:         4-5 min walking rest (full recovery)
+Sets:         4-6 reps
+Total volume: 600-900m
+Fatigue:      5
+Progression:  Increase reps (4 ΓåÆ 6). Decrease rest (5 ΓåÆ 4 min). Increase pace by 1-2s per 150m.
+Regression:   Reduce to 120m. Increase rest to 6-7 min. Reduce to 3 reps.
+Tier:         B
+W:R ratio:    1:5
+
+ID:           SE-002
+Name:         Flying 30s ΓÇö Speed Maintenance
+Objective:    Maintain max velocity over 30m from a flying start. Develop the ability to hold top speed.
+System:       Speed Endurance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    30m timed max velocity with 30-40m build-up. Full recovery.
+Rest:         3-5 min walking rest
+Sets:         4-6 reps
+Total volume: 120-180m at max velocity (not counting build-up)
+Fatigue:      4
+Progression:  Increase timed distance (30 ΓåÆ 40 ΓåÆ 50m). Decrease rest (5 ΓåÆ 4 min). Increase reps.
+Regression:   Reduce to 20m timed. Increase rest to 6 min. Reduce to 3 reps.
+Tier:         B
+W:R ratio:    1:6
+
+ID:           SE-003
+Name:         Cut-downs ΓÇö 150m
+Objective:    Speed endurance with pace progression. Develop the ability to finish fast under fatigue.
+System:       Speed Endurance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    150m: first 50m at 70%, middle 50m at 85%, final 50m at 100%.
+Rest:         4-5 min walking rest
+Sets:         4-6 reps
+Total volume: 600-900m
+Fatigue:      5
+Progression:  Increase reps. Decrease rest. Increase each segment's speed by 2-3%.
+Regression:   Reduce to 100m cut-down (50m build, 50m max). Increase rest.
+Tier:         B
+W:R ratio:    1:5
+
+ID:           SE-004
+Name:         Sprint Float Sprint ΓÇö 100m
+Objective:    Speed endurance with active recovery between efforts. Develop ability to recover and re-accelerate. Track athlete standard.
+System:       Speed Endurance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    100m sprint ΓåÆ 100m float (70%) ΓåÆ 100m sprint. 1 set = 300m.
+Rest:         Walk-back recovery between 100m segments (~60s walk). 4-5 min full rest between sets.
+Sets:         3-4 sets (each set = 3 ├ù 100m)
+Total volume: 900-1,200m total
+Fatigue:      5
+Progression:  Increase sets (3 ΓåÆ 5). Decrease float recovery (walk ΓåÆ light jog).
+Regression:   Reduce to sprint-float-sprint but only 80m each. Reduce to 2 sets.
+Tier:         B
+W:R ratio:    1:4
+
+ID:           SE-005
+Name:         50m ├ù 8 + 25m ├ù 6 Combo
+Objective:    Speed endurance combo. Longer efforts for base, shorter for intensity. Field sport standard.
+System:       Speed Endurance
+Level:        Intermediate to Advanced
+Environment:  ['Field', 'Track']
+Duration:     25-35 min
+Work desc:    Block 1: 50m sprint ├ù 8 at 85-90%. Walk-back rest. Block 2: 25m sprint ├ù 6 at 95-100%. Walk-back res
+Rest:         Walk-back between reps. 4 min rest between blocks.
+Sets:         1 block of each (14 total sprints)
+Total volume: 400m (50m block) + 150m (25m block) = 550m total
+Fatigue:      4
+Progression:  Add second round of each block. Reduce walk-back speed.
+Regression:   Reduce reps (50m: 8ΓåÆ6, 25m: 6ΓåÆ4). Increase walk-back time.
+Tier:         B
+W:R ratio:    1:3
+
+ID:           SE-006
+Name:         100m ├ù 6 ΓÇö Timed
+Objective:    Speed endurance over 100m with controlled rest. Benchmark for acceleration and speed maintenance.
+System:       Speed Endurance
+Level:        Intermediate to Elite
+Environment:  ['Track']
+Duration:     15-20 min
+Work desc:    100m at 90-100% (depending on phase). Fresh: 95-100%. Pre-season: 80-90%.
+Rest:         Walk-back recovery (2-3 min)
+Sets:         6 reps
+Total volume: 600m
+Fatigue:      4
+Progression:  Decrease rest (3 ΓåÆ 2 min). Increase intensity (80% ΓåÆ 90% ΓåÆ 95%).
+Regression:   Reduce to 80m. Increase rest to 4 min. Reduce to 4 reps.
+Tier:         B
+W:R ratio:    1:2
+
+ID:           SE-007
+Name:         Acceleration Build-up 60m
+Objective:    Speed endurance with acceleration patterning through full 60m. Develops ability to hold top speed at distance.
+System:       Speed Endurance
+Level:        Intermediate to Advanced
+Environment:  ['Track', 'Field']
+Duration:     15-20 min
+Work desc:    60m: build from 50% at 0m to 95% at 60m. Smooth acceleration across the full distance.
+Rest:         Walk-back recovery (2-3 min)
+Sets:         5-7 reps
+Total volume: 300-420m
+Fatigue:      4
+Progression:  Start at higher initial speed. Increase rep count.
+Regression:   Reduce to 40m. Start at 60%.
+Tier:         B
+W:R ratio:    1:2
+
+ID:           SE-008
+Name:         120m Repeats
+Objective:    Speed endurance bridging 100m and 150m. Develop ability to hold speed beyond 100m.
+System:       Speed Endurance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    120m at 90-95% max speed. RPE 8-9.
+Rest:         4-5 min walking rest
+Sets:         4-6 reps
+Total volume: 480-720m
+Fatigue:      5
+Progression:  Increase reps. Decrease rest at same quality.
+Regression:   Reduce to 100m. Increase rest to 6 min.
+Tier:         B
+W:R ratio:    1:5
+
+ID:           SE-009
+Name:         80m Flying Start ΓÇö Speed Maintenance
+Objective:    Speed endurance from a rolling start. Emphasises max velocity maintenance.
+System:       Speed Endurance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    30m build-up to max speed, then 80m at max velocity maintenance. Total run = 110m.
+Rest:         4-6 min walking rest (full recovery required)
+Sets:         4-5 reps
+Total volume: 320-400m at max velocity
+Fatigue:      5
+Progression:  Extend timed segment (80m ΓåÆ 100m). Decrease rest if quality maintained.
+Regression:   Reduce build-up (30m ΓåÆ 20m). Reduce timed segment (80m ΓåÆ 60m).
+Tier:         B
+W:R ratio:    1:6
+
+ID:           AS-001
+Name:         10m Acceleration
+Objective:    Develop first-step quickness and acceleration from a stationary start.
+System:       Alactic Speed
+Level:        All levels
+Environment:  ['Field', 'Track', 'Court']
+Duration:     8-12 min
+Work desc:    10m maximal acceleration from 2-point or 3-point start.
+Rest:         60-90s passive rest (full recovery)
+Sets:         6-8 reps
+Total volume: 60-80m total
+Fatigue:      3
+Progression:  Increase rest to maintain quality. Add resisted sprint (sled). Progress to 20m.
+Regression:   Reduce to standing start. Increase rest to 2 min.
+Tier:         A
+W:R ratio:    1:10
+
+ID:           AS-002
+Name:         20m Sprints
+Objective:    Develop acceleration phase (0-20m). The most common speed distance across field sports.
+System:       Alactic Speed
+Level:        All levels
+Environment:  ['Field', 'Track', 'Turf']
+Duration:     10-15 min
+Work desc:    20m maximal sprint.
+Rest:         2-3 min passive rest (full recovery)
+Sets:         6-8 reps
+Total volume: 120-160m total
+Fatigue:      3
+Progression:  Add rolling start. Add resisted sprint. Reduce rest to 90s if maintaining quality.
+Regression:   Reduce to 15m. Increase rest to 3 min. Reduce reps to 4.
+Tier:         A
+W:R ratio:    1:12
+
+ID:           AS-003
+Name:         30m Sprints ΓÇö Full Recovery
+Objective:    Develop acceleration to top speed. 30m covers most field sport sprint distances.
+System:       Alactic Speed
+Level:        All levels
+Environment:  ['Field', 'Track']
+Duration:     12-20 min
+Work desc:    30m maximal sprint.
+Rest:         2-3 min passive rest (full recovery)
+Sets:         6-8 reps
+Total volume: 180-240m
+Fatigue:      3
+Progression:  Progress to flying 30m (build-up then timed). Add sled resistance.
+Regression:   Reduce to 20m. Increase rest to 4 min. Reduce reps.
+Tier:         A
+W:R ratio:    1:12
+
+ID:           AS-004
+Name:         Flying 10m Timed
+Objective:    Measure and develop max velocity. Flying start eliminates acceleration phase, isolates top speed.
+System:       Alactic Speed
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     15-25 min
+Work desc:    30-40m build-up to max speed, then 10m timed segment.
+Rest:         3-5 min passive rest (must be full recovery for max velocity)
+Sets:         4-6 reps
+Total volume: 40-60m at max velocity (200-300m including build-up)
+Fatigue:      3
+Progression:  Extend timed zone (10m ΓåÆ 20m). Increase build-up distance for higher entry speed.
+Regression:   Reduce timed zone to 5m. Use fewer reps. Increase rest.
+Tier:         B
+W:R ratio:    1:15
+
+ID:           AS-005
+Name:         Contrast Sprints ΓÇö Resisted + Unresisted
+Objective:    PAP-based speed development. Heavy resisted sprint potentiates subsequent unresisted sprint.
+System:       Alactic Speed
+Level:        Advanced to Elite
+Environment:  ['Field', 'Track']
+Duration:     20-30 min
+Work desc:    10-15m resisted sprint (sled at 15-20% BW) ΓåÆ rest 30s ΓåÆ 20-30m unresisted max sprint.
+Rest:         30s between pair elements. 3-4 min between pairs.
+Sets:         3-5 pairs
+Total volume: 90-225m total (resisted + unresisted)
+Fatigue:      4
+Progression:  Increase sled load. Increase unresisted sprint distance.
+Regression:   Remove sled (bodyweight only). Increase rest between pairs.
+Tier:         C
+W:R ratio:    1:10
+
+ID:           AS-006
+Name:         40m ├ù 4 ΓÇö Speed
+Objective:    Speed development at slightly longer distance. 40m is the max most field sports require at full speed.
+System:       Alactic Speed
+Level:        Intermediate to Advanced
+Environment:  ['Field', 'Track']
+Duration:     10-15 min
+Work desc:    40m maximal sprint.
+Rest:         3-4 min passive rest
+Sets:         4-6 reps
+Total volume: 160-240m
+Fatigue:      3
+Progression:  Add rolling start. Add timing gates. Reduce to 2 min rest if quality maintained.
+Regression:   Reduce to 30m. Increase rest to 4 min.
+Tier:         A
+W:R ratio:    1:12
+
+ID:           AS-007
+Name:         15m Ball Start Sprints
+Objective:    Develop acceleration from sport-specific reactive starts.
+System:       Alactic Speed
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Court']
+Duration:     8-12 min
+Work desc:    15m sprint from reactive start (coach/partner signals with ball movement or call).
+Rest:         2-3 min passive rest
+Sets:         6-8 reps
+Total volume: 90-120m
+Fatigue:      3
+Progression:  Add directional change after sprint. Add decision element.
+Regression:   Use standing start (no reactive element).
+Tier:         B
+W:R ratio:    1:12
+
+ID:           AS-008
+Name:         3-Point to 10m Acceleration
+Objective:    Develop initial acceleration mechanics from a 3-point stance. Track and field sport specific.
+System:       Alactic Speed
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Track']
+Duration:     10-15 min
+Work desc:    10m from 3-point start. Maximal drive phase focus.
+Rest:         2-3 min passive rest
+Sets:         6-10 reps
+Total volume: 60-100m
+Fatigue:      3
+Progression:  Progress to 20m. Add resisted band.
+Regression:   Use 2-point or standing start.
+Tier:         B
+W:R ratio:    1:12
+
+ID:           LT-001
+Name:         400m Repeats ΓÇö Hard
+Objective:    Develop lactate tolerance. High-intensity 400m efforts with moderate rest. Builds ability to perform under high acidity.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     30-40 min
+Work desc:    400m at 90-95% max effort. Target: 60-70s depending on ability. RPE 9-10.
+Rest:         4-5 min walking rest
+Sets:         3-5 reps
+Total volume: 1,200-2,000m
+Fatigue:      5
+Progression:  Increase reps (3 ΓåÆ 5). Decrease rest (5 ΓåÆ 4 min). Increase pace.
+Regression:   Reduce to 350m. Increase rest to 6-7 min. Reduce to 2-3 reps.
+Tier:         B
+W:R ratio:    1:4
+
+ID:           LT-002
+Name:         300m Repeats ΓÇö Hard
+Objective:    Lactate tolerance at higher speed than 400m. Intensity is higher, duration is shorter.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    300m at 95% max effort. Target: 40-50s. RPE 9-10.
+Rest:         4-5 min walking rest
+Sets:         4-6 reps
+Total volume: 1,200-1,800m
+Fatigue:      5
+Progression:  Increase reps. Decrease rest to 3 min.
+Regression:   Reduce to 250m. Increase rest to 6 min. Reduce to 3 reps.
+Tier:         B
+W:R ratio:    1:5
+
+ID:           LT-003
+Name:         Broken 800m
+Objective:    Lactate tolerance with pacing. Broken format teaches pace distribution under fatigue.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    800m broken as: 400m ΓåÆ rest 30s ΓåÆ 200m ΓåÆ rest 20s ΓåÆ 200m. Goal: hold same pace across all segments.
+Rest:         30s between 400m and 200m. 20s between 200m segments. 5-6 min between sets.
+Sets:         2-3 sets
+Total volume: 1,600-2,400m
+Fatigue:      5
+Progression:  Reduce segment rest. Add fourth segment. Reduce set rest.
+Regression:   Reduce to broken 600m (300+300 or 400+200). Increase segment rest.
+Tier:         C
+W:R ratio:    4:1
+
+ID:           LT-004
+Name:         200m Repeats ΓÇö Hard
+Objective:    Lactate tolerance at sprint speed. 200m at near-maximal speed with moderate rest.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     20-30 min
+Work desc:    200m at 95% max effort. Target: 24-30s. RPE 9-10.
+Rest:         3-4 min walking rest
+Sets:         4-6 reps
+Total volume: 800-1,200m
+Fatigue:      5
+Progression:  Increase reps. Decrease rest to 2-3 min.
+Regression:   Reduce to 150m. Increase rest to 5 min. Reduce to 3 reps.
+Tier:         A
+W:R ratio:    1:6
+
+ID:           LT-005
+Name:         Short-Long-Short
+Objective:    Complex lactate tolerance. Paces through different intensities within a set.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     30-45 min
+Work desc:    200m (fast) ΓåÆ rest 3 min ΓåÆ 400m (fast) ΓåÆ rest 4 min ΓåÆ 200m (fast). 1 set = 800m.
+Rest:         3-4 min between reps within set. 6-8 min between sets.
+Sets:         2-3 sets
+Total volume: 1,600-2,400m
+Fatigue:      5
+Progression:  Add fourth segment (100m). Decrease rest between segments.
+Regression:   Reduce to short-short (200+200). Increase rest between all elements.
+Tier:         C
+W:R ratio:    1:4
+
+ID:           LT-006
+Name:         Treadmill Over-Unders
+Objective:    Lactate tolerance with alternating high and low intensity. Develop recovery at pace.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Gym']
+Duration:     15-20 min
+Work desc:    30s at 20 km/h ΓåÆ 30s at 6 km/h ΓåÆ repeat. RPE surges to 9-10 during high-speed segments.
+Rest:         30s at low speed (6 km/h) is active recovery between high-speed segments. 3-4 min rest between sets.
+Sets:         6 reps ├ù 2-3 sets (each rep = 30s high + 30s low = 1 min)
+Total volume: 6-9 min of total work time
+Fatigue:      5
+Progression:  Increase high-speed pace (20 ΓåÆ 22 km/h). Decrease low-speed recovery (6 ΓåÆ 8 km/h). Increase reps per set.
+Regression:   Reduce high-speed pace (20 ΓåÆ 18 km/h). Increase low-speed recovery (6 ΓåÆ 8 km/h walk). Reduce to 1 set.
+Tier:         B
+W:R ratio:    1:1
+
+ID:           LT-007
+Name:         500m Repeats ΓÇö Hard
+Objective:    Lactate tolerance at 500m distance. Bridge between 400m and 800m capacity.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track']
+Duration:     25-35 min
+Work desc:    500m at 90-95% max effort. Target: 1:20-1:35. RPE 9-10.
+Rest:         5-6 min walking rest
+Sets:         3-5 reps
+Total volume: 1,500-2,500m
+Fatigue:      5
+Progression:  Increase reps. Decrease rest.
+Regression:   Reduce to 400m. Increase rest.
+Tier:         B
+W:R ratio:    1:5
+
+ID:           LT-008
+Name:         250m Hill Repeats
+Objective:    Lactate tolerance with hill resistance. Increased muscular demand potentiates lactate accumulation.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Hill']
+Duration:     25-35 min
+Work desc:    250m uphill at 90-95% max effort. RPE 9-10.
+Rest:         Walk-down recovery (2-3 min)
+Sets:         5-8 reps
+Total volume: 1,250-2,000m
+Fatigue:      5
+Progression:  Increase reps. Find a steeper hill. Add weight vest.
+Regression:   Reduce distance (200m). Use shallower hill. Increase walk-down time.
+Tier:         B
+W:R ratio:    1:3
+
+ID:           LT-009
+Name:         60s On / 60s Off ΓÇö Max Effort
+Objective:    Lactate tolerance with maximal one-minute efforts. Develop ability to sustain high power output for extended duration.
+System:       Lactate Tolerance
+Level:        Advanced to Elite
+Environment:  ['Track', 'Field']
+Duration:     15-20 min
+Work desc:    60s at maximal sustainable effort. Cover as much distance as possible. RPE 9-10.
+Rest:         60s passive rest
+Sets:         6-10 reps
+Total volume: Distance-based (typically 300-400m per rep)
+Fatigue:      5
+Progression:  Increase rep count. Decrease rest (60s ΓåÆ 45s).
+Regression:   Reduce to 45s work. Increase rest to 90s.
+Tier:         B
+W:R ratio:    1:1
+
+ID:           PM-001
+Name:         30m Fatigue Power Test
+Objective:    Assess and maintain sprint power under fatigue. Measure fatigue decrement across 6 reps. Cricket/field sport standard.
+System:       Power Maintenance
+Level:        Advanced to Elite
+Environment:  ['Field']
+Duration:     2-3 min
+Work desc:    30m maximal sprint.
+Rest:         Start every 20th second. Approximately 15s rest per rep.
+Sets:         6 reps total
+Total volume: 180m
+Fatigue:      4
+Progression:  Target <5% decrement from rep 1 to rep 6. Once achieved, reduce interval (20s ΓåÆ 18s).
+Regression:   Increase interval (20s ΓåÆ 25s). Reduce reps to 4.
+Tier:         A
+W:R ratio:    1:3
+
+ID:           PM-002
+Name:         CMJ ΓÇö Sprint Complex
+Objective:    Maintain lower body power output. Jump quality before sprinting builds power-freshness.
+System:       Power Maintenance
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Gym', 'Turf']
+Duration:     12-18 min
+Work desc:    1 CMJ (maximal) immediately followed by 10m sprint (maximal). One complex = CMJ + sprint.
+Rest:         60-90s between complexes (full recovery for CNS)
+Sets:         4-6 complexes
+Total volume: 40-60m sprinting + 4-6 CMJs
+Fatigue:      3
+Progression:  Add med ball throw after sprint. Increase sprint distance to 20m.
+Regression:   Remove CMJ (sprint only). Increase rest to 2 min.
+Tier:         A
+W:R ratio:    1:6
+
+ID:           PM-003
+Name:         Repeated Broad Jump
+Objective:    Assess and develop lower body power maintenance. Distance decrement across reps indicates power fatigue.
+System:       Power Maintenance
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Gym']
+Duration:     8-12 min
+Work desc:    5 repeated broad jumps for maximum distance. Each jump immediately after landing from previous.
+Rest:         60-90s between sets
+Sets:         4-6 sets (each set = 5 consecutive jumps)
+Total volume: 20-30 jumps total
+Fatigue:      3
+Progression:  Increase consecutive jumps (5 ΓåÆ 7). Target <10% distance decrement within each set.
+Regression:   Reduce consecutive jumps (5 ΓåÆ 3). Increase rest between sets to 2 min.
+Tier:         B
+W:R ratio:    None
+
+ID:           PM-004
+Name:         Med Ball Power Endurance Complex
+Objective:    Maintain upper body power output under fatigue. Complex format tests rotational and vertical power maintenance.
+System:       Power Maintenance
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Gym', 'Turf']
+Duration:     12-18 min
+Work desc:    3 throws per complex: overhead throw ΓåÆ chest pass ΓåÆ rotational throw (left and right = 1 pair).
+Rest:         Minimal rest between throws within complex (5-10s). 2 min rest between complexes.
+Sets:         4-6 complexes
+Total volume: 12-18 throws of each type
+Fatigue:      3
+Progression:  Add fourth throw. Increase med ball weight. Reduce complex rest.
+Regression:   Reduce to 2 throws per complex. Increase rest to 3 min. Reduce med ball weight.
+Tier:         B
+W:R ratio:    None
+
+ID:           PM-005
+Name:         Power Maintenance ΓÇö In-Season Shorts
+Objective:    Minimal dose power maintenance for in-season athletes. One exercise, low volume, full recovery.
+System:       Power Maintenance
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Gym', 'Court']
+Duration:     8-12 min
+Work desc:    30m sprint OR 3 CMJs OR 3 med ball throws. Choose one modality per session. Maximal intent.
+Rest:         2-3 min between reps (full recovery)
+Sets:         4-5 reps
+Total volume: 120-150m sprint / 12-15 jumps / 12-15 throws
+Fatigue:      2
+Progression:  Maintain quality. Do not progress ΓÇö this is maintenance.
+Regression:   Reduce to 3 reps. Reduce intensity to 90%.
+Tier:         A
+W:R ratio:    1:12
+
+ID:           PM-006
+Name:         5-10-5 Shuttle Power
+Objective:    Maintain COD power under minimal fatigue. Classic pro-agility shuttle as power maintenance.
+System:       Power Maintenance
+Level:        Intermediate to Elite
+Environment:  ['Field', 'Court']
+Duration:     8-12 min
+Work desc:    Pro-agility shuttle: sprint 5m ΓåÆ touch ΓåÆ sprint 10m ΓåÆ touch ΓåÆ sprint 5m through finish. Maximal inte
+Rest:         2-3 min between reps
+Sets:         4-6 reps
+Total volume: 20m per rep ├ù 4-6 reps = 80-120m
+Fatigue:      3
+Progression:  Maintain time across reps (<3% decrement).
+Regression:   Reduce to 3-6-3 shuttle. Increase rest.
+Tier:         B
+W:R ratio:    1:12
+
+ID:           PM-007
+Name:         Hurdle Hop Power Maintenance
+Objective:    Maintain reactive strength and plyometric power with minimal volume.
+System:       Power Maintenance
+Level:        Advanced to Elite
+Environment:  ['Field', 'Gym']
+Duration:     8-12 min
+Work desc:    6-8 hurdle hops (two-footed, minimal ground contact). One rep = full set of hops.
+Rest:         90-120s between reps
+Sets:         4-6 reps
+Total volume: 24-48 ground contacts total
+Fatigue:      3
+Progression:  Maintain contact time and height across all reps.
+Regression:   Reduce hurdle height. Reduce to 4 hurdles.
+Tier:         C
+W:R ratio:    1:10
+
+ID:           RC-001
+Name:         Active Recovery Jog
+Objective:    Promote blood flow, reduce muscle soreness, maintain movement quality without adding fatigue.
+System:       Recovery Conditioning
+Level:        All levels
+Environment:  ['Field', 'Grass', 'Turf']
+Duration:     12-20 min
+Work desc:    Very light jogging at 50-60% HRmax. RPE 2-3.
+Rest:         None ΓÇö continuous
+Sets:         1
+Total volume: 1.5-3 km
+Fatigue:      1
+Progression:  N/A ΓÇö recovery is not progressed. Keep intensity low.
+Regression:   Walk instead of jog. 10 min.
+Tier:         A
+W:R ratio:    None
+
+ID:           RC-002
+Name:         Recovery Walk
+Objective:    Low-impact active recovery. Suitable for day after competition or high-volume training.
+System:       Recovery Conditioning
+Level:        All levels
+Environment:  ['Any']
+Duration:     15-30 min
+Work desc:    Brisk but comfortable walking. HR 50-60% max.
+Rest:         None
+Sets:         1
+Total volume: 1-3 km
+Fatigue:      1
+Progression:  N/A
+Regression:   Reduce duration to 10 min. Stroll, not brisk.
+Tier:         A
+W:R ratio:    None
+
+ID:           RC-003
+Name:         Mobility Circuit
+Objective:    Improve/maintain range of motion and movement quality. Low intensity.
+System:       Recovery Conditioning
+Level:        All levels
+Environment:  ['Any']
+Duration:     10-15 min
+Work desc:    Mobility sequence: hip 90/90 (2 min/side), couch stretch (2 min/side), thoracic rotations (1 min/sid
+Rest:         None ΓÇö continuous flow between positions
+Sets:         1 round
+Total volume: 10-15 min total
+Fatigue:      1
+Progression:  Add duration in each position. Add more positions.
+Regression:   Reduce hold times. Reduce number of positions.
+Tier:         A
+W:R ratio:    None
+
+ID:           RC-004
+Name:         Aqua Jogging
+Objective:    Non-impact aerobic recovery. Suitable for high-impact athletes or lower-body injury return.
+System:       Recovery Conditioning
+Level:        All levels
+Environment:  ['Pool']
+Duration:     15-25 min
+Work desc:    Deep water running with floatation belt. Upright running posture, arm drive with legs. RPE 3-4.
+Rest:         None ΓÇö continuous
+Sets:         1
+Total volume: Time-based
+Fatigue:      2
+Progression:  Increase duration. Add high-knee intervals (30s fast, 60s easy).
+Regression:   Reduce duration to 10 min. Shallow water walking instead.
+Tier:         B
+W:R ratio:    None
+
+ID:           RC-005
+Name:         Cycling Recovery
+Objective:    Low-impact aerobic recovery with lower limb movement but no weight-bearing.
+System:       Recovery Conditioning
+Level:        All levels
+Environment:  ['Gym']
+Duration:     15-20 min
+Work desc:    Low resistance, self-selected RPM (80-100). HR 50-60% max. RPE 2-3.
+Rest:         None
+Sets:         1
+Total volume: Time-based
+Fatigue:      1
+Progression:  N/A
+Regression:   Reduce duration. No resistance.
+Tier:         A
+W:R ratio:    None
+
+ID:           RC-006
+Name:         Light Stretch Circuit
+Objective:    Recovery through light stretching and mobility. Reduces muscle tension post-training or post-competition.
+System:       Recovery Conditioning
+Level:        All levels
+Environment:  ['Any']
+Duration:     10-15 min
+Work desc:    Full body light static stretching. 30s per stretch, 5s transition. Hamstring, quad, glute, chest, la
+Rest:         None ΓÇö continuous flow
+Sets:         1-2 rounds of all stretches
+Total volume: 10-15 min
+Fatigue:      1
+Progression:  N/A
+Regression:   Reduce to 5 min. Reduce to key stretches only.
+Tier:         A
+W:R ratio:    None
+
+Total protocols: 91
+
+------------------------------------------------------------------------------
+CONDITIONING PROTOCOLS BY SYSTEM
+------------------------------------------------------------------------------
+
+Aerobic Capacity (12):
+  AC-001: Long Slow Distance ΓÇö Base Builder [Build aerobic foundation, mitochondrial density, capillary network. Develop ability to sustain low-intensity effort for extended duration.] fatigue=2 tier=A
+  AC-002: Long Slow Distance ΓÇö Aerobic Volume [Increase aerobic capacity and endurance base. Higher volume than base builder.] fatigue=2 tier=A
+  AC-003: Recovery Jog [Active recovery. Increase blood flow, reduce muscle soreness, maintain movement quality.] fatigue=1 tier=A
+  AC-004: Cross-Training Aerobic [Build aerobic base while reducing impact on joints. Alternative for high-impact athletes or during injury management.] fatigue=2 tier=B
+  AC-005: Aerobic Walk-Jog Progression [Transition from walking to continuous jogging. Beginner aerobic building.] fatigue=2 tier=A
+  AC-006: 2 km Continuous Timed [Measure and develop aerobic capacity over a fixed distance. Benchmark for off-season base.] fatigue=3 tier=A
+  AC-007: 12-Minute Run (Cooper Test) [Measure VO2 max estimate. Used as periodic benchmark (every 4-8 weeks).] fatigue=4 tier=A
+  AC-008: 15-Minute Tempo Walk [Low-impact aerobic foundation. Entry-level conditioning for return-to-sport or deconditioned athletes.] fatigue=1 tier=A
+  AC-009: 2 km Run Assessment [Time-trial benchmark for aerobic capacity. Standardised assessment for field sport athletes.] fatigue=4 tier=A
+  AC-010: 30-Minute Zone 2 Bike [Low-impact aerobic capacity. Alternative for athletes needing lower body impact reduction.] fatigue=2 tier=A
+  AC-011: Fartlek ΓÇö Speed Play [Aerobic capacity with unstructured intensity variation. Builds ability to change pace.] fatigue=3 tier=B
+  AC-012: 20-Minute Aerobic Base [Short-duration aerobic capacity. For days when time is limited but aerobic stimulus is needed.] fatigue=2 tier=A
+
+Aerobic Power (11):
+  AP-001: MAS 60m Standard [Develop maximal aerobic speed. Run at individual MAS pace. A BCCI and ASCA standard protocol.] fatigue=3 tier=A
+  AP-002: Treadmill Threshold Intervals [Develop aerobic power at lactate threshold using controlled treadmill pace.] fatigue=3 tier=A
+  AP-003: 1 km Repeats [Develop sustained aerobic power. Shorter rest builds lactate clearance.] fatigue=4 tier=A
+  AP-004: 800m Repeats [Develop aerobic power at higher intensity than 1 km repeats. Bridge between aerobic power and intensive tempo.] fatigue=4 tier=B
+  AP-005: 400m Threshold Cruise [High-volume aerobic power with multiple shorter reps. Develop pace judgment and lactate clearance.] fatigue=3 tier=A
+  AP-006: 20m MAS Shuttle [Develop MAS with directional change. Court and field sport specific.] fatigue=3 tier=B
+  AP-007: 30-15 IFT (Intermittent Fitness Test) [Develop intermittent aerobic power. Shuttle-based, increasing speed. Court sport specific.] fatigue=4 tier=B
+  AP-008: Yo-Yo IR1 Shuttles [Develop intermittent aerobic power with standardized protocol. Widely used across field sports for pre-season conditioning.] fatigue=4 tier=A
+  AP-009: 3 km Time Trial [Benchmark for aerobic power and pace judgment. Longer than 2 km but sustainable at threshold.] fatigue=4 tier=B
+  AP-010: 1 km Cruise ΓÇö Tempo Pace [Aerobic power at sustained threshold pace. Develops ability to hold race pace for extended duration.] fatigue=4 tier=A
+  AP-011: 5 ├ù 3 min ΓÇö Threshold Set [Aerobic power at threshold with fixed work duration. Time-based, distance-agnostic.] fatigue=4 tier=A
+
+Alactic Speed (8):
+  AS-001: 10m Acceleration [Develop first-step quickness and acceleration from a stationary start.] fatigue=3 tier=A
+  AS-002: 20m Sprints [Develop acceleration phase (0-20m). The most common speed distance across field sports.] fatigue=3 tier=A
+  AS-003: 30m Sprints ΓÇö Full Recovery [Develop acceleration to top speed. 30m covers most field sport sprint distances.] fatigue=3 tier=A
+  AS-004: Flying 10m Timed [Measure and develop max velocity. Flying start eliminates acceleration phase, isolates top speed.] fatigue=3 tier=B
+  AS-005: Contrast Sprints ΓÇö Resisted + Unresisted [PAP-based speed development. Heavy resisted sprint potentiates subsequent unresisted sprint.] fatigue=4 tier=C
+  AS-006: 40m ├ù 4 ΓÇö Speed [Speed development at slightly longer distance. 40m is the max most field sports require at full speed.] fatigue=3 tier=A
+  AS-007: 15m Ball Start Sprints [Develop acceleration from sport-specific reactive starts.] fatigue=3 tier=B
+  AS-008: 3-Point to 10m Acceleration [Develop initial acceleration mechanics from a 3-point stance. Track and field sport specific.] fatigue=3 tier=B
+
+Extensive Tempo (10):
+  ET-001: 60m Tempo ΓÇö BCCI Standard [Develop extensive tempo capacity. Sub-maximal speed with short recovery. BCCI pre-season standard.] fatigue=3 tier=A
+  ET-002: 100m Tempo [Extensive tempo over longer distance. Speed maintenance at sub-maximal effort.] fatigue=3 tier=A
+  ET-003: 80m Tempo ΓÇö Timed Intervals [Tempo running with fixed time-based start. Develop ability to recover between efforts on a clock. Cricket/field sport standard.] fatigue=3 tier=B
+  ET-004: 70m Run / 30m Walk Continuous [Extensive tempo in continuous format. Run-walk pattern maintains steady moderate intensity.] fatigue=2 tier=A
+  ET-005: 6 ├ù 100m Build-up [Extensive tempo with acceleration patterning. Each rep builds speed progressively.] fatigue=3 tier=B
+  ET-006: Cricket Ground Circuit [Extensive tempo using cricket ground perimeter. Builds sport-specific aerobic base. BCCI/ECB standard.] fatigue=3 tier=B
+  ET-007: 2-4-6 Ladder [Extensive/intensive tempo with escalating volumes. Builds both capacity and tolerance. Cricket standard.] fatigue=4 tier=B
+  ET-008: 50m Sprint ├ù 8 ΓÇö Tempo [Short tempo at slightly higher intensity. Builds speed endurance base.] fatigue=3 tier=A
+  ET-009: Grass Sprints ΓÇö 40m Tempo [Low-impact tempo on grass. Reduced joint stress while developing tempo capacity. Rugby/Soccer standard.] fatigue=3 tier=A
+  ET-010: 30m Tempo ΓÇö Short and Quick [Very short tempo. Quicker turnover at moderate intensity. Develops rhythm.] fatigue=2 tier=A
+
+Intensive Tempo (8):
+  IT-001: 400m Repeats ΓÇö Pre-Season Classic [Develop intensive tempo capacity. Build speed endurance at moderate-high intensity. Classic pre-season protocol across all field sports.] fatigue=4 tier=A
+  IT-002: Descending Ladder ΓÇö 800-400-200-100 [Intensive tempo with increasing intensity as distance decreases. Builds speed endurance across multiple paces.] fatigue=5 tier=C
+  IT-003: 200m Repeats [Intensive tempo at higher speed. Develop speed endurance at 85-90% effort.] fatigue=4 tier=A
+  IT-004: 300m Repeats [Intensive tempo bridging 200m and 400m pace. Develop feel for middle-distance pacing.] fatigue=4 tier=B
+  IT-005: 600m Repeats [Longer intensive tempo. Develop aerobic power overlap with lactate threshold.] fatigue=4 tier=B
+  IT-006: 500m Repeats [Bridge between 400m and 600m intensive tempo. Develop pace judgment at intermediate distance.] fatigue=4 tier=B
+  IT-007: Pyramid ΓÇö Build and Descend [Intensive tempo across multiple distances within one session. Develop pace awareness and versatility.] fatigue=5 tier=C
+  IT-008: Negative Split 800s [Intensive tempo with pacing strategy. First half slower than second half ΓÇö develops finishing speed.] fatigue=5 tier=C
+
+Lactate Tolerance (9):
+  LT-001: 400m Repeats ΓÇö Hard [Develop lactate tolerance. High-intensity 400m efforts with moderate rest. Builds ability to perform under high acidity.] fatigue=5 tier=B
+  LT-002: 300m Repeats ΓÇö Hard [Lactate tolerance at higher speed than 400m. Intensity is higher, duration is shorter.] fatigue=5 tier=B
+  LT-003: Broken 800m [Lactate tolerance with pacing. Broken format teaches pace distribution under fatigue.] fatigue=5 tier=C
+  LT-004: 200m Repeats ΓÇö Hard [Lactate tolerance at sprint speed. 200m at near-maximal speed with moderate rest.] fatigue=5 tier=A
+  LT-005: Short-Long-Short [Complex lactate tolerance. Paces through different intensities within a set.] fatigue=5 tier=C
+  LT-006: Treadmill Over-Unders [Lactate tolerance with alternating high and low intensity. Develop recovery at pace.] fatigue=5 tier=B
+  LT-007: 500m Repeats ΓÇö Hard [Lactate tolerance at 500m distance. Bridge between 400m and 800m capacity.] fatigue=5 tier=B
+  LT-008: 250m Hill Repeats [Lactate tolerance with hill resistance. Increased muscular demand potentiates lactate accumulation.] fatigue=5 tier=B
+  LT-009: 60s On / 60s Off ΓÇö Max Effort [Lactate tolerance with maximal one-minute efforts. Develop ability to sustain high power output for extended duration.] fatigue=5 tier=B
+
+Power Maintenance (7):
+  PM-001: 30m Fatigue Power Test [Assess and maintain sprint power under fatigue. Measure fatigue decrement across 6 reps. Cricket/field sport standard.] fatigue=4 tier=A
+  PM-002: CMJ ΓÇö Sprint Complex [Maintain lower body power output. Jump quality before sprinting builds power-freshness.] fatigue=3 tier=A
+  PM-003: Repeated Broad Jump [Assess and develop lower body power maintenance. Distance decrement across reps indicates power fatigue.] fatigue=3 tier=B
+  PM-004: Med Ball Power Endurance Complex [Maintain upper body power output under fatigue. Complex format tests rotational and vertical power maintenance.] fatigue=3 tier=B
+  PM-005: Power Maintenance ΓÇö In-Season Shorts [Minimal dose power maintenance for in-season athletes. One exercise, low volume, full recovery.] fatigue=2 tier=A
+  PM-006: 5-10-5 Shuttle Power [Maintain COD power under minimal fatigue. Classic pro-agility shuttle as power maintenance.] fatigue=3 tier=B
+  PM-007: Hurdle Hop Power Maintenance [Maintain reactive strength and plyometric power with minimal volume.] fatigue=3 tier=C
+
+Recovery Conditioning (6):
+  RC-001: Active Recovery Jog [Promote blood flow, reduce muscle soreness, maintain movement quality without adding fatigue.] fatigue=1 tier=A
+  RC-002: Recovery Walk [Low-impact active recovery. Suitable for day after competition or high-volume training.] fatigue=1 tier=A
+  RC-003: Mobility Circuit [Improve/maintain range of motion and movement quality. Low intensity.] fatigue=1 tier=A
+  RC-004: Aqua Jogging [Non-impact aerobic recovery. Suitable for high-impact athletes or lower-body injury return.] fatigue=2 tier=B
+  RC-005: Cycling Recovery [Low-impact aerobic recovery with lower limb movement but no weight-bearing.] fatigue=1 tier=A
+  RC-006: Light Stretch Circuit [Recovery through light stretching and mobility. Reduces muscle tension post-training or post-competition.] fatigue=1 tier=A
+
+Repeated Sprint Ability (11):
+  RSA-001: 30m Every 30s ΓÇö Basic RSA [Develop repeated sprint ability. Fixed time-based starts build ability to recover and reproduce maximal effort. BCCI standard.] fatigue=4 tier=A
+  RSA-002: 30m Every 20s ΓÇö Fatigue Maintenance [Power maintenance under increasing fatigue. Shorter recovery than standard RSA. Tests ability to maintain speed with incomplete recovery.] fatigue=5 tier=A
+  RSA-003: 40m RSA ΓÇö Field Sport [Develop RSA over longer sprint distance. More specific to field sports with longer high-speed runs.] fatigue=4 tier=A
+  RSA-004: RSA Cluster ΓÇö 3x30m [High-density RSA. Cluster format allows more work in less time with intra-cluster incomplete recovery.] fatigue=5 tier=B
+  RSA-005: 20m Shuttle RSA [Develop RSA with directional change. Court and field sport specific repeated sprint ability.] fatigue=4 tier=B
+  RSA-006: 25m ├ù 6 ΓÇö Tight Rest [Short RSA with very tight rest. Develop ability to reproduce short explosive efforts under fatigue.] fatigue=5 tier=B
+  RSA-007: 20m ├ù 6 ΓÇö 30s On, 60s Off [Time-based shuttle RSA. Work window is fixed, making this a pacing challenge.] fatigue=4 tier=B
+  RSA-008: Agility 4├ù10m Shuttle Continuous [Short RSA with multiple directional changes. Develop COD speed under fatigue.] fatigue=4 tier=B
+  RSA-009: 10m Shuttle RSA ΓÇö Court Sport [Court-specific RSA with multiple short-direction changes. Simulates badminton/tennis rally demands.] fatigue=5 tier=B
+  RSA-010: German Volume RSA [High-volume RSA. Develop repeated sprint work capacity with controlled rest.] fatigue=5 tier=C
+  RSA-011: Direction Change RSA [RSA with integrated directional changes. Sport-specific repeated agility.] fatigue=4 tier=B
+
+Speed Endurance (9):
+  SE-001: 150m Repeats [Develop speed endurance at near-maximal speed. Improve ability to maintain velocity beyond 100m.] fatigue=5 tier=B
+  SE-002: Flying 30s ΓÇö Speed Maintenance [Maintain max velocity over 30m from a flying start. Develop the ability to hold top speed.] fatigue=4 tier=B
+  SE-003: Cut-downs ΓÇö 150m [Speed endurance with pace progression. Develop the ability to finish fast under fatigue.] fatigue=5 tier=B
+  SE-004: Sprint Float Sprint ΓÇö 100m [Speed endurance with active recovery between efforts. Develop ability to recover and re-accelerate. Track athlete standard.] fatigue=5 tier=B
+  SE-005: 50m ├ù 8 + 25m ├ù 6 Combo [Speed endurance combo. Longer efforts for base, shorter for intensity. Field sport standard.] fatigue=4 tier=B
+  SE-006: 100m ├ù 6 ΓÇö Timed [Speed endurance over 100m with controlled rest. Benchmark for acceleration and speed maintenance.] fatigue=4 tier=B
+  SE-007: Acceleration Build-up 60m [Speed endurance with acceleration patterning through full 60m. Develops ability to hold top speed at distance.] fatigue=4 tier=B
+  SE-008: 120m Repeats [Speed endurance bridging 100m and 150m. Develop ability to hold speed beyond 100m.] fatigue=5 tier=B
+  SE-009: 80m Flying Start ΓÇö Speed Maintenance [Speed endurance from a rolling start. Emphasises max velocity maintenance.] fatigue=5 tier=B
+
+------------------------------------------------------------------------------
+CONDITIONING DECISION MAP
+------------------------------------------------------------------------------
+aerobic_capacity: {'field': {10: '', 20: 'AC-001', 30: 'AC-001', 45: 'AC-002'}, 'track': {10: 'AC-008', 20: 'AC-001', 30: 'AC-001', 45: 'AC-002'}, 'treadmill': {10: 'AC-008', 20: 'AC-010', 30: 'AC-010', 45: 'AC-004'}, 'indoor': {10: 'AC-005', 20: 'AC-004', 30: 'AC-004', 45: 'RC-004'}, 'limited_space': {10: 'AC-008', 20: 'AC-005', 30: '', 45: ''}}
+aerobic_power: {'field': {10: '', 20: 'AP-001', 30: 'AP-001', 45: 'AP-001'}, 'track': {10: '', 20: 'AP-003', 30: 'AP-003', 45: 'AP-009'}, 'treadmill': {10: '', 20: 'AP-002', 30: 'AP-002', 45: 'AP-011'}, 'indoor': {10: '', 20: 'AP-006', 30: 'AP-007', 45: ''}, 'limited_space': {10: '', 20: 'AP-006', 30: 'AP-006', 45: ''}}
+alactic_speed: {'field': {10: 'AS-001', 20: 'AS-002', 30: 'AS-005', 45: ''}, 'track': {10: 'AS-001', 20: 'AS-004', 30: 'AS-004', 45: ''}, 'treadmill': {10: '', 20: '', 30: '', 45: ''}, 'indoor': {10: 'AS-001', 20: 'AS-002', 30: 'AS-008', 45: ''}, 'limited_space': {10: 'AS-001', 20: 'AS-001', 30: '', 45: ''}}
+extensive_tempo: {'field': {10: 'ET-010', 20: 'ET-001', 30: 'ET-001', 45: 'ET-006'}, 'track': {10: 'ET-010', 20: 'ET-002', 30: 'ET-002', 45: 'ET-002'}, 'treadmill': {10: '', 20: '', 30: 'ET-004', 45: ''}, 'indoor': {10: 'ET-010', 20: 'ET-007', 30: 'ET-006', 45: ''}, 'limited_space': {10: 'ET-010', 20: 'ET-007', 30: '', 45: ''}}
+intensive_tempo: {'field': {10: '', 20: 'IT-003', 30: 'IT-001', 45: 'IT-002'}, 'track': {10: '', 20: 'IT-003', 30: 'IT-001', 45: 'IT-007'}, 'treadmill': {10: '', 20: 'IT-006', 30: 'IT-006', 45: 'IT-005'}, 'indoor': {10: '', 20: 'IT-007', 30: 'IT-007', 45: 'IT-007'}, 'limited_space': {10: '', 20: '', 30: 'IT-003', 45: ''}}
+lactate_tolerance: {'field': {10: '', 20: 'LT-002', 30: 'LT-001', 45: 'LT-005'}, 'track': {10: '', 20: 'LT-002', 30: 'LT-001', 45: 'LT-008'}, 'treadmill': {10: 'LT-006', 20: 'LT-006', 30: 'LT-006', 45: 'LT-006'}, 'indoor': {10: '', 20: 'LT-003', 30: 'LT-003', 45: ''}, 'limited_space': {10: '', 20: 'LT-003', 30: 'LT-008', 45: 'LT-008'}}
+power_maintenance: {'field': {10: 'PM-001', 20: 'PM-005', 30: 'PM-002', 45: ''}, 'track': {10: 'PM-001', 20: 'PM-002', 30: '', 45: ''}, 'treadmill': {10: '', 20: '', 30: '', 45: ''}, 'indoor': {10: 'PM-002', 20: 'PM-004', 30: 'PM-006', 45: ''}, 'limited_space': {10: 'PM-002', 20: 'PM-003', 30: '', 45: ''}}
+recovery: {'field': {10: 'RC-003', 20: 'RC-001', 30: 'RC-006', 45: 'RC-004'}, 'track': {10: 'RC-002', 20: 'RC-002', 30: 'RC-002', 45: 'RC-002'}, 'treadmill': {10: 'RC-005', 20: 'RC-005', 30: 'AC-010', 45: 'AC-004'}, 'indoor': {10: 'RC-003', 20: 'RC-003', 30: 'RC-004', 45: 'RC-004'}, 'limited_space': {10: 'RC-003', 20: 'RC-003', 30: 'RC-003', 45: ''}}
+rsa: {'field': {10: 'RSA-001', 20: 'RSA-001', 30: 'RSA-010', 45: ''}, 'track': {10: 'RSA-001', 20: 'RSA-004', 30: 'RSA-004', 45: ''}, 'treadmill': {10: '', 20: '', 30: '', 45: ''}, 'indoor': {10: 'RSA-005', 20: 'RSA-008', 30: 'RSA-011', 45: ''}, 'limited_space': {10: 'RSA-009', 20: 'RSA-009', 30: '', 45: ''}}
+
+------------------------------------------------------------------------------
+CROSS-FAMILY SUBSTITUTION MAP
+------------------------------------------------------------------------------
+  Ball <-> Plyo
+  Carry <-> Core
+  Core <-> Carry
+  DLHD <-> SLHD
+  DLKD <-> SLKD
+  HPull <-> VPull
+  HPush <-> VPush
+  Plyo <-> Ball
+  Rot <-> Core
+  SLHD <-> DLHD
+  SLKD <-> DLKD
+  Sprint <-> Plyo
+  VPull <-> HPull
+  VPush <-> HPush
+
+------------------------------------------------------------------------------
+INTENT CATEGORIES & FAMILY-TO-INTENT MAP
+------------------------------------------------------------------------------
+
+accessory: ['Acc']
+
+core_stability: ['Core', 'Rot', 'Carry']
+
+explosive: ['Plyo', 'Ball', 'Sprint']
+
+lower_pull: ['DLHD', 'SLHD']
+
+lower_push: ['DLKD', 'SLKD']
+
+upper_pull: ['HPull', 'VPull']
+
+upper_push: ['HPush', 'VPush']
+
+Family -> Intent:
+  Acc -> accessory
+  Ball -> explosive
+  Carry -> core_stability
+  Core -> core_stability
+  DLHD -> lower_pull
+  DLKD -> lower_push
+  HPull -> upper_pull
+  HPush -> upper_push
+  Plyo -> explosive
+  Rot -> core_stability
+  SLHD -> lower_pull
+  SLKD -> lower_push
+  Sprint -> explosive
+  VPull -> upper_pull
+  VPush -> upper_push
+
+------------------------------------------------------------------------------
+EQUIPMENT PROFILES
+------------------------------------------------------------------------------
+Basic Gym: ['Bodyweight', 'Barbell', 'DB', 'KB', 'Band', 'Bench', 'Box', 'Pull-Up Bar', 'Med Ball', 'Rack']
+Commercial Gym: ['Bodyweight', 'Barbell', 'DB', 'KB', 'Band', 'Bench', 'Box', 'Pull-Up Bar', 'Med Ball', 'Rack', 'Cable Machine', 'Machine']
+Elite Facility: ['Bodyweight', 'Barbell', 'DB', 'KB', 'Band', 'Bench', 'Box', 'Pull-Up Bar', 'Med Ball', 'Rack', 'Cable Machine', 'Machine', 'Sled', 'Platform', 'Trap Bar', 'Rings', 'GHD', 'Specialty Bar']
+Field Only: ['Bodyweight', 'Band', 'Med Ball', 'Cones', 'Hurdles', 'Box']
+
+==============================================================================
+MODEL SCHEMAS (Dataclass Fields)
+==============================================================================
+
+Exercise:
+  id: str
+  name: str
+  family: FamilyCode
+  secondary_family: Optional
+  objective: Objective
+  difficulty: int
+  equipment: list
+  unilateral: bool
+  explosive: bool
+  isometric: bool
+  rotational: bool
+  progression: Optional
+  regression: Optional
+
+ExerciseFamily:
+  id: FamilyCode
+  name: str
+  definition: str
+  non_negotiable_in: str
+  default_slot: str
+  selection_priorities: list
+
+Blueprint:
+  id: int
+  name: BlueprintName
+  purpose: str
+  typical_athlete: str
+  best_training_age: str
+  best_season_phase: list
+  best_frequency: str
+  contraindications: str
+  typical_outcomes: str
+  progression_path: Optional
+  regression_path: Optional
+  mandatory_families: list
+  optional_families: list
+  slot_order: list
+  typical_duration: str
+  min_session_composition: list
+
+ConditioningProtocol:
+  id: str
+  name: str
+  objective: str
+  system: str
+  level: str
+  environment: list
+  duration: str
+  work_description: str
+  rest: str
+  sets: str
+  total_volume: str
+  fatigue_score: int
+  progression: str
+  regression: str
+  tier: str
+  work_rest_ratio: Optional = None
+  level_variants: dict = factory(<class 'dict'>)
+
+SessionBlock:
+  family: FamilyCode
+  family_name: str
+  exercises: list = factory(<class 'list'>)
+  target_intensity: str = 'moderate'
+  rest_period: str = '60-90s'
+
+Session:
+  blocks: list
+  conditioning: Optional = None
+  total_duration_min: int = 0
+
+AthleteProfile:
+  sport: str
+  training_age_years: float
+  season_phase: SeasonPhase
+  goal: str
+  equipment_profile: EquipmentProfile
+  athlete_level: AthleteLevel
+  technique_consistency: float = 1.0
+  injury_status: str = 'none'
+  injury_history: list = factory(<class 'list'>)
+  fatigue_level: str = 'normal'
+  weeks_since_break: int = 0
+  recent_exercises: dict = factory(<class 'dict'>)
+
+GeneratedProgram:
+  athlete: str
+  blueprint_id: int
+  blueprint_name: str
+  level: str
+  duration: int
+  frequency: int
+  goal: str
+  equipment_profile: str
+  sessions: list
+  athlete_profile: AthleteProfile
+  credibility_score: float = 0.0
+
+FamilyCode:
+Traceback (most recent call last):
+  File "D:\forge\dump_exercises.py", line 172, in <module>
+    elif issubclass(m, Enum):
+                       ^^^^
+NameError: name 'Enum' is not defined

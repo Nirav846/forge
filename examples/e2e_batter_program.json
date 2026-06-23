@@ -1,0 +1,807 @@
+{
+  "id": 1,
+  "athlete_id": 1,
+  "name": "Batter Strength Block",
+  "goal": "Strength",
+  "sessions_per_week": 4,
+  "weeks": [
+    {
+      "id": 100,
+      "week_number": 1,
+      "focus": "Base",
+      "sessions": [
+        {
+          "id": 1000,
+          "session_number": 1,
+          "exercises": [
+            {
+              "id": 10000,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 3,
+              "reps": 3,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10001,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 3,
+              "reps": 10,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10002,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 3,
+              "reps": 8,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1001,
+          "session_number": 2,
+          "exercises": [
+            {
+              "id": 10003,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 3,
+              "reps": 3,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10004,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 3,
+              "reps": 10,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10005,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 3,
+              "reps": 8,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1002,
+          "session_number": 3,
+          "exercises": [
+            {
+              "id": 10006,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 3,
+              "reps": 3,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10007,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 3,
+              "reps": 10,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10008,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 3,
+              "reps": 8,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1003,
+          "session_number": 4,
+          "exercises": [
+            {
+              "id": 10009,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 3,
+              "reps": 3,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10010,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 3,
+              "reps": 10,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10011,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 3,
+              "reps": 8,
+              "intensity": "75% 1RM (RPE 7)",
+              "rest_seconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "week_number": 2,
+      "focus": "Accumulation",
+      "sessions": [
+        {
+          "id": 1004,
+          "session_number": 1,
+          "exercises": [
+            {
+              "id": 10012,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 3,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10013,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 10,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10014,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1005,
+          "session_number": 2,
+          "exercises": [
+            {
+              "id": 10015,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 3,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10016,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 10,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10017,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1006,
+          "session_number": 3,
+          "exercises": [
+            {
+              "id": 10018,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 3,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10019,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 10,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10020,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1007,
+          "session_number": 4,
+          "exercises": [
+            {
+              "id": 10021,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 3,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10022,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 10,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10023,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "80% 1RM (RPE 8)",
+              "rest_seconds": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "week_number": 3,
+      "focus": "Peak",
+      "sessions": [
+        {
+          "id": 1008,
+          "session_number": 1,
+          "exercises": [
+            {
+              "id": 10024,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 2,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10025,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10026,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 6,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            }
+          ]
+        },
+        {
+          "id": 1009,
+          "session_number": 2,
+          "exercises": [
+            {
+              "id": 10027,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 2,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10028,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10029,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 6,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            }
+          ]
+        },
+        {
+          "id": 1010,
+          "session_number": 3,
+          "exercises": [
+            {
+              "id": 10030,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 2,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10031,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10032,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 6,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            }
+          ]
+        },
+        {
+          "id": 1011,
+          "session_number": 4,
+          "exercises": [
+            {
+              "id": 10033,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 4,
+              "reps": 2,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10034,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 4,
+              "reps": 8,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            },
+            {
+              "id": 10035,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 4,
+              "reps": 6,
+              "intensity": "85% 1RM (RPE 9)",
+              "rest_seconds": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "week_number": 4,
+      "focus": "Deload",
+      "sessions": [
+        {
+          "id": 1012,
+          "session_number": 1,
+          "exercises": [
+            {
+              "id": 10036,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 2,
+              "reps": 3,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10037,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 2,
+              "reps": 10,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10038,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 2,
+              "reps": 8,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1013,
+          "session_number": 2,
+          "exercises": [
+            {
+              "id": 10039,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 2,
+              "reps": 3,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10040,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 2,
+              "reps": 10,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10041,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 2,
+              "reps": 8,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1014,
+          "session_number": 3,
+          "exercises": [
+            {
+              "id": 10042,
+              "exercise_id": 6,
+              "name": "Trap Bar Deadlift",
+              "description": "Target S&C exercise matching slot requirements using Trap Bar.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 2,
+              "reps": 3,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10043,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 2,
+              "reps": 10,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10044,
+              "exercise_id": 10,
+              "name": "Dumbbell Row",
+              "description": "Target S&C exercise matching slot requirements using Dumbbell.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Pull",
+              "display_order": 3,
+              "sets": 2,
+              "reps": 8,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            }
+          ]
+        },
+        {
+          "id": 1015,
+          "session_number": 4,
+          "exercises": [
+            {
+              "id": 10045,
+              "exercise_id": 7,
+              "name": "Kettlebell Swing",
+              "description": "Target S&C exercise matching slot requirements using Kettlebell.",
+              "difficulty_level": "Beginner",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 1,
+              "sets": 2,
+              "reps": 3,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10046,
+              "exercise_id": 2,
+              "name": "Single-Leg Lateral Bound",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Push",
+              "display_order": 2,
+              "sets": 2,
+              "reps": 10,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            },
+            {
+              "id": 10047,
+              "exercise_id": 11,
+              "name": "Nordic Hamstring Curl",
+              "description": "Target S&C exercise matching slot requirements using Bodyweight.",
+              "difficulty_level": "Intermediate",
+              "mechanics_type": "Compound",
+              "force_type": "Hinge",
+              "display_order": 3,
+              "sets": 2,
+              "reps": 8,
+              "intensity": "60% 1RM (RPE 6)",
+              "rest_seconds": 90
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-06-21T16:37:34.088297",
+  "updated_at": "2026-06-21T16:37:34.088297"
+}

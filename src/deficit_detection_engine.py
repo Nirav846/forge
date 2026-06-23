@@ -169,6 +169,24 @@ class MockBenchmarkRepository(BenchmarkRepository):
                     {"classification": "Sub-optimal", "min": 120.0, "max": 159.99},
                     {"classification": "Poor", "min": None, "max": 119.99}
                 ]
+            },
+            "pull up": {
+                "metric_unit": "reps", "deficit_name": "Shoulder Robustness Deficit", "deficit_description": "Lack of upper body pulling strength or scapular stability.",
+                "ranges": [
+                    {"classification": "Elite", "min": 20.0, "max": None},
+                    {"classification": "Optimal", "min": 12.0, "max": 19.99},
+                    {"classification": "Sub-optimal", "min": 6.0, "max": 11.99},
+                    {"classification": "Poor", "min": None, "max": 5.99}
+                ]
+            },
+            "rotational med ball throw": {
+                "metric_unit": "m/s", "deficit_name": "Rotational Power Deficit", "deficit_description": "Lack of rotational power and explosive transverse torque.",
+                "ranges": [
+                    {"classification": "Elite", "min": 6.0, "max": None},
+                    {"classification": "Optimal", "min": 5.0, "max": 5.99},
+                    {"classification": "Sub-optimal", "min": 4.0, "max": 4.99},
+                    {"classification": "Poor", "min": None, "max": 3.99}
+                ]
             }
         }
 

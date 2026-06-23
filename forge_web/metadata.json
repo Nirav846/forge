@@ -1,0 +1,6 @@
+{
+  "name": "FORGE Coach Console",
+  "description": "Frontend shell for FORGE strength & conditioning program generator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
