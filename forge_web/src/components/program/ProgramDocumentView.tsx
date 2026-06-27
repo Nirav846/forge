@@ -1,7 +1,7 @@
 import React from 'react';
 import { X, Printer, Download } from 'lucide-react';
 import { SavedProgramArtifact } from '../../types/ui';
-import { ExerciseRow } from '../session/blocks';
+import { DocExerciseRow } from '../session/blocks';
 
 interface ProgramDocumentViewProps {
   artifact: SavedProgramArtifact;
@@ -94,72 +94,76 @@ export function ProgramDocumentView({ artifact, onClose }: ProgramDocumentViewPr
                  </div>
               )}
 
-              {/* Blocks rendering grouped by session */}
+              {/* Blocks rendering grouped by week */}
               <div className="space-y-12">
-                 {viewModel.sessions.map((sess, i) => (
-                    <div key={i} className="break-inside-avoid">
-                       <div className="bg-slate-100 p-3 mb-4 rounded border border-slate-300 flex justify-between items-center">
-                          <h2 className="text-lg font-bold text-slate-900 uppercase">
-                             Session {sess.session_number}: <span className="font-medium">{sess.name}</span>
-                          </h2>
-                          <span className="text-sm font-semibold text-slate-600 bg-white px-3 py-1 rounded shadow-sm">Focus: {sess.focus}</span>
+                 {(viewModel.weeks?.length ? viewModel.weeks : [{ week_number: 1, label: 'Week 1', exposure_summary: null as any, sessions: viewModel.sessions }]).map((week, wi) => (
+                   <div key={wi} className="break-inside-avoid">
+                     <div className="bg-slate-900 text-white px-4 py-2 rounded-t-lg mb-6 flex justify-between items-center">
+                       <h2 className="text-lg font-bold uppercase">{week.label || `Week ${week.week_number}`}</h2>
+                       <span className="text-xs text-slate-400">{week.sessions.length} sessions</span>
+                     </div>
+                     {week.sessions.map((sess, i) => (
+                       <div key={i} className="mb-8 break-inside-avoid">
+                          <div className="bg-slate-100 p-3 mb-4 rounded border border-slate-300 flex justify-between items-center">
+                            <h3 className="text-base font-bold text-slate-900 uppercase">
+                               Session {sess.session_number}: <span className="font-medium">{sess.name}</span>
+                            </h3>
+                            <span className="text-sm font-semibold text-slate-600 bg-white px-3 py-1 rounded shadow-sm">Focus: {sess.focus}</span>
+                          </div>
+                          <div className="space-y-6">
+                            {sess.warmup.exercises.length > 0 && (
+                              <div>
+                                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-300 pb-1 mb-2">Warmup</h4>
+                                <div className="pl-2 border-l-2 border-slate-200">
+                                  {sess.warmup.exercises.map((ex, exIdx) => (
+                                    <div key={exIdx} className="grid grid-cols-12 gap-2 text-sm py-1 border-b border-slate-50 last:border-0">
+                                      <div className="col-span-6 font-medium text-slate-800">{ex.name}</div>
+                                      <div className="col-span-3 text-slate-600 font-mono">{ex.sets_reps}</div>
+                                      <div className="col-span-3 text-slate-500">{ex.loading_method}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            {sess.main_work.exercises.length > 0 && (
+                              <div>
+                                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-widest border-b-2 border-slate-800 pb-1 mb-2">Main Work</h4>
+                                <div className="pl-2 border-l-2 border-slate-800 space-y-2">
+                                  {sess.main_work.exercises.map((ex, exIdx) => (
+                                    <div key={exIdx} className="grid grid-cols-12 gap-2 text-sm py-2 border-b border-slate-100">
+                                      <div className="col-span-5">
+                                        <div className="font-bold text-slate-900">{ex.name}</div>
+                                        {ex.progression_note && <div className="text-xs text-indigo-700 mt-1 italic">{ex.progression_note}</div>}
+                                      </div>
+                                      <div className="col-span-2 text-slate-800 font-mono font-bold pt-0.5">{ex.sets_reps}</div>
+                                      <div className="col-span-3 text-slate-700 font-medium pt-0.5">{ex.loading_method}</div>
+                                      <div className="col-span-2 text-slate-500 text-xs pt-0.5">{ex.rest}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            {sess.conditioning.exercises.length > 0 && (
+                              <div>
+                                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-300 pb-1 mb-2">Conditioning</h4>
+                                <div className="pl-2 border-l-2 border-slate-200">
+                                  {sess.conditioning.exercises.map((ex, exIdx) => (
+                                    <div key={exIdx} className="grid grid-cols-12 gap-2 text-sm py-1 border-b border-slate-50">
+                                      <div className="col-span-6 font-medium text-slate-800">{ex.name}</div>
+                                      <div className="col-span-3 text-slate-600 font-mono">{ex.sets_reps}</div>
+                                      <div className="col-span-3 text-slate-500">{ex.loading_method}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                                {sess.conditioning.notes && (
+                                  <div className="mt-2 text-sm italic text-slate-600 pl-4">Note: {sess.conditioning.notes}</div>
+                                )}
+                              </div>
+                            )}
+                          </div>
                        </div>
-
-                       <div className="space-y-6">
-                           {/* Using minimal document layout for sessions */}
-                           {sess.warmup.exercises.length > 0 && (
-                              <div>
-                                 <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-300 pb-1 mb-2">Warmup</h4>
-                                 <div className="pl-2 border-l-2 border-slate-200">
-                                    {sess.warmup.exercises.map((ex, exIdx) => (
-                                       <div key={exIdx} className="grid grid-cols-12 gap-2 text-sm py-1 border-b border-slate-50 last:border-0">
-                                          <div className="col-span-6 font-medium text-slate-800">{ex.name}</div>
-                                          <div className="col-span-3 text-slate-600 font-mono">{ex.sets_reps}</div>
-                                          <div className="col-span-3 text-slate-500">{ex.loading_method}</div>
-                                       </div>
-                                    ))}
-                                 </div>
-                              </div>
-                           )}
-
-                           {sess.main_work.exercises.length > 0 && (
-                              <div>
-                                 <h4 className="text-xs font-bold text-slate-900 uppercase tracking-widest border-b-2 border-slate-800 pb-1 mb-2">Main Work</h4>
-                                 <div className="pl-2 border-l-2 border-slate-800 space-y-2">
-                                    {sess.main_work.exercises.map((ex, exIdx) => (
-                                       <div key={exIdx} className="grid grid-cols-12 gap-2 text-sm py-2 border-b border-slate-100">
-                                          <div className="col-span-5">
-                                             <div className="font-bold text-slate-900">{ex.name}</div>
-                                             {ex.progression_note && <div className="text-xs text-indigo-700 mt-1 italic">{ex.progression_note}</div>}
-                                          </div>
-                                          <div className="col-span-2 text-slate-800 font-mono font-bold pt-0.5">{ex.sets_reps}</div>
-                                          <div className="col-span-3 text-slate-700 font-medium pt-0.5">{ex.loading_method}</div>
-                                          <div className="col-span-2 text-slate-500 text-xs pt-0.5">{ex.rest}</div>
-                                       </div>
-                                    ))}
-                                 </div>
-                              </div>
-                           )}
-
-                           {sess.conditioning.exercises.length > 0 && (
-                              <div>
-                                 <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-300 pb-1 mb-2">Conditioning</h4>
-                                 <div className="pl-2 border-l-2 border-slate-200">
-                                    {sess.conditioning.exercises.map((ex, exIdx) => (
-                                       <div key={exIdx} className="grid grid-cols-12 gap-2 text-sm py-1 border-b border-slate-50">
-                                          <div className="col-span-6 font-medium text-slate-800">{ex.name}</div>
-                                          <div className="col-span-3 text-slate-600 font-mono">{ex.sets_reps}</div>
-                                          <div className="col-span-3 text-slate-500">{ex.loading_method}</div>
-                                       </div>
-                                    ))}
-                                 </div>
-                                 {sess.conditioning.notes && (
-                                    <div className="mt-2 text-sm italic text-slate-600 pl-4">Note: {sess.conditioning.notes}</div>
-                                 )}
-                              </div>
-                           )}
-                       </div>
-                    </div>
+                     ))}
+                   </div>
                  ))}
               </div>
 

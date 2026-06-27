@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from .models import (
     GeneratedProgram, Session, SessionBlock, Exercise,
     Prescription, ConditioningProtocol, WarmupProtocol,
-    AthleteProfile, AthleteLevel, EquipmentProfile, SeasonPhase,
+    AthleteProfile, CoachPreferences, AthleteLevel, EquipmentProfile, SeasonPhase,
     FamilyCode,
 )
 from .progression_engine import program_role_exposure_summary, plan_weeks, plan_testing, WEEK_INDEX_TO_TYPE
@@ -302,6 +302,7 @@ def serialize_program(
         "personalization_notes": list(program.personalization_notes),
         "validation": validation_json,
         "dropped_constraints": [],
+        "test_adjustments": getattr(program.athlete_profile, "test_adjustments", None) or {"has_data": False},
     }
 
     return response
@@ -376,6 +377,42 @@ def athlete_profile_from_request(payload: dict) -> AthleteProfile:
         injury_risk_flags = [s.strip() for s in injury_risk_flags.split(",") if s.strip()]
     injury_history = [s.lower() for s in injury_risk_flags if s]
 
+    # Parse raw test scores (strings from form -> float)
+    def _to_float(v):
+        if v is None or v == "" or v == "": return None
+        try: return float(v)
+        except: return None
+
+    yoyo_ir1 = _to_float(advanced.get("yoyo_ir1"))
+    yoyo_ir2 = _to_float(advanced.get("yoyo_ir2"))
+    bronco = _to_float(advanced.get("bronco"))
+    cmj_raw = _to_float(advanced.get("cmj"))
+
+    # Parse coach preferences
+    cp_raw = payload.get("coach_preferences") or {}
+    coach_prefs = CoachPreferences(
+        preferred_deadlift=cp_raw.get("preferred_deadlift"),
+        preferred_squat=cp_raw.get("preferred_squat"),
+        preferred_press=cp_raw.get("preferred_press"),
+        avoid_olympic_lifts=cp_raw.get("avoid_olympic_lifts", False),
+        avoid_high_soreness_near_match=cp_raw.get("avoid_high_soreness_near_match", False),
+        min_sprint_exposures_per_week=cp_raw.get("min_sprint_exposures_per_week", 1),
+        preferred_conditioning_style=cp_raw.get("preferred_conditioning_style", "mixed"),
+        bias_unilateral_work=cp_raw.get("bias_unilateral_work", False),
+        prefer_velocity_based_loading=cp_raw.get("prefer_velocity_based_loading", False),
+        preferred_tempo=cp_raw.get("preferred_tempo", "20X0"),
+        preferred_rest_seconds=cp_raw.get("preferred_rest_seconds", 90),
+    ) if any(v is not None for v in [
+        cp_raw.get("preferred_deadlift"), cp_raw.get("preferred_squat"),
+        cp_raw.get("preferred_press"), cp_raw.get("avoid_olympic_lifts"),
+        cp_raw.get("avoid_high_soreness_near_match"),
+        cp_raw.get("min_sprint_exposures_per_week") and cp_raw.get("min_sprint_exposures_per_week") != 1,
+        cp_raw.get("preferred_conditioning_style") and cp_raw.get("preferred_conditioning_style") != "mixed",
+        cp_raw.get("bias_unilateral_work"), cp_raw.get("prefer_velocity_based_loading"),
+        cp_raw.get("preferred_tempo") and cp_raw.get("preferred_tempo") != "20X0",
+        cp_raw.get("preferred_rest_seconds") and cp_raw.get("preferred_rest_seconds") != 90,
+    ]) else None
+
     profile = AthleteProfile(
         sport=basics.get("sport", "athlete"),
         training_age_years=float(training_age),
@@ -395,6 +432,10 @@ def athlete_profile_from_request(payload: dict) -> AthleteProfile:
         strength_base_met=True,
         bodyweight_kg=None,
         position_role=basics.get("role", ""),
+        role=basics.get("role", ""),
+        program_length_weeks=int(context.get("program_length_weeks", 8)),
+        frequency_per_week=int(basics.get("frequency_per_week", 3)),
+        coach_intent=context.get("coach_intent", advanced.get("coach_intent", "")),
         force_profile=_map_fv_profile(advanced.get("force_velocity_profile", "")),
         elastic_profile=None,
         conditioning_profile=None,
@@ -410,6 +451,16 @@ def athlete_profile_from_request(payload: dict) -> AthleteProfile:
         sprint_10m_band=_map_band(advanced.get("sprint_10m_band", "")),
         squat_strength_band=_map_band(advanced.get("squat_strength_band", "")),
         aerobic_band=_map_band(advanced.get("aerobic_band", "")),
+        coach_preferences=coach_prefs,
+        yoyo_ir1=yoyo_ir1,
+        yoyo_ir2=yoyo_ir2,
+        bronco=bronco,
+        cmj=cmj_raw,
+        testing_date=advanced.get("testing_date") or advanced.get("testing_date", None),
+        match_day=int(context.get("match_day")) if context.get("match_day") is not None else 5,
+        team_training_days=context.get("team_training_days") or [0, 2, 4],
+        heavy_field_days=context.get("heavy_field_days") or [1, 3],
+        travel_days=context.get("travel_days") or [],
     )
 
     return profile

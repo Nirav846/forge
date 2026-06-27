@@ -73,3 +73,40 @@ export async function duplicateArtifact(programId: string): Promise<any> {
     body: JSON.stringify({}),
   });
 }
+
+// ── Team Template API ───────────────────────────────────────────────
+
+export async function createTeamTemplate(payload: Record<string, any>): Promise<any> {
+  return apiFetch('/api/teams/templates', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function listTeamTemplates(): Promise<{ templates: any[] }> {
+  return apiFetch('/api/teams/templates');
+}
+
+export async function loadTeamTemplate(templateId: string): Promise<any> {
+  return apiFetch(`/api/teams/templates/${templateId}`);
+}
+
+export async function updateTeamTemplate(templateId: string, fields: Record<string, any>): Promise<any> {
+  return apiFetch(`/api/teams/templates/${templateId}`, {
+    method: 'PUT',
+    body: JSON.stringify(fields),
+  });
+}
+
+export async function deleteTeamTemplate(templateId: string): Promise<any> {
+  return apiFetch(`/api/teams/templates/${templateId}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function adaptTeamTemplate(templateId: string, payload: Record<string, any>): Promise<any> {
+  return apiFetch(`/api/teams/templates/${templateId}/adapt`, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}

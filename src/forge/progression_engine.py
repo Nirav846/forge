@@ -7,6 +7,7 @@ from typing import Optional
 from .models import (
     FamilyCode, AthleteLevel, Exercise, Session, SessionBlock,
     GeneratedProgram, ConditioningProtocol, EquipmentProfile, AthleteProfile,
+    CoachPreferences,
 )
 from .data import (
     EXERCISE_BY_ID, BLUEPRINT_BY_ID, get_max_difficulty, get_equipment_for_profile,
@@ -288,6 +289,9 @@ def select_or_continue(
     days_to_match: Optional[int] = None,
     strength_base_met: bool = True,
     athlete_profile: Optional['AthleteProfile'] = None,
+    coach_prefs: Optional['CoachPreferences'] = None,
+    power_multiplier: float = 1.0,
+    week_type: str = "accumulation",
 ) -> Optional[Exercise]:
     from .exercise_selector import select_exercise
 
@@ -312,6 +316,9 @@ def select_or_continue(
         technique_consistency=technique_consistency,
         strength_base_met=strength_base_met,
         athlete_profile=athlete_profile,
+        coach_prefs=coach_prefs,
+        power_multiplier=power_multiplier,
+        week_type=week_type,
     )
 
 
@@ -359,7 +366,43 @@ def progress_conditioning(
         athlete_profile=athlete_profile,
     )
     if protocol:
-        return apply_level_adjustment(protocol, athlete_level)
+        protocol = apply_level_adjustment(protocol, athlete_level)
+        # Week-type intensity/duration tweaks (duration is a str like "12min")
+        import re
+        if week_type == "accumulation":
+            dur_match = re.search(r"\d+", protocol.duration or "")
+            if dur_match:
+                mins = int(dur_match.group()) + 3
+                protocol = ConditioningProtocol(
+                    **{**protocol.__dict__,
+                       "duration": f"{mins}min",
+                       "work_description": (protocol.work_description or "") + " (extended tempo, controlled pace)"}
+                )
+            else:
+                protocol = ConditioningProtocol(
+                    **{**protocol.__dict__,
+                       "work_description": (protocol.work_description or "") + " (extended tempo, controlled pace)"}
+                )
+        elif week_type == "intensification":
+            dur_match = re.search(r"\d+", protocol.duration or "")
+            if dur_match:
+                mins = max(3, int(dur_match.group()) - 2)
+                protocol = ConditioningProtocol(
+                    **{**protocol.__dict__,
+                       "duration": f"{mins}min",
+                       "work_description": (protocol.work_description or "") + " (shorter bursts, higher intensity)"}
+                )
+            else:
+                protocol = ConditioningProtocol(
+                    **{**protocol.__dict__,
+                       "work_description": (protocol.work_description or "") + " (shorter bursts, higher intensity)"}
+                )
+        elif week_type == "realization":
+            protocol = ConditioningProtocol(
+                **{**protocol.__dict__,
+                   "work_description": (protocol.work_description or "") + " (race-pace effort)"}
+            )
+        return protocol
     return None
 
 
@@ -505,6 +548,9 @@ def adjust_next_week(
     if "reduce_volume" in risks:
         adj["slot_reduction"] = max(adj["slot_reduction"], 1)
         adj["note"] = (adj["note"] + "; " if adj["note"] else "") + "High exercise count; reduced families"
+        # Auto-correction: reduce sets per exercise by 1 (min 2), cap exercises per session at 6
+        adj["set_reduction"] = 1
+        adj["cap_exercises"] = 6
 
     # Never let a high-risk week be followed by another high-intensity intent
     if next_intent in ("realization", "intensification") and len(risks) >= 2:

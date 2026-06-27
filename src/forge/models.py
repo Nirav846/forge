@@ -21,6 +21,12 @@ class FamilyCode(str, Enum):
     CARRY = "Carry"
     CORE = "Core"
     ACC = "Acc"
+    AGILITY = "Agility"
+    COND = "Cond"
+    VOLLEYBALL = "Volleyball"
+    TENNIS = "Tennis"
+    SOCCER = "Soccer"
+    DECELERATION = "Deceleration"
 
 
 class Objective(str, Enum):
@@ -161,16 +167,16 @@ class Blueprint:
     typical_athlete: str
     best_training_age: str
     best_season_phase: list[SeasonPhase]
-    best_frequency: str
-    contraindications: str
-    typical_outcomes: str
-    progression_path: Optional[BlueprintName]
-    regression_path: Optional[BlueprintName]
-    mandatory_families: list[FamilyCode]
-    optional_families: list[FamilyCode]
-    slot_order: list[FamilyCode]
-    typical_duration: str
-    min_session_composition: list[dict]
+    best_frequency: str = ""  # DEPRECATED — coach owns frequency via athlete.frequency_per_week
+    contraindications: str = ""
+    typical_outcomes: str = ""
+    progression_path: Optional[BlueprintName] = None
+    regression_path: Optional[BlueprintName] = None
+    mandatory_families: list[FamilyCode] = field(default_factory=list)
+    optional_families: list[FamilyCode] = field(default_factory=list)
+    slot_order: list[FamilyCode] = field(default_factory=list)
+    typical_duration: str = ""  # DEPRECATED — coach owns duration via athlete.program_length_weeks
+    min_session_composition: list[dict] = field(default_factory=list)
 
 
 @dataclass
@@ -223,6 +229,21 @@ class Session:
 
 
 @dataclass
+class CoachPreferences:
+    preferred_deadlift: Optional[str] = None
+    preferred_squat: Optional[str] = None
+    preferred_press: Optional[str] = None
+    avoid_olympic_lifts: bool = False
+    avoid_high_soreness_near_match: bool = False
+    min_sprint_exposures_per_week: int = 1
+    preferred_conditioning_style: str = "mixed"
+    bias_unilateral_work: bool = False
+    prefer_velocity_based_loading: bool = False
+    preferred_tempo: str = "20X0"
+    preferred_rest_seconds: int = 90
+
+
+@dataclass
 class AthleteProfile:
     sport: str
     training_age_years: float
@@ -245,6 +266,7 @@ class AthleteProfile:
     # Wave 5 — Anthropometry
     bodyweight_kg: Optional[float] = None
     position_role: str = ""
+    role: str = ""  # e.g. "Pace Bowler", "Tighthead Prop"
 
     # Wave 5 — Performance profile flags (force_deficient / velocity_deficient / balanced)
     force_profile: Optional[str] = None
@@ -268,10 +290,32 @@ class AthleteProfile:
     squat_strength_band: Optional[str] = None
     aerobic_band: Optional[str] = None
 
+    # Wave 15 — Raw test scores for test-driven adjustments
+    yoyo_ir1: Optional[float] = None
+    yoyo_ir2: Optional[float] = None
+    bronco: Optional[float] = None
+    cmj: Optional[float] = None
+    testing_date: Optional[str] = None
+    test_adjustments: Optional[dict] = None
+
     # Wave 7 — Optional prior-block tracking
     prior_program: Optional[object] = None
     prior_profile_snapshot: Optional[object] = None
     block_response: Optional[object] = None
+
+    # Wave 12 — Calendar-aware session placement
+    match_day: int = 5  # Saturday (0=Mon, 6=Sun)
+    team_training_days: list[int] = field(default_factory=lambda: [0, 2, 4])  # Mon, Wed, Fri
+    heavy_field_days: list[int] = field(default_factory=lambda: [1, 3])  # Tue, Thu
+    travel_days: list[int] = field(default_factory=list)
+
+    # Wave 14 — Coach preferences
+    coach_preferences: Optional[CoachPreferences] = None
+
+    # Coach-controlled program inputs
+    program_length_weeks: int = 8
+    frequency_per_week: int = 3
+    coach_intent: str = ""
 
 
 

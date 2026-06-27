@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ProgramViewModel, ProgramStatus } from '../../types/ui';
-import { Save, Copy, FileText, Download, Printer, CheckCircle, GitCompare, Library, Clock, StickyNote, ChevronDown } from 'lucide-react';
+import { Save, Copy, FileText, Download, Printer, CheckCircle, GitCompare, Library, Clock, StickyNote, ChevronDown, Loader2, AlertCircle } from 'lucide-react';
 import { SaveIndicator, SaveState } from '../SaveIndicator';
 
 interface ProgramWorkspaceHeaderProps {
@@ -14,15 +14,11 @@ interface ProgramWorkspaceHeaderProps {
   onPrintMode: () => void;
   onMarkReviewed: () => void;
   onCompare: () => void;
-  onUpdateNotes?: (notes: string, field: 'coach_notes' | 'internal_notes') => void;
+  onUpdateNotes?: (notes: string, field: 'coach_notes' | 'internal_notes') => Promise<boolean> | void;
   coachNotes?: string;
   internalNotes?: string;
-}
-
-function flashState(setter: (s: SaveState) => void): void {
-  setter('saving');
-  setTimeout(() => setter('saved'), 1000);
-  setTimeout(() => setter('idle'), 3000);
+  reviewSaveState?: SaveState;
+  notesSaveState?: SaveState;
 }
 
 export function ProgramWorkspaceHeader({
@@ -39,13 +35,45 @@ export function ProgramWorkspaceHeader({
   onUpdateNotes,
   coachNotes = '',
   internalNotes = '',
+  reviewSaveState: parentReviewSave = 'idle',
+  notesSaveState: parentNotesSave = 'idle',
 }: ProgramWorkspaceHeaderProps) {
   const [notesOpen, setNotesOpen] = useState(false);
   const [localCoachNotes, setLocalCoachNotes] = useState(coachNotes);
   const [localInternalNotes, setLocalInternalNotes] = useState(internalNotes);
-  const [coachNotesSave, setCoachNotesSave] = useState<SaveState>('idle');
-  const [internalNotesSave, setInternalNotesSave] = useState<SaveState>('idle');
-  const [reviewSave, setReviewSave] = useState<SaveState>('idle');
+  const [localCoachSave, setLocalCoachSave] = useState<SaveState>('idle');
+  const [localInternalSave, setLocalInternalSave] = useState<SaveState>('idle');
+
+  useEffect(() => { setLocalCoachNotes(coachNotes); }, [coachNotes]);
+  useEffect(() => { setLocalInternalNotes(internalNotes); }, [internalNotes]);
+
+  const handleSaveCoachNotes = async () => {
+    if (localCoachNotes === coachNotes || !onUpdateNotes) return;
+    setLocalCoachSave('saving');
+    try {
+      const result = onUpdateNotes(localCoachNotes, 'coach_notes');
+      if (result instanceof Promise) await result;
+      setLocalCoachSave('saved');
+      setTimeout(() => setLocalCoachSave('idle'), 2000);
+    } catch {
+      setLocalCoachSave('error');
+      setTimeout(() => setLocalCoachSave('idle'), 4000);
+    }
+  };
+
+  const handleSaveInternalNotes = async () => {
+    if (localInternalNotes === internalNotes || !onUpdateNotes) return;
+    setLocalInternalSave('saving');
+    try {
+      const result = onUpdateNotes(localInternalNotes, 'internal_notes');
+      if (result instanceof Promise) await result;
+      setLocalInternalSave('saved');
+      setTimeout(() => setLocalInternalSave('idle'), 2000);
+    } catch {
+      setLocalInternalSave('error');
+      setTimeout(() => setLocalInternalSave('idle'), 4000);
+    }
+  };
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm mb-6 overflow-hidden">
@@ -98,14 +126,15 @@ export function ProgramWorkspaceHeader({
 
            <div className="w-px h-5 bg-slate-200 mx-1"></div>
 
-           <button onClick={() => { flashState(setReviewSave); onMarkReviewed(); }} className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-md transition-colors shadow-sm ${
+           <button onClick={onMarkReviewed} className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-md transition-colors shadow-sm ${
                 status === 'reviewed' 
                   ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
                   : 'bg-emerald-600 text-white hover:bg-emerald-700 border border-transparent'
               }`}
            >
               <CheckCircle className="w-3.5 h-3.5" /> 
-              {reviewSave !== 'idle' ? <SaveIndicator state={reviewSave} /> : (status === 'reviewed' ? 'Reviewed' : 'Approve')}
+              <SaveIndicator state={parentReviewSave} />
+              {parentReviewSave === 'idle' && (status === 'reviewed' ? 'Reviewed' : 'Approve')}
            </button>
         </div>
       </div>
@@ -148,30 +177,36 @@ export function ProgramWorkspaceHeader({
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-[10px] uppercase font-bold tracking-wider text-slate-400">Coach Notes</label>
-                  <SaveIndicator state={coachNotesSave} />
+                  <SaveIndicator state={localCoachSave} />
                 </div>
                 <textarea
                   value={localCoachNotes}
                   onChange={e => setLocalCoachNotes(e.target.value)}
-                  onBlur={() => { if (localCoachNotes !== coachNotes) { flashState(setCoachNotesSave); onUpdateNotes(localCoachNotes, 'coach_notes'); } }}
+                  onBlur={handleSaveCoachNotes}
                   placeholder="Add coach-facing notes for this program..."
                   className="w-full text-sm border border-slate-200 rounded-md p-2.5 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-300 resize-none"
                   rows={2}
                 />
+                {localCoachSave === 'error' && (
+                  <p className="text-xs text-red-600 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> Save failed — text preserved</p>
+                )}
               </div>
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="text-[10px] uppercase font-bold tracking-wider text-slate-400">Internal Notes</label>
-                  <SaveIndicator state={internalNotesSave} />
+                  <SaveIndicator state={localInternalSave} />
                 </div>
                 <textarea
                   value={localInternalNotes}
                   onChange={e => setLocalInternalNotes(e.target.value)}
-                  onBlur={() => { if (localInternalNotes !== internalNotes) { flashState(setInternalNotesSave); onUpdateNotes(localInternalNotes, 'internal_notes'); } }}
+                  onBlur={handleSaveInternalNotes}
                   placeholder="Add internal notes..."
                   className="w-full text-sm border border-slate-200 rounded-md p-2.5 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-300 resize-none"
                   rows={2}
                 />
+                {localInternalSave === 'error' && (
+                  <p className="text-xs text-red-600 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> Save failed — text preserved</p>
+                )}
               </div>
             </div>
           )}

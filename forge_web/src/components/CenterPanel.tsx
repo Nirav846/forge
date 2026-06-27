@@ -3,6 +3,7 @@ import { AppStatus } from '../App';
 import { Target, Calendar, Clock, Activity, AlertCircle, Dumbbell, ShieldAlert, CheckCircle, FileText, Layers, Eye, GitCompare } from 'lucide-react';
 import { TransformationResult, ProgramStatus, SavedProgramArtifact } from '../types/ui';
 import { ProgramWorkspaceHeader } from './program/ProgramWorkspaceHeader';
+import { SaveState } from './SaveIndicator';
 import { CoachSummaryMode } from './program/modes/CoachSummaryMode';
 import { ProgramBuilderMode } from './program/modes/ProgramBuilderMode';
 import { AthleteDeliveryMode } from './program/modes/AthleteDeliveryMode';
@@ -19,9 +20,24 @@ interface CenterPanelProps {
   onMarkReviewed: () => void;
   onOpenDocument: () => void;
   onDuplicate: () => void;
-  onUpdateNotes?: (notes: string, field: 'coach_notes' | 'internal_notes') => void;
+  onUpdateNotes?: (notes: string, field: 'coach_notes' | 'internal_notes') => Promise<boolean> | void;
   coachNotes?: string;
   internalNotes?: string;
+  coachOverrides?: any;
+  onUpdateOverrides?: (overrides: any) => void;
+  reviewSaveState?: SaveState;
+  onDuplicateSession?: (sessionId: string, weekNumber: number) => void;
+  onDeleteSession?: (sessionId: string, weekNumber: number) => void;
+  onMoveSession?: (sessionId: string, weekNumber: number, newSessionNumber: number) => void;
+  onAddSession?: (weekNumber: number) => void;
+  onReorderSession?: (sessionId: string, weekNumber: number, direction: 'up' | 'down') => void;
+  onRemoveExercise?: (sessionId: string, weekNumber: number, blockType: string, exerciseId: string) => void;
+  onMoveExercise?: (sessionId: string, weekNumber: number, blockType: string, exerciseId: string, direction: 'up' | 'down') => void;
+  onAddExercise?: (sessionId: string, weekNumber: number, blockType: string, exercise: { name: string; family: string }) => void;
+  onUndo?: () => void;
+  onRedo?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
 }
 
 export type ReviewMode = 'summary' | 'builder' | 'athlete' | 'compare';
@@ -40,6 +56,21 @@ export default function CenterPanel({
   onUpdateNotes,
   coachNotes = '',
   internalNotes = '',
+  coachOverrides = {},
+  onUpdateOverrides,
+  reviewSaveState = 'idle',
+  onDuplicateSession,
+  onDeleteSession,
+  onMoveSession,
+  onAddSession,
+  onReorderSession,
+  onRemoveExercise,
+  onMoveExercise,
+  onAddExercise,
+  onUndo,
+  onRedo,
+  canUndo = false,
+  canRedo = false,
 }: CenterPanelProps) {
 
   
@@ -124,7 +155,37 @@ export default function CenterPanel({
           onUpdateNotes={onUpdateNotes}
           coachNotes={coachNotes}
           internalNotes={internalNotes}
+          reviewSaveState={reviewSaveState}
         />
+      )}
+
+      {/* Adaptation Banner */}
+      {result.rawPayload?.adaptation && (
+        <div className="mb-4 bg-indigo-50 border border-indigo-200 rounded-xl px-5 py-3 flex items-center gap-3">
+          <GitCompare className="w-5 h-5 text-indigo-500 shrink-0" />
+          <div className="flex-1 text-sm">
+            <span className="font-semibold text-indigo-800">
+              {result.rawPayload.adaptation.change_count} change{result.rawPayload.adaptation.change_count !== 1 ? 's' : ''}
+            </span>
+            <span className="text-indigo-600"> from source program</span>
+            {result.rawPayload.adaptation.changes?.length > 0 && (
+              <div className="mt-1 flex flex-wrap gap-1.5">
+                {result.rawPayload.adaptation.changes.slice(0, 5).map((c: string, i: number) => (
+                  <span key={i} className="text-[11px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">{c}</span>
+                ))}
+                {result.rawPayload.adaptation.changes.length > 5 && (
+                  <span className="text-[11px] text-indigo-400">+{result.rawPayload.adaptation.changes.length - 5} more</span>
+                )}
+              </div>
+            )}
+          </div>
+          <button
+            onClick={() => setViewMode('compare')}
+            className="shrink-0 text-xs font-semibold text-indigo-700 bg-white border border-indigo-200 hover:bg-indigo-100 px-3 py-1.5 rounded-md transition-colors"
+          >
+            Compare
+          </button>
+        </div>
       )}
 
       {/* Mode Navigation (Only in coach views) */}
@@ -159,7 +220,20 @@ export default function CenterPanel({
       )}
 
       {viewMode === 'summary' && <CoachSummaryMode viewModel={response} />}
-      {viewMode === 'builder' && <ProgramBuilderMode viewModel={response} />}
+      {viewMode === 'builder' && <ProgramBuilderMode viewModel={response} warnings={result.warnings} testAdjustments={result.rawPayload?.test_adjustments} overrides={coachOverrides} onUpdateOverrides={onUpdateOverrides!}
+        onDuplicateSession={onDuplicateSession}
+        onDeleteSession={onDeleteSession}
+        onMoveSession={onMoveSession}
+        onAddSession={onAddSession}
+        onReorderSession={onReorderSession}
+        onRemoveExercise={onRemoveExercise}
+        onMoveExercise={onMoveExercise}
+        onAddExercise={onAddExercise}
+        onUndo={onUndo}
+        onRedo={onRedo}
+        canUndo={canUndo}
+        canRedo={canRedo}
+      />}
       {viewMode === 'athlete' && (
          <div className="space-y-4">
             <button 

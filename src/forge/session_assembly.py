@@ -4,6 +4,7 @@ Deterministic session assembly that makes sessions feel internally coherent
 rather than just "valid blocks selected independently."
 """
 from __future__ import annotations
+from dataclasses import dataclass, field
 from typing import Optional, Dict, List, Tuple
 from .models import FamilyCode, Blueprint, Exercise, SessionBlock, AthleteProfile, AthleteLevel
 from .role_week_planning import RoleWeekProfile, get_role_week_profile
@@ -46,10 +47,11 @@ def apply_time_constraint_v2(
     preferred_families: int,
     comp_window: Optional[int] = None,
     role_profile: Optional[RoleWeekProfile] = None,
-) -> Tuple[list[FamilyCode], list[str]]:
+) -> Tuple[list[FamilyCode], list[str], float]:
     """Apply time/competition constraints using survival tiers.
 
-    Returns (kept_slots, drop_notes).
+    Returns (kept_slots, drop_notes, compact_factor).
+    compact_factor (0.0–1.0) signals how much to scale sets within kept families.
     """
     # Determine max families
     if available_minutes < 30:
@@ -70,8 +72,18 @@ def apply_time_constraint_v2(
         elif comp_window == 1:  # PRIMER
             max_fams = min(max_fams, 4)
 
+    # Wave 11a — Proportional compact: compute how much to scale sets
+    if available_minutes < 30:
+        compact_factor = 0.55
+    elif available_minutes < 45:
+        compact_factor = 0.7
+    elif available_minutes < 60:
+        compact_factor = 0.85
+    else:
+        compact_factor = 1.0
+
     if len(slots) <= max_fams:
-        return slots, []
+        return slots, [], compact_factor
 
     # Compute tiers for each slot
     scored = []
@@ -92,7 +104,10 @@ def apply_time_constraint_v2(
         tier_name = {TIER_S: "identity", TIER_A: "high-value", TIER_B: "optional", TIER_C: "accessory"}[tier]
         notes.append(f"{fam.value} dropped ({tier_name}) — time/competition constraint")
 
-    return kept, notes
+    if compact_factor < 1.0:
+        notes.append(f"Sets compacted by {compact_factor:.0%} across kept families — proportional time reduction")
+
+    return kept, notes, compact_factor
 
 
 def rebuild_session_flow(
@@ -385,6 +400,134 @@ def check_post_filter_session_balance(
     return lower or upper  # At least one major pattern
 
 
+# ── CALENDAR-AWARE SESSION PLACEMENT ──────────────────────────────
+
+NEURAL_FAMILIES = {"Sprint", "Plyo", "Ball", "Landing", "Acc"}
+GYM_FAMILIES = {"DLKD", "DLHD", "SLKD", "SLHD", "HPush", "HPull", "VPush", "VPull"}
+SPRINT_FAMILIES = {"Sprint", "Acc"}
+
+
+@dataclass
+class DayContext:
+    day_of_week: int
+    is_match_day: bool = False
+    is_within_48h_of_match: bool = False
+    is_heavy_field_day: bool = False
+    is_team_training_day: bool = False
+    is_travel_day: bool = False
+    is_day_after_recovery: bool = False
+
+
+def resolve_weekly_schedule(
+    match_day: int,
+    team_training_days: list[int],
+    heavy_field_days: list[int],
+    travel_days: list[int],
+    freq: int,
+) -> list[DayContext]:
+    """Place `freq` sessions across the week, returning a DayContext per session.
+    
+    Session 1 gets placed on Monday (day 0) by preference, sessions are spread
+    across available training days with recovery gaps where possible.
+    """
+    if freq <= 0:
+        return []
+
+    # Build the full set of usable training days this week.
+    # Use only team_training_days when specified; fall back to all days.
+    if team_training_days:
+        available = sorted(set(team_training_days) - set(travel_days))
+    else:
+        available = sorted(set(range(7)) - set(travel_days))
+    if not available:
+        available = list(range(7))
+
+    # Spread sessions evenly across available days
+    step = max(1, len(available) // freq) if len(available) > freq else 1
+    chosen = []
+    for i in range(freq):
+        idx = min(i * step, len(available) - 1)
+        chosen.append(available[idx])
+        if len(chosen) >= len(available):
+            break
+    # If we still need more slots, append remaining days
+    while len(chosen) < freq:
+        remaining = [d for d in available if d not in chosen]
+        if not remaining:
+            remaining = [d for d in range(7) if d not in chosen]
+        chosen.append(remaining[0] if remaining else 0)
+
+    chosen = chosen[:freq]
+
+    contexts = []
+    for i, dow in enumerate(chosen):
+        dist_to_match = (match_day - dow) % 7
+        within_48h = dist_to_match <= 2 or dist_to_match >= 6  # day after or day of match
+        # Recovery day = rest day (no training or travel)
+        prev_dow = chosen[i - 1] if i > 0 else (dow - 1) % 7
+        prev_was_recovery = prev_dow in travel_days or prev_dow not in team_training_days
+        contexts.append(DayContext(
+            day_of_week=dow,
+            is_match_day=dow == match_day,
+            is_within_48h_of_match=within_48h,
+            is_heavy_field_day=dow in heavy_field_days,
+            is_team_training_day=dow in team_training_days,
+            is_travel_day=dow in travel_days,
+            is_day_after_recovery=prev_was_recovery,
+        ))
+    return contexts
+
+
+def adjust_slots_for_calendar(
+    slots: list[FamilyCode],
+    day_ctx: DayContext,
+) -> tuple[list[FamilyCode], list[str]]:
+    """Drop/reorder families based on calendar context.
+    
+    - Heavy field day: drop gym strength families, keep field-appropriate work
+    - Within 48h of match: drop high neural load, keep activation/core
+    - Day after recovery: favor sprint/power work
+    """
+    notes = []
+    kept = list(slots)
+
+    # Match day or within 48h of match: strip neural, keep minimal activation
+    if day_ctx.is_match_day or day_ctx.is_within_48h_of_match:
+        stripped = [f for f in kept if f.value not in NEURAL_FAMILIES]
+        dropped = [f for f in kept if f.value in NEURAL_FAMILIES]
+        if dropped:
+            notes.append(f"{', '.join(f.value for f in dropped)} dropped (within 48h of match)")
+        kept = stripped
+
+    # Heavy field day: drop gym-bound families that don't translate to field work
+    if day_ctx.is_heavy_field_day:
+        gym_keepers = {"HPush", "HPull", "Core", "Rot"}  # can be done on field
+        stripped = [f for f in kept if f.value not in GYM_FAMILIES or f.value in gym_keepers]
+        dropped = [f for f in kept if f.value in GYM_FAMILIES and f.value not in gym_keepers]
+        if dropped:
+            notes.append(f"{', '.join(f.value for f in dropped)} dropped (heavy field day)")
+        kept = stripped
+
+    # Day after recovery: promote sprint/power work
+    if day_ctx.is_day_after_recovery and not day_ctx.is_within_48h_of_match:
+        sprint_fams = [f for f in kept if f.value in SPRINT_FAMILIES]
+        others = [f for f in kept if f.value not in SPRINT_FAMILIES]
+        kept = sprint_fams + others
+        if sprint_fams:
+            notes.append("Sprint work promoted (post-recovery day)")
+
+    # Travel day: drop accessory, keep only core strength and mobility
+    if day_ctx.is_travel_day:
+        keep_fams = {"DLKD", "DLHD", "HPush", "HPull", "Core"}
+        stripped = [f for f in kept if f.value in keep_fams]
+        dropped = [f for f in kept if f.value not in keep_fams]
+        if dropped:
+            notes.append(f"{', '.join(f.value for f in dropped)} dropped (travel day)")
+        kept = stripped
+
+    return kept, notes
+
+
 def check_repeated_family_progression_credible(
     sessions: list[SessionBlock],
     week: int,
@@ -418,3 +561,127 @@ def check_repeated_family_progression_credible(
                     return False
 
     return True
+
+
+# ── Wave 14 — Coach Preferences Application ─────────────────────────
+
+def apply_coach_preferences(
+    session: Session,
+    coach_prefs: 'CoachPreferences',
+    week: int,
+    freq: int,
+) -> Session:
+    """Apply coach preferences to a single session."""
+    if coach_prefs is None:
+        return session
+
+    # Avoid high soreness near match: cap eccentric cost for all blocks
+    if coach_prefs.avoid_high_soreness_near_match:
+        for block in session.blocks:
+            for ex in block.exercises:
+                if ex and ex.eccentric_cost > 3:
+                    ex.eccentric_cost = 3
+
+    # Conditioning style flags
+    if coach_prefs.preferred_conditioning_style and session.conditioning:
+        cond = session.conditioning
+        style = coach_prefs.preferred_conditioning_style
+        if style == "low_intensity" and "HIIT" in (cond.name or ""):
+            session.adjustment_note = "Coach prefers low-intensity conditioning (replaced HIIT)"
+        elif style == "high_intensity" and "tempo" in (cond.name or ""):
+            session.adjustment_note = "Coach prefers high-intensity conditioning (replaced tempo work)"
+
+    return session
+
+
+# ── Wave 15 — Sprint Multiplier ───────────────────────────────────
+
+SPRINT_FAMILIES = {FamilyCode.SPRINT, FamilyCode.ACC}
+
+def apply_sprint_multiplier(
+    session: Session,
+    multiplier: float,
+    max_per_session: int = 3,
+    min_per_session: int = 0,
+) -> Session:
+    """Adjust sprint blocks in a session based on test-driven multiplier."""
+    current = [b for b in session.blocks if b.family in SPRINT_FAMILIES]
+    current_count = len(current)
+    target = max(min_per_session, min(max_per_session, int(round(current_count * multiplier))))
+
+    if target > current_count:
+        from .data import EXERCISE_BY_ID
+        sprint_ex = next((EXERCISE_BY_ID[eid] for eid in EXERCISE_BY_ID if EXERCISE_BY_ID[eid].family == FamilyCode.SPRINT), None)
+        if sprint_ex:
+            for _ in range(target - current_count):
+                from .models import SessionBlock, Prescription
+                session.blocks.append(SessionBlock(
+                    family=FamilyCode.SPRINT,
+                    family_name="Sprint",
+                    exercises=[sprint_ex],
+                    target_intensity="moderate",
+                    rest_period="60-90s",
+                    prescription=Prescription(sets="3", reps="20m", loading_method="max effort"),
+                ))
+    elif target < current_count:
+        remove_count = current_count - target
+        new_blocks = []
+        skipped = 0
+        for b in session.blocks:
+            if b.family in SPRINT_FAMILIES and skipped < remove_count:
+                skipped += 1
+                continue
+            new_blocks.append(b)
+        session.blocks = new_blocks
+
+    return session
+
+
+def apply_sprint_exposure_floor(
+    week_sessions: list[Session],
+    coach_prefs: 'CoachPreferences',
+    week: int,
+) -> list[Session]:
+    """Ensure minimum sprint exposures per week by adding sprint blocks if missing."""
+    if coach_prefs is None or coach_prefs.min_sprint_exposures_per_week <= 0:
+        return week_sessions
+
+    from .models import FamilyCode, Exercise, SessionBlock, Prescription
+
+    target = coach_prefs.min_sprint_exposures_per_week
+    existing = sum(
+        1 for s in week_sessions
+        for b in s.blocks
+        if b.family == FamilyCode.SPRINT and b.exercises
+    )
+
+    if existing >= target:
+        return week_sessions
+
+    from .data import EXERCISE_BY_ID
+    sprint_ex = None
+    for eid in EXERCISE_BY_ID:
+        if EXERCISE_BY_ID[eid].family == FamilyCode.SPRINT:
+            sprint_ex = EXERCISE_BY_ID[eid]
+            break
+
+    if not sprint_ex:
+        return week_sessions
+
+    need = target - existing
+    for s in week_sessions:
+        if need <= 0:
+            break
+        has_sprint = any(b.family == FamilyCode.SPRINT for b in s.blocks)
+        if not has_sprint:
+            s.blocks.append(SessionBlock(
+                family=FamilyCode.SPRINT,
+                family_name="Sprint",
+                exercises=[sprint_ex],
+                target_intensity="moderate",
+                rest_period="60-90s",
+                prescription=Prescription(sets="3", reps="20m", loading_method="max effort"),
+            ))
+            need -= 1
+
+    return week_sessions

@@ -24,6 +24,9 @@ export interface SavedProgramArtifact {
   coach_notes: string;
   internal_notes: string;
   
+  // Coach override state (persisted on artifact)
+  coach_overrides?: CoachOverrides;
+
   // Payloads
   request_snapshot: any; // ProgramRequest
   result_snapshot: TransformationResult;
@@ -107,6 +110,75 @@ export interface WeekVM {
   label: string;
   exposure_summary: WeeklyExposureVM;
   sessions: SessionVM[];
+}
+
+export interface CoachOverrides {
+  sessions?: Record<string, SessionOverride>;
+}
+
+export interface SessionOverride {
+  locked?: boolean;
+  note?: string;
+  exercises?: Record<string, ExerciseOverride>;
+}
+
+export interface ExerciseOverride {
+  swap?: ExerciseSwap;
+  prescription?: PrescriptionEdit;
+}
+
+export interface ExerciseSwap {
+  original_exercise_id?: string;
+  original_name: string;
+  original_family: string;
+  new_exercise_id?: string;
+  new_name: string;
+  new_family: string;
+  reason?: string;
+}
+
+export interface PrescriptionEdit {
+  sets_reps?: string;
+  loading_method?: string;
+  rest?: string;
+  coach_note?: string;
+}
+
+// ── Team Template Types ─────────────────────────────────────────────
+
+export interface TeamTemplate {
+  id: string;
+  name: string;
+  sport: string;
+  level: string;
+  phase: string;
+  goal: string;
+  program_length_weeks: number;
+  sessions_per_week: number;
+  minutes_per_session: number;
+  match_day: number;
+  team_training_days: number[];
+  heavy_field_days: number[];
+  travel_days: number[];
+  equipment_profile: string[];
+  coach_notes: string;
+  program_snapshot?: any;
+  created_at: string;
+  updated_at: string;
+  version?: number;
+}
+
+export interface TeamTemplateListItem {
+  id: string;
+  name: string;
+  sport: string;
+  level: string;
+  phase: string;
+  goal: string;
+  created_at: string;
+  updated_at: string;
+  program_length_weeks: number;
+  sessions_per_week: number;
 }
 
 export interface ProgramViewModel {

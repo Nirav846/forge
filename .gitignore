@@ -1,0 +1,120 @@
+# --- Virtual Environments & Dependencies ---
+*.md
+*.txt
+sample/
+.opencode/
+.opencode-flow/
+.pytest_cache/
+.forge_artifacts/
+
+# --- Databases & Large Data (The 2.9GB block) ---
+*.db
+*.sqlite
+*.sql
+*.joblib
+*.keras
+*.h5
+*.bin
+*.run
+*.exe
+book/
+logs/
+docs/
+graphify-out/
+*.db-wal
+*.db-shm
+
+# --- Python & Cache ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache
+*.session
+
+# --- Configuration & Secrets (DO NOT PUSH TO GITHUB) ---
+*.env
+*.dev
+*.ini
+
+
+# --- AI & Agent Artifacts ---
+.agent/
+.agents/
+.gemini/
+.geminiignore
+.claude/
+# GEMINI.md (Tracked for agent synchronization)
+# conductor/
+# memory/
+# superpowers/
+*_plan.md
+AEON_Audit_*.csv
+MYRA_AI_READY.txt
+.julesrules
+skills-lock.json
+NRV.txt
+PROMPT.txt
+PROMPTRESULT.txt
+.DS_Store
+
+# --- Media & Documents ---
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.xlsx
+*.html
+*.spec
+*.whl
+
+# --- Temporary & Junk ---
+Help/
+DeleteThis/
+results/*_html.pkl
+results/*.pkl.lck
+sync_log.txt
+*.txt
+!requirements.txt
+!README.md
+!PROJECT_SUMMARY.md
+!ruff.toml
+!.bandit
+!.coveragerc
+!*.py
+
+# --- Exceptions ---
+!results/Data/yfinance.cache.zip
+HELP FILES/
+!*.ts
+!src/**/         # Ensure Git looks into all subdirectories under src
+!*.ts            # Whitelist TypeScript files
+!*.tsx           # Whitelist React TypeScript files
+
+# Dev/debug scripts (keep in root only during active session)
+check_*.py
+verify_*.py
+/test_*.py
+fix_*.py
+inspect_*.py
+simulate_*.py.env
+*.db
+*.db-wal
+*.db-shm
+myra_app/db/*.db
+myra_app/db/*.db-wal
+myra_app/db/*.db-shm
+node_modules/
+dist/
+.env
+*.local
+nse-mcp/node_modules/
+nse-mcp/dist/
+exports/
+*.log
+
+nse-mcp/

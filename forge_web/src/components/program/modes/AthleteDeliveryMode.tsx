@@ -1,5 +1,17 @@
 import React from 'react';
-import { ProgramViewModel } from '../../../types/ui';
+import { ProgramViewModel, SessionVM } from '../../../types/ui';
+
+function sessionSummary(sess: SessionVM): string {
+  const parts: string[] = [];
+  if (sess.warmup?.exercises?.length) parts.push(`${sess.warmup.exercises.length} prep exercise${sess.warmup.exercises.length > 1 ? 's' : ''}`);
+  const mains = sess.main_work?.exercises?.length || 0;
+  if (mains) {
+    const fams = [...new Set((sess.main_work?.exercises || []).map(e => e.family))];
+    parts.push(`${mains} main ${mains > 1 ? 'lifts' : 'lift'} (${fams.join(', ')})`);
+  }
+  if (sess.conditioning?.exercises?.length) parts.push(`${sess.conditioning.exercises.length} conditioning finisher${sess.conditioning.exercises.length > 1 ? 's' : ''}`);
+  return parts.length ? `Session includes ${parts.join(', ')}. Focus: ${sess.focus || 'general'}.` : 'Preparation & recovery focus.';
+}
 
 export function AthleteDeliveryMode({ viewModel, requestName }: { viewModel: ProgramViewModel, requestName: string }) {
 
@@ -61,14 +73,18 @@ export function AthleteDeliveryMode({ viewModel, requestName }: { viewModel: Pro
                     <div className="space-y-12">
                        {week.sessions.map(sess => (
                           <div key={sess.id} className="print-break-inside shadow-sm border border-slate-200 rounded overflow-hidden">
-                             <div className="bg-slate-900 text-white px-5 py-3 flex justify-between items-center">
-                                <h3 className="font-bold uppercase tracking-wider text-sm flex items-center gap-2">
-                                  <span className="text-indigo-400">Session {sess.session_number}</span> <span className="opacity-50">/</span> {sess.name}
-                                </h3>
-                                <span className="text-[10px] font-bold text-slate-900 tracking-widest uppercase bg-white px-2 py-0.5 rounded-sm">{sess.focus}</span>
-                             </div>
+                              <div className="bg-slate-900 text-white px-5 py-3 flex justify-between items-center">
+                                 <h3 className="font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                                   <span className="text-indigo-400">Session {sess.session_number}</span> <span className="opacity-50">/</span> {sess.name}
+                                 </h3>
+                                 <span className="text-[10px] font-bold text-slate-900 tracking-widest uppercase bg-white px-2 py-0.5 rounded-sm">{sess.focus}</span>
+                              </div>
 
-                             <div className="px-5 py-4 bg-white divide-y divide-slate-100">
+                              <div className="px-5 py-3 bg-slate-50 border-b border-slate-100 text-sm text-slate-600 italic leading-relaxed">
+                                {sessionSummary(sess)}
+                              </div>
+
+                              <div className="px-5 py-4 bg-white divide-y divide-slate-100">
 
                                 {sess.warmup.exercises.length > 0 && (
                                    <div className="pt-2 pb-4 session-exercise-row">

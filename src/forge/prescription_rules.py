@@ -7,7 +7,7 @@ from typing import Optional
 from .models import (
     Exercise, FamilyCode, Objective, AthleteLevel,
     PrescriptionRole, Prescription, COMP_WINDOW_LABELS,
-    AthleteProfile,
+    AthleteProfile, SeasonPhase,
 )
 from .data import BLUEPRINT_BY_ID
 
@@ -473,17 +473,16 @@ BLUEPRINT_PRESCRIPTION_MODIFIERS: dict[str, dict] = {
 }
 
 
-# ── WEEK-BASED PROGRESSION VOLUME ──────────────────────────────────
+# ── WEEK-TYPE PROGRESSION VOLUME ───────────────────────────────────
 
-WEEK_VOLUME_FACTORS: dict[int, float] = {
-    1: 0.85,
-    2: 0.90,
-    3: 0.95,
-    4: 1.0,
-    5: 1.0,
-    6: 1.0,
-    7: 0.85,
-    8: 0.70,
+WEEK_TYPE_VOLUME_FACTORS: dict[str, float] = {
+    "accumulation": 0.85,
+    "intensification": 1.0,
+    "realization": 1.05,
+    "taper": 0.80,
+    "test": 0.65,
+    "deload": 0.60,
+    "light": 0.50,
 }
 
 WEEK_PROGRESSION_NOTES: dict[int, str] = {
@@ -506,6 +505,7 @@ def get_prescription(
     blueprint_id: int,
     comp_window: Optional[int] = None,
     week: int = 1,
+    week_type: str = "accumulation",
     athlete_profile: Optional[AthleteProfile] = None,
 ) -> Prescription:
     role = derive_role(ex)
@@ -563,10 +563,9 @@ def get_prescription(
         if comp_window <= 2:
             base["intensity_note"] = base.get("intensity_note", "") + ", submaximal"
 
-    # Apply week-based volume factor
-    wf = WEEK_VOLUME_FACTORS.get(week, 1.0)
-    if wf < 1.0:
-        base["sets"] = _scale_sets(base["sets"], wf)
+    # Apply week-type volume factor (primary driver)
+    wf = WEEK_TYPE_VOLUME_FACTORS.get(week_type, 1.0)
+    base["sets"] = _scale_sets(base["sets"], wf)
 
     # Youth override: cap sets at 3, no low-rep work
     if bp_cat in ("youth_foundation",) or (hasattr(level, 'value') and level == AthleteLevel.BEGINNER and week <= 2):
@@ -632,8 +631,9 @@ def prescription_for_session_block(
     blueprint_id: int,
     comp_window: Optional[int] = None,
     week: int = 1,
+    week_type: str = "accumulation",
 ) -> list[Prescription]:
-    return [get_prescription(ex, level, blueprint_id, comp_window, week) for ex in exercises]
+    return [get_prescription(ex, level, blueprint_id, comp_window, week, week_type) for ex in exercises]
 
 
 # ── HELPERS ─────────────────────────────────────────────────────────
@@ -735,6 +735,19 @@ def get_athlete_prescription_modifiers(
         elif role == PrescriptionRole.PLYOMETRIC:
             mods["set_cap"] = 3
             mods["intensity_note_bias"] = ", low-reactive"
+
+    # Wave 11a — In-season volume reduction (role-aware: preserve primary, trim accessory)
+    if profile.season_phase == SeasonPhase.IN_SEASON:
+        existing = mods.get("set_cap", 999)
+        if role in (PrescriptionRole.MAIN_STRENGTH, PrescriptionRole.SECONDARY_STRENGTH,
+                    PrescriptionRole.EXPLOSIVE_POWER, PrescriptionRole.PLYOMETRIC,
+                    PrescriptionRole.SPRINT_MECHANICS):
+            mods["set_cap"] = min(existing, 4)   # strength/power preserved at 4
+        elif role in (PrescriptionRole.HYPERTROPHY_ACCESSORY,
+                      PrescriptionRole.CONDITIONING_LIFT,
+                      PrescriptionRole.CARRY_CAPACITY):
+            mods["set_cap"] = min(existing, 3)   # accessory trimmed more
+        # Landing, Core, Rehab remain uncapped
 
     # Conditioning profile
     cp = profile.conditioning_profile

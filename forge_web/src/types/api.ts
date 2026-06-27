@@ -21,6 +21,13 @@ export interface RawProgramContext {
   current_phase?: string;
   equipment_profile?: string[];
   competition_proximity_note?: string;
+  program_length_weeks?: number;
+  match_day?: string;
+  team_training_days?: string[];
+  heavy_field_days?: string[];
+  travel_days?: string[];
+  coach_intent?: string;
+  injury_severity?: 'None' | 'Mild' | 'Moderate' | 'Severe';
 }
 
 export interface RawAdvancedProfile {
@@ -32,6 +39,24 @@ export interface RawAdvancedProfile {
   technique_consistency?: 'Low' | 'Medium' | 'High' | '';
   injury_risk_flags?: string[];
   prior_block_summary?: string;
+  yoyo_ir1?: string;
+  yoyo_ir2?: string;
+  bronco?: string;
+  testing_date?: string;
+}
+
+export interface CoachPreferences {
+  preferredDeadlift?: 'trap_bar' | 'straight_bar' | 'sumo' | 'none';
+  preferredSquat?: 'barbell' | 'goblet' | 'hack' | 'none';
+  preferredPress?: 'barbell' | 'dumbbell' | 'landmine' | 'none';
+  avoidOlympicLifts?: boolean;
+  avoidHighSorenessNearMatch?: boolean;
+  minSprintExposuresPerWeek?: number;
+  preferredConditioningStyle?: 'low_intensity' | 'high_intensity' | 'mixed';
+  biasUnilateralWork?: boolean;
+  preferVelocityBasedLoading?: boolean;
+  preferredTempo?: string;
+  preferredRestBetweenSets?: number;
 }
 
 export interface RawProgramRequest {
@@ -39,6 +64,7 @@ export interface RawProgramRequest {
   basics: RawAthleteBasics;
   context: RawProgramContext;
   advanced: RawAdvancedProfile;
+  coach_preferences?: CoachPreferences;
 }
 
 export interface RawExercise {
@@ -116,4 +142,21 @@ export interface RawProgramResponse {
   personalization_notes?: string[];
   validation?: RawValidationNote[];
   dropped_constraints?: string[];
+  test_adjustments?: {
+    has_data: boolean;
+    conditioning_multiplier?: number;
+    sprint_multiplier?: number;
+    power_emphasis?: string;
+    power_multiplier?: number;
+    adjustments?: string[];
+  };
+}
+
+export interface TestAdjustments {
+  has_data: boolean;
+  conditioning_multiplier?: number;
+  sprint_multiplier?: number;
+  power_emphasis?: string;
+  power_multiplier?: number;
+  adjustments?: string[];
 }

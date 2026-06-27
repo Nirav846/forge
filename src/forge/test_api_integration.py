@@ -392,6 +392,202 @@ class TestArtifactStore(unittest.TestCase):
         updated = update_artifact(saved["id"], coach_notes="Updated")
         self.assertGreater(updated["updated_at"], saved["updated_at"])
 
+    # ── Coach Override Tests ─────────────────────────────────────
+
+    def test_coach_overrides_present_in_saved(self):
+        """Saved artifact contains coach_overrides field."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        self.assertIn("coach_overrides", saved)
+        self.assertEqual(saved["coach_overrides"], {})
+
+    def test_coach_overrides_in_listing(self):
+        """List view includes coach_overrides."""
+        save_artifact(self.request_payload, self.response_payload)
+        listing = list_artifacts()
+        self.assertIn("coach_overrides", listing[0])
+
+    def test_update_coach_overrides_session_locks(self):
+        """Update coach_overrides with session locks persists in nested format."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        overrides = {"sessions": {"sess_0": {"locked": True}, "sess_1": {"locked": False}}}
+        updated = update_artifact(saved["id"], coach_overrides=overrides)
+        self.assertIsNotNone(updated)
+        self.assertEqual(updated["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+        self.assertEqual(updated["coach_overrides"]["sessions"]["sess_1"]["locked"], False)
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+
+    def test_update_coach_overrides_session_notes(self):
+        """Update coach_overrides with session notes persists in nested format."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        overrides = {"sessions": {"sess_0": {"note": "Coach: watch hip angle"}}}
+        updated = update_artifact(saved["id"], coach_overrides=overrides)
+        self.assertEqual(updated["coach_overrides"]["sessions"]["sess_0"]["note"], "Coach: watch hip angle")
+
+    def test_update_coach_overrides_exercise_swaps(self):
+        """Update coach_overrides with exercise swaps persists in nested format."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        overrides = {"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": {"original_name": "Back Squat", "new_name": "Front Squat", "new_family": "Strength"}}}}}}
+        updated = update_artifact(saved["id"], coach_overrides=overrides)
+        self.assertEqual(updated["coach_overrides"]["sessions"]["sess_0"]["exercises"]["ex_0"]["swap"]["new_name"], "Front Squat")
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["exercises"]["ex_0"]["swap"]["original_name"], "Back Squat")
+
+    def test_update_coach_overrides_prescription_edits(self):
+        """Update coach_overrides with prescription edits persists in nested format."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        overrides = {"sessions": {"sess_0": {"exercises": {"ex_0": {"prescription": {"sets_reps": "4 x 8", "loading_method": "75% 1RM"}}}}}}
+        updated = update_artifact(saved["id"], coach_overrides=overrides)
+        self.assertEqual(updated["coach_overrides"]["sessions"]["sess_0"]["exercises"]["ex_0"]["prescription"]["sets_reps"], "4 x 8")
+
+    def test_coach_overrides_merge_on_repeated_update(self):
+        """Multiple updates merge coach_overrides, not replace."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"locked": True}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"note": "Note"}}})
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["note"], "Note")
+
+    def test_artifact_reload_preserves_overrides(self):
+        """Full round-trip: save, update overrides, reload preserves them."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"locked": True}}})
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+
+    def test_duplicate_resets_coach_overrides(self):
+        """Duplicating an artifact resets coach_overrides."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"locked": True}}})
+        dup = duplicate_artifact(saved["id"])
+        self.assertEqual(dup["coach_overrides"], {})
+
+    def test_coach_overrides_in_compare_fields(self):
+        """coach_overrides is present when loading for comparison."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": {"new_name": "Alt Exercise", "original_name": "Old Ex", "new_family": "S"}}}}}})
+        loaded = load_artifact(saved["id"])
+        self.assertIn("coach_overrides", loaded)
+        self.assertIn("sessions", loaded["coach_overrides"])
+        self.assertIn("exercises", loaded["coach_overrides"]["sessions"]["sess_0"])
+
+    # ── Merge Safety Tests ──────────────────────────────────────
+
+    def test_merge_preserves_different_sessions(self):
+        """Patching session A does not wipe session B."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"locked": True}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_1": {"note": "Other session note"}}})
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_1"]["note"], "Other session note")
+
+    def test_merge_preserves_exercise_siblings(self):
+        """Patching one exercise does not wipe another in the same session."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_a": {"swap": {"original_name": "A", "new_name": "A1", "new_family": "S"}}}}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_b": {"prescription": {"sets_reps": "3x10"}}}}}})
+        loaded = load_artifact(saved["id"])
+        self.assertIn("ex_a", loaded["coach_overrides"]["sessions"]["sess_0"]["exercises"])
+        self.assertIn("swap", loaded["coach_overrides"]["sessions"]["sess_0"]["exercises"]["ex_a"])
+        self.assertIn("prescription", loaded["coach_overrides"]["sessions"]["sess_0"]["exercises"]["ex_b"])
+
+    def test_merge_swap_then_prescription_same_exercise(self):
+        """Patching swap then prescription for same exercise preserves both."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": {"original_name": "SQ", "new_name": "FSQ", "new_family": "S"}}}}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"prescription": {"sets_reps": "4x6"}}}}}})
+        loaded = load_artifact(saved["id"])
+        ex0 = loaded["coach_overrides"]["sessions"]["sess_0"]["exercises"]["ex_0"]
+        self.assertEqual(ex0["swap"]["new_name"], "FSQ")
+        self.assertEqual(ex0["prescription"]["sets_reps"], "4x6")
+
+    # ── Clear Semantics Tests ───────────────────────────────────
+
+    def test_clear_session_note(self):
+        """Setting session note to None removes it."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"note": "Original note", "locked": True}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"note": None}}})
+        loaded = load_artifact(saved["id"])
+        self.assertNotIn("note", loaded["coach_overrides"]["sessions"]["sess_0"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+
+    def test_clear_exercise_swap(self):
+        """Setting exercise swap to None removes it; prunes empty containers up."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": {"original_name": "A", "new_name": "B", "new_family": "S"}}}}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": None}}}}})
+        loaded = load_artifact(saved["id"])
+        # Full pruning chain: ex_0 cleared → exercises empty → sess_0 empty → sessions key gone
+        self.assertEqual(loaded.get("coach_overrides", {}), {})
+
+    def test_clear_prescription_override(self):
+        """Setting prescription to None removes it; prunes empty containers up."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"prescription": {"sets_reps": "3x8"}}}}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"prescription": None}}}}})
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded.get("coach_overrides", {}), {})
+
+    def test_prune_empty_exercise_override(self):
+        """Clearing last override field prunes exercise and parent session."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": {"original_name": "A", "new_name": "B", "new_family": "S"}}}}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"exercises": {"ex_0": {"swap": None}}}}})
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded.get("coach_overrides", {}), {})
+
+    def test_prune_empty_session_override(self):
+        """Session removed when all fields cleared."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"note": "Temporary"}}})
+        update_artifact(saved["id"], coach_overrides={"sessions": {"sess_0": {"note": None}}})
+        loaded = load_artifact(saved["id"])
+        self.assertEqual(loaded.get("coach_overrides", {}), {})
+
+    # ── Compatibility / Migration Tests ─────────────────────────
+
+    def test_migration_old_flat_format_on_load(self):
+        """Loading an artifact with old flat override format normalizes correctly."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        path = os.path.join(self.test_dir, f"{saved['id']}.json")
+        with open(path, "r", encoding="utf-8") as f:
+            artifact = json.load(f)
+        artifact["coach_overrides"] = {"session_locks": {"sess_0": True}, "session_notes": {"sess_0": "old note"}}
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(artifact, f, indent=2)
+        loaded = load_artifact(saved["id"])
+        self.assertIn("sessions", loaded["coach_overrides"])
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["locked"], True)
+        self.assertEqual(loaded["coach_overrides"]["sessions"]["sess_0"]["note"], "old note")
+
+    def test_migration_old_flat_format_via_update(self):
+        """Sending old flat format in PATCH normalizes into nested."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        updated = update_artifact(saved["id"], coach_overrides={"session_locks": {"sess_x": True}})
+        self.assertIn("sessions", updated["coach_overrides"])
+        self.assertEqual(updated["coach_overrides"]["sessions"]["sess_x"]["locked"], True)
+
+    def test_migration_exercise_swaps_preserved(self):
+        """Old flat exercise_swaps survive migration into nested sessions._ex."""
+        saved = save_artifact(self.request_payload, self.response_payload)
+        path = os.path.join(self.test_dir, f"{saved['id']}.json")
+        with open(path, "r", encoding="utf-8") as f:
+            artifact = json.load(f)
+        artifact["coach_overrides"] = {"exercise_swaps": {"ex_0": {"original_name": "SQ", "new_name": "FSQ", "new_family": "S"}}}
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(artifact, f, indent=2)
+        loaded = load_artifact(saved["id"])
+        self.assertIn("sessions", loaded["coach_overrides"])
+        self.assertIn("_ex", loaded["coach_overrides"]["sessions"])
+        self.assertIn("exercises", loaded["coach_overrides"]["sessions"]["_ex"])
+        self.assertEqual(
+            loaded["coach_overrides"]["sessions"]["_ex"]["exercises"]["ex_0"]["swap"]["new_name"],
+            "FSQ",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

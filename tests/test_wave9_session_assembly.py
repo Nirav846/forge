@@ -170,7 +170,7 @@ class TestTimeConstraint:
     def test_no_constraint_keeps_all(self):
         bp = _blueprint([FamilyCode.DLKD], [FamilyCode.DLHD, FamilyCode.CORE], [FamilyCode.DLKD, FamilyCode.DLHD, FamilyCode.CORE])
         slots = [FamilyCode.DLKD, FamilyCode.DLHD, FamilyCode.CORE]
-        kept, notes = apply_time_constraint_v2(slots, bp, 75, 6)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 75, 6)
         assert len(kept) == 3
         assert not notes
 
@@ -181,7 +181,7 @@ class TestTimeConstraint:
             [FamilyCode.DLKD, FamilyCode.CARRY, FamilyCode.CORE, FamilyCode.ACC, FamilyCode.HPUSH],
         )
         slots = [FamilyCode.DLKD, FamilyCode.CARRY, FamilyCode.CORE, FamilyCode.ACC, FamilyCode.HPUSH]
-        kept, notes = apply_time_constraint_v2(slots, bp, 25, 6)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 25, 6)
         assert FamilyCode.CARRY not in kept or FamilyCode.ACC not in kept
         assert FamilyCode.DLKD in kept
         assert FamilyCode.CORE in kept
@@ -193,7 +193,7 @@ class TestTimeConstraint:
             [FamilyCode.DLKD, FamilyCode.DLHD, FamilyCode.SLKD, FamilyCode.CORE, FamilyCode.ROT, FamilyCode.HPUSH],
         )
         slots = [FamilyCode.DLKD, FamilyCode.DLHD, FamilyCode.SLKD, FamilyCode.CORE, FamilyCode.ROT, FamilyCode.HPUSH]
-        kept, notes = apply_time_constraint_v2(slots, bp, 40, 6)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 40, 6)
         assert FamilyCode.SLKD not in kept or FamilyCode.ROT not in kept
         assert FamilyCode.DLKD in kept
         assert FamilyCode.DLHD in kept
@@ -201,7 +201,7 @@ class TestTimeConstraint:
     def test_mandatory_survives_severe_constraint(self):
         bp = _blueprint([FamilyCode.DLKD], [FamilyCode.CARRY], [FamilyCode.DLKD, FamilyCode.CARRY])
         slots = [FamilyCode.DLKD, FamilyCode.CARRY]
-        kept, notes = apply_time_constraint_v2(slots, bp, 25, 6)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 25, 6)
         assert FamilyCode.DLKD in kept
 
     def test_comp_window_reduces_max(self):
@@ -211,7 +211,7 @@ class TestTimeConstraint:
             [FamilyCode.DLKD, FamilyCode.DLHD, FamilyCode.HPUSH, FamilyCode.CORE],
         )
         slots = [FamilyCode.DLKD, FamilyCode.DLHD, FamilyCode.HPUSH, FamilyCode.CORE]
-        kept, notes = apply_time_constraint_v2(slots, bp, 75, 6, comp_window=1)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 75, 6, comp_window=1)
         assert len(kept) <= 4
 
     def test_drop_notes_mention_family_and_reason(self):
@@ -221,7 +221,7 @@ class TestTimeConstraint:
             [FamilyCode.DLKD, FamilyCode.CARRY, FamilyCode.CORE, FamilyCode.ACC, FamilyCode.HPUSH],
         )
         slots = [FamilyCode.DLKD, FamilyCode.CARRY, FamilyCode.CORE, FamilyCode.ACC, FamilyCode.HPUSH]
-        kept, notes = apply_time_constraint_v2(slots, bp, 25, 6)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 25, 6)
         assert any("Carry" in n or "Acc" in n for n in notes)
         assert any("dropped" in n for n in notes)
 
@@ -233,7 +233,7 @@ class TestTimeConstraint:
         )
         slots = [FamilyCode.DLKD, FamilyCode.SPRINT, FamilyCode.CARRY, FamilyCode.CORE, FamilyCode.HPUSH]
         rp = RoleWeekProfile(family_de_priority=["Sprint"])
-        kept, notes = apply_time_constraint_v2(slots, bp, 25, 6, role_profile=rp)
+        kept, notes, _ = apply_time_constraint_v2(slots, bp, 25, 6, role_profile=rp)
         # With de-priority, Sprint drops from TIER_A to TIER_B, but Carry is TIER_C
         # So Carry should be dropped first (lowest tier)
         assert FamilyCode.CARRY not in kept

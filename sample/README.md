@@ -48,3 +48,35 @@ python scripts/generate_coach_review_samples.py --sport cricket
 The generator is fully deterministic — same inputs produce identical outputs.
 Scenario parameters are defined explicitly in the generator script.
 Programs are generated via the real FORGE engine (`generate_program()`).
+
+## Coach Review Ingestion & Synthesis
+
+Coach review files live alongside the sample packs in each sport folder as
+`*_review_sheet.md`. The cross-sport master review is at `overall_review.txt`.
+
+### Synthesis Script
+
+`scripts/summarize_coach_reviews.py` scans all review files, normalizes the
+feedback (even if messy or inconsistent), and generates four artifacts:
+
+| Output | Location | Purpose |
+|---|---|---|
+| Cross-sport master summary | `sample/COACH_REVIEW_MASTER_SUMMARY.md` | Main human-readable synthesis across all sports |
+| Per-sport summaries | `sample/<sport>_coach_review_summary.md` | One per sport with review findings |
+| Normalized JSON export | `sample/coach_review_normalized.json` | Machine-readable structured review items |
+| Action backlog | `docs/FORGE_COACH_REVIEW_ACTION_BACKLOG_V1.md` | Engineering roadmap items grounded in feedback |
+
+The script handles three review formats automatically:
+- **Structured tabular** (badminton, basketball, cricket) — scoring rubrics, sample tables
+- **Narrative positional** (football, rugby) — executive summary, position-by-position prose
+- **Review-style** (soccer, tennis, volleyball) — overall verdict, strengths, consideration areas
+
+### How to Re-run
+
+```bash
+# Full synthesis across all sports
+python scripts/summarize_coach_reviews.py
+
+# Single sport only
+python scripts/summarize_coach_reviews.py --sport rugby
+```

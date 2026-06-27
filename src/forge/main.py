@@ -4,7 +4,7 @@ from typing import Optional
 from .models import (
     AthleteProfile, AthleteLevel, EquipmentProfile,
     SeasonPhase, Objective, GeneratedProgram, Session,
-    SessionBlock, FamilyCode, Exercise
+    SessionBlock, FamilyCode, Exercise, CoachPreferences,
 )
 from .data import (
     BLUEPRINTS, get_max_difficulty, get_equipment_for_profile,
@@ -15,6 +15,7 @@ from .blueprint_engine import (
     apply_time_constraint,
 )
 from .exercise_selector import select_exercise
+from .test_adjustment_engine import get_adjustments
 from .conditioning_engine import generate_conditioning, _resolve_comp_window
 from .renderer import render_program, render_coach_program
 from .validator import verify_credibility, calculate_credibility_score
@@ -55,6 +56,11 @@ from .session_assembly import (
     get_within_week_variation_family,
     get_within_week_variation_rationale,
     session_composition_rationale,
+    resolve_weekly_schedule,
+    adjust_slots_for_calendar,
+    apply_coach_preferences,
+    apply_sprint_exposure_floor,
+    apply_sprint_multiplier,
 )
 
 
@@ -78,20 +84,42 @@ def _adjust_session_type_for_environment(session_type: str, environment: str, bl
     return session_type
 
 
+def _slot_compact_factor(family: FamilyCode, base_factor: float) -> float:
+    """Return family-aware compact factor. Primary strength compacted less."""
+    if base_factor >= 1.0:
+        return 1.0
+    # ponytail: Phase-2 primary strength families get +0.15 buffer
+    if family.value in ("DLKD", "DLHD"):
+        return min(1.0, base_factor + 0.15)
+    # HPush/HPull are Phase-2 primary in session flow, +0.10 buffer
+    if family.value in ("HPush", "HPull"):
+        return min(1.0, base_factor + 0.10)
+    # Accessory fatigue-heavy families get trimmed more aggressively
+    if family.value in ("Carry", "Acc", "Rot"):
+        return max(0.4, base_factor - 0.10)
+    return base_factor
+
+
+def _compact_presc_sets(presc: Prescription, factor: float) -> None:
+    """Scale prescription sets by factor, modifiying in-place."""
+    import re
+    nums = re.findall(r"\d+", presc.sets)
+    if not nums:
+        return
+    ints = [int(n) for n in nums]
+    scaled = [max(1, round(n * factor)) for n in ints]
+    if len(scaled) == 1:
+        presc.sets = str(scaled[0])
+    elif scaled[0] == scaled[1]:
+        presc.sets = str(scaled[0])
+    else:
+        presc.sets = f"{scaled[0]}-{scaled[1]}"
+
+
 def _rest_sec_to_str(secs: int) -> str:
     if secs >= 180:
         return f"{secs // 60}-{secs // 60 + 1}min"
     return f"{secs}s"
-
-
-def _parse_weeks(duration_str: str) -> int:
-    return 8
-
-
-def _parse_freq(freq_str: str) -> int:
-    import re
-    m = re.search(r"\d+", freq_str)
-    return int(m.group()) if m else 3
 
 
 def _get_session_type(athlete: AthleteProfile, blueprint_id: int) -> str:
@@ -142,7 +170,7 @@ def _build_light_session(athlete: AthleteProfile, level: AthleteLevel,
             rest_period=OBJECTIVE_REST_MAP.get(obj),
         )
         if ex:
-            presc = get_prescription(ex, level, blueprint_id, comp_window, week=1, athlete_profile=athlete)
+            presc = get_prescription(ex, level, blueprint_id, comp_window, week=1, week_type="light", athlete_profile=athlete)
             block.prescription = presc
             block.rest_period = _rest_sec_to_str(presc.rest_seconds)
         blocks.append(block)
@@ -166,9 +194,17 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
     equipment = athlete.equipment_profile
     slots = resolve_slots(blueprint, level)
 
-    preferred = getattr(athlete, 'preferred_families', 6)
+    # Frequency-based slot adaptation: spread or compress families per session
+    freq = athlete.frequency_per_week
+    total_families = len(blueprint.slot_order)
+    fam_per_session = max(3, min(total_families, round(total_families * 3.0 / freq)))
+    preferred = min(getattr(athlete, 'preferred_families', 6), fam_per_session)
     avail_min = getattr(athlete, 'available_minutes', 60)
     comp_window = _resolve_comp_window(days_to_match)
+
+    # Wave 15: test-driven adjustments
+    adjustments = get_adjustments(athlete)
+    athlete.test_adjustments = adjustments
 
     # Wave 8: role-aware week profile (needed before time constraint)
     role_profile = get_role_week_profile(athlete.sport, athlete.position_role)
@@ -181,10 +217,29 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
     elif comp_window == 1:  # PRIMER (<=1 day)
         preferred = min(preferred, 4)
 
+    # Wave 11a — Season-phase volume scaling
+    if athlete.season_phase == SeasonPhase.OFF_SEASON:
+        preferred = min(preferred, 7)
+        avail_min = min(avail_min, 90)
+    elif athlete.season_phase == SeasonPhase.PRE_SEASON:
+        preferred = min(preferred, 6)
+        avail_min = min(avail_min, 75)
+    elif athlete.season_phase == SeasonPhase.IN_SEASON:
+        preferred = min(preferred, 6)
+        avail_min = min(avail_min, 55)
+        if freq > 2:
+            freq = 2
+    elif athlete.season_phase == SeasonPhase.TRANSITION:
+        preferred = min(preferred, 5)
+        avail_min = min(avail_min, 60)
+
     # Wave 9: use tier-aware time constraint with blueprint awareness
-    slots, time_drop_notes = apply_time_constraint_v2(
+    slots, time_drop_notes, compact_factor = apply_time_constraint_v2(
         slots, blueprint, avail_min, preferred, comp_window, role_profile
     )
+    # In-season: additional volume reduction (~35%) regardless of time constraint
+    if athlete.season_phase == SeasonPhase.IN_SEASON:
+        compact_factor = min(compact_factor, 0.65)
     # Also apply competition taper if needed
     if comp_window and comp_window <= 4:
         slots, taper_notes = apply_competition_taper(slots, blueprint, comp_window, role_profile)
@@ -208,8 +263,7 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
     running_recent: dict[str, dict] = {}
     prev_slot_exercises: dict[str, str] = {}
 
-    weeks = _parse_weeks(blueprint.typical_duration)
-    freq = _parse_freq(blueprint.best_frequency)
+    weeks = athlete.program_length_weeks
     conditioning_goal = _get_conditioning_goal(athlete.goal)
     session_type = _get_session_type(athlete, blueprint.id)
 
@@ -221,6 +275,8 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
     next_week_adjustments: dict[int, dict] = {}
     program_adjustments: list[str] = time_drop_notes
     testing_summary: list[tuple[int, list[str]]] = []
+    if athlete.season_phase == SeasonPhase.IN_SEASON:
+        personalization_notes.append("In-season maintenance mode – volume reduced, intensity maintained.")
 
     for week in range(1, weeks + 1):
         week_type = week_plan[week - 1] if week <= len(week_plan) else "accumulation"
@@ -240,13 +296,25 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
         # Check if this session/day should have testing
         week_tests = test_plan.get(week, [])
 
+        # Wave 12: calendar-aware placement
+        schedule = resolve_weekly_schedule(
+            athlete.match_day, athlete.team_training_days,
+            athlete.heavy_field_days, athlete.travel_days, freq,
+        )
+
         week_exercises = []
         for day in range(1, freq + 1):
+            day_ctx = schedule[day - 1] if day <= len(schedule) else None
+            day_slots = effective_slots
+            cal_notes: list[str] = []
+            if day_ctx:
+                day_slots, cal_notes = adjust_slots_for_calendar(effective_slots, day_ctx)
+
             session = _build_session(
                 athlete=athlete,
                 level=level,
                 equipment=equipment,
-                slots=effective_slots,
+                slots=day_slots,
                 week=week,
                 day=day,
                 freq=freq,
@@ -259,9 +327,28 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
                 testing_categories=week_tests,
                 adjustment_note=adj_note,
                 role_profile=role_profile,
+                compact_factor=compact_factor,
+                coach_prefs=athlete.coach_preferences,
+                test_adjustments=athlete.test_adjustments,
+                set_reduction=adj.get("set_reduction", 0),
+                cap_exercises=adj.get("cap_exercises", 0),
             )
             sessions.append(session)
             week_exercises.extend([ex for b in session.blocks for ex in b.exercises if ex])
+
+        # Wave 14 — Apply coach preferences at week level
+        coach_prefs = athlete.coach_preferences
+        if coach_prefs:
+            week_sessions = sessions[-(freq if freq <= len(sessions) else len(sessions)):]
+            week_sessions = apply_sprint_exposure_floor(list(week_sessions), coach_prefs, week)
+            for i in range(len(week_sessions)):
+                sidx = max(0, len(sessions) - len(week_sessions)) + i
+                sessions[sidx] = apply_coach_preferences(week_sessions[i], coach_prefs, week, freq)
+
+            if cal_notes:
+                for note in cal_notes:
+                    program_adjustments.append(f"Week {week}, Day {day}: {note}")
+                    personalization_notes.append(f"Week {week}, Day {day}: {note}")
 
         if adj_note:
             program_adjustments.append(f"Week {week}: {adj_note}")
@@ -439,9 +526,15 @@ def _build_session(
     testing_categories: Optional[list[str]] = None,
     adjustment_note: str = "",
     role_profile: Optional[object] = None,
+    compact_factor: float = 1.0,
+    coach_prefs: Optional[CoachPreferences] = None,
+    test_adjustments: Optional[dict] = None,
+    set_reduction: int = 0,
+    cap_exercises: int = 0,
 ) -> Session:
     blocks: list[SessionBlock] = []
     comp_window = resolve_comp_window(days_to_match)
+    power_mult = (test_adjustments or {}).get("power_multiplier", 1.0)
 
     for family in slots:
         ex = select_or_continue(
@@ -455,6 +548,9 @@ def _build_session(
             technique_consistency=athlete.technique_consistency,
             days_to_match=days_to_match,
             athlete_profile=athlete,
+            coach_prefs=coach_prefs,
+            power_multiplier=power_mult,
+            week_type=week_type,
         )
         if ex:
             prev_slot_exercises[family.value] = ex.id
@@ -469,7 +565,25 @@ def _build_session(
             rest_period=rest,
         )
         if ex:
-            presc = get_prescription(ex, level, blueprint_id, comp_window, week, athlete_profile=athlete)
+            presc = get_prescription(ex, level, blueprint_id, comp_window, week, week_type, athlete_profile=athlete)
+            # Wave 14 — Coach preference: tempo & rest overrides
+            if coach_prefs and coach_prefs.preferred_tempo:
+                presc.loading_method = presc.loading_method  # ponytail: pass through, tempo encoded separately
+            if coach_prefs and coach_prefs.preferred_rest_seconds:
+                presc.rest_seconds = coach_prefs.preferred_rest_seconds
+                block.rest_period = _rest_sec_to_str(presc.rest_seconds)
+            # Wave 11a — Proportional compact: scale sets when time-constrained (slot-aware)
+            if compact_factor < 1.0:
+                family_factor = _slot_compact_factor(family, compact_factor)
+                if family_factor < 1.0:
+                    _compact_presc_sets(presc, family_factor)
+            # Auto-correction: reduce sets when volume warning triggered
+            if set_reduction and presc.sets:
+                import re
+                nums = re.findall(r'\d+', presc.sets)
+                if nums:
+                    reduced = [str(max(2, int(n) - set_reduction)) for n in nums]
+                    presc.sets = reduced[0] if len(reduced) == 1 else '-'.join(reduced)
             block.prescription = presc
             block.rest_period = _rest_sec_to_str(presc.rest_seconds)
             technique = min(athlete.technique_consistency + 0.05 * week, 1.0)
@@ -482,7 +596,32 @@ def _build_session(
     # Wave 9: rebalance session — remove empty blocks and reorder
     blocks, rebalance_notes = rebalance_session_blocks(blocks, None)
 
-    if should_add_conditioning_for_role(week, day, freq, conditioning_goal, role_profile):
+    # Auto-correction: cap exercises per session when volume warning persists
+    if cap_exercises and len(blocks) > cap_exercises:
+        blocks = blocks[:cap_exercises]
+
+    # Wave 15: test-driven sprint multiplier
+    sprint_mult = (test_adjustments or {}).get("sprint_multiplier", 1.0)
+    if sprint_mult != 1.0:
+        session_pre = Session(blocks=blocks)
+        session_pre = apply_sprint_multiplier(session_pre, sprint_mult)
+        blocks = session_pre.blocks
+
+    # Wave 15: test-driven conditioning adjustment
+    cond_mult = (test_adjustments or {}).get("conditioning_multiplier", 1.0)
+    _should_cond = should_add_conditioning_for_role(week, day, freq, conditioning_goal, role_profile)
+    # In-season: remove conditioning within 48h of match
+    if athlete.season_phase == SeasonPhase.IN_SEASON:
+        if athlete.days_to_match is not None and athlete.days_to_match <= 2:
+            _should_cond = False
+    if cond_mult > 1.2 and not _should_cond:
+        # Poor aerobic capacity: force conditioning into this session
+        _should_cond = True
+    elif cond_mult < 0.7 and _should_cond:
+        # Excellent aerobic capacity: skip conditioning this session
+        _should_cond = False
+
+    if _should_cond:
         conditioning = progress_conditioning(
             week_type=week_type,
             prev_conditioning_id=prev_slot_exercises.get("_conditioning"),

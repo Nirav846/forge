@@ -27,6 +27,13 @@ export const FieldModeConfig = {
     competition_proximity_note: 'premium' as FieldMode,
     current_phase: 'premium' as FieldMode,
     equipment_profile: 'premium' as FieldMode,
+    program_length_weeks: 'core' as FieldMode,
+    match_day: 'premium' as FieldMode,
+    team_training_days: 'premium' as FieldMode,
+    heavy_field_days: 'premium' as FieldMode,
+    travel_days: 'premium' as FieldMode,
+    coach_intent: 'core' as FieldMode,
+    injury_severity: 'premium' as FieldMode,
   },
   advanced: 'premium' as FieldMode
 };

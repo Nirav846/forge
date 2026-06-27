@@ -22,6 +22,7 @@ _EX_FATIGUE_BASE = {
     "HPush": 3, "HPull": 3, "VPush": 3, "VPull": 3,
     "Plyo": 3, "Ball": 3, "Sprint": 3, "Landing": 3,
     "Rot": 2, "Carry": 2, "Core": 1, "Acc": 2,
+    "Agility": 3, "Cond": 4,
 }
 # Base impact by family (1-5)
 _EX_IMPACT_BASE = {
@@ -29,6 +30,7 @@ _EX_IMPACT_BASE = {
     "HPush": 3, "HPull": 3, "VPush": 3, "VPull": 3,
     "Plyo": 4, "Ball": 4, "Sprint": 3, "Landing": 4,
     "Rot": 2, "Carry": 2, "Core": 1, "Acc": 2,
+    "Agility": 3, "Cond": 3,
 }
 # Base eccentric by family (1-5)
 _EX_ECCENTRIC_BASE = {
@@ -36,6 +38,7 @@ _EX_ECCENTRIC_BASE = {
     "HPush": 3, "HPull": 3, "VPush": 2, "VPull": 3,
     "Plyo": 2, "Ball": 1, "Sprint": 1, "Landing": 2,
     "Rot": 2, "Carry": 1, "Core": 1, "Acc": 2,
+    "Agility": 1, "Cond": 1,
 }
 # Competition role by family
 _EX_ROLE = {
@@ -43,6 +46,7 @@ _EX_ROLE = {
     "HPush": "strength", "HPull": "strength", "VPush": "strength", "VPull": "strength",
     "Plyo": "speed_power", "Ball": "speed_power", "Sprint": "speed_power", "Landing": "speed_power",
     "Rot": "accessory", "Carry": "carry", "Core": "core", "Acc": "accessory",
+    "Agility": "speed_power", "Cond": "speed_power",
 }
 # Explicit overrides for exercises where inference is wrong
 _EX_COMP_OVERRIDES: dict[str, dict] = {}
@@ -181,24 +185,28 @@ FAMILIES_DATA = [
     {"id": "Core", "name": "Core", "definition": "Trunk stabilisation including anti-extension, anti-rotation, anti-lateral flexion, and controlled flexion.", "non_negotiable_in": "100% of programs", "default_slot": "last"},
     {"id": "Landing", "name": "Landing Mechanics", "definition": "Progressive landing skill development from double-leg stick through single-leg reactive landings.", "non_negotiable_in": "60% of programs", "default_slot": "early"},
     {"id": "Acc", "name": "Accessory / Prehab", "definition": "Targeted isolation, prehabilitation, and injury prevention.", "non_negotiable_in": "Variable", "default_slot": "early"},
+    {"id": "Agility", "name": "Agility", "definition": "Multi-directional footwork, reactive change of direction, and deceleration control.", "non_negotiable_in": "40% of programs", "default_slot": "early"},
+    {"id": "Cond", "name": "Conditioning", "definition": "Metabolic conditioning and repeated-effort stamina work.", "non_negotiable_in": "25% of programs", "default_slot": "last"},
 ]
 
 # Priority-ordered exercise IDs per family (from Rulebook Section 2.2)
 SELECTION_PRIORITIES: dict[str, list[str]] = {
-    "Acc": ["Acc-002", "Acc-015", "Acc-001", "Acc-005", "Acc-014", "Acc-021", "Acc-003", "Acc-004", "Acc-006", "Acc-007", "Acc-008", "Acc-009", "Acc-010", "Acc-011", "Acc-012", "Acc-013", "Acc-016", "Acc-017", "Acc-018", "Acc-019", "Acc-020", "Acc-022", "Acc-023", "Acc-024", "Acc-025", "Acc-026", "Acc-027", "Acc-028"],
+    "Acc": ["Acc-002", "Acc-015", "Acc-001", "Acc-005", "Acc-014", "Acc-021", "Acc-003", "Acc-004", "Acc-006", "Acc-007", "Acc-008", "Acc-009", "Acc-010", "Acc-011", "Acc-012", "Acc-013", "Acc-016", "Acc-017", "Acc-018", "Acc-019", "Acc-020", "Acc-022", "Acc-023", "Acc-024", "Acc-025", "Acc-026", "Acc-027", "Acc-028", "ACC-100", "ACC-101"],
+    "Agility": ["AGI-100", "AGI-101", "AGI-102", "AGI-103", "AGI-104"],
     "Ball": ["Ball-001", "Ball-002", "Ball-003", "Ball-004", "Ball-005", "Ball-006", "Ball-007", "Ball-008", "Ball-009", "Ball-010", "Ball-011", "Ball-012", "Ball-013", "Ball-014"],
     "Carry": ["Carry-001", "Carry-012", "Carry-002", "Carry-013", "Carry-003", "Carry-004", "Carry-005", "Carry-006", "Carry-007", "Carry-008", "Carry-009", "Carry-010", "Carry-011", "Carry-014", "Carry-015", "Carry-016", "Carry-017"],
     "Core": ["Core-002", "Core-003", "Core-011", "Core-016", "Core-021", "Core-001", "Core-004", "Core-005", "Core-006", "Core-007", "Core-008", "Core-009", "Core-010", "Core-012", "Core-013", "Core-014", "Core-015", "Core-017", "Core-018", "Core-019", "Core-020"],
-    "DLHD": ["DLHD-006", "DLHD-012", "DLHD-011", "DLHD-009", "DLHD-014", "DLHD-002", "DLHD-003", "DLHD-007", "DLHD-001", "DLHD-004", "DLHD-005", "DLHD-008", "DLHD-010", "DLHD-013", "DLHD-015", "DLHD-016", "DLHD-017"],
+    "Cond": ["COND-100"],
+    "DLHD": ["DLHD-006", "DLHD-012", "DLHD-011", "DLHD-009", "DLHD-014", "DLHD-002", "DLHD-003", "DLHD-007", "DLHD-001", "DLHD-004", "DLHD-005", "DLHD-008", "DLHD-010", "DLHD-013", "DLHD-015", "DLHD-016", "DLHD-017", "DLHD-100"],
     "DLKD": ["DLKD-004", "DLKD-007", "DLKD-010", "DLKD-011", "DLKD-003", "DLKD-006", "DLKD-009", "DLKD-012", "DLKD-001", "DLKD-002", "DLKD-005", "DLKD-008", "DLKD-013"],
     "HPull": ["HPull-005", "HPull-009", "HPull-011", "HPull-003", "HPull-004", "HPull-006", "HPull-007", "HPull-008", "HPull-001", "HPull-002", "HPull-010", "HPull-012"],
     "HPush": ["HPush-006", "HPush-005", "HPush-008", "HPush-003", "HPush-004", "HPush-007", "HPush-001", "HPush-002", "HPush-009", "HPush-010", "HPush-011"],
-    "Plyo": ["Plyo-002", "Plyo-004", "Plyo-003", "Plyo-013", "Plyo-001", "Plyo-005", "Plyo-006", "Plyo-007", "Plyo-008", "Plyo-009", "Plyo-010", "Plyo-011", "Plyo-012", "Plyo-014", "Plyo-015", "Plyo-016"],
-    "Rot": ["Rot-006", "Rot-010", "Rot-003", "Rot-005", "Rot-007", "Rot-001", "Rot-002", "Rot-004", "Rot-008", "Rot-009", "Rot-011", "Rot-012", "Rot-013", "Rot-014", "Rot-015", "Rot-016", "Rot-017"],
+    "Plyo": ["Plyo-002", "Plyo-004", "Plyo-003", "Plyo-013", "Plyo-001", "Plyo-005", "Plyo-006", "Plyo-007", "Plyo-008", "Plyo-009", "Plyo-010", "Plyo-011", "Plyo-012", "Plyo-014", "Plyo-015", "Plyo-016", "PLYO-100", "PLYO-101", "PLYO-102"],
+    "Rot": ["Rot-006", "Rot-010", "Rot-003", "Rot-005", "Rot-007", "Rot-001", "Rot-002", "Rot-004", "Rot-008", "Rot-009", "Rot-011", "Rot-012", "Rot-013", "Rot-014", "Rot-015", "Rot-016", "Rot-017", "ROT-100"],
     "SLHD": ["SLHD-005", "SLHD-008", "SLHD-009", "SLHD-002", "SLHD-003", "SLHD-006", "SLHD-001", "SLHD-004", "SLHD-007", "SLHD-010", "SLHD-011", "SLHD-012"],
-    "SLKD": ["SLKD-005", "SLKD-008", "SLKD-012", "SLKD-002", "SLKD-003", "SLKD-006", "SLKD-007", "SLKD-009", "SLKD-010", "SLKD-011", "SLKD-001", "SLKD-004", "SLKD-013"],
-    "Landing": ["Landing-001", "Landing-002", "Landing-003", "Landing-004", "Landing-005", "Landing-006", "Landing-007", "Landing-008"],
-    "Sprint": ["Sprint-023", "Sprint-024", "Sprint-025", "Sprint-026", "Sprint-027", "Sprint-028", "Sprint-029", "Sprint-003", "Sprint-007", "Sprint-009", "Sprint-011", "Sprint-012", "Sprint-001", "Sprint-002", "Sprint-004", "Sprint-005", "Sprint-006", "Sprint-008", "Sprint-010", "Sprint-013", "Sprint-014", "Sprint-015", "Sprint-016", "Sprint-017", "Sprint-018", "Sprint-019", "Sprint-020", "Sprint-021", "Sprint-022"],
+    "SLKD": ["SLKD-005", "SLKD-008", "SLKD-012", "SLKD-002", "SLKD-003", "SLKD-006", "SLKD-007", "SLKD-009", "SLKD-010", "SLKD-011", "SLKD-001", "SLKD-004", "SLKD-013", "SLKD-100"],
+    "Landing": ["Landing-001", "Landing-002", "Landing-003", "Landing-004", "Landing-005", "Landing-006", "Landing-007", "Landing-008", "LANDING-100"],
+    "Sprint": ["Sprint-023", "Sprint-024", "Sprint-025", "Sprint-026", "Sprint-027", "Sprint-028", "Sprint-029", "Sprint-003", "Sprint-007", "Sprint-009", "Sprint-011", "Sprint-012", "Sprint-001", "Sprint-002", "Sprint-004", "Sprint-005", "Sprint-006", "Sprint-008", "Sprint-010", "Sprint-013", "Sprint-014", "Sprint-015", "Sprint-016", "Sprint-017", "Sprint-018", "Sprint-019", "Sprint-020", "Sprint-021", "Sprint-022", "SPRINT-100"],
     "VPull": ["VPull-005", "VPull-006", "VPull-009", "VPull-010", "VPull-012", "VPull-001", "VPull-002", "VPull-003", "VPull-004", "VPull-007", "VPull-008", "VPull-011", "VPull-013", "VPull-014"],
     "VPush": ["VPush-008", "VPush-006", "VPush-005", "VPush-009", "VPush-010", "VPush-002", "VPush-003", "VPush-004", "VPush-001", "VPush-007", "VPush-011", "VPush-012", "VPush-013", "VPush-014"],
 }
@@ -241,15 +249,13 @@ for bpd in _BP_RAW:
         typical_athlete=bpd["typical_athlete"],
         best_training_age=bpd["best_training_age"],
         best_season_phase=[SeasonPhase(sp) for sp in bpd["best_season_phase"]],
-        best_frequency=bpd["best_frequency"],
-        contraindications=bpd["contraindications"],
-        typical_outcomes=bpd["typical_outcomes"],
+        contraindications=bpd.get("contraindications", ""),
+        typical_outcomes=bpd.get("typical_outcomes", ""),
         progression_path=BlueprintName(bpd["progression_path"]) if bpd.get("progression_path") else None,
         regression_path=BlueprintName(bpd["regression_path"]) if bpd.get("regression_path") else None,
         mandatory_families=[_fc(f) for f in bpd["mandatory_families"] if f not in ("All",)],
         optional_families=[_fc(f) for f in optional_families],
         slot_order=[_fc(f) for f in bpd["slot_order"] if f not in ("All",)],
-        typical_duration=bpd["typical_duration"],
         min_session_composition=bpd.get("min_session_composition", []),
     )
 
@@ -550,10 +556,11 @@ INTENT_CATEGORIES: dict[str, list[str]] = {
     "lower_pull": ["DLHD", "SLHD"],
     "upper_push": ["HPush", "VPush"],
     "upper_pull": ["HPull", "VPull"],
-    "explosive": ["Plyo", "Ball", "Sprint", "Landing"],
+    "explosive": ["Plyo", "Ball", "Sprint", "Landing", "Agility"],
     "core_stability": ["Core", "Rot"],
     "carry_load": ["Carry"],
-    "accessory": ["Acc"],
+    "accessory": ["Acc", "Cond"],
+    "sport_tag": ["Volleyball", "Tennis", "Soccer", "Deceleration"],
 }
 
 FAMILY_TO_INTENT: dict[str, str] = {}

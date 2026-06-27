@@ -49,6 +49,16 @@ def compute_family_survival_tier(
         if fam_val in role_profile.family_priority:
             tier = max(tier - 1, TIER_A)
 
+    # Wave 11a — Injury prevention: for explosive sports, ensure Landing/Acc survive
+    if role_profile and fam_val in ("Landing", "Acc"):
+        high_explosive = (
+            role_profile.jump_exposure_target == "high"
+            or role_profile.sprint_exposure_target == "high"
+            or role_profile.decel_exposure_target == "high"
+        )
+        if high_explosive:
+            tier = min(tier, TIER_B)
+
     return tier
 
 
