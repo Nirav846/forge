@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { ProgramViewModel, CoachOverrides, SessionOverride, ExerciseSwap, PrescriptionEdit, WeekVM, TransformerWarning, SessionVM } from '../../../types/ui';
 import { SessionCard } from '../blocks';
 import { Layers, Activity, CalendarDays, Target, AlertCircle, Plus, ChevronUp, ChevronDown, ShieldAlert, BarChart3, Undo2, Redo2, GripVertical } from 'lucide-react';
@@ -50,11 +50,52 @@ function sessionsByDay(week: WeekVM): Map<number, SessionVM[]> {
 export function ProgramBuilderMode({
   viewModel, warnings = [], testAdjustments, overrides, onUpdateOverrides,
   onDuplicateSession, onDeleteSession, onMoveSession, onAddSession, onReorderSession,
-  onRemoveExercise, onMoveExercise, onAddExercise,
-  onUndo, onRedo, canUndo = false, canRedo = false
+  onRemoveExercise, onMoveExercise, onAddExercise
 }: ProgramBuilderModeProps) {
   const [activeWeekNum, setActiveWeekNum] = React.useState<number>(viewModel.weeks[0]?.week_number || 1);
   const [warningsOpen, setWarningsOpen] = useState(true);
+
+  // ── Undo/Redo stack for override edits ──
+  const MAX_UNDO = 50;
+  const undoStack = useRef<CoachOverrides[]>([]);
+  const redoStack = useRef<CoachOverrides[]>([]);
+
+  const snapshot = useCallback(() => JSON.parse(JSON.stringify(overrides)), [overrides]);
+
+  const pushUndo = useCallback(() => {
+    undoStack.current = [...undoStack.current.slice(-(MAX_UNDO - 1)), snapshot()];
+    redoStack.current = [];
+  }, [snapshot]);
+
+  const handleUndoLocal = useCallback(() => {
+    if (undoStack.current.length === 0) return;
+    const prev = undoStack.current.pop()!;
+    redoStack.current = [...redoStack.current, snapshot()];
+    onUpdateOverrides(prev);
+  }, [snapshot, onUpdateOverrides]);
+
+  const handleRedoLocal = useCallback(() => {
+    if (redoStack.current.length === 0) return;
+    const next = redoStack.current.pop()!;
+    undoStack.current = [...undoStack.current, snapshot()];
+    onUpdateOverrides(next);
+  }, [snapshot, onUpdateOverrides]);
+
+  // Keyboard shortcuts for undo/redo
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
+        e.preventDefault();
+        handleUndoLocal();
+      }
+      if (((e.ctrlKey || e.metaKey) && e.key === 'y') || ((e.ctrlKey || e.metaKey) && e.key === 'z' && e.shiftKey)) {
+        e.preventDefault();
+        handleRedoLocal();
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [handleUndoLocal, handleRedoLocal]);
 
   // ── Drag-and-drop session state ──
   const dragSessionRef = useRef<{ id: string; sourceWeek: number } | null>(null);
@@ -80,46 +121,51 @@ export function ProgramBuilderMode({
 
   // ── Edit prescription wrapper that records history ──
   const handleEditPrescription = useCallback((sessionId: string, exerciseId: string, edit: PrescriptionEdit) => {
+    pushUndo();
     const current = overrides.sessions?.[sessionId] || {};
     const exercises = current.exercises || {};
     onUpdateOverrides({
       ...overrides,
       sessions: { ...(overrides.sessions || {}), [sessionId]: { ...current, exercises: { ...exercises, [exerciseId]: { prescription: edit } } } }
     });
-  }, [overrides, onUpdateOverrides]);
+  }, [overrides, onUpdateOverrides, pushUndo]);
 
   const handleSwapExercise = useCallback((sessionId: string, exerciseId: string, swap: ExerciseSwap) => {
+    pushUndo();
     const current = overrides.sessions?.[sessionId] || {};
     const exercises = current.exercises || {};
     onUpdateOverrides({
       ...overrides,
       sessions: { ...(overrides.sessions || {}), [sessionId]: { ...current, exercises: { ...exercises, [exerciseId]: { swap } } } }
     });
-  }, [overrides, onUpdateOverrides]);
+  }, [overrides, onUpdateOverrides, pushUndo]);
 
   const handleToggleLock = useCallback((sessionId: string, locked: boolean) => {
+    pushUndo();
     const current = overrides.sessions?.[sessionId] || {};
     onUpdateOverrides({
       ...overrides,
       sessions: { ...(overrides.sessions || {}), [sessionId]: { ...current, locked } }
     });
-  }, [overrides, onUpdateOverrides]);
+  }, [overrides, onUpdateOverrides, pushUndo]);
 
   const handleAddNote = useCallback((sessionId: string, note: string) => {
+    pushUndo();
     const current = overrides.sessions?.[sessionId] || {};
     onUpdateOverrides({
       ...overrides,
       sessions: { ...(overrides.sessions || {}), [sessionId]: { ...current, note } }
     });
-  }, [overrides, onUpdateOverrides]);
+  }, [overrides, onUpdateOverrides, pushUndo]);
 
   const handleClearNote = useCallback((sessionId: string) => {
+    pushUndo();
     const current = overrides.sessions?.[sessionId] || {};
     onUpdateOverrides({
       ...overrides,
       sessions: { ...(overrides.sessions || {}), [sessionId]: { ...current, note: null } }
     });
-  }, [overrides, onUpdateOverrides]);
+  }, [overrides, onUpdateOverrides, pushUndo]);
 
   const activeWeek = viewModel.weeks.find(w => w.week_number === activeWeekNum);
   const sessionsData = overrides.sessions || {};
@@ -129,10 +175,10 @@ export function ProgramBuilderMode({
       {/* ── Undo/Redo Toolbar ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
-          <button onClick={onUndo} disabled={!canUndo} className="p-1.5 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors" title="Undo (Ctrl+Z)">
+          <button onClick={handleUndoLocal} disabled={undoStack.current.length === 0} className="p-1.5 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors" title="Undo (Ctrl+Z)">
             <Undo2 className="w-4 h-4" />
           </button>
-          <button onClick={onRedo} disabled={!canRedo} className="p-1.5 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors" title="Redo (Ctrl+Y)">
+          <button onClick={handleRedoLocal} disabled={redoStack.current.length === 0} className="p-1.5 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors" title="Redo (Ctrl+Y)">
             <Redo2 className="w-4 h-4" />
           </button>
         </div>

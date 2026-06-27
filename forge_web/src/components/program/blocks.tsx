@@ -62,6 +62,11 @@ export function SessionCard({ session, sessionOverride, onToggleLock, onAddNote,
   // ── Exercise drag-and-drop ──
   const dragExRef = useRef<{ id: string; blockType: string } | null>(null);
 
+  const getBlock = useCallback((bt: string) =>
+    bt === 'warmup' ? session.warmup
+    : bt === 'main_work' ? session.main_work
+    : session.conditioning, [session]);
+
   const handleExDragStart = useCallback((e: React.DragEvent, exerciseId: string, blockType: string) => {
     if (isLocked) { e.preventDefault(); return; }
     dragExRef.current = { id: exerciseId, blockType };
@@ -73,17 +78,14 @@ export function SessionCard({ session, sessionOverride, onToggleLock, onAddNote,
     e.preventDefault();
     const src = dragExRef.current;
     if (!src) return;
-    // If same block, reorder within; otherwise remove from src and add to target
-    if (src.blockType === targetBlockType) {
-      // Move within same block — use existing onMoveExercise with direction
-      // Simple heuristic: if the source exercise is before target, move down; otherwise up
-      // For full reorder we'd need positions, but the existing move up/down works
-    } else {
-      // Cross-block move: remove from source first, then the parent handles this
-      onRemoveExercise?.(session.id, src.blockType, src.id);
+    const srcBlock = getBlock(src.blockType);
+    const srcExercise = srcBlock?.exercises.find(ex => ex.id === src.id);
+    if (src.blockType !== targetBlockType && onRemoveExercise && onAddExercise && srcExercise) {
+      onRemoveExercise(session.id, src.blockType, src.id);
+      onAddExercise(session.id, targetBlockType, { name: srcExercise.name, family: srcExercise.family });
     }
     dragExRef.current = null;
-  }, [session.id, onRemoveExercise]);
+  }, [session.id, getBlock, onRemoveExercise, onAddExercise]);
 
   const handleExDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();

@@ -28,6 +28,46 @@ for _eid, _ex in EXERCISE_BY_ID.items():
 _recent_exercises_global: dict[str, int] = {}
 
 
+def _matches_priority(exercise: Exercise, category: str) -> bool:
+    """Check if an exercise matches a priority category.
+
+    Checks name (existing), family (category keyword matches exercise family),
+    and secondary_family (sport name embedded in category).
+    """
+    # 1. Name match (existing behaviour)
+    if category.lower() in exercise.name.lower():
+        return True
+
+    # 2. Family match: category keyword matches exercise family
+    family_keywords: dict[str, list[str]] = {
+        "plyo": ["plyo", "jump", "reactive", "depth"],
+        "agility": ["agility", "cod", "change of direction", "shuffle", "reaction"],
+        "core": ["core", "plank", "crunch", "rotation"],
+        "acc": ["acc", "acceleration", "balance", "stability", "collision", "contact"],
+        "sprint": ["sprint", "speed", "max velocity"],
+        "landing": ["landing", "absorption", "deceleration"],
+        "dlhd": ["hinge", "deadlift", "rdl"],
+        "dlkd": ["squat", "leg press"],
+        "slhd": ["single leg hinge", "sl rdl"],
+        "slkd": ["single leg squat", "lunge", "step down"],
+        "hpush": ["bench", "push up", "press"],
+        "hpull": ["row", "pull", "scap"],
+        "vpush": ["overhead", "military", "shoulder press"],
+        "vpull": ["pull up", "lat", "pullover"],
+        "rot": ["rotation", "chop", "med ball rotational"],
+    }
+    for family, keywords in family_keywords.items():
+        if exercise.family.value.lower() == family:
+            if any(kw in category.lower() for kw in keywords):
+                return True
+
+    # 3. Secondary_family match: exercise sport tag appears in category
+    if exercise.secondary_family and exercise.secondary_family.value.lower() in category.lower():
+        return True
+
+    return False
+
+
 def select_exercise(
     slot_family: FamilyCode,
     athlete_level: AthleteLevel,
@@ -166,7 +206,7 @@ def select_exercise(
             rp = get_role_profile(athlete_profile.sport, athlete_profile.role)
             if rp and rp.get('priority_exercise_categories'):
                 for cat in rp['priority_exercise_categories']:
-                    if cat.lower() in ex.name.lower():
+                    if _matches_priority(ex, cat):
                         w += 2.0
                     # Injury Prevention / Deceleration boost: prefer deceleration-family exercises
                     cat_lower = cat.lower()
