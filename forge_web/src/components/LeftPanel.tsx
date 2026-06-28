@@ -4,6 +4,7 @@ import { Zap, Play, AlertCircle, Settings2 } from 'lucide-react';
 import { AppStatus } from '../App';
 import SportSelector from './builder/SportSelector';
 import RoleSelector from './builder/RoleSelector';
+import { RoleInfoPanel } from './builder/RoleInfoPanel';
 import SeasonTimeline from './builder/SeasonTimeline';
 import GoalSelector from './builder/GoalSelector';
 import WeeklySchedule from './builder/WeeklySchedule';
@@ -183,6 +184,11 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
               value={builder.role}
               onChange={v => update('role', v)}
             />
+            {builder.role && (
+              <div className="mt-4">
+                <RoleInfoPanel sport={builder.sport} role={builder.role} />
+              </div>
+            )}
           </section>
         )}
 

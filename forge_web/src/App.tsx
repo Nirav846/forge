@@ -17,6 +17,7 @@ import { mockScenarios, defaultEmptyRequest } from './lib/mockFixtures';
 import LeftPanel from './components/LeftPanel';
 import CenterPanel from './components/CenterPanel';
 import RightPanel from './components/RightPanel';
+import InsightsPanel from './components/InsightsPanel';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Activity, Library, ClipboardCheck, AlertTriangle, Plus } from 'lucide-react';
 import { SavedProgramsDrawer } from './components/program/SavedProgramsDrawer';
@@ -44,6 +45,8 @@ export default function App() {
   const [isDocumentViewOpen, setIsDocumentViewOpen] = useState(false);
   const [useMockFallback, setUseMockFallback] = useState(false);
   const [isUATOpen, setIsUATOpen] = useState(false);
+  const [showInsights, setShowInsights] = useState(false);
+  const devMode = localStorage.getItem('forge_dev_mode') === 'true';
   const [stage, setStage] = useState<string>('entry');
   const [formSourceProgramId, setFormSourceProgramId] = useState<string | undefined>();
   const [formTemplateValues, setFormTemplateValues] = useState<Partial<ProgramRequest> | undefined>();
@@ -654,6 +657,30 @@ export default function App() {
             <button onClick={() => setIsUATOpen(true)} className="flex items-center gap-1.5 text-xs text-emerald-300 hover:text-emerald-200 bg-emerald-900/30 hover:bg-emerald-900/50 px-2.5 py-1.5 rounded-md transition-colors border border-emerald-800/30">
                <ClipboardCheck className="w-3.5 h-3.5" /> UAT
             </button>
+            {devMode && (
+              <button
+                onClick={() => setShowInsights(s => !s)}
+                className={`flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-md transition-colors border ${
+                  showInsights
+                    ? 'text-indigo-300 bg-indigo-900/30 border-indigo-800/30'
+                    : 'text-slate-400 hover:text-slate-300 bg-slate-800 hover:bg-slate-700 border-slate-700'
+                }`}
+              >
+                <Activity className="w-3.5 h-3.5" /> {showInsights ? 'Hide' : 'Show'} Insights
+              </button>
+            )}
+            {!devMode && (
+              <button
+                onClick={() => setShowInsights(s => !s)}
+                className={`flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-md transition-colors border ${
+                  showInsights
+                    ? 'text-indigo-300 bg-indigo-900/30 border-indigo-800/30'
+                    : 'text-slate-400 hover:text-slate-300 bg-slate-800 hover:bg-slate-700 border-slate-700'
+                }`}
+              >
+                <Activity className="w-3.5 h-3.5" /> Insights
+              </button>
+            )}
          </div>
 
         <div className="ml-auto flex items-center space-x-4 text-xs z-50">
@@ -765,14 +792,20 @@ export default function App() {
               </ErrorBoundary>
             </div>
 
-            {/* Right Panel: Rationale/Debug (w-80) */}
-            <div className="w-80 flex-none bg-slate-900 text-slate-300 border-l border-slate-800 overflow-y-auto text-sm shrink-0">
-              <ErrorBoundary>
-                <RightPanel result={result} request={request} />
-              </ErrorBoundary>
-            </div>
-          </>
-        )}
+            {/* Right Panel: optional Insights panel or Developer Mode */}
+            {(showInsights || devMode) && (
+              <div className="w-80 flex-none bg-slate-900 text-slate-300 border-l border-slate-800 overflow-y-auto text-sm shrink-0">
+                <ErrorBoundary>
+                  {devMode ? (
+                    <RightPanel result={result} request={request} />
+                  ) : (
+                    <InsightsPanel result={result} />
+                  )}
+                </ErrorBoundary>
+              </div>
+            )}
+        </>
+      )}
       </main>
 
       {/* Render Document View Modal if Open */}
