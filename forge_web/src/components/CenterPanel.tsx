@@ -29,6 +29,8 @@ interface CenterPanelProps {
   onDuplicateSession?: (sessionId: string, weekNumber: number) => void;
   onDeleteSession?: (sessionId: string, weekNumber: number) => void;
   onMoveSession?: (sessionId: string, weekNumber: number, newSessionNumber: number) => void;
+  onDuplicateWeek?: (weekNumber: number) => void;
+  onDeleteWeek?: (weekNumber: number) => void;
   onAddSession?: (weekNumber: number) => void;
   onReorderSession?: (sessionId: string, weekNumber: number, direction: 'up' | 'down') => void;
   onRemoveExercise?: (sessionId: string, weekNumber: number, blockType: string, exerciseId: string) => void;
@@ -61,6 +63,8 @@ export default function CenterPanel({
   reviewSaveState = 'idle',
   onDuplicateSession,
   onDeleteSession,
+  onDuplicateWeek,
+  onDeleteWeek,
   onMoveSession,
   onAddSession,
   onReorderSession,
@@ -223,6 +227,8 @@ export default function CenterPanel({
       {viewMode === 'builder' && <ProgramBuilderMode viewModel={response} warnings={result.warnings} testAdjustments={result.rawPayload?.test_adjustments} overrides={coachOverrides} onUpdateOverrides={onUpdateOverrides!}
         onDuplicateSession={onDuplicateSession}
         onDeleteSession={onDeleteSession}
+        onDuplicateWeek={onDuplicateWeek}
+        onDeleteWeek={onDeleteWeek}
         onMoveSession={onMoveSession}
         onAddSession={onAddSession}
         onReorderSession={onReorderSession}

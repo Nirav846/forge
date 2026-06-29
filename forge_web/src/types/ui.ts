@@ -72,6 +72,8 @@ export interface SessionVM {
   main_work: SessionSectionVM;
   conditioning: SessionSectionVM;
   session_notes?: string;
+  structure_type?: string;
+  time_notes?: string[];
 }
 
 export interface ProgramSummaryVM {
@@ -105,11 +107,33 @@ export interface WeeklyExposureVM {
   adjustment_notes: string[];
 }
 
+export interface ProgressionPlanVM {
+  volume_modifier: number;
+  intensity_modifier: number;
+  density_modifier: number;
+  complexity_level: number;
+  velocity_emphasis: string;
+  eccentric_emphasis: number;
+}
+
+export interface WeeklyStrategyVM {
+  week_number: number;
+  week_type: string;
+  primary_focus: string;
+  stress_level: string;
+  volume_modifier: number;
+  intensity_modifier: number;
+  exposure_budget: Record<string, number>;
+  rationale: string[];
+  progression?: ProgressionPlanVM;
+}
+
 export interface WeekVM {
   week_number: number;
   label: string;
   exposure_summary: WeeklyExposureVM;
   sessions: SessionVM[];
+  strategy?: WeeklyStrategyVM;
 }
 
 export interface CoachOverrides {

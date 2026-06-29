@@ -171,7 +171,7 @@ class Blueprint:
     typical_athlete: str
     best_training_age: str
     best_season_phase: list[SeasonPhase]
-    best_frequency: str = ""  # DEPRECATED — coach owns frequency via athlete.frequency_per_week
+    best_frequency: str = ""
     contraindications: str = ""
     typical_outcomes: str = ""
     progression_path: Optional[BlueprintName] = None
@@ -179,7 +179,7 @@ class Blueprint:
     mandatory_families: list[FamilyCode] = field(default_factory=list)
     optional_families: list[FamilyCode] = field(default_factory=list)
     slot_order: list[FamilyCode] = field(default_factory=list)
-    typical_duration: str = ""  # DEPRECATED — coach owns duration via athlete.program_length_weeks
+    typical_duration: str = ""
     min_session_composition: list[dict] = field(default_factory=list)
 
 
@@ -222,6 +222,65 @@ class SessionBlock:
 
 
 @dataclass
+class WeeklyProgressionPlan:
+    volume_modifier: float = 1.0
+    intensity_modifier: float = 1.0
+    density_modifier: float = 1.0
+    complexity_level: int = 2
+    velocity_emphasis: str = "controlled"
+    eccentric_emphasis: float = 1.0
+
+
+@dataclass
+class SessionIntent:
+    id: str
+    purpose: str
+    qualities: list[str]
+    fatigue_cost: str
+    movement_priorities: list[str]
+    exposure_targets: dict[str, int]
+    placement: str
+    week_type: str
+    session_number: int
+    day_of_week: str
+    progression: Optional["WeeklyProgressionPlan"] = None
+    movement_slots: list["MovementSlot"] = field(default_factory=list)
+
+
+@dataclass
+class SessionPlacement:
+    day_of_week: str
+    intent_type: str
+    session_number: int
+    exposure_allocation: dict[str, int]
+
+
+@dataclass
+class MovementSlot:
+    """A structured movement slot within a session.
+
+    Restores the council layer between Blueprint slots (raw FamilyCode list)
+    and Exercise selection. Each MovementSlot carries:
+      - family: the FamilyCode that constrains which exercises are eligible
+      - movement_pattern: e.g., "squat", "hinge", "push", "pull", "sprint", "core"
+      - intent: the training intent, e.g., "strength", "power", "eccentric", "stability"
+      - progression_tier: 1-5 (1 = regression, 5 = advanced), maps to exercise difficulty
+      - priority: 1 primary, 2 secondary, 3 assistance, 4 accessory
+      - mandatory: if True, slot must be filled; if False, optional
+      - substitutions: curated alternative exercise names for this slot
+      - equipment_preference: optional equipment filter overriding the athlete profile
+    """
+    family: FamilyCode
+    movement_pattern: str
+    intent: str
+    progression_tier: int = 2
+    priority: int = 1
+    mandatory: bool = True
+    substitutions: list[str] = field(default_factory=list)
+    equipment_preference: Optional[list[str]] = None
+
+
+@dataclass
 class Session:
     blocks: list[SessionBlock]
     conditioning: Optional[ConditioningProtocol] = None
@@ -230,6 +289,23 @@ class Session:
     week_type: str = ""
     testing_categories: list[str] = field(default_factory=list)
     adjustment_note: str = ""
+    intent: Optional[SessionIntent] = None
+    structure_type: str = ""
+    time_notes: list[str] = field(default_factory=list)
+
+
+@dataclass
+class WeeklyStrategy:
+    week_number: int
+    week_type: str
+    primary_focus: str
+    stress_level: str
+    volume_modifier: float
+    intensity_modifier: float
+    exposure_budget: dict[str, int]
+    session_intents: list[SessionIntent]
+    rationale: list[str]
+    progression: Optional[WeeklyProgressionPlan] = None
 
 
 @dataclass
@@ -267,20 +343,16 @@ class AthleteProfile:
     age: int = 18
     strength_base_met: bool = True
 
-    # Wave 5 — Anthropometry
     bodyweight_kg: Optional[float] = None
     position_role: str = ""
-    role: str = ""  # e.g. "Pace Bowler", "Tighthead Prop"
+    role: str = ""
 
-    # Wave 5 — Performance profile flags (force_deficient / velocity_deficient / balanced)
     force_profile: Optional[str] = None
-    # (poor / average / strong)
     elastic_profile: Optional[str] = None
     conditioning_profile: Optional[str] = None
     landing_competency: Optional[str] = None
     sprint_mechanics_competency: Optional[str] = None
 
-    # Wave 5 — Risk / tolerance flags
     lumbar_risk: bool = False
     patellar_tendon_risk: bool = False
     hamstring_risk: bool = False
@@ -288,13 +360,11 @@ class AthleteProfile:
     groin_adductor_risk: bool = False
     ankle_foot_risk: bool = False
 
-    # Wave 5 — Optional test-derived tags (low / avg / high)
     cmj_band: Optional[str] = None
     sprint_10m_band: Optional[str] = None
     squat_strength_band: Optional[str] = None
     aerobic_band: Optional[str] = None
 
-    # Wave 15 — Raw test scores for test-driven adjustments
     yoyo_ir1: Optional[float] = None
     yoyo_ir2: Optional[float] = None
     bronco: Optional[float] = None
@@ -302,25 +372,20 @@ class AthleteProfile:
     testing_date: Optional[str] = None
     test_adjustments: Optional[dict] = None
 
-    # Wave 7 — Optional prior-block tracking
     prior_program: Optional[object] = None
     prior_profile_snapshot: Optional[object] = None
     block_response: Optional[object] = None
 
-    # Wave 12 — Calendar-aware session placement
-    match_day: int = 5  # Saturday (0=Mon, 6=Sun)
-    team_training_days: list[int] = field(default_factory=lambda: [0, 2, 4])  # Mon, Wed, Fri
-    heavy_field_days: list[int] = field(default_factory=lambda: [1, 3])  # Tue, Thu
+    match_day: int = 5
+    team_training_days: list[int] = field(default_factory=lambda: [0, 2, 4])
+    heavy_field_days: list[int] = field(default_factory=lambda: [1, 3])
     travel_days: list[int] = field(default_factory=list)
 
-    # Wave 14 — Coach preferences
     coach_preferences: Optional[CoachPreferences] = None
 
-    # Coach-controlled program inputs
     program_length_weeks: int = 8
     frequency_per_week: int = 3
     coach_intent: str = ""
-
 
 
 @dataclass
@@ -382,6 +447,7 @@ class GeneratedProgram:
     warmup: Optional[WarmupProtocol] = None
     recovery: Optional[RecoveryProtocol] = None
     personalization_notes: list[str] = field(default_factory=list)
+    weekly_strategies: list[WeeklyStrategy] = field(default_factory=list)
 
 
 @dataclass
@@ -395,4 +461,3 @@ class BlockResponse:
     regressions: list[str]
     recommended_shift: str
     notes: list[str]
-

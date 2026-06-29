@@ -8,6 +8,7 @@ export interface DiffChange {
   oldValue: any;
   newValue: any;
   path: string[];
+  accepted: boolean;
 }
 
 const FIELD_LABELS: Record<string, string> = {
@@ -54,6 +55,7 @@ export function diffRequests(source: ProgramRequest, current: ProgramRequest): D
           oldValue: oldVal,
           newValue: newVal,
           path: [section, key],
+          accepted: true,
         });
       }
     }

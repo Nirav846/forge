@@ -20,7 +20,7 @@ from src.forge.prescription_rules import (
     get_athlete_prescription_modifiers, get_prescription,
     PrescriptionRole,
 )
-from src.forge.main import generate_program, _slot_compact_factor
+from src.forge.main import generate_program
 from src.forge.session_assembly import apply_time_constraint_v2
 from src.forge.session_rules import (
     TIER_A, TIER_B, TIER_C, compute_family_survival_tier
@@ -303,93 +303,28 @@ def test_in_season_program_reduces_families_less_aggressively():
 # ════════════════════════════════════════════════════════════════════════════════════════════════════════════
 
 
-def test_slot_compact_factor_primary_strength_gets_less_reduction():
-    """Primary strength families should get less compaction (higher factor)."""
-    base_factor = 0.7  # Moderate time constraint
-    
-    # Primary strength families get boosted
-    assert _slot_compact_factor(FamilyCode.DLKD, base_factor) > base_factor
-    assert _slot_compact_factor(FamilyCode.DLHD, base_factor) > base_factor
-    assert _slot_compact_factor(FamilyCode.HPUSH, base_factor) > base_factor
-    assert _slot_compact_factor(FamilyCode.HPULL, base_factor) > base_factor
-    
-    # Specifically: DLKD/DLHD get +0.15, HPush/HPull get +0.10
-    assert abs(_slot_compact_factor(FamilyCode.DLKD, 0.7) - 0.85) < 0.001
-    assert abs(_slot_compact_factor(FamilyCode.HPUSH, 0.7) - 0.80) < 0.001
+def test_time_constraint_redesign_structure_type():
+    """Verify that _build_session applies time constraint redesign."""
+    athlete_30 = _make_athlete(available_minutes=30, season_phase=SeasonPhase.OFF_SEASON)
+    athlete_75 = _make_athlete(available_minutes=75, season_phase=SeasonPhase.OFF_SEASON)
 
+    program_30 = generate_program(athlete_30)
+    program_75 = generate_program(athlete_75)
 
-def test_slot_compact_factor_accessory_gets_more_reduction():
-    """Accessory families should get more compaction (lower factor)."""
-    base_factor = 0.7  # Moderate time constraint
-    
-    # Accessory families get reduced further
-    assert _slot_compact_factor(FamilyCode.CARRY, base_factor) < base_factor
-    assert _slot_compact_factor(FamilyCode.ACC, base_factor) < base_factor
-    assert _slot_compact_factor(FamilyCode.ROT, base_factor) < base_factor
-    
-    # Specifically: Carry/Acc/Rot get -0.10
-    assert abs(_slot_compact_factor(FamilyCode.CARRY, 0.7) - 0.60) < 0.001
+    session_30 = program_30.sessions[0]
+    session_75 = program_75.sessions[0]
 
+    # 30-min session should be minimalist or condensed
+    assert session_30.structure_type in ("minimalist", "condensed")
+    # 75-min session should be extended
+    assert session_75.structure_type in ("extended", "standard")
 
-def test_slot_compact_factor_respects_ceiling_and_floor():
-    """Compaction factors should be clamped between 0.4 and 1.0."""
-    # Very low base factor should not go below 0.4
-    assert _slot_compact_factor(FamilyCode.CARRY, 0.3) >= 0.4
-    assert _slot_compact_factor(FamilyCode.DLKD, 0.3) >= 0.4  # Actually gets boosted
-    
-    # High base factor should not exceed 1.0
-    assert _slot_compact_factor(FamilyCode.DLKD, 0.9) <= 1.0
-    assert _slot_compact_factor(FamilyCode.CARRY, 0.9) <= 1.0
-    
-    # At or above 1.0, should return exactly 1.0
-    assert _slot_compact_factor(FamilyCode.DLKD, 1.0) == 1.0
-    assert _slot_compact_factor(FamilyCode.CARRY, 1.2) == 1.0
+    # 30-min should have fewer blocks than 75-min
+    assert len(session_30.blocks) <= len(session_75.blocks)
 
-
-def test_slot_aware_compaction_in_build_session():
-    """Verify that _build_session applies slot-aware compaction (integration test)."""
-    # Create athlete with time constraints that would trigger compaction
-    athlete = _make_athlete(
-        available_minutes=30,  # Should get base factor ~0.55
-        season_phase=SeasonPhase.OFF_SEASON,  # No in-season complicating factors
-    )
-    
-    program = generate_program(athlete)
-    
-    # Check that different families got different set counts due to slot-aware compaction
-    # Get first session's blocks
-    session = program.sessions[0]
-    blocks_by_family = {block.family.value: block for block in session.blocks if block.exercises}
-    
-    # Should have both primary and accessory families
-    assert "DLKD" in blocks_by_family  # Primary strength
-    assert "Carry" in blocks_by_family  # Accessory
-    
-    dlkg_block = blocks_by_family["DLKD"]
-    carry_block = blocks_by_family["Carry"]
-    
-    # Both should have prescriptions
-    assert dlkg_block.prescription is not None
-    assert carry_block.prescription is not None
-    
-    # Parse the set counts (could be ranges like "3-4" or single like "3")
-    def parse_sets(sets_str: str) -> int:
-        # Return the maximum number in a range, or the single number
-        parts = [int(p) for p in sets_str.split('-') if p.isdigit()]
-        return max(parts) if parts else 3
-    
-    dlkg_sets = parse_sets(dlkg_block.prescription.sets)
-    carry_sets = parse_sets(carry_block.prescription.sets)
-    
-    # With slot-aware compaction:
-    # DLKD (primary) should have relatively higher sets (less compacted)
-    # CARRY (accessory) should have relatively lower sets (more compacted)
-    # Note: exact values depend on base prescription and week/day factors
-    # But we can check that the difference makes sense
-    
-    # At minimum, they should not be identical (unless coincidence)
-    # Actually, let's check that the accessor got reduced more or equal
-    # This is a probabilistic test due to other factors, but directionally correct
+    # Both should have time_notes
+    assert len(session_30.time_notes) > 0
+    assert len(session_75.time_notes) > 0
 
 
 # ═══════════════════════════════════════════════════════════════════════════════════════════════════════════

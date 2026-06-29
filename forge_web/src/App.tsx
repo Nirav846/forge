@@ -269,6 +269,34 @@ export default function App() {
     }));
   }, [patchWeeks]);
 
+  const handleDuplicateWeek = useCallback((weekNumber: number) => {
+    patchWeeks(weeks => {
+      const idx = weeks.findIndex(w => w.week_number === weekNumber);
+      if (idx === -1) return weeks;
+      const source = weeks[idx];
+      const newWeekNum = Math.max(...weeks.map(w => w.week_number)) + 1;
+      const copy: WeekVM = {
+        ...source,
+        week_number: newWeekNum,
+        sessions: source.sessions.map(s => ({
+          ...s,
+          id: `${s.id}_copy_${Date.now()}`,
+          week_number: newWeekNum,
+        })),
+      };
+      const result = [...weeks];
+      result.splice(idx + 1, 0, copy);
+      return result;
+    });
+  }, [patchWeeks]);
+
+  const handleDeleteWeek = useCallback((weekNumber: number) => {
+    patchWeeks(weeks => weeks.map(w => {
+      if (w.week_number !== weekNumber) return w;
+      return { ...w, sessions: [] };
+    }));
+  }, [patchWeeks]);
+
   const handleAddSession = useCallback((weekNumber: number) => {
     const newId = `session_${Date.now()}`;
     const emptySession: SessionVM = {
@@ -778,6 +806,8 @@ export default function App() {
                   reviewSaveState={reviewSaveState}
                   onDuplicateSession={handleDuplicateSession}
                   onDeleteSession={handleDeleteSession}
+                  onDuplicateWeek={handleDuplicateWeek}
+                  onDeleteWeek={handleDeleteWeek}
                   onMoveSession={handleMoveSession}
                   onAddSession={handleAddSession}
                   onReorderSession={handleReorderSession}

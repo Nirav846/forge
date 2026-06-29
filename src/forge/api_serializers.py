@@ -6,7 +6,7 @@ from .models import (
     GeneratedProgram, Session, SessionBlock, Exercise,
     Prescription, ConditioningProtocol, WarmupProtocol,
     AthleteProfile, CoachPreferences, AthleteLevel, EquipmentProfile, SeasonPhase,
-    FamilyCode,
+    FamilyCode, WeeklyProgressionPlan,
 )
 from .progression_engine import program_role_exposure_summary, plan_weeks, plan_testing, WEEK_INDEX_TO_TYPE
 from .role_week_planning import get_role_week_profile, render_role_week_summary
@@ -29,6 +29,45 @@ def _serialize_prescription(p: Optional[Prescription]) -> dict:
         "intensity_note": p.intensity_note,
         "progression_method": p.progression_method,
         "rest_seconds": p.rest_seconds,
+    }
+
+
+def _serialize_progression_plan(plan: WeeklyProgressionPlan) -> dict:
+    return {
+        "volume_modifier": plan.volume_modifier,
+        "intensity_modifier": plan.intensity_modifier,
+        "density_modifier": plan.density_modifier,
+        "complexity_level": plan.complexity_level,
+        "velocity_emphasis": plan.velocity_emphasis,
+        "eccentric_emphasis": plan.eccentric_emphasis,
+    }
+
+
+def _serialize_weekly_strategy(strategy: object) -> dict:
+    result = {
+        "week_number": strategy.week_number,
+        "week_type": strategy.week_type,
+        "primary_focus": strategy.primary_focus,
+        "stress_level": strategy.stress_level,
+        "volume_modifier": strategy.volume_modifier,
+        "intensity_modifier": strategy.intensity_modifier,
+        "exposure_budget": strategy.exposure_budget,
+        "rationale": strategy.rationale,
+    }
+    if strategy.progression:
+        result["progression"] = _serialize_progression_plan(strategy.progression)
+    return result
+
+
+def _serialize_session_intent(intent: Optional[object]) -> Optional[dict]:
+    if not intent:
+        return None
+    return {
+        "purpose": intent.purpose,
+        "qualities": intent.qualities,
+        "fatigue_cost": intent.fatigue_cost,
+        "placement": intent.placement,
+        "exposure_targets": intent.exposure_targets,
     }
 
 
@@ -144,10 +183,14 @@ def serialize_program(
             "testing_markers": list(session.testing_categories),
             "total_duration_min": session.total_duration_min,
             "load_capped": session.load_capped,
+            "intent": _serialize_session_intent(session.intent),
+            "structure_type": session.structure_type or None,
+            "time_notes": session.time_notes or None,
         }
         sessions_json.append(session_json)
 
     # Build week-level exposure summaries
+    weekly_strategies = getattr(program, "weekly_strategies", [])
     blueprint = BLUEPRINT_BY_ID.get(program.blueprint_id) if program.blueprint_id else None
     week_plan = plan_weeks(
         program.blueprint_id,
@@ -170,6 +213,8 @@ def serialize_program(
         wt = week_plan[w - 1] if w <= len(week_plan) else "accumulation"
         tests = test_plan.get(w, [])
         week_sessions = [s for s in sessions_json if s["week_number"] == w]
+
+        ws = weekly_strategies[w - 1] if w - 1 < len(weekly_strategies) else None
 
         # Compute per-week exposure from actual exercise data
         start_idx = (w - 1) * freq
@@ -210,7 +255,7 @@ def serialize_program(
                 return "Low"
             return "None"
 
-        weeks_json.append({
+        week_entry: dict[str, Any] = {
             "week_number": w,
             "label": f"Week {w}",
             "exposure_summary": {
@@ -224,7 +269,10 @@ def serialize_program(
                 "adjustment_notes": [],
             },
             "sessions": week_sessions,
-        })
+        }
+        if ws:
+            week_entry["strategy"] = _serialize_weekly_strategy(ws)
+        weeks_json.append(week_entry)
 
     # Build validation notes from credibility
     from .validator import verify_credibility, calculate_credibility_score

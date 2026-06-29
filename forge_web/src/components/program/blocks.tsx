@@ -160,6 +160,11 @@ export function SessionCard({ session, sessionOverride, onToggleLock, onAddNote,
               )}
             </div>
             <div className="text-[10px] uppercase font-bold bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-slate-300">{session.focus}</div>
+            {session.structure_type && (
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
+                {session.structure_type}
+              </span>
+            )}
           </div>
         </div>
         <h4 className="text-lg font-bold flex items-center justify-between">
@@ -233,6 +238,12 @@ export function SessionCard({ session, sessionOverride, onToggleLock, onAddNote,
         {renderBlock(session, 'main_work', sessionOverride, isLocked, onRemoveExercise, onMoveExercise, onAddExercise, onSwapExercise, onEditPrescription, handleExDragStart, handleExDrop, handleExDragOver, (bt) => setAddExerciseBlock(bt))}
 
         {renderBlock(session, 'conditioning', sessionOverride, isLocked, onRemoveExercise, onMoveExercise, onAddExercise, onSwapExercise, onEditPrescription, handleExDragStart, handleExDrop, handleExDragOver, (bt) => setAddExerciseBlock(bt))}
+
+        {session.time_notes && session.time_notes.length > 0 && (
+          <div className="px-4 py-2 bg-blue-50 text-sm text-blue-700 border-t border-blue-100">
+            {session.time_notes.map((note, i) => <div key={i}>{note}</div>)}
+          </div>
+        )}
 
       </div>
 

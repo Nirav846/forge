@@ -7,7 +7,7 @@ from typing import Optional
 from .models import (
     Exercise, FamilyCode, Objective, AthleteLevel,
     PrescriptionRole, Prescription, COMP_WINDOW_LABELS,
-    AthleteProfile, SeasonPhase,
+    AthleteProfile, SeasonPhase, WeeklyProgressionPlan,
 )
 from .data import BLUEPRINT_BY_ID
 
@@ -473,30 +473,6 @@ BLUEPRINT_PRESCRIPTION_MODIFIERS: dict[str, dict] = {
 }
 
 
-# ── WEEK-TYPE PROGRESSION VOLUME ───────────────────────────────────
-
-WEEK_TYPE_VOLUME_FACTORS: dict[str, float] = {
-    "accumulation": 0.85,
-    "intensification": 1.0,
-    "realization": 1.05,
-    "taper": 0.80,
-    "test": 0.65,
-    "deload": 0.60,
-    "light": 0.50,
-}
-
-WEEK_PROGRESSION_NOTES: dict[int, str] = {
-    1: "Accumulation — establish base volume",
-    2: "Accumulation — build exposure",
-    3: "Intensification — progress",
-    4: "Intensification — maintain",
-    5: "Peak — high quality",
-    6: "Peak — high quality",
-    7: "Taper — reduce volume",
-    8: "Taper / Deload — reduced load",
-}
-
-
 # ── MAIN PRESCRIPTION FUNCTION ─────────────────────────────────────
 
 def get_prescription(
@@ -507,6 +483,7 @@ def get_prescription(
     week: int = 1,
     week_type: str = "accumulation",
     athlete_profile: Optional[AthleteProfile] = None,
+    progression_plan: Optional[WeeklyProgressionPlan] = None,
 ) -> Prescription:
     role = derive_role(ex)
     obj = ex.objective.value
@@ -563,9 +540,15 @@ def get_prescription(
         if comp_window <= 2:
             base["intensity_note"] = base.get("intensity_note", "") + ", submaximal"
 
-    # Apply week-type volume factor (primary driver)
-    wf = WEEK_TYPE_VOLUME_FACTORS.get(week_type, 1.0)
-    base["sets"] = _scale_sets(base["sets"], wf)
+    # Apply progression plan modifiers (primary weekly driver)
+    if progression_plan:
+        base["sets"] = _scale_sets(base["sets"], progression_plan.volume_modifier)
+        if progression_plan.intensity_modifier > 1.0:
+            base["reps"] = _shift_reps_lower(base["reps"])
+            base["intensity_note"] = base.get("intensity_note", "") + ", intensified"
+        base["rest_seconds"] = max(30, min(300, int(round(base["rest_seconds"] * (1.0 / progression_plan.density_modifier)))))
+    else:
+        base["sets"] = _scale_sets(base["sets"], 1.0)
 
     # Youth override: cap sets at 3, no low-rep work
     if bp_cat in ("youth_foundation",) or (hasattr(level, 'value') and level == AthleteLevel.BEGINNER and week <= 2):
@@ -632,8 +615,9 @@ def prescription_for_session_block(
     comp_window: Optional[int] = None,
     week: int = 1,
     week_type: str = "accumulation",
+    progression_plan: Optional[WeeklyProgressionPlan] = None,
 ) -> list[Prescription]:
-    return [get_prescription(ex, level, blueprint_id, comp_window, week, week_type) for ex in exercises]
+    return [get_prescription(ex, level, blueprint_id, comp_window, week, week_type, progression_plan=progression_plan) for ex in exercises]
 
 
 # ── HELPERS ─────────────────────────────────────────────────────────

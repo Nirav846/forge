@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import { DiffChange, diffRequests } from '../../lib/adaptationDiff';
-import { RotateCcw, ArrowRight, ChevronDown } from 'lucide-react';
+import { Check, X, ArrowRight } from 'lucide-react';
 import type { ProgramRequest } from '../../types';
 
 interface ReviewChangesPanelProps {
   sourceRequest: ProgramRequest;
   currentRequest: ProgramRequest;
-  onRevert: (change: DiffChange) => void;
+  onToggleChange: (changeId: string) => void;
+  rejectedChangeIds: Set<string>;
 }
 
 const SECTION_LABELS: Record<string, string> = {
@@ -15,7 +16,7 @@ const SECTION_LABELS: Record<string, string> = {
   advanced: 'Performance Data',
 };
 
-export function ReviewChangesPanel({ sourceRequest, currentRequest, onRevert }: ReviewChangesPanelProps) {
+export function ReviewChangesPanel({ sourceRequest, currentRequest, onToggleChange, rejectedChangeIds }: ReviewChangesPanelProps) {
   const changes = useMemo(
     () => diffRequests(sourceRequest, currentRequest),
     [sourceRequest, currentRequest]
@@ -45,25 +46,38 @@ export function ReviewChangesPanel({ sourceRequest, currentRequest, onRevert }: 
             <div className="px-4 py-1.5 bg-amber-100/30 text-[10px] font-bold text-amber-700 uppercase tracking-wider">
               {SECTION_LABELS[section] || section}
             </div>
-            {sectionChanges.map(c => (
-              <div key={c.id} className="px-4 py-2 flex items-start gap-3 text-sm hover:bg-amber-100/20">
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium text-slate-800 text-xs mb-0.5">{c.label}</div>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                    <span className="line-through text-red-500">{fmt(c.oldValue)}</span>
-                    <ArrowRight className="w-3 h-3 text-slate-400 shrink-0" />
-                    <span className="text-emerald-600 font-medium">{fmt(c.newValue)}</span>
+            {sectionChanges.map(c => {
+              const isAccepted = !rejectedChangeIds.has(c.id);
+              return (
+                <div key={c.id} className="px-4 py-2 flex items-start gap-3 text-sm hover:bg-amber-100/20">
+                  <button
+                    onClick={() => onToggleChange(c.id)}
+                    className={`shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center border transition-colors ${
+                      isAccepted
+                        ? 'bg-emerald-500 border-emerald-500 text-white'
+                        : 'bg-white border-red-300 text-red-500 hover:bg-red-50'
+                    }`}
+                    title={isAccepted ? 'Click to reject change' : 'Click to accept change'}
+                  >
+                    {isAccepted ? <Check className="w-3 h-3" /> : <X className="w-3 h-3" />}
+                  </button>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-slate-800 text-xs mb-0.5">{c.label}</div>
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                      {isAccepted ? (
+                        <>
+                          <span className="line-through text-red-500">{fmt(c.oldValue)}</span>
+                          <ArrowRight className="w-3 h-3 text-slate-400 shrink-0" />
+                          <span className="text-emerald-600 font-medium">{fmt(c.newValue)}</span>
+                        </>
+                      ) : (
+                        <span className="text-slate-600 font-medium">{fmt(c.oldValue)}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => onRevert(c)}
-                  className="shrink-0 flex items-center gap-1 px-2 py-1 text-[10px] font-semibold text-slate-500 hover:text-slate-700 bg-white border border-slate-200 hover:border-slate-300 rounded-md transition-colors"
-                  title="Revert to source value"
-                >
-                  <RotateCcw className="w-3 h-3" /> Revert
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ))}
       </div>

@@ -292,6 +292,7 @@ def select_or_continue(
     coach_prefs: Optional['CoachPreferences'] = None,
     power_multiplier: float = 1.0,
     week_type: str = "accumulation",
+    move_slot: Optional["object"] = None,
 ) -> Optional[Exercise]:
     from .exercise_selector import select_exercise
 
@@ -319,6 +320,7 @@ def select_or_continue(
         coach_prefs=coach_prefs,
         power_multiplier=power_multiplier,
         week_type=week_type,
+        slot=move_slot,
     )
 
 

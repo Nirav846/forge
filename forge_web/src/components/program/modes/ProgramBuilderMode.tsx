@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { ProgramViewModel, CoachOverrides, SessionOverride, ExerciseSwap, PrescriptionEdit, WeekVM, TransformerWarning, SessionVM } from '../../../types/ui';
 import { SessionCard } from '../blocks';
-import { Layers, Activity, CalendarDays, Target, AlertCircle, Plus, ChevronUp, ChevronDown, ShieldAlert, BarChart3, Undo2, Redo2, GripVertical } from 'lucide-react';
+import { Layers, Activity, CalendarDays, Target, AlertCircle, Plus, ChevronUp, ChevronDown, ShieldAlert, BarChart3, Undo2, Redo2, GripVertical, Copy, Trash2 } from 'lucide-react';
 
 const DAY_NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -23,6 +23,8 @@ interface ProgramBuilderModeProps {
   onDuplicateSession?: (sessionId: string, weekNumber: number) => void;
   onDeleteSession?: (sessionId: string, weekNumber: number) => void;
   onMoveSession?: (sessionId: string, weekNumber: number, newSessionNumber: number) => void;
+  onDuplicateWeek?: (weekNumber: number) => void;
+  onDeleteWeek?: (weekNumber: number) => void;
   onAddSession?: (weekNumber: number) => void;
   onReorderSession?: (sessionId: string, weekNumber: number, direction: 'up' | 'down') => void;
   onRemoveExercise?: (sessionId: string, weekNumber: number, blockType: string, exerciseId: string) => void;
@@ -49,7 +51,8 @@ function sessionsByDay(week: WeekVM): Map<number, SessionVM[]> {
 
 export function ProgramBuilderMode({
   viewModel, warnings = [], testAdjustments, overrides, onUpdateOverrides,
-  onDuplicateSession, onDeleteSession, onMoveSession, onAddSession, onReorderSession,
+  onDuplicateSession, onDeleteSession, onDuplicateWeek, onDeleteWeek,
+  onMoveSession, onAddSession, onReorderSession,
   onRemoveExercise, onMoveExercise, onAddExercise
 }: ProgramBuilderModeProps) {
   const [activeWeekNum, setActiveWeekNum] = React.useState<number>(viewModel.weeks[0]?.week_number || 1);
@@ -200,8 +203,22 @@ export function ProgramBuilderMode({
             const isActive = activeWeekNum === week.week_number;
             const byDay = sessionsByDay(week);
             return (
+              <div key={week.week_number} className="relative group">
+                {(onDuplicateWeek || onDeleteWeek) && (
+                  <div className="absolute -top-2 -right-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity flex gap-0.5 bg-white rounded-lg border border-slate-200 shadow-md px-1 py-0.5">
+                    {onDuplicateWeek && (
+                      <button onClick={(e) => { e.stopPropagation(); onDuplicateWeek(week.week_number); }} className="p-1 text-slate-400 hover:text-indigo-600 rounded" title="Duplicate week">
+                        <Copy className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                    {onDeleteWeek && week.sessions.length > 0 && (
+                      <button onClick={(e) => { e.stopPropagation(); onDeleteWeek(week.week_number); }} className="p-1 text-red-300 hover:text-red-600 rounded" title="Remove all sessions from week">
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+                )}
               <div
-                key={week.week_number}
                 className={`grid grid-cols-7 min-h-[60px] transition-colors cursor-pointer ${isActive ? 'bg-indigo-50/40' : 'hover:bg-slate-50/60'}`}
                 onClick={() => setActiveWeekNum(week.week_number)}
                 onDragOver={handleWeekDragOver}
@@ -235,6 +252,7 @@ export function ProgramBuilderMode({
                   );
                 })}
               </div>
+              </div>
             );
           })}
         </div>
@@ -250,6 +268,25 @@ export function ProgramBuilderMode({
               <span className="flex items-center gap-1"><Target className="w-3 h-3" /> {activeWeek.exposure_summary?.week_type || 'General'}</span>
             </div>
           </div>
+
+          {/* Strategy/progression card */}
+          {activeWeek.strategy && (
+            <div className="mb-4 p-3 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg">
+              <div className="text-xs font-semibold text-amber-800 mb-1 uppercase tracking-wider">
+                {activeWeek.strategy.week_type} — {activeWeek.strategy.primary_focus}
+              </div>
+              {activeWeek.strategy.progression && (
+                <div className="flex flex-wrap gap-3 text-xs text-amber-900">
+                  <span>Vol {Math.round(activeWeek.strategy.progression.volume_modifier * 100)}%</span>
+                  <span>Int {Math.round(activeWeek.strategy.progression.intensity_modifier * 100)}%</span>
+                  <span>Den {Math.round(activeWeek.strategy.progression.density_modifier * 100)}%</span>
+                  <span>Complex Lvl {activeWeek.strategy.progression.complexity_level}</span>
+                  <span>Vel: {activeWeek.strategy.progression.velocity_emphasis}</span>
+                  <span>Ecc: {Math.round(activeWeek.strategy.progression.eccentric_emphasis * 100)}%</span>
+                </div>
+              )}
+            </div>
+          )}
 
           {activeWeek.sessions.length > 0 ? (
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">

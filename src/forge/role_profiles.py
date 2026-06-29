@@ -6,6 +6,7 @@ tests with benchmarks, forge biases, and injury risk factors.
 """
 
 from __future__ import annotations
+from typing import Optional
 
 ROLE_PROFILES = [
     {
@@ -1720,3 +1721,190 @@ def get_role_profile(sport: str, role: str) -> dict:
         if p["sport"] == sport and p["role"] == role:
             return p
     return {}
+
+
+# ── MovementSlot templates ──────────────────────────────────────
+# Slot templates restore the coaching layer between SessionIntent and Exercise
+# selection. Each (role, session_intent, progression_tier) tuple maps to a
+# curated list of MovementSlot objects. The selector consumes them instead
+# of bare FamilyCode lists from the blueprint.
+
+from .models import FamilyCode, MovementSlot as _MovementSlot  # noqa: E402  (local import keeps top-of-file clean)
+
+
+def _slot(family: FamilyCode, pattern: str, intent: str, tier: int, priority: int,
+          mandatory: bool = True, subs: Optional[list[str]] = None) -> _MovementSlot:
+    return _MovementSlot(
+        family=family,
+        movement_pattern=pattern,
+        intent=intent,
+        progression_tier=_clamp_tier(tier),
+        priority=priority,
+        mandatory=mandatory,
+        substitutions=list(subs or []),
+    )
+
+
+def _clamp_tier(t: int) -> int:
+    return max(1, min(5, int(t)))
+
+
+# Role-keyed base patterns. Selection merges intent-specific overrides
+# (Strength / Power / Speed / Primer / Recovery / Conditioning) on top.
+_ROLE_BASE_SLOTS: dict[str, list] = {
+    # Cricket batters/swingers: rotation is a pillar
+    "Batter": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("HPUSH", "push", "strength", 2),
+        ("HPULL", "pull", "stability", 3),
+        ("ROT", "rotation", "power", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "Pace Bowler": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("SLHD", "hinge", "eccentric", 2),
+        ("HPUSH", "push", "strength", 3),
+        ("HPULL", "pull", "stability", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "Fast Bowler": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("SLHD", "hinge", "eccentric", 2),
+        ("HPUSH", "push", "strength", 3),
+        ("HPULL", "pull", "stability", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "Spinner": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("ROT", "rotation", "power", 2),
+        ("HPUSH", "push", "strength", 3),
+        ("HPULL", "pull", "stability", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "Spin Bowler": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("ROT", "rotation", "power", 2),
+        ("HPUSH", "push", "strength", 3),
+        ("HPULL", "pull", "stability", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "Wicketkeeper": [
+        ("DLKD", "squat", "strength", 1),
+        ("SLKD", "squat", "stability", 2),
+        ("HPUSH", "push", "stability", 2),
+        ("HPULL", "pull", "stability", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "All-Rounder": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("HPUSH", "push", "strength", 2),
+        ("HPULL", "pull", "strength", 3),
+        ("ROT", "rotation", "power", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+    "All Rounder": [
+        ("DLKD", "squat", "strength", 1),
+        ("DLHD", "hinge", "strength", 2),
+        ("HPUSH", "push", "strength", 2),
+        ("HPULL", "pull", "strength", 3),
+        ("ROT", "rotation", "power", 3),
+        ("CORE", "core", "stability", 3),
+    ],
+}
+
+
+def _coerce_intent(intent: str) -> str:
+    """Map various session-intent naming conventions onto the canonical set."""
+    i = (intent or "").strip().lower()
+    aliases = {
+        "general strength": "strength",
+        "max strength": "strength",
+        "maintenance": "strength",
+        "power/speed": "power",
+        "speed": "speed",
+        "primer": "primer",
+        "recovery": "recovery",
+        "conditioning": "conditioning",
+    }
+    return aliases.get(i, i or "strength")
+
+
+def get_slot_template(
+    role: str,
+    session_intent: str,
+    progression_tier: int = 2,
+    sport: str = "",
+) -> list:
+    """Return MovementSlot templates for the given role+intent+tier.
+
+    - For Strength-focused intents: full slot list biased to the role base.
+    - For Power/Realization: emphasize hinge + push + rotation (if role has it).
+    - For Speed: sprint + plyo dominant, drop secondary strength.
+    - For Primer/Recovery: low-volume core + mobility only.
+    - For Conditioning: keep primary movement, drop secondary isolations.
+    """
+    intent = _coerce_intent(session_intent)
+    base = _ROLE_BASE_SLOTS.get(role or "")
+    if base is None:
+        # Fall back to * wildcard base
+        base = [
+            ("DLKD", "squat", "strength", 1),
+            ("DLHD", "hinge", "strength", 2),
+            ("HPUSH", "push", "strength", 3),
+            ("HPULL", "pull", "stability", 3),
+            ("CORE", "core", "stability", 3),
+        ]
+
+    if intent in ("recovery", "primer"):
+        return [
+            _slot(FamilyCode.CORE, "core", "mobility", progression_tier, 1),
+            _slot(FamilyCode.HPULL, "pull", "activation", progression_tier, 2, mandatory=False),
+        ]
+
+    if intent == "speed":
+        # Keep baseline role slots but bump role's plyo/sprint patterns up in priority.
+        out: list = []
+        for code, pattern, _, prio in base:
+            family = FamilyCode[code]
+            slot_intent = "power" if pattern in ("plyo", "sprint") else "strength"
+            out.append(_slot(family, pattern, slot_intent, progression_tier, prio))
+        # Inject a plyo focus (priority 1) if not already top
+        if not any(s.priority == 1 and s.family == FamilyCode.PLYO for s in out):
+            out.insert(0, _slot(FamilyCode.PLYO, "plyo", "power", progression_tier, 1))
+        return out
+
+    if intent == "conditioning":
+        # Conditioning session keeps all role slots but lowers upper-priority for compression.
+        return [
+            _slot(FamilyCode[code], pattern, "strength", progression_tier, prio)
+            for code, pattern, _, prio in base
+        ]
+
+    # Strength / Power / unknown → role base, intent-modulated
+    out = []
+    for code, pattern, _, prio in base:
+        family = FamilyCode[code]
+        slot_intent = intent if pattern in ("plyo", "rotation", "sprint") else (
+            "power" if intent == "power" else "strength"
+        )
+        # Substitution hints for common coaches' preferences
+        subs: list[str] = []
+        if family == FamilyCode.DLKD and "squat" in pattern:
+            subs = ["Back Squat", "Front Squat", "Goblet Squat"]
+        elif family == FamilyCode.DLHD and "hinge" in pattern:
+            subs = ["Romanian Deadlift", "Conventional Deadlift", "Trap Bar Deadlift"]
+        elif family == FamilyCode.HPUSH:
+            subs = ["Bench Press", "Push Up", "Overhead Press"]
+        elif family == FamilyCode.HPULL:
+            subs = ["Pull Up", "Inverted Row", "Chest Supported Row"]
+        out.append(_slot(family, pattern, slot_intent, progression_tier, prio, subs=subs))
+    return out
+
+
+__all__ = ["ROLE_PROFILES", "get_role_profile", "get_slot_template"]

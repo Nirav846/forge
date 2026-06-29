@@ -15,7 +15,7 @@ import { getRoleProfile, RoleProfile, roleProfiles } from '../../data/roleProfil
 import { SPORT_OPTIONS } from '../../data/sportList';
 import CoachPreferencesModal, { loadPreferences } from './CoachPreferencesModal';
 import { ReviewChangesPanel } from './ReviewChangesPanel';
-import type { DiffChange } from '../../lib/adaptationDiff';
+import { diffRequests } from '../../lib/adaptationDiff';
 
 const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] as const;
 const PHASES = ['Off-season','Pre-season','In-Season','Taper','Return-to-play'] as const;
@@ -163,6 +163,7 @@ export default function ProgramInputForm({ sourceProgramId, templateValues, onPr
   const [customSport, setCustomSport] = useState('');
   const [sourceRequest, setSourceRequest] = useState<ProgramRequest | null>(null);
   const [reviewOpen, setReviewOpen] = useState(false);
+  const [rejectedChangeIds, setRejectedChangeIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     if (templateValues) {
@@ -182,6 +183,7 @@ export default function ProgramInputForm({ sourceProgramId, templateValues, onPr
       try {
         const artifact = await apiLoad(sourceProgramId);
         setSourceRequest(artifact.request_snapshot);
+        setRejectedChangeIds(new Set());
         const next = applySnapshot(INITIAL, artifact.request_snapshot);
         if (next.sport && !SPORT_OPTIONS.includes(next.sport)) {
           setCustomSport(next.sport);
@@ -233,41 +235,12 @@ export default function ProgramInputForm({ sourceProgramId, templateValues, onPr
     return e;
   }, [f]);
 
-  const handleRevert = (change: DiffChange) => {
-    if (!sourceRequest) return;
-    const src = change.path[0] === 'basics' ? sourceRequest.basics
-      : change.path[0] === 'context' ? sourceRequest.context
-      : sourceRequest.advanced;
-    const sourceVal = (src as any)[change.field];
-
-    if (change.field === 'sport') {
-      if (sourceVal && !SPORT_OPTIONS.includes(sourceVal)) {
-        setCustomSport(sourceVal);
-        setF(prev => ({ ...prev, sport: 'Other', role: sourceRequest.basics.role || '' }));
-        return;
-      }
-    }
-
-    const FIELD_MAP: Record<string, keyof FormState> = {
-      athlete_name: 'athlete_name', sport: 'sport', role: 'role', level: 'level',
-      age: 'age', training_age_years: 'training_age_years',
-      available_minutes: 'minutes_per_session', frequency_per_week: 'sessions_per_week',
-      primary_goal: 'goal', current_phase: 'phase', equipment_profile: 'equipment',
-      competition_proximity_note: 'coach_intent', program_length_weeks: 'program_length_weeks',
-      match_day: 'match_day', team_training_days: 'team_training_days',
-      heavy_field_days: 'heavy_field_days', travel_days: 'travel_days',
-      injury_severity: 'injury_severity',
-      injury_risk_flags: 'injury_flags', cmj_band: 'cmj_band',
-      yoyo_ir1: 'yoyo_ir1', yoyo_ir2: 'yoyo_ir2', bronco: 'bronco',
-    };
-
-    const formKey = FIELD_MAP[change.field];
-    if (formKey) {
-      // ponytail: undefined source values fall back to empty/zero
-      const val = sourceVal !== undefined ? sourceVal
-        : (typeof f[formKey] === 'number' ? 0 : (Array.isArray(f[formKey]) ? [] : ''));
-      setF(prev => ({ ...prev, [formKey]: val }));
-    }
+  const handleToggleChange = (changeId: string) => {
+    setRejectedChangeIds(prev => {
+      const next = new Set(prev);
+      if (next.has(changeId)) next.delete(changeId); else next.add(changeId);
+      return next;
+    });
   };
 
   const handleSubmit = async () => {
@@ -275,7 +248,22 @@ export default function ProgramInputForm({ sourceProgramId, templateValues, onPr
     setStatus('loading');
     setError(null);
     try {
-      const request = buildRequest({ ...f, sport: f.sport === 'Other' ? customSport : f.sport }, mode);
+      let request = buildRequest({ ...f, sport: f.sport === 'Other' ? customSport : f.sport }, mode);
+      // Apply rejected changes: override to source values
+      if (sourceRequest && rejectedChangeIds.size > 0) {
+        const allChanges = diffRequests(sourceRequest, request);
+        for (const change of allChanges) {
+          if (rejectedChangeIds.has(change.id)) {
+            request = {
+              ...request,
+              [change.path[0] as 'basics' | 'context' | 'advanced']: {
+                ...(request as any)[change.path[0]],
+                [change.field]: change.oldValue,
+              },
+            };
+          }
+        }
+      }
       let rawPayload: any;
       try {
         rawPayload = await apiGenerate(request);
@@ -373,7 +361,8 @@ export default function ProgramInputForm({ sourceProgramId, templateValues, onPr
               <ReviewChangesPanel
                 sourceRequest={sourceRequest}
                 currentRequest={buildRequest({ ...f, sport: f.sport === 'Other' ? customSport : f.sport }, mode)}
-                onRevert={handleRevert}
+                onToggleChange={handleToggleChange}
+                rejectedChangeIds={rejectedChangeIds}
               />
             </div>
           )}
