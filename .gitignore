@@ -180,4 +180,5 @@ temp_*.py
 sample/
 data/
 test_data/
-*.sample
+*.sample*.csv
+*.csv
