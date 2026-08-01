@@ -62,6 +62,7 @@ class ProgramContext(BaseModel):
     team_training_days: Optional[list[int]] = None
     heavy_field_days: Optional[list[int]] = None
     travel_days: Optional[list[int]] = None
+    available_environments: Optional[list[str]] = None  # ponytail: multi-select; falls back to [basics.environment]
 
 
 class AdvancedProfile(BaseModel):

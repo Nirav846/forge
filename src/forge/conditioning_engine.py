@@ -144,7 +144,8 @@ def select_conditioning(
     if protocol_id and protocol_id in COND_PROTOCOL_BY_ID:
         proto = COND_PROTOCOL_BY_ID[protocol_id]
         if _level_ok(proto, athlete_level) and _competition_ok(proto, comp_window):
-            return proto
+            if sport == "any" or "any" in proto.sport_tags or sport in proto.sport_tags:
+                return proto
 
     # Step 2: Fallback — select by energy system + environment_category + sport_tags + competition proximity + movement_profile
     system_name = CONDITIONING_GOAL_MAP.get(goal)
@@ -181,6 +182,15 @@ def select_conditioning(
         for p in candidates:
             if _level_ok(p, athlete_level) and p.environment_category == env_cat and _competition_ok(p, comp_window):
                 return p
+        # Cross-system court fallback: protocols matching env+sport from outside the goal's system
+        if env_cat == "court" and sport != "any":
+            for proto in COND_PROTOCOL_BY_ID.values():
+                if proto.environment_category != env_cat:
+                    continue
+                if not ("any" in proto.sport_tags or sport in proto.sport_tags):
+                    continue
+                if _level_ok(proto, athlete_level) and _competition_ok(proto, comp_window):
+                    return proto
         return None
 
     scored.sort(key=lambda x: (-x[0], 0 if x[1].tier == "A" else 1))

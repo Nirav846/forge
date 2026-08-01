@@ -4458,5 +4458,36 @@ EXERCISES_DATA = [
     "rotational": False,
     "progression": None,
     "regression": "AGI-103"
+  },
+  # ---- Badminton-specific landing/recovery exercises (IP-relevant) ----
+  {
+    "id": "Landing-011",
+    "name": "Drop Landing",
+    "family": "Landing",
+    "secondary_family": "Badminton",
+    "objective": "POW",
+    "difficulty": 3,
+    "equipment": ["Bodyweight"],
+    "unilateral": False,
+    "explosive": True,
+    "isometric": False,
+    "rotational": False,
+    "progression": "Single-Leg Landing",
+    "regression": "Box Jump Stick (moderate, 12-18in)"
+  },
+  {
+    "id": "Landing-012",
+    "name": "Single-Leg Landing",
+    "family": "Landing",
+    "secondary_family": "Badminton",
+    "objective": "STAB",
+    "difficulty": 4,
+    "equipment": ["Bodyweight"],
+    "unilateral": True,
+    "explosive": True,
+    "isometric": False,
+    "rotational": False,
+    "progression": "Reactive Single-Leg Landing (unexpected)",
+    "regression": "Drop Landing"
   }
 ]

@@ -330,6 +330,9 @@ def generate_program(athlete: AthleteProfile) -> GeneratedProgram:
                 cap_exercises=adj.get("cap_exercises", 0),
                 session_intent=session_intent,
             )
+            # ponytail: surface planning-engine environment selection on the Session
+            # without touching the (currently unused) session.intent plumbing.
+            session.environment = session_intent.environment if session_intent else ""
             sessions.append(session)
             week_exercises.extend([ex for b in session.blocks for ex in b.exercises if ex])
 

@@ -10,6 +10,26 @@ from .role_profiles import get_slot_template
 
 DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
+# ponytail: intent → preferred environment (checked against athlete.available_environments).
+# Falls back to the first available environment if the preferred one isn't selected.
+INTENT_ENV_PREFERENCE = {
+    "Strength": "Gym",
+    "Power": "Gym",
+    "Speed": "Field",
+    "Conditioning": "Field",
+    "Primer": "Court",
+    "Recovery": "Court",
+}
+
+def _assign_session_environment(intent_type: str, available_environments: list[str]) -> str:
+    """Pick the most appropriate environment for a session given the available options."""
+    if not available_environments:
+        return ""
+    preferred = INTENT_ENV_PREFERENCE.get(intent_type, "")
+    if preferred in available_environments:
+        return preferred
+    return available_environments[0]
+
 WEEK_TYPE_PURPOSES = {
     "accumulation": {"primary_focus": "strength", "stress": "moderate", "volume_mod": 1.0, "intensity_mod": 0.85},
     "intensification": {"primary_focus": "strength", "stress": "high", "volume_mod": 1.0, "intensity_mod": 1.0},
@@ -295,6 +315,7 @@ def _generate_session_intents(
 ) -> list[SessionIntent]:
     """Generate a SessionIntent for each session using calendar-designed placements."""
     intents = []
+    available_envs = getattr(athlete, "available_environments", []) or []
     for placement in placements:
         purpose, qualities, fatigue_cost, movement_priorities = _derive_session_attributes(
             week_type, placement.intent_type, role_profile, placement.session_number, frequency
@@ -325,6 +346,8 @@ def _generate_session_intents(
             progression=progression_plan,
             movement_slots=movement_slots,
         )
+        # ponytail: auto-assign environment based on session intent; coach can still override.
+        intent.environment = _assign_session_environment(placement.intent_type, available_envs)
         intents.append(intent)
     return intents
 

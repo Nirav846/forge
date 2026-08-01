@@ -10,7 +10,7 @@ export interface RawAthleteBasics {
   role?: string;
   training_age_years?: number | '';
   level?: Level;
-  environment?: 'Pro Facility' | 'Commercial Gym' | 'Home Gym' | 'Field/Track' | '';
+  environment?: 'Pro Facility' | 'Commercial Gym' | 'Home Gym' | 'Field/Track' | 'Gym' | 'Field' | 'Court' | '';
   available_minutes?: number;
   frequency_per_week?: number;
   days_to_match?: number | '';
@@ -22,12 +22,13 @@ export interface RawProgramContext {
   equipment_profile?: string[];
   competition_proximity_note?: string;
   program_length_weeks?: number;
-  match_day?: string;
-  team_training_days?: string[];
-  heavy_field_days?: string[];
-  travel_days?: string[];
+  match_day?: number;
+  team_training_days?: number[];
+  heavy_field_days?: number[];
+  travel_days?: number[];
   coach_intent?: string;
   injury_severity?: 'None' | 'Mild' | 'Moderate' | 'Severe';
+  available_environments?: string[];  // ponytail: multi-select Gym/Field/Court
 }
 
 export interface RawAdvancedProfile {

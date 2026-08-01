@@ -186,6 +186,7 @@ def serialize_program(
             "intent": _serialize_session_intent(session.intent),
             "structure_type": session.structure_type or None,
             "time_notes": session.time_notes or None,
+            "environment": session.environment or None,  # ponytail: planning-assigned env (overridable in UI)
         }
         sessions_json.append(session_json)
 
@@ -372,6 +373,14 @@ def athlete_profile_from_request(payload: dict) -> AthleteProfile:
     env_str = (basics.get("environment") or "commercial gym").lower()
     equipment = equip_map.get(env_str, EquipmentProfile.COMMERCIAL_GYM)
 
+    # ponytail: multi-select environments. Falls back to single env string if list empty/missing.
+    raw_envs = context.get("available_environments")
+    if not raw_envs:
+        legacy_env = (basics.get("environment") or "").strip()
+        available_environments = [legacy_env] if legacy_env else []
+    else:
+        available_environments = [e.strip() for e in raw_envs if e and e.strip()]
+
     # Determine athlete level
     level_str = basics.get("level", "Intermediate")
     level_map = {
@@ -509,6 +518,7 @@ def athlete_profile_from_request(payload: dict) -> AthleteProfile:
         team_training_days=context.get("team_training_days") or [0, 2, 4],
         heavy_field_days=context.get("heavy_field_days") or [1, 3],
         travel_days=context.get("travel_days") or [],
+        available_environments=available_environments,
     )
 
     return profile

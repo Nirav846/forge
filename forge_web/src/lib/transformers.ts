@@ -89,6 +89,7 @@ export function normalizeProgramResponse(raw: any): TransformationResult {
         main_work: normalizeSection(sess?.main_work, 'Main Work', `sessions[${index}].main_work`),
         conditioning: normalizeSection(sess?.conditioning, 'Conditioning', `sessions[${index}].conditioning`),
         session_notes: sess?.session_notes || undefined,
+        environment: sess?.environment || undefined,  // ponytail: planning-assigned env
       }))
     : [];
 

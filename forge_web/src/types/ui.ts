@@ -74,6 +74,7 @@ export interface SessionVM {
   session_notes?: string;
   structure_type?: string;
   time_notes?: string[];
+  environment?: string;  // ponytail: planning-assigned env (overridable in UI)
 }
 
 export interface ProgramSummaryVM {

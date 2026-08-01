@@ -205,7 +205,7 @@ SELECTION_PRIORITIES: dict[str, list[str]] = {
     "Rot": ["Rot-006", "Rot-010", "Rot-003", "Rot-005", "Rot-007", "Rot-001", "Rot-002", "Rot-004", "Rot-008", "Rot-009", "Rot-011", "Rot-012", "Rot-013", "Rot-014", "Rot-015", "Rot-016", "Rot-017", "ROT-100", "Rot-018"],
     "SLHD": ["SLHD-005", "SLHD-008", "SLHD-009", "SLHD-002", "SLHD-003", "SLHD-006", "SLHD-001", "SLHD-004", "SLHD-007", "SLHD-010", "SLHD-011", "SLHD-012"],
     "SLKD": ["SLKD-005", "SLKD-008", "SLKD-012", "SLKD-002", "SLKD-003", "SLKD-006", "SLKD-007", "SLKD-009", "SLKD-010", "SLKD-011", "SLKD-001", "SLKD-004", "SLKD-013", "SLKD-100", "SLKD-101", "SLKD-102"],
-    "Landing": ["Landing-001", "Landing-002", "Landing-003", "Landing-004", "Landing-005", "Landing-006", "Landing-007", "Landing-008", "LANDING-100", "Landing-009", "Landing-010"],
+    "Landing": ["Landing-011", "Landing-012", "Landing-001", "Landing-002", "Landing-003", "Landing-004", "Landing-005", "Landing-006", "Landing-007", "Landing-008", "LANDING-100", "Landing-009", "Landing-010"],
     "Sprint": ["Sprint-023", "Sprint-024", "Sprint-025", "Sprint-026", "Sprint-027", "Sprint-028", "Sprint-029", "Sprint-003", "Sprint-007", "Sprint-009", "Sprint-011", "Sprint-012", "Sprint-001", "Sprint-002", "Sprint-004", "Sprint-005", "Sprint-006", "Sprint-008", "Sprint-010", "Sprint-013", "Sprint-014", "Sprint-015", "Sprint-016", "Sprint-017", "Sprint-018", "Sprint-019", "Sprint-020", "Sprint-021", "Sprint-022", "SPRINT-100", "Sprint-030"],
     "VPull": ["VPull-005", "VPull-006", "VPull-009", "VPull-010", "VPull-012", "VPull-001", "VPull-002", "VPull-003", "VPull-004", "VPull-007", "VPull-008", "VPull-011", "VPull-013", "VPull-014"],
     "VPush": ["VPush-008", "VPush-006", "VPush-005", "VPush-009", "VPush-010", "VPush-002", "VPush-003", "VPush-004", "VPush-001", "VPush-007", "VPush-011", "VPush-012", "VPush-013", "VPush-014"],
@@ -574,6 +574,10 @@ EQUIPMENT_PROFILE_MAP: dict[str, list[str]] = {
     "Basic Gym": ["Bodyweight", "Barbell", "DB", "KB", "Band", "Bench", "Box", "Pull-Up Bar", "Med Ball", "Rack"],
     "Commercial Gym": ["Bodyweight", "Barbell", "DB", "KB", "Band", "Bench", "Box", "Pull-Up Bar", "Med Ball", "Rack", "Cable Machine", "Machine"],
     "Elite Facility": ["Bodyweight", "Barbell", "DB", "KB", "Band", "Bench", "Box", "Pull-Up Bar", "Med Ball", "Rack", "Cable Machine", "Machine", "Sled", "Platform", "Trap Bar", "Rings", "GHD", "Specialty Bar"],
+    # Ponytail: 3-profile simplification (Gym, Field, Court) for new code paths.
+    "Gym": ["Bodyweight", "Barbell", "DB", "KB", "Band", "Bench", "Box", "Pull-Up Bar", "Med Ball", "Rack", "Cable Machine", "Machine", "Sled", "Platform", "Trap Bar", "Rings", "GHD", "Specialty Bar"],
+    "Field": ["Bodyweight", "Band", "Med Ball", "Cones", "Hurdles", "Box", "DB", "Barbell", "Rack"],
+    "Court": ["Bodyweight", "Band", "Med Ball", "Cones", "Hurdles", "Box", "Barbell", "DB", "Bench"],
 }
 
 def get_max_difficulty(level: str) -> int:

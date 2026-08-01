@@ -81,6 +81,10 @@ class AthleteLevel(str, Enum):
 
 
 class EquipmentProfile(str, Enum):
+    GYM = "Gym"
+    FIELD = "Field"
+    COURT = "Court"
+    # Legacy aliases kept for backward compatibility with stored programs.
     FIELD_ONLY = "Field Only"
     BASIC_GYM = "Basic Gym"
     COMMERCIAL_GYM = "Commercial Gym"
@@ -245,6 +249,7 @@ class SessionIntent:
     day_of_week: str
     progression: Optional["WeeklyProgressionPlan"] = None
     movement_slots: list["MovementSlot"] = field(default_factory=list)
+    environment: str = ""  # ponytail: auto-assigned by planning from available_environments
 
 
 @dataclass
@@ -292,6 +297,7 @@ class Session:
     intent: Optional[SessionIntent] = None
     structure_type: str = ""
     time_notes: list[str] = field(default_factory=list)
+    environment: str = ""  # ponytail: planning layer picks from available_environments by intent
 
 
 @dataclass
@@ -380,6 +386,7 @@ class AthleteProfile:
     team_training_days: list[int] = field(default_factory=lambda: [0, 2, 4])
     heavy_field_days: list[int] = field(default_factory=lambda: [1, 3])
     travel_days: list[int] = field(default_factory=list)
+    available_environments: list[str] = field(default_factory=list)  # ponytail: e.g. ["Gym","Field","Court"]
 
     coach_preferences: Optional[CoachPreferences] = None
 

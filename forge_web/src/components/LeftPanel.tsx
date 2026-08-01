@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { ProgramRequest, Mode } from '../types';
+import { RawAthleteBasics } from '../types/api';
 import { Zap, Play, AlertCircle, Settings2 } from 'lucide-react';
 import { AppStatus } from '../App';
 import SportSelector from './builder/SportSelector';
@@ -9,12 +10,40 @@ import SeasonTimeline from './builder/SeasonTimeline';
 import GoalSelector from './builder/GoalSelector';
 import WeeklySchedule from './builder/WeeklySchedule';
 import SessionLengthSlider from './builder/SessionLengthSlider';
+import { daysToNumbers } from '../lib/calendar';
 
 interface LeftPanelProps {
   request: ProgramRequest;
   setRequest: React.Dispatch<React.SetStateAction<ProgramRequest>>;
   onGenerate: (builtRequest?: ProgramRequest) => void;
   status: AppStatus;
+}
+
+// ponytail: compile-time guard — every user-editable basics field must have a
+// BuilderState counterpart. Adding a field here fails the build if BuilderState
+// doesn't have the corresponding camelCase field.
+// sex, days_to_match have no UI controls yet — add when needed.
+type _STATE_CHECK = {
+  athlete_name: BuilderState['athleteName'];
+  age: BuilderState['age'];
+  training_age_years: BuilderState['trainingAge'];
+  environment: BuilderState['environments'];
+};
+void {} as _STATE_CHECK;
+
+const SCORED_ENV_OPTIONS = [
+  { value: 'Gym', label: 'Gym', emoji: '🏋️' },
+  { value: 'Field', label: 'Field', emoji: '🏃' },
+  { value: 'Court', label: 'Court', emoji: '🏸' },
+] as const;
+
+function toggleEnvironment(setBuilder: React.Dispatch<React.SetStateAction<BuilderState>>, env: string, checked: boolean): void {
+  setBuilder(prev => ({
+    ...prev,
+    environments: checked
+      ? [...prev.environments, env]
+      : prev.environments.filter(e => e !== env),
+  }));
 }
 
 interface BuilderState {
@@ -25,30 +54,36 @@ interface BuilderState {
   goal: string;
   trainingDays: number[];
   sessionLength: number;
+  age: number | '';
+  trainingAge: number | '';
+  environments: string[];
 }
 
 function buildRequest(state: BuilderState, mode: Mode): ProgramRequest {
   const matchDay = state.trainingDays.length > 0 ? state.trainingDays[state.trainingDays.length - 1] + 1 : 5;
+  // ponytail: legacy single-env field is recomputed from selected checkboxes — keeps backend happy.
+  const primaryEnv = state.environments[0] || '';
+  const basics: RawAthleteBasics = {
+    athlete_name: state.athleteName,
+    sport: state.sport === 'Rugby' ? 'Rugby Union' : state.sport,
+    role: state.role,
+    level: 'Intermediate',
+    age: state.age,
+    training_age_years: state.trainingAge,
+    frequency_per_week: state.trainingDays.length || 3,
+    available_minutes: state.sessionLength,
+    environment: primaryEnv as RawAthleteBasics['environment'],
+  };
   return {
     mode,
-    basics: {
-      athlete_name: state.athleteName,
-      sport: state.sport === 'Rugby' ? 'Rugby Union' : state.sport,
-      role: state.role,
-      level: 'Intermediate',
-      age: '',
-      frequency_per_week: state.trainingDays.length || 3,
-      available_minutes: state.sessionLength,
-    },
+    basics,
     context: {
       primary_goal: state.goal,
       current_phase: state.seasonPhase,
       program_length_weeks: 4,
-      match_day: String(matchDay),
-      team_training_days: state.trainingDays.map(d => {
-        const names = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-        return names[d];
-      }),
+      match_day: matchDay,
+      team_training_days: [...state.trainingDays],
+      available_environments: state.environments,  // ponytail: multi-select drives per-session env
     },
     advanced: {
       injury_risk_flags: [],
@@ -63,9 +98,7 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
   const [builder, setBuilder] = useState<BuilderState>(() => {
     const b = request.basics;
     const c = request.context;
-    const days = (c.team_training_days || [])
-      .map(d => ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].indexOf(d))
-      .filter(i => i >= 0);
+    const days = daysToNumbers(c.team_training_days || []).filter(i => i >= 0);
     const sport = b.sport === 'Rugby Union' ? 'Rugby' : (b.sport || '');
     return {
       athleteName: b.athlete_name || '',
@@ -75,6 +108,12 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
       goal: c.primary_goal || '',
       trainingDays: days,
       sessionLength: b.available_minutes || 60,
+      age: typeof b.age === 'number' ? b.age : '',
+      trainingAge: typeof b.training_age_years === 'number' ? b.training_age_years : '',
+      // ponytail: prefer available_environments; fall back to single environment; then default ['Gym'].
+      environments: c.available_environments && c.available_environments.length > 0
+        ? c.available_environments
+        : (b.environment ? [b.environment] : ['Gym']),
     };
   });
 
@@ -144,6 +183,54 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
               className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
               placeholder="e.g. John Doe"
             />
+          </div>
+
+          {/* Age + Training Age — optional */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-medium text-slate-700 mb-1">Age</label>
+              <input
+                type="number"
+                min={0}
+                value={builder.age}
+                onChange={e => update('age', e.target.value === '' ? '' : Number(e.target.value))}
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                placeholder="e.g. 22"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-slate-700 mb-1">Training Age (yrs)</label>
+              <input
+                type="number"
+                step="0.5"
+                min={0}
+                value={builder.trainingAge}
+                onChange={e => update('trainingAge', e.target.value === '' ? '' : Number(e.target.value))}
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                placeholder="e.g. 2.5"
+              />
+            </div>
+          </div>
+
+          {/* Environments — multi-select; engine auto-assigns each session */}
+          <div>
+            <label className="block text-xs font-medium text-slate-700 mb-1">Available Environments</label>
+            <div className="flex gap-4 mt-1">
+              {SCORED_ENV_OPTIONS.map(({ value, label, emoji }) => (
+                <label key={value} className="flex items-center gap-1.5 text-sm text-slate-700">
+                  <input
+                    type="checkbox"
+                    checked={builder.environments.includes(value)}
+                    onChange={e => toggleEnvironment(setBuilder, value, e.target.checked)}
+                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                  {emoji} {label}
+                </label>
+              ))}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-1">
+              Sessions auto-assign to the most suitable environment; per-session override still available.
+            </p>
           </div>
 
           {/* Generate button */}
