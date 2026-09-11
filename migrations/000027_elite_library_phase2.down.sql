@@ -1,20 +1,6 @@
--- Rollback Phase 2 Elite Library
-BEGIN;
+-- Phase 2 Down Migration: Remove Elite Library Phase 2 exercises (IDs 66-105)
 
--- Delete exercises added in Phase 2
-DELETE FROM exercises WHERE source_organization IN (
-    'USOPC', 'UKSCA', 'ALTIS', 'Strongman Corp', 'EXOS', 
-    'McGill Method', 'Frans Bosch', 'IOC Consensus', 'Swedish School',
-    'FMS/SFMA', 'Gray Cook', 'MLB Sports Med', 'FMS', 'SFMA',
-    'WSM', 'Rugby S&C', 'CrossFit', 'MMA Conditioning', 'Firefighter Prep'
-) AND id > (SELECT COALESCE(MAX(id), 0) FROM exercises WHERE source_organization NOT IN (
-    'USOPC', 'UKSCA', 'ALTIS', 'Strongman Corp', 'EXOS', 
-    'McGill Method', 'Frans Bosch', 'IOC Consensus', 'Swedish School',
-    'FMS/SFMA', 'Gray Cook', 'MLB Sports Med', 'FMS', 'SFMA',
-    'WSM', 'Rugby S&C', 'CrossFit', 'MMA Conditioning', 'Firefighter Prep'
-));
+DELETE FROM exercises WHERE id BETWEEN 66 AND 105;
 
--- Remove migration record
-DELETE FROM schema_migrations WHERE version = '000027';
-
-COMMIT;
+-- Reset sequence if needed
+SELECT setval('exercises_id_seq', (SELECT MAX(id) FROM exercises));
