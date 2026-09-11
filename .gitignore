@@ -1,4 +1,5 @@
 ```
-# SQL migration files are typically tracked, so no ignores needed for the migration files
-# No build artifacts, dependencies, or temp files detected in changes
+# Migration files
+migrations/*.down.sql
+migrations/*.up.sql
 ```
