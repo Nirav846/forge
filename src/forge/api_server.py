@@ -406,6 +406,168 @@ def health():
     return {"status": "ok", "version": "1.0.0"}
 
 
+# ── Exercise Library API Endpoints ────────────────────────────────
+
+@app.get("/api/v1/exercises")
+def get_exercises(
+    category: Optional[str] = None,
+    subcategory: Optional[str] = None,
+    movement_pattern: Optional[str] = None,
+    equipment: Optional[str] = None,
+    difficulty: Optional[str] = None,
+    source_organization: Optional[str] = None,
+    is_pain_safe: Optional[bool] = None,
+):
+    """Get all exercises with optional filters."""
+    import psycopg2
+    from psycopg2.extras import RealDictCursor
+    
+    try:
+        conn = psycopg2.connect(
+            host=os.getenv("FORGE_DB_HOST", "localhost"),
+            database=os.getenv("FORGE_DB_NAME", "forge_db"),
+            user=os.getenv("FORGE_DB_USER", "forge_user"),
+            password=os.getenv("FORGE_DB_PASSWORD", "forge_pass"),
+        )
+        
+        query = "SELECT * FROM exercises WHERE 1=1"
+        params = []
+        
+        if category:
+            query += " AND category = %s"
+            params.append(category)
+        if subcategory:
+            query += " AND subcategory = %s"
+            params.append(subcategory)
+        if movement_pattern:
+            query += " AND movement_pattern = %s"
+            params.append(movement_pattern)
+        if equipment:
+            query += " AND equipment = %s"
+            params.append(equipment)
+        if difficulty:
+            query += " AND difficulty = %s"
+            params.append(difficulty)
+        if source_organization:
+            query += " AND source_organization = %s"
+            params.append(source_organization)
+        if is_pain_safe is not None:
+            query += " AND is_pain_safe = %s"
+            params.append(is_pain_safe)
+        
+        query += " ORDER BY name ASC"
+        
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute(query, params)
+        exercises = cur.fetchall()
+        cur.close()
+        conn.close()
+        
+        # Convert to list of dicts and parse JSON fields
+        result = []
+        for ex in exercises:
+            exercise_dict = dict(ex)
+            # Parse JSON string fields
+            for field in ['coaching_cues', 'common_errors', 'contraindications', 'regressions', 'progressions', 'equipment_alternatives']:
+                if field in exercise_dict and isinstance(exercise_dict[field], str):
+                    try:
+                        exercise_dict[field] = json.loads(exercise_dict[field])
+                    except (json.JSONDecodeError, TypeError):
+                        exercise_dict[field] = []
+            result.append(exercise_dict)
+        
+        return result
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+
+
+@app.get("/api/v1/exercises/search")
+def search_exercises(q: str):
+    """Search exercises by name or description."""
+    import psycopg2
+    from psycopg2.extras import RealDictCursor
+    
+    try:
+        conn = psycopg2.connect(
+            host=os.getenv("FORGE_DB_HOST", "localhost"),
+            database=os.getenv("FORGE_DB_NAME", "forge_db"),
+            user=os.getenv("FORGE_DB_USER", "forge_user"),
+            password=os.getenv("FORGE_DB_PASSWORD", "forge_pass"),
+        )
+        
+        query = """
+            SELECT * FROM exercises 
+            WHERE name ILIKE %s OR description ILIKE %s
+            ORDER BY name ASC
+        """
+        search_term = f"%{q}%"
+        
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute(query, (search_term, search_term))
+        exercises = cur.fetchall()
+        cur.close()
+        conn.close()
+        
+        # Convert to list of dicts and parse JSON fields
+        result = []
+        for ex in exercises:
+            exercise_dict = dict(ex)
+            for field in ['coaching_cues', 'common_errors', 'contraindications', 'regressions', 'progressions', 'equipment_alternatives']:
+                if field in exercise_dict and isinstance(exercise_dict[field], str):
+                    try:
+                        exercise_dict[field] = json.loads(exercise_dict[field])
+                    except (json.JSONDecodeError, TypeError):
+                        exercise_dict[field] = []
+            result.append(exercise_dict)
+        
+        return result
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+
+
+@app.get("/api/v1/exercises/{exercise_id}")
+def get_exercise_by_id(exercise_id: int):
+    """Get a single exercise by ID."""
+    import psycopg2
+    from psycopg2.extras import RealDictCursor
+    
+    try:
+        conn = psycopg2.connect(
+            host=os.getenv("FORGE_DB_HOST", "localhost"),
+            database=os.getenv("FORGE_DB_NAME", "forge_db"),
+            user=os.getenv("FORGE_DB_USER", "forge_user"),
+            password=os.getenv("FORGE_DB_PASSWORD", "forge_pass"),
+        )
+        
+        query = "SELECT * FROM exercises WHERE id = %s"
+        
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute(query, (exercise_id,))
+        exercise = cur.fetchone()
+        cur.close()
+        conn.close()
+        
+        if not exercise:
+            raise HTTPException(status_code=404, detail="Exercise not found")
+        
+        exercise_dict = dict(exercise)
+        for field in ['coaching_cues', 'common_errors', 'contraindications', 'regressions', 'progressions', 'equipment_alternatives']:
+            if field in exercise_dict and isinstance(exercise_dict[field], str):
+                try:
+                    exercise_dict[field] = json.loads(exercise_dict[field])
+                except (json.JSONDecodeError, TypeError):
+                    exercise_dict[field] = []
+        
+        return exercise_dict
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+
+
 # ── CLI Entrypoint ────────────────────────────────────────────────
 
 def run_server(host: str = "127.0.0.1", port: int = 8000, reload: bool = False):
