@@ -28,9 +28,11 @@ import { TeamTemplateForm } from './components/team/TeamTemplateForm';
 import { TeamTemplateView } from './components/team/TeamTemplateView';
 import { TeamAdaptationWizard } from './components/team/TeamAdaptationWizard';
 import { TeamLibraryDrawer } from './components/team/TeamLibraryDrawer';
+import ExerciseLibrary from './modules/exercises/ExerciseLibrary';
 
 export type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 type TeamStage = 'team_form' | 'team_view' | 'team_adapt' | null;
+type ViewMode = 'entry' | 'builder' | 'library';
 
 export default function App() {
   const [request, setRequest] = useState<ProgramRequest>(defaultEmptyRequest);
@@ -47,7 +49,7 @@ export default function App() {
   const [isUATOpen, setIsUATOpen] = useState(false);
   const [showInsights, setShowInsights] = useState(false);
   const devMode = localStorage.getItem('forge_dev_mode') === 'true';
-  const [stage, setStage] = useState<string>('entry');
+  const [viewMode, setViewMode] = useState<ViewMode>('entry');
   const [formSourceProgramId, setFormSourceProgramId] = useState<string | undefined>();
   const [formTemplateValues, setFormTemplateValues] = useState<Partial<ProgramRequest> | undefined>();
 
@@ -130,10 +132,10 @@ export default function App() {
       setActiveArtifactStatus(existing.status);
       setCoachOverrides(existing.coach_overrides || {});
       setStatus('success');
-      setStage('idle');
+      setViewMode('builder');
     } else {
       setFormSourceProgramId(sourceId);
-      setStage('idle');
+      setViewMode('builder');
     }
   }, [savedPrograms]);
 
@@ -150,13 +152,13 @@ export default function App() {
     }
     setFormSourceProgramId(undefined);
     setFormTemplateValues(undefined);
-    setStage('idle');
+    setViewMode('builder');
   }, []);
 
   const handleStartFresh = useCallback(() => {
     setFormSourceProgramId(undefined);
     setFormTemplateValues(undefined);
-    setStage('idle');
+    setViewMode('builder');
   }, []);
 
 
@@ -729,7 +731,13 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 flex overflow-hidden relative">
-        {status === 'idle' && stage === 'entry' && !teamStage ? (
+        {viewMode === 'library' ? (
+          <div className="flex-1 overflow-auto">
+            <ErrorBoundary>
+              <ExerciseLibrary />
+            </ErrorBoundary>
+          </div>
+        ) : status === 'idle' && viewMode === 'entry' && !teamStage ? (
           <div className="flex-1 flex items-center justify-center">
             <ErrorBoundary>
               <EntryScreen
