@@ -2,13 +2,17 @@
 # Dependencies
 node_modules/
 
-# Environment variables
+# Environment
 .env
 .env.local
-*.env.*
+.env.*
 
 # Logs
 *.log
+
+# Build artifacts
+build/
+dist/
 
 # Python
 __pycache__/
@@ -22,31 +26,16 @@ venv/
 .ENV
 .python-version
 
-# Build outputs
-dist/
-build/
-*.egg-info/
-.eggs/
-
-# Testing
-.coverage
+# Coverage reports
 coverage/
 htmlcov/
-.nyc_output/
-coverage-final.json
+.coverage
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Testing
+.pytest_cache/
+.mypy_cache/
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Compression
+# Compressed files
 *.zip
 *.gz
 *.tar
