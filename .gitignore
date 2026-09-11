@@ -1,3 +1,1 @@
-```
-*.sql
-```
+Nothing should be ignored based on the provided file changes. The only file added is a markdown file (PHASE9_CONDITIONING_COMPLETE.md), which is a source/config file and should not be ignored.
