@@ -1,1 +1,4 @@
-Nothing needs to be added to .gitignore since only a markdown file (EXERCISE_LIBRARY_STATUS.md) was added, which is a source/config file and should not be ignored.
+```
+# Database
+forge.db
+```
