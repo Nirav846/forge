@@ -6,12 +6,12 @@ __pycache__/
 # Dependencies
 .venv/
 venv/
-node_modules/
+.mypy_cache/
+.pytest_cache/
 
 # Logs and temp files
 *.log
 *.tmp
-*.swp
 
 # Environment
 .env
@@ -27,12 +27,8 @@ node_modules/
 coverage/
 htmlcov/
 
-# Python cache
-.mypy_cache/
-.pytest_cache/
-
-# Build directories
+# Distribution artifacts
 dist/
 build/
-target/
+*.egg-info/
 ```
