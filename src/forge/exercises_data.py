@@ -6919,7 +6919,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute IT band inflammation', 'Recent knee surgery', 'Skin conditions or open wounds'],
     "equipment_alternatives": ['Lacrosse ball', 'Massage gun', 'Tennis ball'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Self-myofascial release",
     "sport_tags": ['Baseball', 'Basketball', 'Cricket', 'Football', 'Rugby', 'Soccer', 'Tennis', 'Track & Field']
   },
@@ -7011,7 +7011,7 @@ EXERCISES_DATA = [
     "contraindications": ['Shoulder instability or dislocation history', 'Acute rotator cuff injury', 'Elbow ligament injury'],
     "equipment_alternatives": ['Suspension trainer', 'Gymnastic rings', 'Sturdy branch'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "Vertical traction",
     "sport_tags": ['Baseball', 'Basketball', 'Cricket', 'Climbing', 'Football', 'Gymnastics', 'Rugby', 'Swimming']
   },
@@ -7034,7 +7034,7 @@ EXERCISES_DATA = [
     "contraindications": ['Shoulder impingement syndrome', 'AC joint separation', 'Recent pec strain'],
     "equipment_alternatives": ['Wall corner', 'Rack post', 'Tree'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Static stretch",
     "sport_tags": ['Baseball', 'Basketball', 'Cricket', 'Football', 'Rugby', 'Swimming', 'Tennis', 'Volleyball']
   },
@@ -7057,7 +7057,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute ankle sprain', 'Achilles tendon rupture', 'Recent ankle fracture'],
     "equipment_alternatives": ['Band-assisted', 'Slant board', 'Book stack'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Mobility drill",
     "sport_tags": ['Basketball', 'Cricket', 'Football', 'Rugby', 'Soccer', 'Tennis', 'Track & Field', 'Volleyball']
   },
@@ -7080,7 +7080,7 @@ EXERCISES_DATA = [
     "contraindications": ['Knee injury (meniscus)', 'Pregnancy (third trimester)', 'Severe shoulder impingement'],
     "equipment_alternatives": ['Blanket under knees', 'Block under chest', 'Wall support'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Static stretch",
     "sport_tags": ['Baseball', 'Basketball', 'Climbing', 'Football', 'Gymnastics', 'Rugby', 'Swimming', 'Volleyball']
   },
@@ -7172,7 +7172,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute groin strain', 'Hip labral tear', 'Knee MCL injury'],
     "equipment_alternatives": ['Elevated knees', 'Wall support', 'Band assist'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Dynamic stretch",
     "sport_tags": ['Basketball', 'Cricket', 'Football', 'Hockey', 'MMA', 'Rugby', 'Soccer', 'Wrestling']
   },
@@ -7195,7 +7195,7 @@ EXERCISES_DATA = [
     "contraindications": ['Severe respiratory conditions', 'Recent abdominal surgery', 'Uncontrolled hypertension'],
     "equipment_alternatives": ['Floor only', 'Bench', 'Wall leg support'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Breathing exercise",
     "sport_tags": ['All Sports']
   },
@@ -7264,7 +7264,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute knee injury', 'Hip bursitis flare-up', 'Ankle instability'],
     "equipment_alternatives": ['Resistance band', 'Cable machine', 'No band (isometric)'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 2,
     "force_vector": "Hip abduction",
     "sport_tags": ['Basketball', 'Cricket', 'Football', 'Rugby', 'Soccer', 'Tennis', 'Track & Field', 'Volleyball']
   },
@@ -7287,7 +7287,7 @@ EXERCISES_DATA = [
     "contraindications": ['Shoulder impingement', 'AC joint injury', 'Rotator cuff tear'],
     "equipment_alternatives": ['Cable machine', 'Towel isometric', 'No equipment'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 2,
     "force_vector": "Horizontal pull",
     "sport_tags": ['Baseball', 'Basketball', 'Cricket', 'Football', 'Rugby', 'Swimming', 'Tennis', 'Volleyball']
   },
@@ -7333,7 +7333,7 @@ EXERCISES_DATA = [
     "contraindications": ['Wrist injury', 'Shoulder instability', 'Acute lower back pain'],
     "equipment_alternatives": ['Elevated hands', 'Knee pad', 'Wall version'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 2,
     "force_vector": "Anti-rotation",
     "sport_tags": ['All Sports']
   },
@@ -7379,7 +7379,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute Achilles injury', 'Plantar fasciitis flare-up', 'Recent ankle sprain'],
     "equipment_alternatives": ['Jump rope', 'Low box', 'Grass surface'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 3,
     "force_vector": "Vertical elastic",
     "sport_tags": ['Basketball', 'Cricket', 'Football', 'Rugby', 'Soccer', 'Tennis', 'Track & Field', 'Volleyball']
   },
@@ -7448,7 +7448,7 @@ EXERCISES_DATA = [
     "contraindications": ['Shoulder dislocation history', 'Acute rotator cuff injury', 'Frozen shoulder'],
     "equipment_alternatives": ['Light weights', 'Band', 'Wall slides'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "Shoulder mobility",
     "sport_tags": ['Baseball', 'Basketball', 'Cricket', 'Football', 'Rugby', 'Swimming', 'Tennis', 'Volleyball']
   },
@@ -7471,7 +7471,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute hip flexor strain', 'Hip impingement', 'Lower back injury'],
     "equipment_alternatives": ['Band resistance', 'Wall support', 'Seated version'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 2,
     "force_vector": "Hip flexion",
     "sport_tags": ['Cricket', 'Football', 'Rugby', 'Soccer', 'Track & Field', 'Tennis', 'Volleyball', 'Hockey']
   },
@@ -7632,7 +7632,7 @@ EXERCISES_DATA = [
     "contraindications": ['Acute ankle sprain', 'Achilles rupture', 'Recent foot fracture'],
     "equipment_alternatives": ['Box', 'Step', 'Angle app'],
     "technical_difficulty": 1,
-    "training_age_min_months": 0,
+    "training_age_min_months": 1,
     "force_vector": "N/A - Mobility assessment",
     "sport_tags": ['Basketball', 'Cricket', 'Football', 'Rugby', 'Soccer', 'Tennis', 'Track & Field', 'Volleyball']
   },
