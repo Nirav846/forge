@@ -31,6 +31,10 @@ class FamilyCode(str, Enum):
     BADMINTON = "Badminton"
     BASKETBALL = "Basketball"
     RUGBY = "Rugby"
+    RECOVERY = "Recovery"
+    ACTIVATION = "Activation"
+    ASSESSMENT = "Assessment"
+    MOBILITY = "Mobility"
 
 
 class Objective(str, Enum):
