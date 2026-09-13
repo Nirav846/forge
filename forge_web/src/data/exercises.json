@@ -15097,5 +15097,2656 @@
     ],
     "is_pain_safe": true,
     "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 909,
+    "name": "Pallof Press (Half-Kneeling)",
+    "category": "Core",
+    "subcategory": "STAB",
+    "movement_pattern": "Core",
+    "equipment": "Cable/Band",
+    "difficulty": "Beginner",
+    "source_organization": "EXOS",
+    "description": "",
+    "coaching_cues": [
+      "Keep ribs down and core braced",
+      "Press straight out without rotation",
+      "Hold for 2-3 seconds at full extension",
+      "Return slowly to start"
+    ],
+    "common_errors": [
+      "Allowing torso to rotate",
+      "Leaning forward or backward",
+      "Holding breath during press",
+      "Rushing the movement"
+    ],
+    "contraindications": [
+      "Acute lower back pain",
+      "Shoulder instability"
+    ],
+    "regressions": [
+      "Pallof Hold",
+      "Dead Bug"
+    ],
+    "progressions": [
+      "Pallof Press (Standing)",
+      "Pallof Press with Row"
+    ],
+    "equipment_alternatives": [
+      "Resistance band",
+      "Cable machine"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2026-09-13T08:22:58.666200Z"
+  },
+  {
+    "id": 910,
+    "name": "Stir the Pot",
+    "category": "Core",
+    "subcategory": "STAB",
+    "movement_pattern": "Core",
+    "equipment": "Stability Ball",
+    "difficulty": "Advanced",
+    "source_organization": "McGill",
+    "description": "",
+    "coaching_cues": [
+      "Maintain neutral spine throughout",
+      "Brace core as if bracing for impact",
+      "Move hips in controlled circular pattern",
+      "Keep shoulders stable over ball"
+    ],
+    "common_errors": [
+      "Allowing lower back to sag",
+      "Moving too fast",
+      "Holding breath",
+      "Shrugging shoulders"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Lower back instability",
+      "Wrist issues"
+    ],
+    "regressions": [
+      "Plank on Stability Ball",
+      "Stir the Pot (small circles)"
+    ],
+    "progressions": [
+      "Stir the Pot (larger circles)",
+      "Stir the Pot with leg lift"
+    ],
+    "equipment_alternatives": [
+      "Stability ball"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2026-09-13T08:22:58.666216Z"
+  },
+  {
+    "id": 911,
+    "name": "Suitcase Carry (Heavy)",
+    "category": "Core",
+    "subcategory": "STAB",
+    "movement_pattern": "Core",
+    "equipment": "Kettlebell/Dumbbell",
+    "difficulty": "Intermediate",
+    "source_organization": "StrongFirst",
+    "description": "",
+    "coaching_cues": [
+      "Stand tall with shoulders level",
+      "Brace core against lateral flexion",
+      "Walk with controlled steps",
+      "Keep weight close to body"
+    ],
+    "common_errors": [
+      "Leaning away from weight",
+      "Shrugging carrying shoulder",
+      "Taking large uncontrolled steps",
+      "Allowing hips to drop"
+    ],
+    "contraindications": [
+      "Acute shoulder impingement",
+      "Severe scoliosis"
+    ],
+    "regressions": [
+      "Suitcase Hold (static)",
+      "Light Suitcase Carry"
+    ],
+    "progressions": [
+      "Heavier Suitcase Carry",
+      "Suitcase Carry with turns"
+    ],
+    "equipment_alternatives": [
+      "Kettlebell",
+      "Dumbbell",
+      "Farmer walk handles"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2026-09-13T08:22:58.666222Z"
+  },
+  {
+    "id": 912,
+    "name": "Landmine Anti-Lateral Flexion",
+    "category": "Core",
+    "subcategory": "STAB",
+    "movement_pattern": "Core",
+    "equipment": "Landmine/Barbell",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "",
+    "coaching_cues": [
+      "Stand perpendicular to barbell",
+      "Resist lateral bending toward weight",
+      "Keep torso upright and still",
+      "Breathe steadily throughout"
+    ],
+    "common_errors": [
+      "Leaning into the weight",
+      "Rotating torso",
+      "Holding breath",
+      "Allowing hips to shift"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Lower back pain"
+    ],
+    "regressions": [
+      "Side Plank",
+      "Light Landmine Hold"
+    ],
+    "progressions": [
+      "Heavier weight",
+      "Single-arm overhead reach"
+    ],
+    "equipment_alternatives": [
+      "Landmine attachment",
+      "Corner anchor for barbell"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2026-09-13T08:22:58.666226Z"
+  },
+  {
+    "id": 913,
+    "name": "Dead Bug (Arms Overhead)",
+    "category": "Core",
+    "subcategory": "STAB",
+    "movement_pattern": "Core",
+    "equipment": "Bodyweight/Dumbbell",
+    "difficulty": "Intermediate",
+    "source_organization": "McGill",
+    "description": "",
+    "coaching_cues": [
+      "Press lower back into floor",
+      "Extend opposite arm and leg simultaneously",
+      "Keep ribcage down",
+      "Move slowly with control"
+    ],
+    "common_errors": [
+      "Lower back arching off floor",
+      "Moving too quickly",
+      "Not achieving full range",
+      "Holding breath"
+    ],
+    "contraindications": [
+      "Acute lower back pain",
+      "Shoulder impingement (with weights)"
+    ],
+    "regressions": [
+      "Dead Bug (basic)",
+      "Dead Bug (legs only)"
+    ],
+    "progressions": [
+      "Dead Bug with dumbbells",
+      "Dead Bug on stability ball"
+    ],
+    "equipment_alternatives": [
+      "Light dumbbells",
+      "Resistance bands"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2026-09-13T08:22:58.666229Z"
+  },
+  {
+    "id": 914,
+    "name": "Ab Wheel Rollout (Kneeling)",
+    "category": "Core",
+    "subcategory": "STR",
+    "movement_pattern": "Core",
+    "equipment": "Ab Wheel",
+    "difficulty": "Advanced",
+    "source_organization": "StrongFirst",
+    "description": "",
+    "coaching_cues": [
+      "Start with hips slightly behind hands",
+      "Roll out while maintaining neutral spine",
+      "Stop before lower back extends",
+      "Pull back using abs, not hip flexors"
+    ],
+    "common_errors": [
+      "Allowing lower back to sag",
+      "Rolling out too far",
+      "Using hip flexors instead of abs",
+      "Holding breath"
+    ],
+    "contraindications": [
+      "Acute lower back injury",
+      "Shoulder instability",
+      "Wrist pain"
+    ],
+    "regressions": [
+      "Ab Wheel Hold",
+      "Partial Rollout"
+    ],
+    "progressions": [
+      "Standing Rollout",
+      "Rollout with pause"
+    ],
+    "equipment_alternatives": [
+      "Ab wheel",
+      "Barbell with plates"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2026-09-13T08:22:58.666233Z"
+  },
+  {
+    "id": 915,
+    "name": "Cable Lift (Low to High)",
+    "category": "Core",
+    "subcategory": "POW",
+    "movement_pattern": "Core",
+    "equipment": "Cable",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "",
+    "coaching_cues": [
+      "Start with cable at low position",
+      "Rotate and lift diagonally across body",
+      "Extend arms fully at top",
+      "Control the return"
+    ],
+    "common_errors": [
+      "Using only arms, not rotating torso",
+      "Leaning backward",
+      "Not following through with rotation",
+      "Moving too slow for power development"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Lower back pain"
+    ],
+    "regressions": [
+      "Cable Lift (half-kneeling)",
+      "Light Cable Lift"
+    ],
+    "progressions": [
+      "Heavier Cable Lift",
+      "Medicine Ball Scoop Toss"
+    ],
+    "equipment_alternatives": [
+      "Cable machine",
+      "Resistance band"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2026-09-13T08:22:58.666239Z"
+  },
+  {
+    "id": 916,
+    "name": "Weighted Plank",
+    "category": "Core",
+    "subcategory": "STAB",
+    "movement_pattern": "Core",
+    "equipment": "Weight Plate/Chain",
+    "difficulty": "Advanced",
+    "source_organization": "Westside",
+    "description": "",
+    "coaching_cues": [
+      "Maintain perfect plank form",
+      "Place weight on upper back",
+      "Hold position without sagging",
+      "Breathe steadily under load"
+    ],
+    "common_errors": [
+      "Allowing hips to sag",
+      "Lifting hips too high",
+      "Holding breath",
+      "Placing weight incorrectly"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Lower back pain",
+      "Neck issues"
+    ],
+    "regressions": [
+      "Plank (bodyweight)",
+      "Plank with shoulder taps"
+    ],
+    "progressions": [
+      "Heavier Weighted Plank",
+      "Weighted Plank with leg lift"
+    ],
+    "equipment_alternatives": [
+      "Weight plate",
+      "Chain",
+      "Sandbag"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2026-09-13T08:22:58.666244Z"
+  },
+  {
+    "name": "Box Jump Down with Stick",
+    "category": "Landing",
+    "subcategory": "Vertical Deceleration",
+    "movement_pattern": "Jump-Down",
+    "equipment": "Plyo Box",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Teaching proper landing mechanics from low height with emphasis on quiet, controlled landing position.",
+    "coaching_cues": [
+      "Land softly like a ninja",
+      "Knees track over toes",
+      "Absorb impact through hips and knees",
+      "Hold landing position 3 seconds"
+    ],
+    "common_errors": [
+      "Loud/heavy landing",
+      "Knee valgus collapse",
+      "Insufficient hip flexion",
+      "Immediate rebound"
+    ],
+    "contraindications": [
+      "Acute ankle sprain",
+      "Patellar tendinopathy flare-up"
+    ],
+    "regressions": [
+      "Step-down from box",
+      "Lower box height"
+    ],
+    "progressions": [
+      "Increase box height",
+      "Add unstable surface",
+      "Single-leg landing"
+    ],
+    "equipment_alternatives": [
+      "Bench step",
+      "Low platform"
+    ],
+    "is_pain_safe": true,
+    "id": 917,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Single-Leg Hop and Stick",
+    "category": "Landing",
+    "subcategory": "Unilateral Deceleration",
+    "movement_pattern": "Hop-Land",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Develop single-leg landing stability and control, critical for cutting and change of direction sports.",
+    "coaching_cues": [
+      "Hop forward 6-12 inches",
+      "Land on same foot",
+      "Keep knee aligned with toe",
+      "Freeze on landing"
+    ],
+    "common_errors": [
+      "Dynamic knee valgus",
+      "Excessive trunk lean",
+      "Foot pronation",
+      "Inability to hold position"
+    ],
+    "contraindications": [
+      "Recent ACL reconstruction",
+      "Ankle instability",
+      "Balance deficits"
+    ],
+    "regressions": [
+      "Two-leg hop and stick",
+      "Smaller hop distance",
+      "Supported single-leg balance"
+    ],
+    "progressions": [
+      "Increase hop distance",
+      "Multi-directional hops",
+      "Add external load"
+    ],
+    "equipment_alternatives": [
+      "Floor marker for distance",
+      "Tape line"
+    ],
+    "is_pain_safe": false,
+    "id": 918,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Lateral Bound with Stick",
+    "category": "Landing",
+    "subcategory": "Frontal Plane Deceleration",
+    "movement_pattern": "Side-to-Side Hop",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Develop frontal plane landing control essential for lateral sports movements.",
+    "coaching_cues": [
+      "Push off outside foot",
+      "Land on opposite foot",
+      "Control the landing",
+      "Stick for 2 seconds"
+    ],
+    "common_errors": [
+      "Knee collapsing inward",
+      "Trunk leaning too far",
+      "Quick rebound",
+      "Flat-footed landing"
+    ],
+    "contraindications": [
+      "Hip adductor strain",
+      "MCL injury",
+      "Lateral ankle instability"
+    ],
+    "regressions": [
+      "Smaller lateral step",
+      "Two-foot lateral jump",
+      "Supported lateral lean"
+    ],
+    "progressions": [
+      "Increase distance",
+      "Continuous bounds",
+      "Add rotation"
+    ],
+    "equipment_alternatives": [
+      "Tape lines for markers",
+      "Cones"
+    ],
+    "is_pain_safe": false,
+    "id": 919,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Drop Landing from 12 inch Box",
+    "category": "Landing",
+    "subcategory": "Reactive Landing",
+    "movement_pattern": "Drop-Jump Land",
+    "equipment": "Plyo Box",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Reactive landing drill teaching rapid absorption of ground reaction forces.",
+    "coaching_cues": [
+      "Step off don't jump",
+      "Prepare to land before contact",
+      "Absorb quickly and quietly",
+      "Athletic stance finish"
+    ],
+    "common_errors": [
+      "Jumping up before dropping",
+      "Stiff-legged landing",
+      "Excessive noise on contact",
+      "Poor posture at landing"
+    ],
+    "contraindications": [
+      "Achilles tendinopathy",
+      "Plantar fasciitis",
+      "Recent lower body injury"
+    ],
+    "regressions": [
+      "Lower box height (6 inch)",
+      "Step-down instead of drop"
+    ],
+    "progressions": [
+      "Increase box height",
+      "Single-leg drop",
+      "Add immediate jump"
+    ],
+    "equipment_alternatives": [
+      "Low bench",
+      "Aerobic stepper"
+    ],
+    "is_pain_safe": false,
+    "id": 920,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Wall Drop Landing Drill",
+    "category": "Landing",
+    "subcategory": "Postural Control",
+    "movement_pattern": "Fall-Catch",
+    "equipment": "Wall",
+    "difficulty": "Beginner",
+    "source_organization": "FMS",
+    "description": "Teaches proper landing posture using wall support for feedback on body alignment.",
+    "coaching_cues": [
+      "Lean forward from ankles",
+      "Let gravity pull you",
+      "Catch yourself with lunge",
+      "Stay tall through torso"
+    ],
+    "common_errors": [
+      "Bending at waist",
+      "Looking down",
+      "Rushing the catch",
+      "Uneven foot placement"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Severe balance issues"
+    ],
+    "regressions": [
+      "Smaller lean angle",
+      "Hand support available"
+    ],
+    "progressions": [
+      "Increase lean",
+      "Eyes closed",
+      "Unstable surface"
+    ],
+    "equipment_alternatives": [
+      "Partner assist",
+      "TRX suspension"
+    ],
+    "is_pain_safe": true,
+    "id": 921,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Depth Jump to Box",
+    "category": "Landing",
+    "subcategory": "Reactive Strength",
+    "movement_pattern": "Drop-Jump-Up",
+    "equipment": "Plyo Boxes (2)",
+    "difficulty": "Advanced",
+    "source_organization": "Westside Barbell",
+    "description": "Advanced plyometric utilizing stretch-shortening cycle for maximum vertical output after landing.",
+    "coaching_cues": [
+      "Minimize ground contact time",
+      "Explode immediately on contact",
+      "Land soft on top box",
+      "Use arms for momentum"
+    ],
+    "common_errors": [
+      "Long ground contact",
+      "Double dip before jumping",
+      "Landing stiff on box",
+      "Looking down mid-air"
+    ],
+    "contraindications": [
+      "Patellar tendinopathy",
+      "History of ACL injury",
+      "Lower back issues"
+    ],
+    "regressions": [
+      "Drop landing without jump",
+      "Lower box heights",
+      "Countermovement jump to box"
+    ],
+    "progressions": [
+      "Increase drop height",
+      "Single-leg variation",
+      "Add external load vest"
+    ],
+    "equipment_alternatives": [
+      "Stacked plates",
+      "Bench and step"
+    ],
+    "is_pain_safe": false,
+    "id": 922,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Medicine Ball Overhead Slam Landing",
+    "category": "Landing",
+    "subcategory": "Integrated Deceleration",
+    "movement_pattern": "Slam-Squat",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Combines upper body power with lower body landing mechanics in integrated pattern.",
+    "coaching_cues": [
+      "Slam ball aggressively",
+      "Immediately absorb into squat",
+      "Keep chest up on landing",
+      "Reset between reps"
+    ],
+    "common_errors": [
+      "Rounding back on slam",
+      "Not squatting after slam",
+      "Knees caving in",
+      "Holding breath"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Lower back disc issues",
+      "Hip flexor strain"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "No slam just toss",
+      "Squat without ball"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Jump slam",
+      "Rotational slam"
+    ],
+    "equipment_alternatives": [
+      "Sandbag",
+      "Rope slam"
+    ],
+    "is_pain_safe": false,
+    "id": 923,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Deceleration Lunge Matrix",
+    "category": "Landing",
+    "subcategory": "Multi-Directional Control",
+    "movement_pattern": "Lunge-Hold",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "Gray Institute",
+    "description": "Teaches deceleration control in all planes of motion through lunge patterns.",
+    "coaching_cues": [
+      "Step in each direction",
+      "Absorb weight smoothly",
+      "Hold end position 2 sec",
+      "Stay balanced throughout"
+    ],
+    "common_errors": [
+      "Rushing between positions",
+      "Knee past toe excessively",
+      "Trunk leaning",
+      "Heel lifting"
+    ],
+    "contraindications": [
+      "Knee osteoarthritis",
+      "Meniscus tear",
+      "Hip impingement"
+    ],
+    "regressions": [
+      "Partial range",
+      "Support holding",
+      "Forward-back only"
+    ],
+    "progressions": [
+      "Add rotation",
+      "Weighted vest",
+      "Eyes closed"
+    ],
+    "equipment_alternatives": [
+      "Tape grid",
+      "Cones"
+    ],
+    "is_pain_safe": false,
+    "id": 924,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Snap-Down Drill",
+    "category": "Landing",
+    "subcategory": "Rapid Position Change",
+    "movement_pattern": "Stand-Squat",
+    "equipment": "Bodyweight",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Quick transition from standing to athletic position teaching rapid force absorption.",
+    "coaching_cues": [
+      "Start tall on toes",
+      "Drop quickly to squat",
+      "Land in athletic stance",
+      "Hands ready position"
+    ],
+    "common_errors": [
+      "Slow descent",
+      "Landing upright",
+      "Feet too narrow",
+      "Arms not engaged"
+    ],
+    "contraindications": [
+      "Acute knee pain",
+      "Ankle mobility restrictions"
+    ],
+    "regressions": [
+      "Slower tempo",
+      "Shallow squat depth",
+      "Wide stance"
+    ],
+    "progressions": [
+      "Add jump before snap",
+      "Single-leg snap",
+      "Reaction cue variations"
+    ],
+    "equipment_alternatives": [
+      "Mirror for feedback",
+      "Coach visual cue"
+    ],
+    "is_pain_safe": true,
+    "id": 925,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Zig-Zag Hop and Stick",
+    "category": "Landing",
+    "subcategory": "Diagonal Deceleration",
+    "movement_pattern": "Diagonal Hop",
+    "equipment": "Cones",
+    "difficulty": "Advanced",
+    "source_organization": "EXOS",
+    "description": "Multi-planar landing drill combining forward and lateral components for sport-specificity.",
+    "coaching_cues": [
+      "Hop diagonally forward",
+      "Land on opposite foot",
+      "Control each landing",
+      "Change direction sharply"
+    ],
+    "common_errors": [
+      "Poor angle selection",
+      "Uncontrolled landings",
+      "Foot placement errors",
+      "Rushing sequence"
+    ],
+    "contraindications": [
+      "ACL reconstruction < 6 months",
+      "Ankle instability",
+      "Proprioception deficits"
+    ],
+    "regressions": [
+      "Two-foot hops",
+      "Slower tempo",
+      "Shorter distances"
+    ],
+    "progressions": [
+      "Increase speed",
+      "Add ball handling",
+      "Random directional calls"
+    ],
+    "equipment_alternatives": [
+      "Tape marks",
+      "Agility ladder"
+    ],
+    "is_pain_safe": false,
+    "id": 926,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Single-Leg Romanian Deadlift to Landing",
+    "category": "Landing",
+    "subcategory": "Eccentric Control",
+    "movement_pattern": "Hinge-Hop-Land",
+    "equipment": "Dumbbell",
+    "difficulty": "Advanced",
+    "source_organization": "StrongFirst",
+    "description": "Combines eccentric hip hinge with single-leg landing for posterior chain loading and control.",
+    "coaching_cues": [
+      "Hinge back on one leg",
+      "Light hop at bottom",
+      "Land softly same foot",
+      "Return to standing"
+    ],
+    "common_errors": [
+      "Rounding spine",
+      "Knee valgus on landing",
+      "Loss of balance",
+      "Rushing movement"
+    ],
+    "contraindications": [
+      "Lower back disc issues",
+      "Hamstring strain",
+      "Significant balance deficits"
+    ],
+    "regressions": [
+      "Two-leg RDL",
+      "No hop version",
+      "Light or no weight"
+    ],
+    "progressions": [
+      "Heavier load",
+      "Higher hop",
+      "Eyes closed"
+    ],
+    "equipment_alternatives": [
+      "Kettlebell",
+      "Band resistance",
+      "Cable machine"
+    ],
+    "is_pain_safe": false,
+    "id": 927,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Reactive Landing to Sprint",
+    "category": "Landing",
+    "subcategory": "Transition Mechanics",
+    "movement_pattern": "Drop-Sprint",
+    "equipment": "Plyo Box",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "Teaches rapid transition from landing absorption to horizontal acceleration.",
+    "coaching_cues": [
+      "Drop from box",
+      "Absorb landing efficiently",
+      "Immediately sprint forward",
+      "Drive knees aggressively"
+    ],
+    "common_errors": [
+      "Pausing after landing",
+      "Upright sprint posture",
+      "Overstriding first steps",
+      "Looking back at box"
+    ],
+    "contraindications": [
+      "Hamstring strain",
+      "Hip flexor injury",
+      "Recent ACL/MCL injury"
+    ],
+    "regressions": [
+      "Step-off instead of drop",
+      "Walk after landing",
+      "Shorter sprint distance"
+    ],
+    "progressions": [
+      "Higher box",
+      "Longer sprint",
+      "Add defender"
+    ],
+    "equipment_alternatives": [
+      "Low bench",
+      "Grass field"
+    ],
+    "is_pain_safe": false,
+    "id": 928,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Box Jump Down with Stick",
+    "category": "Landing",
+    "subcategory": "Vertical Deceleration",
+    "movement_pattern": "Jump-Down",
+    "equipment": "Plyo Box",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Teaching proper landing mechanics from low height with emphasis on quiet, controlled landing position.",
+    "coaching_cues": [
+      "Land softly like a ninja",
+      "Knees track over toes",
+      "Absorb impact through hips and knees",
+      "Hold landing position 3 seconds"
+    ],
+    "common_errors": [
+      "Loud/heavy landing",
+      "Knee valgus collapse",
+      "Insufficient hip flexion",
+      "Immediate rebound"
+    ],
+    "contraindications": [
+      "Acute ankle sprain",
+      "Patellar tendinopathy flare-up"
+    ],
+    "regressions": [
+      "Step-down from box",
+      "Lower box height"
+    ],
+    "progressions": [
+      "Increase box height",
+      "Add unstable surface",
+      "Single-leg landing"
+    ],
+    "equipment_alternatives": [
+      "Bench step",
+      "Low platform"
+    ],
+    "is_pain_safe": true,
+    "id": 929,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Single-Leg Hop and Stick",
+    "category": "Landing",
+    "subcategory": "Unilateral Deceleration",
+    "movement_pattern": "Hop-Land",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Develop single-leg landing stability and control, critical for cutting and change of direction sports.",
+    "coaching_cues": [
+      "Hop forward 6-12 inches",
+      "Land on same foot",
+      "Keep knee aligned with toe",
+      "Freeze on landing"
+    ],
+    "common_errors": [
+      "Dynamic knee valgus",
+      "Excessive trunk lean",
+      "Foot pronation",
+      "Inability to hold position"
+    ],
+    "contraindications": [
+      "Recent ACL reconstruction",
+      "Ankle instability",
+      "Balance deficits"
+    ],
+    "regressions": [
+      "Two-leg hop and stick",
+      "Smaller hop distance",
+      "Supported single-leg balance"
+    ],
+    "progressions": [
+      "Increase hop distance",
+      "Multi-directional hops",
+      "Add external load"
+    ],
+    "equipment_alternatives": [
+      "Floor marker for distance",
+      "Tape line"
+    ],
+    "is_pain_safe": false,
+    "id": 930,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Lateral Bound with Stick",
+    "category": "Landing",
+    "subcategory": "Frontal Plane Deceleration",
+    "movement_pattern": "Side-to-Side Hop",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Develop frontal plane landing control essential for lateral sports movements.",
+    "coaching_cues": [
+      "Push off outside foot",
+      "Land on opposite foot",
+      "Control the landing",
+      "Stick for 2 seconds"
+    ],
+    "common_errors": [
+      "Knee collapsing inward",
+      "Trunk leaning too far",
+      "Quick rebound",
+      "Flat-footed landing"
+    ],
+    "contraindications": [
+      "Hip adductor strain",
+      "MCL injury",
+      "Lateral ankle instability"
+    ],
+    "regressions": [
+      "Smaller lateral step",
+      "Two-foot lateral jump",
+      "Supported lateral lean"
+    ],
+    "progressions": [
+      "Increase distance",
+      "Continuous bounds",
+      "Add rotation"
+    ],
+    "equipment_alternatives": [
+      "Tape lines for markers",
+      "Cones"
+    ],
+    "is_pain_safe": false,
+    "id": 931,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Drop Landing from 12 inch Box",
+    "category": "Landing",
+    "subcategory": "Reactive Landing",
+    "movement_pattern": "Drop-Jump Land",
+    "equipment": "Plyo Box",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Reactive landing drill teaching rapid absorption of ground reaction forces.",
+    "coaching_cues": [
+      "Step off don't jump",
+      "Prepare to land before contact",
+      "Absorb quickly and quietly",
+      "Athletic stance finish"
+    ],
+    "common_errors": [
+      "Jumping up before dropping",
+      "Stiff-legged landing",
+      "Excessive noise on contact",
+      "Poor posture at landing"
+    ],
+    "contraindications": [
+      "Achilles tendinopathy",
+      "Plantar fasciitis",
+      "Recent lower body injury"
+    ],
+    "regressions": [
+      "Lower box height (6 inch)",
+      "Step-down instead of drop"
+    ],
+    "progressions": [
+      "Increase box height",
+      "Single-leg drop",
+      "Add immediate jump"
+    ],
+    "equipment_alternatives": [
+      "Low bench",
+      "Aerobic stepper"
+    ],
+    "is_pain_safe": false,
+    "id": 932,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Wall Drop Landing Drill",
+    "category": "Landing",
+    "subcategory": "Postural Control",
+    "movement_pattern": "Fall-Catch",
+    "equipment": "Wall",
+    "difficulty": "Beginner",
+    "source_organization": "FMS",
+    "description": "Teaches proper landing posture using wall support for feedback on body alignment.",
+    "coaching_cues": [
+      "Lean forward from ankles",
+      "Let gravity pull you",
+      "Catch yourself with lunge",
+      "Stay tall through torso"
+    ],
+    "common_errors": [
+      "Bending at waist",
+      "Looking down",
+      "Rushing the catch",
+      "Uneven foot placement"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Severe balance issues"
+    ],
+    "regressions": [
+      "Smaller lean angle",
+      "Hand support available"
+    ],
+    "progressions": [
+      "Increase lean",
+      "Eyes closed",
+      "Unstable surface"
+    ],
+    "equipment_alternatives": [
+      "Partner assist",
+      "TRX suspension"
+    ],
+    "is_pain_safe": true,
+    "id": 933,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Depth Jump to Box",
+    "category": "Landing",
+    "subcategory": "Reactive Strength",
+    "movement_pattern": "Drop-Jump-Up",
+    "equipment": "Plyo Boxes (2)",
+    "difficulty": "Advanced",
+    "source_organization": "Westside Barbell",
+    "description": "Advanced plyometric utilizing stretch-shortening cycle for maximum vertical output after landing.",
+    "coaching_cues": [
+      "Minimize ground contact time",
+      "Explode immediately on contact",
+      "Land soft on top box",
+      "Use arms for momentum"
+    ],
+    "common_errors": [
+      "Long ground contact",
+      "Double dip before jumping",
+      "Landing stiff on box",
+      "Looking down mid-air"
+    ],
+    "contraindications": [
+      "Patellar tendinopathy",
+      "History of ACL injury",
+      "Lower back issues"
+    ],
+    "regressions": [
+      "Drop landing without jump",
+      "Lower box heights",
+      "Countermovement jump to box"
+    ],
+    "progressions": [
+      "Increase drop height",
+      "Single-leg variation",
+      "Add external load vest"
+    ],
+    "equipment_alternatives": [
+      "Stacked plates",
+      "Bench and step"
+    ],
+    "is_pain_safe": false,
+    "id": 934,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Medicine Ball Overhead Slam Landing",
+    "category": "Landing",
+    "subcategory": "Integrated Deceleration",
+    "movement_pattern": "Slam-Squat",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Combines upper body power with lower body landing mechanics in integrated pattern.",
+    "coaching_cues": [
+      "Slam ball aggressively",
+      "Immediately absorb into squat",
+      "Keep chest up on landing",
+      "Reset between reps"
+    ],
+    "common_errors": [
+      "Rounding back on slam",
+      "Not squatting after slam",
+      "Knees caving in",
+      "Holding breath"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Lower back disc issues",
+      "Hip flexor strain"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "No slam just toss",
+      "Squat without ball"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Jump slam",
+      "Rotational slam"
+    ],
+    "equipment_alternatives": [
+      "Sandbag",
+      "Rope slam"
+    ],
+    "is_pain_safe": false,
+    "id": 935,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Deceleration Lunge Matrix",
+    "category": "Landing",
+    "subcategory": "Multi-Directional Control",
+    "movement_pattern": "Lunge-Hold",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "Gray Institute",
+    "description": "Teaches deceleration control in all planes of motion through lunge patterns.",
+    "coaching_cues": [
+      "Step in each direction",
+      "Absorb weight smoothly",
+      "Hold end position 2 sec",
+      "Stay balanced throughout"
+    ],
+    "common_errors": [
+      "Rushing between positions",
+      "Knee past toe excessively",
+      "Trunk leaning",
+      "Heel lifting"
+    ],
+    "contraindications": [
+      "Knee osteoarthritis",
+      "Meniscus tear",
+      "Hip impingement"
+    ],
+    "regressions": [
+      "Partial range",
+      "Support holding",
+      "Forward-back only"
+    ],
+    "progressions": [
+      "Add rotation",
+      "Weighted vest",
+      "Eyes closed"
+    ],
+    "equipment_alternatives": [
+      "Tape grid",
+      "Cones"
+    ],
+    "is_pain_safe": false,
+    "id": 936,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Snap-Down Drill",
+    "category": "Landing",
+    "subcategory": "Rapid Position Change",
+    "movement_pattern": "Stand-Squat",
+    "equipment": "Bodyweight",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Quick transition from standing to athletic position teaching rapid force absorption.",
+    "coaching_cues": [
+      "Start tall on toes",
+      "Drop quickly to squat",
+      "Land in athletic stance",
+      "Hands ready position"
+    ],
+    "common_errors": [
+      "Slow descent",
+      "Landing upright",
+      "Feet too narrow",
+      "Arms not engaged"
+    ],
+    "contraindications": [
+      "Acute knee pain",
+      "Ankle mobility restrictions"
+    ],
+    "regressions": [
+      "Slower tempo",
+      "Shallow squat depth",
+      "Wide stance"
+    ],
+    "progressions": [
+      "Add jump before snap",
+      "Single-leg snap",
+      "Reaction cue variations"
+    ],
+    "equipment_alternatives": [
+      "Mirror for feedback",
+      "Coach visual cue"
+    ],
+    "is_pain_safe": true,
+    "id": 937,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Zig-Zag Hop and Stick",
+    "category": "Landing",
+    "subcategory": "Diagonal Deceleration",
+    "movement_pattern": "Diagonal Hop",
+    "equipment": "Cones",
+    "difficulty": "Advanced",
+    "source_organization": "EXOS",
+    "description": "Multi-planar landing drill combining forward and lateral components for sport-specificity.",
+    "coaching_cues": [
+      "Hop diagonally forward",
+      "Land on opposite foot",
+      "Control each landing",
+      "Change direction sharply"
+    ],
+    "common_errors": [
+      "Poor angle selection",
+      "Uncontrolled landings",
+      "Foot placement errors",
+      "Rushing sequence"
+    ],
+    "contraindications": [
+      "ACL reconstruction < 6 months",
+      "Ankle instability",
+      "Proprioception deficits"
+    ],
+    "regressions": [
+      "Two-foot hops",
+      "Slower tempo",
+      "Shorter distances"
+    ],
+    "progressions": [
+      "Increase speed",
+      "Add ball handling",
+      "Random directional calls"
+    ],
+    "equipment_alternatives": [
+      "Tape marks",
+      "Agility ladder"
+    ],
+    "is_pain_safe": false,
+    "id": 938,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Single-Leg Romanian Deadlift to Landing",
+    "category": "Landing",
+    "subcategory": "Eccentric Control",
+    "movement_pattern": "Hinge-Hop-Land",
+    "equipment": "Dumbbell",
+    "difficulty": "Advanced",
+    "source_organization": "StrongFirst",
+    "description": "Combines eccentric hip hinge with single-leg landing for posterior chain loading and control.",
+    "coaching_cues": [
+      "Hinge back on one leg",
+      "Light hop at bottom",
+      "Land softly same foot",
+      "Return to standing"
+    ],
+    "common_errors": [
+      "Rounding spine",
+      "Knee valgus on landing",
+      "Loss of balance",
+      "Rushing movement"
+    ],
+    "contraindications": [
+      "Lower back disc issues",
+      "Hamstring strain",
+      "Significant balance deficits"
+    ],
+    "regressions": [
+      "Two-leg RDL",
+      "No hop version",
+      "Light or no weight"
+    ],
+    "progressions": [
+      "Heavier load",
+      "Higher hop",
+      "Eyes closed"
+    ],
+    "equipment_alternatives": [
+      "Kettlebell",
+      "Band resistance",
+      "Cable machine"
+    ],
+    "is_pain_safe": false,
+    "id": 939,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Reactive Landing to Sprint",
+    "category": "Landing",
+    "subcategory": "Transition Mechanics",
+    "movement_pattern": "Drop-Sprint",
+    "equipment": "Plyo Box",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "Teaches rapid transition from landing absorption to horizontal acceleration.",
+    "coaching_cues": [
+      "Drop from box",
+      "Absorb landing efficiently",
+      "Immediately sprint forward",
+      "Drive knees aggressively"
+    ],
+    "common_errors": [
+      "Pausing after landing",
+      "Upright sprint posture",
+      "Overstriding first steps",
+      "Looking back at box"
+    ],
+    "contraindications": [
+      "Hamstring strain",
+      "Hip flexor injury",
+      "Recent ACL/MCL injury"
+    ],
+    "regressions": [
+      "Step-off instead of drop",
+      "Walk after landing",
+      "Shorter sprint distance"
+    ],
+    "progressions": [
+      "Higher box",
+      "Longer sprint",
+      "Add defender"
+    ],
+    "equipment_alternatives": [
+      "Low bench",
+      "Grass field"
+    ],
+    "is_pain_safe": false,
+    "id": 940,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Rotational Throw (Wall)",
+    "category": "Ball",
+    "subcategory": "Rotational Power",
+    "movement_pattern": "Rotational Throw",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Develop rotational power through the kinetic chain with lateral throw against wall.",
+    "coaching_cues": [
+      "Load through back hip",
+      "Rotate hips first",
+      "Release at chest height",
+      "Follow through completely"
+    ],
+    "common_errors": [
+      "Arms only no rotation",
+      "Early release",
+      "Poor foot pivot",
+      "No hip engagement"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Oblique strain",
+      "Lower back disc issues"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Slower tempo",
+      "No step just rotate"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Increase distance",
+      "Jump into throw"
+    ],
+    "equipment_alternatives": [
+      "Cable machine",
+      "Band resistance"
+    ],
+    "is_pain_safe": false,
+    "id": 941,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Overhead Back Toss",
+    "category": "Ball",
+    "subcategory": "Posterior Chain Power",
+    "movement_pattern": "Overhead Throw",
+    "equipment": "Medicine Ball",
+    "difficulty": "Advanced",
+    "source_organization": "Westside Barbell",
+    "description": "Explosive posterior chain development through overhead backward throw.",
+    "coaching_cues": [
+      "Load into hip hinge",
+      "Sweep arms back",
+      "Snap hips forward",
+      "Release overhead"
+    ],
+    "common_errors": [
+      "Using arms only",
+      "Not hipping loading",
+      "Looking up too early",
+      "Incomplete follow through"
+    ],
+    "contraindications": [
+      "Shoulder instability",
+      "Lower back acute injury",
+      "Neck issues"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Smaller range",
+      "Partner catch instead of toss"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Single-leg variation",
+      "Jump before toss"
+    ],
+    "equipment_alternatives": [
+      "Sandbag",
+      "Weighted implement"
+    ],
+    "is_pain_safe": false,
+    "id": 942,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Chest Pass (Seated)",
+    "category": "Ball",
+    "subcategory": "Upper Body Power",
+    "movement_pattern": "Chest Pass",
+    "equipment": "Medicine Ball",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Isolate upper body pushing power by eliminating leg drive through seated position.",
+    "coaching_cues": [
+      "Ball at chest",
+      "Elbows tucked",
+      "Explode through arms",
+      "Full extension"
+    ],
+    "common_errors": [
+      "Leaning back",
+      "Wide elbow flare",
+      "Incomplete extension",
+      "Slow release"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Wrist pain",
+      "Pectoral strain"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Shorter distance",
+      "Two-hand underhand"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Increase distance",
+      "Add jump stand-up pass"
+    ],
+    "equipment_alternatives": [
+      "Cable chest press",
+      "Band press"
+    ],
+    "is_pain_safe": true,
+    "id": 943,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Slam (Overhead)",
+    "category": "Ball",
+    "subcategory": "Total Body Power",
+    "movement_pattern": "Overhead Slam",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Full body power expression through aggressive overhead slam pattern.",
+    "coaching_cues": [
+      "Reach tall with ball",
+      "Load hips back",
+      "Slam down aggressively",
+      "Catch on bounce"
+    ],
+    "common_errors": [
+      "Rounding spine",
+      "Only using arms",
+      "Not catching eccentric",
+      "Looking down"
+    ],
+    "contraindications": [
+      "Lower back disc issues",
+      "Shoulder impingement",
+      "Hip flexor strain"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Slower controlled throw",
+      "No catch just pick up"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Jump slam",
+      "Single-arm slam"
+    ],
+    "equipment_alternatives": [
+      "Sandbag",
+      "Battle ropes"
+    ],
+    "is_pain_safe": false,
+    "id": 944,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Side Throw (Kneeling)",
+    "category": "Ball",
+    "subcategory": "Anti-Rotation Core",
+    "movement_pattern": "Lateral Throw",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "Gray Institute",
+    "description": "Develop anti-rotation core stability while producing lateral force from kneeling position.",
+    "coaching_cues": [
+      "Kneel both knees",
+      "Rotate torso only",
+      "Keep hips square",
+      "Throw from chest"
+    ],
+    "common_errors": [
+      "Hip rotation",
+      "Leaning sideways",
+      "Dropping elbows",
+      "Incomplete rotation"
+    ],
+    "contraindications": [
+      "Knee pain",
+      "Oblique strain",
+      "Shoulder issues"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Smaller rotation",
+      "Partner hand-off"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Half-kneeling stance",
+      "Add band resistance"
+    ],
+    "equipment_alternatives": [
+      "Cable woodchop",
+      "Band rotation"
+    ],
+    "is_pain_safe": false,
+    "id": 945,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Scoop Toss",
+    "category": "Ball",
+    "subcategory": "Hip Extension Power",
+    "movement_pattern": "Underhand Throw",
+    "equipment": "Medicine Ball",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Teach triple extension through low-to-high scoop tossing pattern.",
+    "coaching_cues": [
+      "Ball between legs",
+      "Hinge at hips",
+      "Extend ankles knees hips",
+      "Release at eye level"
+    ],
+    "common_errors": [
+      "Squatting not hinging",
+      "Arms only",
+      "Early release",
+      "No ankle extension"
+    ],
+    "contraindications": [
+      "Lower back acute pain",
+      "Hamstring strain"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Smaller range",
+      "No step"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Step into throw",
+      "Single-leg scoop"
+    ],
+    "equipment_alternatives": [
+      "Kettlebell swing",
+      "Band pull-through"
+    ],
+    "is_pain_safe": true,
+    "id": 946,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Russian Twist Throw",
+    "category": "Ball",
+    "subcategory": "Rotational Endurance",
+    "movement_pattern": "Rotational Core",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "StrongFirst",
+    "description": "Build rotational core endurance through controlled twist and catch pattern.",
+    "coaching_cues": [
+      "Feet elevated",
+      "Lean back slightly",
+      "Rotate full range",
+      "Partner catches"
+    ],
+    "common_errors": [
+      "Feet touching ground",
+      "Limited rotation",
+      "Rushing reps",
+      "Rounding spine"
+    ],
+    "contraindications": [
+      "Lower back disc issues",
+      "Hip flexor strain",
+      "Balance deficits"
+    ],
+    "regressions": [
+      "Feet on ground",
+      "Lighter ball",
+      "No throw just touch"
+    ],
+    "progressions": [
+      "Higher feet elevation",
+      "Heavier ball",
+      "Faster tempo"
+    ],
+    "equipment_alternatives": [
+      "Cable rotation",
+      "Landmine rotation"
+    ],
+    "is_pain_safe": false,
+    "id": 947,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Wall Bounce Catch",
+    "category": "Ball",
+    "subcategory": "Reactive Power",
+    "movement_pattern": "Catch-Decelerate",
+    "equipment": "Medicine Ball, Wall",
+    "difficulty": "Advanced",
+    "source_organization": "EXOS",
+    "description": "Develop reactive strength and deceleration capacity through rapid catch-throw cycles.",
+    "coaching_cues": [
+      "Athletic stance",
+      "Soft hands ready",
+      "Absorb on catch",
+      "Immediately redirect"
+    ],
+    "common_errors": [
+      "Stiff arms",
+      "Late reaction",
+      "Poor stance",
+      "Dropping ball"
+    ],
+    "contraindications": [
+      "Wrist issues",
+      "Shoulder instability",
+      "Reaction time deficits"
+    ],
+    "regressions": [
+      "Self-toss catch",
+      "Slower tempo",
+      "Two-hand only"
+    ],
+    "progressions": [
+      "Faster tempo",
+      "Single-hand catch",
+      "Add movement"
+    ],
+    "equipment_alternatives": [
+      "React ball",
+      "Tennis ball against wall"
+    ],
+    "is_pain_safe": false,
+    "id": 948,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Push-Up Pass",
+    "category": "Ball",
+    "subcategory": "Upper Body Reactive",
+    "movement_pattern": "Push-Up Throw",
+    "equipment": "Medicine Ball",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "Combine push-up strength with explosive chest passing for upper body power.",
+    "coaching_cues": [
+      "Hands on ball",
+      "Lower to ball",
+      "Explode up releasing ball",
+      "Catch on descent"
+    ],
+    "common_errors": [
+      "Sagging hips",
+      "Incomplete push",
+      "Late catch",
+      "Wide hand placement"
+    ],
+    "contraindications": [
+      "Wrist pain",
+      "Shoulder impingement",
+      "Pectoral injury"
+    ],
+    "regressions": [
+      "Knees down",
+      "No pass just push",
+      "Partner assist"
+    ],
+    "progressions": [
+      "Feet elevated",
+      "Clap push-up catch",
+      "Single-arm variation"
+    ],
+    "equipment_alternatives": [
+      "Push-up handles",
+      "Parallettes"
+    ],
+    "is_pain_safe": false,
+    "id": 949,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Lateral Step Throw",
+    "category": "Ball",
+    "subcategory": "Lateral Power Transfer",
+    "movement_pattern": "Step-Throw",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "Gray Institute",
+    "description": "Train lateral force production and transfer through stepping throw pattern.",
+    "coaching_cues": [
+      "Step laterally",
+      "Load back leg",
+      "Transfer weight forward",
+      "Throw across body"
+    ],
+    "common_errors": [
+      "No step",
+      "Poor weight transfer",
+      "Arms only",
+      "No hip rotation"
+    ],
+    "contraindications": [
+      "Hip adductor strain",
+      "Knee valgus",
+      "Ankle instability"
+    ],
+    "regressions": [
+      "Smaller step",
+      "Lighter ball",
+      "No throw just rotation"
+    ],
+    "progressions": [
+      "Larger step",
+      "Heavier ball",
+      "Add jump"
+    ],
+    "equipment_alternatives": [
+      "Cable lift",
+      "Band lateral throw"
+    ],
+    "is_pain_safe": false,
+    "id": 950,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Med Ball Bridge March Throw",
+    "category": "Ball",
+    "subcategory": "Posterior Chain Stability",
+    "movement_pattern": "Bridge-Pass",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Challenge glute bridge stability while adding dynamic partner passing component.",
+    "coaching_cues": [
+      "Bridge hips high",
+      "March one knee up",
+      "Pass ball under thigh",
+      "Maintain bridge"
+    ],
+    "common_errors": [
+      "Hips dropping",
+      "Arching back",
+      "Rushing march",
+      "Uneven hips"
+    ],
+    "contraindications": [
+      "Lower back acute pain",
+      "Hip flexor strain",
+      "Glute injury"
+    ],
+    "regressions": [
+      "No march just bridge",
+      "Hold ball static",
+      "Feet on ground"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Faster march",
+      "Single-leg bridge"
+    ],
+    "equipment_alternatives": [
+      "Swiss ball bridge",
+      "Band resisted bridge"
+    ],
+    "is_pain_safe": true,
+    "id": 951,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "A-Skip Drill",
+    "category": "Sprint",
+    "subcategory": "Mechanics",
+    "movement_pattern": "Skip",
+    "equipment": "Bodyweight",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Fundamental sprint mechanics drill emphasizing knee lift and foot strike pattern.",
+    "coaching_cues": [
+      "Tall posture",
+      "Drive knee up",
+      "Strike ground actively",
+      "Quick ground contact"
+    ],
+    "common_errors": [
+      "Leaning back",
+      "Low knee lift",
+      "Passive foot strike",
+      "Long ground contact"
+    ],
+    "contraindications": [
+      "Hip flexor strain",
+      "Ankle mobility restrictions"
+    ],
+    "regressions": [
+      "Slower tempo",
+      "Marching pattern",
+      "Wall drill first"
+    ],
+    "progressions": [
+      "Faster tempo",
+      "A-Skip for distance",
+      "Add arm drive"
+    ],
+    "equipment_alternatives": [
+      "Treadmill slow",
+      "High knees march"
+    ],
+    "is_pain_safe": true,
+    "id": 952,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "B-Skip Drill",
+    "category": "Sprint",
+    "subcategory": "Mechanics",
+    "movement_pattern": "Skip-Extension",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Advanced sprint drill emphasizing hip extension and paw-back mechanics.",
+    "coaching_cues": [
+      "Knee up then extend",
+      "Paw back aggressively",
+      "Stay tall",
+      "Quick cycle"
+    ],
+    "common_errors": [
+      "Biking motion",
+      "Incomplete extension",
+      "Leaning forward",
+      "Slow turnover"
+    ],
+    "contraindications": [
+      "Hamstring strain",
+      "Hip flexor tightness",
+      "Knee issues"
+    ],
+    "regressions": [
+      "A-Skip first",
+      "Slower tempo",
+      "Shorter distance"
+    ],
+    "progressions": [
+      "Faster tempo",
+      "B-Skip bounds",
+      "Into acceleration"
+    ],
+    "equipment_alternatives": [
+      "Wall drill",
+      "Band resisted skip"
+    ],
+    "is_pain_safe": false,
+    "id": 953,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Fast Feet Ladder",
+    "category": "Sprint",
+    "subcategory": "Foot Speed",
+    "movement_pattern": "Quick Steps",
+    "equipment": "Agility Ladder",
+    "difficulty": "Beginner",
+    "source_organization": "EXOS",
+    "description": "Develop rapid foot turnover and coordination through ladder drill patterns.",
+    "coaching_cues": [
+      "Quick light steps",
+      "Stay on balls of feet",
+      "Minimal ground contact",
+      "Relax upper body"
+    ],
+    "common_errors": [
+      "Heavy steps",
+      "Flat-footed",
+      "Looking down constantly",
+      "Tense shoulders"
+    ],
+    "contraindications": [
+      "Ankle instability",
+      "Achilles tendinopathy"
+    ],
+    "regressions": [
+      "Slower tempo",
+      "Wider squares",
+      "No ladder just spots"
+    ],
+    "progressions": [
+      "Faster tempo",
+      "Complex patterns",
+      "Add cognitive cue"
+    ],
+    "equipment_alternatives": [
+      "Chalk marks",
+      "Cones in line"
+    ],
+    "is_pain_safe": true,
+    "id": 954,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Flying 20s",
+    "category": "Sprint",
+    "subcategory": "Max Velocity",
+    "movement_pattern": "Sprint",
+    "equipment": "Cones",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "Develop maximum velocity sprinting through rolling start sprint over 20 yards.",
+    "coaching_cues": [
+      "Build up gradually",
+      "Hit top speed in zone",
+      "Stay relaxed",
+      "Tall posture"
+    ],
+    "common_errors": [
+      "Starting too fast",
+      "Tensing up",
+      "Leaning forward",
+      "Overstriding"
+    ],
+    "contraindications": [
+      "Hamstring strain history",
+      "Hip flexor injury",
+      "Recent groin pull"
+    ],
+    "regressions": [
+      "Flying 10s",
+      "Slower build-up",
+      "Shorter distance"
+    ],
+    "progressions": [
+      "Flying 30s",
+      "Multiple reps",
+      "Shorter rest"
+    ],
+    "equipment_alternatives": [
+      "Track markers",
+      "Field lines"
+    ],
+    "is_pain_safe": false,
+    "id": 955,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Hill Sprints (Short)",
+    "category": "Sprint",
+    "subcategory": "Acceleration Power",
+    "movement_pattern": "Uphill Sprint",
+    "equipment": "Hill",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Build acceleration power and reduce hamstring strain risk through uphill sprinting.",
+    "coaching_cues": [
+      "Drive knees high",
+      "Lean with hill",
+      "Powerful arm drive",
+      "Quick steps"
+    ],
+    "common_errors": [
+      "Leaning too far",
+      "Short choppy steps",
+      "Poor arm action",
+      "Looking down"
+    ],
+    "contraindications": [
+      "Achilles issues",
+      "Calf strain",
+      "Severe deconditioning"
+    ],
+    "regressions": [
+      "Walk up first",
+      "Shorter hill",
+      "Slower pace"
+    ],
+    "progressions": [
+      "Steeper hill",
+      "Longer distance",
+      "Multiple reps"
+    ],
+    "equipment_alternatives": [
+      "Treadmill incline",
+      "Stadium stairs"
+    ],
+    "is_pain_safe": true,
+    "id": 956,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Resisted Sled Sprint",
+    "category": "Sprint",
+    "subcategory": "Acceleration Strength",
+    "movement_pattern": "Sled Push-Sprint",
+    "equipment": "Sled",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Develop acceleration strength and horizontal force production through resisted sprinting.",
+    "coaching_cues": [
+      "Forward lean",
+      "Drive legs back",
+      "Powerful arm action",
+      "Quick turnover"
+    ],
+    "common_errors": [
+      "Too upright",
+      "Small steps",
+      "Dragging feet",
+      "Poor sled load"
+    ],
+    "contraindications": [
+      "Lower back acute pain",
+      "Hip flexor strain",
+      "Knee issues"
+    ],
+    "regressions": [
+      "Lighter load",
+      "Shorter distance",
+      "Walk first"
+    ],
+    "progressions": [
+      "Heavier load",
+      "Longer distance",
+      "Sprint after release"
+    ],
+    "equipment_alternatives": [
+      "Band resisted",
+      "Partner resisted",
+      "Parachute"
+    ],
+    "is_pain_safe": false,
+    "id": 957,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Carioca Drill",
+    "category": "Sprint",
+    "subcategory": "Lateral Mobility",
+    "movement_pattern": "Crossover Step",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "Gray Institute",
+    "description": "Develop hip mobility and lateral coordination essential for multi-directional sports.",
+    "coaching_cues": [
+      "Cross behind",
+      "Open hips",
+      "Stay low",
+      "Smooth rhythm"
+    ],
+    "common_errors": [
+      "Crossing in front",
+      "Tall upright",
+      "Stiff hips",
+      "Jerky movement"
+    ],
+    "contraindications": [
+      "Hip impingement",
+      "Groin strain",
+      "Knee MCL issues"
+    ],
+    "regressions": [
+      "Slower tempo",
+      "Smaller steps",
+      "Side shuffle first"
+    ],
+    "progressions": [
+      "Faster tempo",
+      "Add sprint burst",
+      "Change directions"
+    ],
+    "equipment_alternatives": [
+      "Lateral bounds",
+      "Cone weave"
+    ],
+    "is_pain_safe": false,
+    "id": 958,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Wall Drive Phase Drill",
+    "category": "Sprint",
+    "subcategory": "Acceleration Mechanics",
+    "movement_pattern": "Wall Drive",
+    "equipment": "Wall",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Isolate and teach proper acceleration body angles and leg drive mechanics.",
+    "coaching_cues": [
+      "45 degree angle",
+      "Drive knee up",
+      "Strike ground behind",
+      "Strong arm action"
+    ],
+    "common_errors": [
+      "Too upright",
+      "Striking under hips",
+      "Weak arm drive",
+      "Looking up"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Wrist issues"
+    ],
+    "regressions": [
+      "Less angle",
+      "Slower tempo",
+      "Single leg drill"
+    ],
+    "progressions": [
+      "Faster tempo",
+      "Band resisted",
+      "Into short sprint"
+    ],
+    "equipment_alternatives": [
+      "Partner resist",
+      "Sled start position"
+    ],
+    "is_pain_safe": true,
+    "id": 959,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Ins and Outs Sprint",
+    "category": "Sprint",
+    "subcategory": "Speed Endurance",
+    "movement_pattern": "Variable Pace Sprint",
+    "equipment": "Cones",
+    "difficulty": "Advanced",
+    "source_organization": "UEFA Medical",
+    "description": "Develop speed endurance and recovery capacity through variable intensity sprinting.",
+    "coaching_cues": [
+      "Hard in zone",
+      "Float recovery",
+      "Maintain form when tired",
+      "Controlled breathing"
+    ],
+    "common_errors": [
+      "Not going hard enough",
+      "Stopping completely",
+      "Form breakdown",
+      "Poor pacing"
+    ],
+    "contraindications": [
+      "Poor conditioning",
+      "Recent hamstring injury",
+      "Cardiovascular issues"
+    ],
+    "regressions": [
+      "Shorter distances",
+      "More recovery",
+      "Walk outs"
+    ],
+    "progressions": [
+      "Longer hard zones",
+      "Less recovery",
+      "More total volume"
+    ],
+    "equipment_alternatives": [
+      "Track intervals",
+      "Treadmill intervals"
+    ],
+    "is_pain_safe": false,
+    "id": 960,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "5 Yard Dash Starts",
+    "category": "Acc",
+    "subcategory": "Short Distance",
+    "movement_pattern": "Sprint Start",
+    "equipment": "Cones",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Develop explosive starting strength and initial acceleration mechanics over ultra-short distance.",
+    "coaching_cues": [
+      "Explosive first step",
+      "Drive phase posture",
+      "Powerful arm punch",
+      "Stay low first 3 steps"
+    ],
+    "common_errors": [
+      "Pop up too fast",
+      "Short first step",
+      "Weak arm drive",
+      "Looking up early"
+    ],
+    "contraindications": [
+      "Acute hamstring strain",
+      "Hip flexor injury"
+    ],
+    "regressions": [
+      "Walking start",
+      "Slower pace",
+      "3 yard distance"
+    ],
+    "progressions": [
+      "Resisted starts",
+      "Reaction starts",
+      "Multiple reps"
+    ],
+    "equipment_alternatives": [
+      "Track start blocks",
+      "Field lines"
+    ],
+    "is_pain_safe": true,
+    "id": 961,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Falling Starts",
+    "category": "Acc",
+    "subcategory": "Reaction Acceleration",
+    "movement_pattern": "Fall-Sprint",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Utilize gravity to develop reaction time and initial acceleration from forward fall.",
+    "coaching_cues": [
+      "Lean until falling",
+      "Catch yourself with sprint",
+      "First step under center",
+      "Drive aggressively"
+    ],
+    "common_errors": [
+      "Leaning too far",
+      "Slow reaction",
+      "Wide first step",
+      "Popping up"
+    ],
+    "contraindications": [
+      "Balance deficits",
+      "Ankle instability",
+      "Recent fall risk"
+    ],
+    "regressions": [
+      "Smaller lean",
+      "Partner assist",
+      "Slower progression"
+    ],
+    "progressions": [
+      "Larger lean",
+      "Reaction cue start",
+      "From prone position"
+    ],
+    "equipment_alternatives": [
+      "Partner push start",
+      "Band release"
+    ],
+    "is_pain_safe": false,
+    "id": 962,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Resisted Band Acceleration",
+    "category": "Acc",
+    "subcategory": "Loaded Acceleration",
+    "movement_pattern": "Band Sprint",
+    "equipment": "Resistance Band",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Build acceleration strength through horizontally resisted sprinting pattern.",
+    "coaching_cues": [
+      "Forward body angle",
+      "Drive through resistance",
+      "Quick leg turnover",
+      "Strong arms"
+    ],
+    "common_errors": [
+      "Too upright",
+      "Slow steps",
+      "Band pulling off course",
+      "Poor posture"
+    ],
+    "contraindications": [
+      "Hip flexor strain",
+      "Lower back acute pain",
+      "Shoulder issues"
+    ],
+    "regressions": [
+      "Lighter band",
+      "Shorter distance",
+      "Walk first"
+    ],
+    "progressions": [
+      "Heavier band",
+      "Longer distance",
+      "Sprint after release"
+    ],
+    "equipment_alternatives": [
+      "Sled",
+      "Parachute",
+      "Partner resist"
+    ],
+    "is_pain_safe": false,
+    "id": 963,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Box Step-Over Acceleration",
+    "category": "Acc",
+    "subcategory": "Obstacle Acceleration",
+    "movement_pattern": "Step-Sprint",
+    "equipment": "Low Hurdle/Box",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Develop acceleration after clearing obstacle simulating game situations.",
+    "coaching_cues": [
+      "Quick step over",
+      "Land and drive",
+      "Stay low after hurdle",
+      "Accelerate immediately"
+    ],
+    "common_errors": [
+      "Stopping after hurdle",
+      "Standing up",
+      "Slow first step",
+      "Poor hurdle clearance"
+    ],
+    "contraindications": [
+      "Knee issues",
+      "Ankle instability",
+      "Hip impingement"
+    ],
+    "regressions": [
+      "Lower hurdle",
+      "Walk over first",
+      "No sprint just step"
+    ],
+    "progressions": [
+      "Higher hurdle",
+      "Multiple hurdles",
+      "Add defender"
+    ],
+    "equipment_alternatives": [
+      "Cone step",
+      "Agility ring"
+    ],
+    "is_pain_safe": false,
+    "id": 964,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Mirror Shuffle to Sprint",
+    "category": "Acc",
+    "subcategory": "Transition Acceleration",
+    "movement_pattern": "Shuffle-Sprint",
+    "equipment": "Cones",
+    "difficulty": "Advanced",
+    "source_organization": "EXOS",
+    "description": "Train transition from lateral defensive position to forward acceleration.",
+    "coaching_cues": [
+      "Low athletic stance",
+      "Mirror partner",
+      "Plant and turn",
+      "Explode forward"
+    ],
+    "common_errors": [
+      "High stance",
+      "Slow transition",
+      "Poor plant foot",
+      "Telegraphing move"
+    ],
+    "contraindications": [
+      "Knee valgus",
+      "ACL reconstruction <6mo",
+      "Ankle instability"
+    ],
+    "regressions": [
+      "Slower shuffle",
+      "Shorter distance",
+      "No mirror just cone"
+    ],
+    "progressions": [
+      "Faster shuffle",
+      "Longer sprint",
+      "Add ball pursuit"
+    ],
+    "equipment_alternatives": [
+      "Defensive slide drill",
+      "Cone touch drill"
+    ],
+    "is_pain_safe": false,
+    "id": 965,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Three-Point Stance Starts",
+    "category": "Acc",
+    "subcategory": "Power Position Start",
+    "movement_pattern": "Stance-Sprint",
+    "equipment": "Field",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Develop acceleration from traditional three-point lineman stance position.",
+    "coaching_cues": [
+      "Weight on hands",
+      "Back leg drives first",
+      "Low exit angle",
+      "Powerful first steps"
+    ],
+    "common_errors": [
+      "Too much weight forward",
+      "Slow hand removal",
+      "High exit",
+      "Crossing feet"
+    ],
+    "contraindications": [
+      "Wrist issues",
+      "Shoulder impingement",
+      "Lower back pain"
+    ],
+    "regressions": [
+      "Two-point stance",
+      "Slower start",
+      "Shorter distance"
+    ],
+    "progressions": [
+      "Band resisted",
+      "Reaction starts",
+      "Longer sprint"
+    ],
+    "equipment_alternatives": [
+      "Track blocks",
+      "Grass field"
+    ],
+    "is_pain_safe": true,
+    "id": 966,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Zig-Zag Acceleration",
+    "category": "Acc",
+    "subcategory": "Multi-Directional",
+    "movement_pattern": "Cut-Sprint",
+    "equipment": "Cones",
+    "difficulty": "Advanced",
+    "source_organization": "Gray Institute",
+    "description": "Develop acceleration after multiple directional changes for sport-specific patterns.",
+    "coaching_cues": [
+      "Sharp cuts",
+      "Outside foot plant",
+      "Low center of mass",
+      "Accelerate after each cut"
+    ],
+    "common_errors": [
+      "Wide turns",
+      "High stance",
+      "Slow plants",
+      "Poor angles"
+    ],
+    "contraindications": [
+      "Knee MCL/LCL issues",
+      "Ankle sprains",
+      "Hip labral tears"
+    ],
+    "regressions": [
+      "Fewer cones",
+      "Slower pace",
+      "Walk pattern first"
+    ],
+    "progressions": [
+      "More cones",
+      "Faster pace",
+      "Add defender"
+    ],
+    "equipment_alternatives": [
+      "Agility ladder exit",
+      "T-drill"
+    ],
+    "is_pain_safe": false,
+    "id": 967,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Medicine Ball Throw to Sprint",
+    "category": "Acc",
+    "subcategory": "Integrated Power",
+    "movement_pattern": "Throw-Sprint",
+    "equipment": "Medicine Ball",
+    "difficulty": "Advanced",
+    "source_organization": "EXOS",
+    "description": "Combine upper body power expression with immediate lower body acceleration.",
+    "coaching_cues": [
+      "Explosive throw",
+      "Immediately sprint",
+      "Don't watch ball",
+      "Drive knees"
+    ],
+    "common_errors": [
+      "Watching ball",
+      "Delayed sprint",
+      "Poor throw mechanics",
+      "Slow first step"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Hamstring strain",
+      "Core injuries"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Shorter throw",
+      "Walk sprint"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Longer throw",
+      "Longer sprint"
+    ],
+    "equipment_alternatives": [
+      "Cable throw",
+      "Band throw"
+    ],
+    "is_pain_safe": false,
+    "id": 968,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "name": "Depth Drop to Sprint",
+    "category": "Acc",
+    "subcategory": "Reactive Acceleration",
+    "movement_pattern": "Drop-Sprint",
+    "equipment": "Low Box",
+    "difficulty": "Advanced",
+    "source_organization": "Westside Barbell",
+    "description": "Develop reactive acceleration from eccentric landing utilizing stretch-shortening cycle.",
+    "coaching_cues": [
+      "Step off box",
+      "Absorb landing",
+      "Immediately sprint",
+      "Stay low"
+    ],
+    "common_errors": [
+      "Jumping off",
+      "Pausing after land",
+      "Standing up",
+      "Slow reaction"
+    ],
+    "contraindications": [
+      "Patellar tendinopathy",
+      "Achilles issues",
+      "Recent ACL/MCL"
+    ],
+    "regressions": [
+      "Lower box",
+      "Step off walk",
+      "No sprint"
+    ],
+    "progressions": [
+      "Higher box",
+      "Longer sprint",
+      "Add resistance"
+    ],
+    "equipment_alternatives": [
+      "Low bench",
+      "Grass surface"
+    ],
+    "is_pain_safe": false,
+    "id": 969,
+    "created_at": "2024-01-15T00:00:00Z"
   }
 ]
