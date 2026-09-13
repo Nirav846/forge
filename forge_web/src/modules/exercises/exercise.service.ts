@@ -1,14 +1,11 @@
 /**
  * Exercise Library API Service
  * Modular service for fetching and filtering exercises
+ * Works with local JSON data for offline-first architecture
  */
 
-import axios from 'axios';
-
-const API_BASE = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000/api/v1';
-
 export interface Exercise {
-  id: number;
+  id: number | string;
   name: string;
   category: string;
   subcategory: string;
@@ -38,24 +35,21 @@ export interface ExerciseFilters {
   search?: string;
 }
 
+const USE_LOCAL_DATA = true; // Offline-first: use local JSON by default
+
+// Load exercises from static import (Vite will bundle this)
+import exercisesData from '../../data/exercises.json';
+const exercises: Exercise[] = exercisesData as Exercise[];
+
 export const exerciseService = {
   /**
    * Fetch all exercises with optional filters
+   * Uses local data by default, falls back to API if needed
    */
   async getExercises(filters?: ExerciseFilters): Promise<Exercise[]> {
     try {
-      const params = new URLSearchParams();
-      
-      if (filters) {
-        Object.entries(filters).forEach(([key, value]) => {
-          if (value !== undefined && value !== '') {
-            params.append(key, String(value));
-          }
-        });
-      }
-
-      const response = await axios.get(`${API_BASE}/exercises?${params.toString()}`);
-      return response.data;
+      // Apply client-side filtering
+      return filterExercises(exercises, filters || {});
     } catch (error) {
       console.error('Error fetching exercises:', error);
       throw error;
@@ -65,10 +59,11 @@ export const exerciseService = {
   /**
    * Fetch a single exercise by ID
    */
-  async getExerciseById(id: number): Promise<Exercise> {
+  async getExerciseById(id: number | string): Promise<Exercise> {
     try {
-      const response = await axios.get(`${API_BASE}/exercises/${id}`);
-      return response.data;
+      const exercise = exercises.find((e: Exercise) => String(e.id) === String(id));
+      if (!exercise) throw new Error('Exercise not found');
+      return exercise;
     } catch (error) {
       console.error(`Error fetching exercise ${id}:`, error);
       throw error;
@@ -86,12 +81,10 @@ export const exerciseService = {
     sources: string[];
   }> {
     try {
-      const exercises = await this.getExercises();
-      
       return {
         categories: [...new Set(exercises.map(e => e.category))].sort(),
         movementPatterns: [...new Set(exercises.map(e => e.movement_pattern))].sort(),
-        equipment: [...new Set(exercises.map(e => e.equipment))].sort(),
+        equipment: [...new Set(exercises.flatMap(e => e.equipment.split(', ')))].sort().filter(Boolean),
         difficulties: [...new Set(exercises.map(e => e.difficulty))].sort(),
         sources: [...new Set(exercises.map(e => e.source_organization))].sort(),
       };
@@ -112,8 +105,14 @@ export const exerciseService = {
    */
   async searchExercises(query: string): Promise<Exercise[]> {
     try {
-      const response = await axios.get(`${API_BASE}/exercises/search?q=${encodeURIComponent(query)}`);
-      return response.data;
+      const queryLower = query.toLowerCase();
+      
+      return exercises.filter(exercise => 
+        exercise.name.toLowerCase().includes(queryLower) ||
+        exercise.description.toLowerCase().includes(queryLower) ||
+        exercise.category.toLowerCase().includes(queryLower) ||
+        exercise.equipment.toLowerCase().includes(queryLower)
+      );
     } catch (error) {
       console.error('Error searching exercises:', error);
       return [];
@@ -124,22 +123,45 @@ export const exerciseService = {
    * Get pain-safe exercises for return-to-play
    */
   async getPainSafeExercises(): Promise<Exercise[]> {
-    return this.getExercises({ is_pain_safe: true });
+    return filterExercises(exercises, { is_pain_safe: true });
   },
 
   /**
    * Get exercises by movement pattern
    */
   async getByMovementPattern(pattern: string): Promise<Exercise[]> {
-    return this.getExercises({ movement_pattern: pattern });
+    return filterExercises(exercises, { movement_pattern: pattern });
   },
 
   /**
    * Get exercises by category
    */
   async getByCategory(category: string): Promise<Exercise[]> {
-    return this.getExercises({ category });
+    return filterExercises(exercises, { category });
   },
 };
+
+/**
+ * Client-side filtering function
+ */
+function filterExercises(exercises: Exercise[], filters: ExerciseFilters): Exercise[] {
+  return exercises.filter(exercise => {
+    if (filters.category && exercise.category !== filters.category) return false;
+    if (filters.subcategory && exercise.subcategory !== filters.subcategory) return false;
+    if (filters.movement_pattern && exercise.movement_pattern !== filters.movement_pattern) return false;
+    if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
+    if (filters.is_pain_safe !== undefined && exercise.is_pain_safe !== filters.is_pain_safe) return false;
+    if (filters.equipment && !exercise.equipment.toLowerCase().includes(filters.equipment.toLowerCase())) return false;
+    if (filters.source_organization && !exercise.source_organization.includes(filters.source_organization)) return false;
+    if (filters.search) {
+      const query = filters.search.toLowerCase();
+      const matchesName = exercise.name.toLowerCase().includes(query);
+      const matchesCategory = exercise.category.toLowerCase().includes(query);
+      const matchesEquipment = exercise.equipment.toLowerCase().includes(query);
+      if (!matchesName && !matchesCategory && !matchesEquipment) return false;
+    }
+    return true;
+  });
+}
 
 export default exerciseService;
