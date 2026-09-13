@@ -676,12 +676,16 @@ export default function App() {
   
   return (
     <div className="flex flex-col h-screen bg-slate-50 text-slate-900 font-sans overflow-hidden">
-      {/* Header */}
-      <header className="flex-none h-14 bg-slate-900 text-white flex items-center px-6 border-b border-slate-800 shrink-0 shadow-sm z-10">
-        <Activity className="w-5 h-5 text-indigo-400 mr-3" />
-        <h1 className="font-semibold tracking-wide text-sm">FORGE <span className="text-slate-400 font-normal">| Coach Console</span></h1>
+      {/* Header - Mobile Responsive */}
+      <header className="flex-none h-14 bg-slate-900 text-white flex items-center justify-between px-4 sm:px-6 border-b border-slate-800 shrink-0 shadow-sm z-10">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Activity className="w-5 h-5 text-indigo-400" />
+          <h1 className="font-semibold tracking-wide text-sm hidden sm:block">FORGE <span className="text-slate-400 font-normal">| Coach Console</span></h1>
+          <h1 className="font-semibold tracking-wide text-sm sm:hidden">FORGE</h1>
+        </div>
         
-         <div className="ml-8 flex items-center gap-2">
+        {/* Desktop Navigation - Hidden on mobile */}
+        <div className="hidden lg:flex items-center gap-2">
             <button onClick={() => setIsTeamLibraryOpen(true)} className="flex items-center gap-2 text-xs text-amber-300 hover:text-white bg-amber-900/30 hover:bg-amber-800/50 px-3 py-1.5 rounded-md transition-colors border border-amber-800/30">
                <Library className="w-4 h-4" /> Team Templates
             </button>
@@ -717,19 +721,27 @@ export default function App() {
             )}
          </div>
 
-        <div className="ml-auto flex items-center space-x-4 text-xs z-50">
+        {/* Mobile Menu Button - Visible only on mobile */}
+        <div className="flex lg:hidden items-center gap-2">
+          <button onClick={() => setIsDrawerOpen(true)} className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md transition-colors">
+            <Library className="w-5 h-5" />
+          </button>
+          <button onClick={() => setShowInsights(s => !s)} className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md transition-colors">
+            <Activity className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Desktop Testing Links - Hidden on mobile */}
+        <div className="hidden xl:flex items-center space-x-4 text-xs z-50">
           {useMockFallback && (
             <span className="flex items-center gap-1.5 text-amber-300 bg-amber-900/30 px-2.5 py-1 rounded-md border border-amber-800/30">
               <AlertTriangle className="w-3 h-3" /> Mock Mode
             </span>
           )}
           <span className="text-slate-400">Testing:</span>
-          <button onClick={() => loadScenario('rugby_prop')} className="hover:text-indigo-300 transition-colors">Rugby (Adv)</button>
+          <button onClick={() => loadScenario('rugby_prop')} className="hover:text-indigo-300 transition-colors">Rugby</button>
           <button onClick={() => loadScenario('tennis_singles')} className="hover:text-indigo-300 transition-colors">Tennis</button>
           <button onClick={() => loadScenario('cricket_bowler')} className="hover:text-indigo-300 transition-colors">Cricket</button>
-          <span className="text-slate-600">|</span>
-          <button onClick={() => loadScenario('broken')} className="text-amber-400 hover:text-amber-300 transition-colors">Broken Data</button>
-          <button onClick={() => loadScenario('error')} className="text-red-400 hover:text-red-300 transition-colors">API Error</button>
         </div>
       </header>
 
@@ -785,8 +797,8 @@ export default function App() {
           </div>
         ) : (
           <>
-            {/* Left Panel: Builder (w-96) */}
-            <div className="w-96 flex-none bg-white border-r border-slate-200 overflow-y-auto shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10 flex flex-col">
+            {/* Left Panel: Builder - Hidden on mobile, collapsible */}
+            <div className="hidden lg:block w-96 flex-none bg-white border-r border-slate-200 overflow-y-auto shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10 flex flex-col">
               <ErrorBoundary>
                 <LeftPanel 
                   request={request} 
@@ -797,8 +809,8 @@ export default function App() {
               </ErrorBoundary>
             </div>
 
-            {/* Center Panel: Output (flex-1) */}
-            <div className="flex-1 bg-slate-50 overflow-y-auto px-8 py-8 relative">
+            {/* Center Panel: Output (flex-1) - Mobile responsive padding */}
+            <div className="flex-1 bg-slate-50 overflow-y-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 relative">
               <ErrorBoundary>
                 <CenterPanel 
                   result={result} 
@@ -835,9 +847,9 @@ export default function App() {
               </ErrorBoundary>
             </div>
 
-            {/* Right Panel: optional Insights panel or Developer Mode */}
+            {/* Right Panel: optional Insights panel or Developer Mode - Hidden on mobile */}
             {(showInsights || devMode) && (
-              <div className="w-80 flex-none bg-slate-900 text-slate-300 border-l border-slate-800 overflow-y-auto text-sm shrink-0">
+              <div className="hidden xl:block w-80 flex-none bg-slate-900 text-slate-300 border-l border-slate-800 overflow-y-auto text-sm shrink-0">
                 <ErrorBoundary>
                   {devMode ? (
                     <RightPanel result={result} request={request} />
