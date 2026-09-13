@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileEdit, FileText, Users, Plus, ChevronRight, Activity, Trophy } from 'lucide-react';
+import { FileEdit, FileText, Users, Plus, ChevronRight, Activity, Trophy, Dumbbell } from 'lucide-react';
 import { SavedProgramArtifact } from '../types/ui';
 import { SavedProgramsDrawer } from './program/SavedProgramsDrawer';
 
@@ -23,10 +23,11 @@ interface EntryScreenProps {
   onSelectTemplate: (template: TemplateType) => void;
   onStartFresh: () => void;
   onStartTeamTemplate: () => void;
+  onOpenLibrary: () => void;
   savedPrograms: SavedProgramArtifact[];
 }
 
-export function EntryScreen({ onSelectSource, onSelectTemplate, onStartFresh, onStartTeamTemplate, savedPrograms }: EntryScreenProps) {
+export function EntryScreen({ onSelectSource, onSelectTemplate, onStartFresh, onStartTeamTemplate, onOpenLibrary, savedPrograms }: EntryScreenProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [templateOpen, setTemplateOpen] = useState(false);
 
@@ -55,6 +56,21 @@ export function EntryScreen({ onSelectSource, onSelectTemplate, onStartFresh, on
               <div className="text-sm text-slate-500">Create a team program structure, then adapt for each athlete</div>
             </div>
             <ChevronRight className="w-5 h-5 text-indigo-400 group-hover:text-indigo-500 transition-colors" />
+          </button>
+
+          {/* Exercise Library Button - Dedicated Access */}
+          <button
+            onClick={onOpenLibrary}
+            className="w-full flex items-center gap-4 p-4 bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 hover:border-emerald-400 hover:from-emerald-100 hover:to-teal-100 rounded-xl transition-all shadow-sm group"
+          >
+            <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
+              <Dumbbell className="w-5 h-5 text-emerald-700" />
+            </div>
+            <div className="flex-1 text-left">
+              <div className="font-bold text-slate-900">Exercise Library</div>
+              <div className="text-sm text-slate-600">Browse 334+ exercises with coaching cues, faults & alternatives</div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-emerald-500 group-hover:text-emerald-600 transition-colors" />
           </button>
 
           {/* Secondary: Adapt Existing */}
