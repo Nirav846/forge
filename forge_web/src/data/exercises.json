@@ -21431,5 +21431,521 @@
     ],
     "is_pain_safe": false,
     "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-001",
+    "name": "Hang Power Clean",
+    "category": "Explosive Performance",
+    "subcategory": "Olympic Derivative",
+    "movement_pattern": "Triple Extension",
+    "equipment": "Barbell",
+    "difficulty": "Advanced",
+    "source_organization": "USAW",
+    "description": "Explosive pulling movement from hang position, catching in partial squat",
+    "coaching_cues": [
+      "Start with bar at mid-thigh, athletic stance",
+      "Aggressively extend hips, knees, and ankles",
+      "Shrug and pull under the bar",
+      "Catch with elbows high, quarter squat depth"
+    ],
+    "common_errors": [
+      "Starting position too low or high",
+      "Early arm bend before extension",
+      "Not pulling under bar aggressively",
+      "Catching too deep or too shallow"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Wrist mobility restrictions",
+      "Recent lower back injury"
+    ],
+    "regressions": [
+      "High Pull",
+      "Muscle Clean"
+    ],
+    "progressions": [
+      "Power Clean from Floor",
+      "Full Clean"
+    ],
+    "equipment_alternatives": [
+      "Dumbbells",
+      "Kettlebells",
+      "Trap bar"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-002",
+    "name": "Push Jerk",
+    "category": "Explosive Performance",
+    "subcategory": "Olympic Derivative",
+    "movement_pattern": "Vertical Drive",
+    "equipment": "Barbell",
+    "difficulty": "Advanced",
+    "source_organization": "USAW",
+    "description": "Explosive overhead press using leg drive and quick dip-and-drive",
+    "coaching_cues": [
+      "Bar racked on front delts, core tight",
+      "Quick dip - don't go too deep",
+      "Explosive vertical drive",
+      "Punch yourself under the bar"
+    ],
+    "common_errors": [
+      "Dip too deep (becomes a squat)",
+      "Pressing instead of driving",
+      "Not moving head through window",
+      "Landing with feet too narrow"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Overhead mobility restrictions",
+      "Recent wrist injury"
+    ],
+    "regressions": [
+      "Push Press",
+      "Strict Press"
+    ],
+    "progressions": [
+      "Split Jerk",
+      "Behind Neck Jerk"
+    ],
+    "equipment_alternatives": [
+      "Dumbbells",
+      "Kettlebells",
+      "Landmine press"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-003",
+    "name": "Clean Pull",
+    "category": "Explosive Performance",
+    "subcategory": "Olympic Derivative",
+    "movement_pattern": "Triple Extension",
+    "equipment": "Barbell",
+    "difficulty": "Intermediate",
+    "source_organization": "USAW",
+    "description": "Explosive pull from floor without catching, focusing on extension",
+    "coaching_cues": [
+      "Setup like a clean, bar over mid-foot",
+      "Smooth first pull, accelerate after knees",
+      "Maximum vertical jump with shrug",
+      "Control the descent"
+    ],
+    "common_errors": [
+      "Rushing the first pull",
+      "Not fully extending",
+      "Bending arms too early",
+      "Losing balance forward or backward"
+    ],
+    "contraindications": [
+      "Acute lower back injury",
+      "Hip flexor strain",
+      "Shoulder instability"
+    ],
+    "regressions": [
+      "Deadlift",
+      "Romanian Deadlift"
+    ],
+    "progressions": [
+      "Hang Power Clean",
+      "Full Clean"
+    ],
+    "equipment_alternatives": [
+      "Trap bar",
+      "Dumbbells",
+      "Kettlebells"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-004",
+    "name": "Snatch Pull",
+    "category": "Explosive Performance",
+    "subcategory": "Olympic Derivative",
+    "movement_pattern": "Triple Extension",
+    "equipment": "Barbell",
+    "difficulty": "Advanced",
+    "source_organization": "USAW",
+    "description": "Wide grip explosive pull focusing on height and extension",
+    "coaching_cues": [
+      "Wide snatch grip, bar over mid-foot",
+      "Keep bar close to body throughout",
+      "Explode through full extension",
+      "Maximum shrug at top"
+    ],
+    "common_errors": [
+      "Grip too narrow",
+      "Bar swinging away from body",
+      "Incomplete extension",
+      "Early arm bend"
+    ],
+    "contraindications": [
+      "Shoulder mobility restrictions",
+      "Wrist injuries",
+      "Lower back issues"
+    ],
+    "regressions": [
+      "Wide Grip Deadlift",
+      "High Pull (wide)"
+    ],
+    "progressions": [
+      "Hang Snatch",
+      "Full Snatch"
+    ],
+    "equipment_alternatives": [
+      "Dumbbells",
+      "Kettlebells",
+      "Light barbell"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-005",
+    "name": "Medicine Ball Scoop Toss",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Triple Extension",
+    "equipment": "Medicine Ball",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "Explosive forward throw emphasizing hip extension and transfer",
+    "coaching_cues": [
+      "Athletic stance, ball at hip level",
+      "Load by dipping slightly",
+      "Explode forward, release at optimal angle",
+      "Follow through completely"
+    ],
+    "common_errors": [
+      "Not using legs (all arms)",
+      "Releasing too early or late",
+      "Not following through",
+      "Poor foot positioning"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Lower back strain",
+      "Wrist pain"
+    ],
+    "regressions": [
+      "Seated toss",
+      "Lighter ball"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "For distance measurement"
+    ],
+    "equipment_alternatives": [
+      "Sandbag",
+      "Weighted implement",
+      "Slam ball"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-006",
+    "name": "Rotational Med Ball Throw",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Rotation",
+    "equipment": "Medicine Ball",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Explosive rotational throw against wall for transverse plane power",
+    "coaching_cues": [
+      "Stand sideways to wall, athletic base",
+      "Load by rotating away from target",
+      "Explode through hips, then torso",
+      "Release with full extension"
+    ],
+    "common_errors": [
+      "Arms doing all the work",
+      "Not loading the rotation",
+      "Poor foot pivot",
+      "Not following through"
+    ],
+    "contraindications": [
+      "Acute rotational injury",
+      "Oblique strain",
+      "Shoulder instability"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Slower tempo"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Step into throw"
+    ],
+    "equipment_alternatives": [
+      "Cable rotation",
+      "Resistance band",
+      "Slam ball"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-007",
+    "name": "Box Jump",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Vertical Jump",
+    "equipment": "Plyo Box",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Explosive vertical jump onto elevated surface",
+    "coaching_cues": [
+      "Stand hip-width from box",
+      "Quick countermovement, explode up",
+      "Land softly with full foot contact",
+      "Stand tall at top"
+    ],
+    "common_errors": [
+      "Taking too big of approach",
+      "Landing on toes only",
+      "Not fully extending at top",
+      "Stepping down carelessly"
+    ],
+    "contraindications": [
+      "Acute ankle/knee injury",
+      "Patellar tendinopathy",
+      "Balance issues"
+    ],
+    "regressions": [
+      "Lower box height",
+      "Jump in place"
+    ],
+    "progressions": [
+      "Higher box",
+      "Depth jump to box"
+    ],
+    "equipment_alternatives": [
+      "Bench (stable)",
+      "Platform",
+      "Stairs"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-008",
+    "name": "Broad Jump",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Horizontal Jump",
+    "equipment": "None",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Explosive horizontal jump for distance",
+    "coaching_cues": [
+      "Feet hip-width, toes behind line",
+      "Big arm swing with countermovement",
+      "Explode forward at 45-degree angle",
+      "Land softly, stick the landing"
+    ],
+    "common_errors": [
+      "Taking steps before jumping",
+      "Jumping too high (not far enough)",
+      "Falling backward on landing",
+      "Not using arms effectively"
+    ],
+    "contraindications": [
+      "Acute lower extremity injury",
+      "Recent ACL reconstruction",
+      "Severe patellar tendinopathy"
+    ],
+    "regressions": [
+      "Standing jump (shorter)",
+      "Jump in place"
+    ],
+    "progressions": [
+      "Multiple broad jumps",
+      "Weighted vest jumps"
+    ],
+    "equipment_alternatives": [
+      "Sand pit",
+      "Mat",
+      "Turf"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-009",
+    "name": "Single Arm KB Snatch",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Triple Extension",
+    "equipment": "Kettlebell",
+    "difficulty": "Advanced",
+    "source_organization": "StrongFirst",
+    "description": "Explosive unilateral kettlebell lift from ground to overhead",
+    "coaching_cues": [
+      "Hike bell back between legs",
+      "Explosive hip extension drives bell up",
+      "Punch hand through at top",
+      "Lock out fully overhead"
+    ],
+    "common_errors": [
+      "Pulling with arm too early",
+      "Bell swinging away from body",
+      "Not punching through",
+      "Soft lockout at top"
+    ],
+    "contraindications": [
+      "Shoulder instability",
+      "Wrist mobility issues",
+      "Lower back injury"
+    ],
+    "regressions": [
+      "KB Swing",
+      "KB High Pull"
+    ],
+    "progressions": [
+      "Heavier kettlebell",
+      "Snatch complex"
+    ],
+    "equipment_alternatives": [
+      "Dumbbell",
+      "Barbell",
+      "Sandbag"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-010",
+    "name": "Band-Resisted Vertical Jump",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Vertical Jump",
+    "equipment": "Resistance Bands",
+    "difficulty": "Intermediate",
+    "source_organization": "EXOS",
+    "description": "Vertical jumps with band resistance for accommodating resistance training",
+    "coaching_cues": [
+      "Bands anchored below, attached to belt/harness",
+      "Athletic stance, feel the tension",
+      "Explode against the resistance",
+      "Land softly and reset"
+    ],
+    "common_errors": [
+      "Not resetting between reps",
+      "Letting bands pull you off balance",
+      "Incomplete extension",
+      "Poor landing mechanics"
+    ],
+    "contraindications": [
+      "Acute lower extremity injury",
+      "Hip flexor strain",
+      "Ankle instability"
+    ],
+    "regressions": [
+      "Lighter band tension",
+      "Bodyweight jumps"
+    ],
+    "progressions": [
+      "Heavier bands",
+      "Continuous jumps"
+    ],
+    "equipment_alternatives": [
+      "Chain resistance",
+      "Weighted vest",
+      "Sled resistance"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-011",
+    "name": "Power Shrug",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Triple Extension",
+    "equipment": "Barbell",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Explosive shrug from hang position emphasizing upper trap power",
+    "coaching_cues": [
+      "Bar at mid-thigh, slight knee bend",
+      "Extend hips and knees explosively",
+      "Maximum shrug at top",
+      "Control the descent"
+    ],
+    "common_errors": [
+      "Using arms instead of traps",
+      "Not fully extending",
+      "Rolling shoulders forward",
+      "Incomplete range of motion"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Neck injury",
+      "Upper trap strain"
+    ],
+    "regressions": [
+      "Dumbbell shrug",
+      "Static shrug hold"
+    ],
+    "progressions": [
+      "Hang High Pull",
+      "Hang Power Clean"
+    ],
+    "equipment_alternatives": [
+      "Dumbbells",
+      "Trap bar",
+      "Cable machine"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "EXP-012",
+    "name": "Overhead Med Ball Slam",
+    "category": "Explosive Performance",
+    "subcategory": "Power",
+    "movement_pattern": "Vertical Drive",
+    "equipment": "Slam Ball",
+    "difficulty": "Beginner",
+    "source_organization": "EXOS",
+    "description": "Explosive overhead slam for full-body power development",
+    "coaching_cues": [
+      "Ball overhead, full body extension",
+      "Engage core, slam down aggressively",
+      "Follow through to the ground",
+      "Reset with control"
+    ],
+    "common_errors": [
+      "Only using arms (no hip extension)",
+      "Not fully extending overhead",
+      "Poor core engagement",
+      "Inconsistent release point"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Lower back injury",
+      "Overhead mobility restrictions"
+    ],
+    "regressions": [
+      "Lighter ball",
+      "Seated version"
+    ],
+    "progressions": [
+      "Heavier ball",
+      "Walking slams"
+    ],
+    "equipment_alternatives": [
+      "Medicine ball",
+      "Sandbag",
+      "Weighted implement"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-01T00:00:00Z"
   }
 ]

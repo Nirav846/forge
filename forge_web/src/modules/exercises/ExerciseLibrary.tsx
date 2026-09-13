@@ -28,6 +28,8 @@ const CATEGORY_GROUPS: Record<string, { name: string; icon: string; description:
   'Plyo': { name: 'Plyometrics', icon: '💥', description: 'Jumps, bounds, explosive movements' },
   'Landing': { name: 'Landing Mechanics', icon: '🛬', description: 'Deceleration, landing technique' },
   'Ball': { name: 'Medicine Ball', icon: '🏀', description: 'Med ball throws and slams' },
+  // Explosive Performance (Olympic/Power)
+  'Explosive Performance': { name: 'Explosive Performance', icon: '⚡', description: 'Olympic derivatives, power exercises, ballistic movements' },
   // Speed & Agility
   'Sprint': { name: 'Sprinting', icon: '🏃', description: 'Acceleration, max velocity' },
   'Acc': { name: 'Acceleration', icon: '🚀', description: 'First step, initial acceleration' },
@@ -53,6 +55,9 @@ const SUBCATEGORY_ICONS: Record<string, string> = {
   'Endurance Test': '⏱️',
   'Mobility Screen': '📏',
   'Balance/Stability': '⚖️',
+  // Explosive Performance subcategories
+  'Olympic Derivative': '🏋️',
+  'Power': '💥',
 };
 
 const DIFFICULTY_COLORS = {
@@ -169,6 +174,9 @@ const ExerciseLibrary: React.FC = () => {
     return grouped;
   }, [filteredExercises]);
 
+  // Categories that should display with subcategory grouping
+  const categorizedCategories = ['Activation', 'Assessment', 'Explosive Performance'];
+
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     allExercises.forEach(ex => {
@@ -264,7 +272,7 @@ const ExerciseLibrary: React.FC = () => {
             <div className="space-y-8">
               {Object.entries(exercisesByCategory).map(([category, exercises]) => {
                 const catInfo = CATEGORY_GROUPS[category];
-                const isCategorizedCategory = category === 'Activation' || category === 'Assessment';
+                const isCategorizedCategory = categorizedCategories.includes(category);
                 const subcategories = isCategorizedCategory ? exercisesBySubcategory[category] : null;
                 
                 return (
