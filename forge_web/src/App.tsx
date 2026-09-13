@@ -161,6 +161,10 @@ export default function App() {
     setViewMode('builder');
   }, []);
 
+  const handleOpenLibrary = useCallback(() => {
+    setViewMode('library');
+  }, []);
+
 
   // ── Team Callbacks ──
 
@@ -745,6 +749,7 @@ export default function App() {
                 onSelectTemplate={handleSelectTemplate}
                 onStartFresh={handleStartFresh}
                 onStartTeamTemplate={handleStartTeamTemplate}
+                onOpenLibrary={handleOpenLibrary}
                 savedPrograms={savedPrograms}
               />
             </ErrorBoundary>
