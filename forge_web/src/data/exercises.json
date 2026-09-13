@@ -19716,5 +19716,948 @@
     "is_pain_safe": true,
     "created_at": "2026-09-13T10:00:21.854627",
     "id": "COND-1017"
+  },
+  {
+    "id": "ACT-011",
+    "name": "Glute Bridge March",
+    "category": "Activation",
+    "subcategory": "Lower Body",
+    "movement_pattern": "Activation",
+    "equipment": "Mat",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Lie on back, knees bent, feet flat",
+      "Bridge hips up, squeeze glutes",
+      "March by lifting one knee to chest",
+      "Keep hips level, don't let them drop"
+    ],
+    "common_errors": [
+      "Hips dropping when lifting leg",
+      "Not fully extending hips",
+      "Overarching lower back",
+      "Holding breath"
+    ],
+    "contraindications": [
+      "Acute lower back injury",
+      "Hip impingement",
+      "Recent hamstring strain"
+    ],
+    "regressions": [
+      "Static Glute Bridge"
+    ],
+    "progressions": [
+      "Single Leg Glute Bridge"
+    ],
+    "equipment_alternatives": [
+      "Swiss ball",
+      "Bench",
+      "Band resistance"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-012",
+    "name": "Monster Walk",
+    "category": "Activation",
+    "subcategory": "Lower Body",
+    "movement_pattern": "Activation",
+    "equipment": "Mini Band",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Band around ankles, athletic stance",
+      "Take wide diagonal steps forward",
+      "Maintain tension throughout",
+      "Keep knees pushed out against band"
+    ],
+    "common_errors": [
+      "Steps too narrow",
+      "Knees caving inward",
+      "Standing too upright",
+      "Losing band tension"
+    ],
+    "contraindications": [
+      "Acute knee injury",
+      "Hip bursitis",
+      "Ankle instability"
+    ],
+    "regressions": [
+      "Mini Band Lateral Walk"
+    ],
+    "progressions": [
+      "Monster Walk with Squat"
+    ],
+    "equipment_alternatives": [
+      "Heavier band",
+      "Cable machine",
+      "No band (isometric)"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-013",
+    "name": "Single Leg RDL Reach",
+    "category": "Activation",
+    "subcategory": "Lower Body",
+    "movement_pattern": "Activation",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Stand on one leg, slight knee bend",
+      "Hinge at hip, reach opposite hand down",
+      "Keep back flat, non-stance leg extends",
+      "Return to standing using glute"
+    ],
+    "common_errors": [
+      "Rounding the back",
+      "Bending stance leg too much",
+      "Rotating hips",
+      "Looking down instead of forward"
+    ],
+    "contraindications": [
+      "Acute lower back injury",
+      "Hamstring strain",
+      "Balance disorders"
+    ],
+    "regressions": [
+      "Supported Single Leg RDL"
+    ],
+    "progressions": [
+      "Weighted Single Leg RDL"
+    ],
+    "equipment_alternatives": [
+      "Wall support",
+      "TRX assist",
+      "KB/DB weight"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-014",
+    "name": "Scapular Push-Up",
+    "category": "Activation",
+    "subcategory": "Upper Body",
+    "movement_pattern": "Activation",
+    "equipment": "Mat",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Start in plank position, arms straight",
+      "Retract shoulder blades, sink chest down",
+      "Protract shoulder blades, push away",
+      "Keep elbows locked throughout"
+    ],
+    "common_errors": [
+      "Bending elbows",
+      "Sagging hips",
+      "Not achieving full protraction",
+      "Shrugging shoulders"
+    ],
+    "contraindications": [
+      "Wrist injury",
+      "Shoulder instability",
+      "Acute pec strain"
+    ],
+    "regressions": [
+      "Incline Scapular Push-Up"
+    ],
+    "progressions": [
+      "Weighted Scapular Push-Up"
+    ],
+    "equipment_alternatives": [
+      "Parallettes",
+      "Handles",
+      "Wall version"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-015",
+    "name": "Shoulder CARs",
+    "category": "Activation",
+    "subcategory": "Upper Body",
+    "movement_pattern": "Activation",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Stand tall, arm extended to side",
+      "Draw largest circle possible with thumb",
+      "Move slowly through full range",
+      "Keep torso still, isolate shoulder"
+    ],
+    "common_errors": [
+      "Compensating with torso rotation",
+      "Moving too fast",
+      "Not achieving full range",
+      "Shrugging shoulder"
+    ],
+    "contraindications": [
+      "Shoulder dislocation history",
+      "Acute rotator cuff injury",
+      "Frozen shoulder"
+    ],
+    "regressions": [
+      "Smaller Circles"
+    ],
+    "progressions": [
+      "Weighted CARs"
+    ],
+    "equipment_alternatives": [
+      "Wall slide",
+      "Band assisted",
+      "Quadruped position"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-016",
+    "name": "T-Y-W Raises",
+    "category": "Activation",
+    "subcategory": "Upper Body",
+    "movement_pattern": "Activation",
+    "equipment": "Mini Band, Light DBs",
+    "difficulty": "Beginner",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Hinge at hips, chest supported or standing",
+      "Raise arms into T position, squeeze",
+      "Move to Y position, then W",
+      "Focus on lower trap activation"
+    ],
+    "common_errors": [
+      "Using upper traps instead of lowers",
+      "Arching lower back",
+      "Moving too fast",
+      "Not squeezing shoulder blades"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "AC joint injury",
+      "Neck pain"
+    ],
+    "regressions": [
+      "Prone T Only"
+    ],
+    "progressions": [
+      "Weighted T-Y-W"
+    ],
+    "equipment_alternatives": [
+      "Cable machine",
+      "Towel isometric",
+      "Wall version"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-017",
+    "name": "McGill Big 3 Circuit",
+    "category": "Activation",
+    "subcategory": "Core",
+    "movement_pattern": "Activation",
+    "equipment": "Mat",
+    "difficulty": "Intermediate",
+    "source_organization": "Back Pain Research",
+    "description": "",
+    "coaching_cues": [
+      "Perform curl-up, side plank, bird dog in sequence",
+      "Focus on bracing, not movement",
+      "Maintain neutral spine throughout",
+      "Breathe steadily, don't hold breath"
+    ],
+    "common_errors": [
+      "Moving too quickly between exercises",
+      "Losing brace between exercises",
+      "Holding breath",
+      "Compromising form for reps"
+    ],
+    "contraindications": [
+      "Acute disc herniation",
+      "Severe osteoporosis",
+      "Recent spinal surgery"
+    ],
+    "regressions": [
+      "Individual exercises only"
+    ],
+    "progressions": [
+      "Extended hold times"
+    ],
+    "equipment_alternatives": [
+      "Bench for side plank",
+      "Elevated hands",
+      "Timer app"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-018",
+    "name": "Anti-Rotation Press Walkout",
+    "category": "Activation",
+    "subcategory": "Core",
+    "movement_pattern": "Activation",
+    "equipment": "Cable, Band",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Stand perpendicular to anchor point",
+      "Press handle out and walk forward",
+      "Resist rotation throughout walkout",
+      "Return with control"
+    ],
+    "common_errors": [
+      "Allowing rotation toward anchor",
+      "Leaning away from anchor",
+      "Walking too far",
+      "Not engaging core"
+    ],
+    "contraindications": [
+      "Shoulder instability",
+      "Acute core injury",
+      "Uncontrolled hypertension"
+    ],
+    "regressions": [
+      "Pallof Press Static"
+    ],
+    "progressions": [
+      "Half-Kneeling Walkout"
+    ],
+    "equipment_alternatives": [
+      "Resistance band",
+      "Partner resistance",
+      "Landmine"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-019",
+    "name": "A-Skip Drill",
+    "category": "Activation",
+    "subcategory": "Plyometric Prep",
+    "movement_pattern": "Activation",
+    "equipment": "Open Space",
+    "difficulty": "Intermediate",
+    "source_organization": "Track & Field Coaching",
+    "description": "",
+    "coaching_cues": [
+      "Drive knee up to hip height",
+      "Strike ground with ball of foot",
+      "Opposite arm drives forward",
+      "Quick, rhythmic pattern"
+    ],
+    "common_errors": [
+      "Landing flat-footed",
+      "Not driving knee high enough",
+      "Arms not coordinating",
+      "Leaning too far forward"
+    ],
+    "contraindications": [
+      "Acute Achilles injury",
+      "Plantar fasciitis",
+      "Recent ankle sprain"
+    ],
+    "regressions": [
+      "March in Place"
+    ],
+    "progressions": [
+      "A-Skip for Distance"
+    ],
+    "equipment_alternatives": [
+      "Grass surface",
+      "Track",
+      "Turf"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-020",
+    "name": "B-Skip Drill",
+    "category": "Activation",
+    "subcategory": "Plyometric Prep",
+    "movement_pattern": "Activation",
+    "equipment": "Open Space",
+    "difficulty": "Advanced",
+    "source_organization": "Track & Field Coaching",
+    "description": "",
+    "coaching_cues": [
+      "Drive knee up, extend leg forward",
+      "Paw down and back into ground",
+      "Stay on balls of feet",
+      "Maintain tall posture"
+    ],
+    "common_errors": [
+      "Overstriding",
+      "Landing heavy",
+      "Leaning back",
+      "Poor arm action"
+    ],
+    "contraindications": [
+      "Hamstring strain",
+      "Achilles injury",
+      "Knee instability"
+    ],
+    "regressions": [
+      "A-Skip Drill"
+    ],
+    "progressions": [
+      "B-Skip for Distance"
+    ],
+    "equipment_alternatives": [
+      "Grass surface",
+      "Track",
+      "Turf"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-021",
+    "name": "World's Greatest Stretch",
+    "category": "Activation",
+    "subcategory": "Dynamic Mobility",
+    "movement_pattern": "Activation",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "Functional Movement Systems",
+    "description": "",
+    "coaching_cues": [
+      "Step into lunge, inside hand to floor",
+      "Rotate torso toward front leg",
+      "Straighten front leg for hamstring stretch",
+      "Return to start, switch sides"
+    ],
+    "common_errors": [
+      "Rushing through positions",
+      "Not rotating through thoracic spine",
+      "Front knee caving inward",
+      "Not breathing into stretches"
+    ],
+    "contraindications": [
+      "Acute knee injury",
+      "Hip impingement",
+      "Lower back injury"
+    ],
+    "regressions": [
+      "Modified Lunge Only"
+    ],
+    "progressions": [
+      "Band-Assisted Rotation"
+    ],
+    "equipment_alternatives": [
+      "Yoga block",
+      "TRX assist",
+      "Wall support"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-022",
+    "name": "Thoracic Spine Windmills",
+    "category": "Activation",
+    "subcategory": "Dynamic Mobility",
+    "movement_pattern": "Activation",
+    "equipment": "Mat",
+    "difficulty": "Intermediate",
+    "source_organization": "FMS",
+    "description": "",
+    "coaching_cues": [
+      "Lie on side, knees bent 90 degrees",
+      "Top arm reaches forward, then opens up",
+      "Follow hand with eyes, rotate through T-spine",
+      "Keep knees together throughout"
+    ],
+    "common_errors": [
+      "Knees separating",
+      "Not rotating through thoracic spine",
+      "Lifting hips off ground",
+      "Moving too fast"
+    ],
+    "contraindications": [
+      "Acute shoulder injury",
+      "Rib fracture",
+      "Recent spinal surgery"
+    ],
+    "regressions": [
+      "Smaller Range Motion"
+    ],
+    "progressions": [
+      "Windmill with Band"
+    ],
+    "equipment_alternatives": [
+      "Foam roller",
+      "Bench",
+      "Wall version"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ACT-023",
+    "name": "90/90 Hip Switches",
+    "category": "Activation",
+    "subcategory": "Dynamic Mobility",
+    "movement_pattern": "Activation",
+    "equipment": "Mat",
+    "difficulty": "Intermediate",
+    "source_organization": "Functional Movement",
+    "description": "",
+    "coaching_cues": [
+      "Sit with both legs at 90 degrees",
+      "Front leg internally rotates, back leg externally",
+      "Switch legs without using hands if possible",
+      "Keep torso tall, don't lean"
+    ],
+    "common_errors": [
+      "Leaning forward excessively",
+      "Using hands to push",
+      "Not achieving 90 degree angles",
+      "Rushing the movement"
+    ],
+    "contraindications": [
+      "Hip impingement",
+      "Labral tear",
+      "Acute groin strain"
+    ],
+    "regressions": [
+      "Assisted 90/90"
+    ],
+    "progressions": [
+      "90/90 with Lean"
+    ],
+    "equipment_alternatives": [
+      "Elevated seat",
+      "Wall support",
+      "Band assist"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-011",
+    "name": "Hurdle Step Assessment",
+    "category": "Assessment",
+    "subcategory": "Movement Screen",
+    "movement_pattern": "Assessment",
+    "equipment": "Hurdle, Dowel",
+    "difficulty": "Intermediate",
+    "source_organization": "FMS",
+    "description": "",
+    "coaching_cues": [
+      "Hold dowel across shoulders",
+      "Step over hurdle with one leg",
+      "Touch heel to ground, return to start",
+      "Observe hip stability and symmetry"
+    ],
+    "common_errors": [
+      "Hip hiking on stepping leg",
+      "Dowel moving off shoulders",
+      "Loss of balance",
+      "Toe catching on hurdle"
+    ],
+    "contraindications": [
+      "Acute knee injury",
+      "Hip replacement",
+      "Balance disorders"
+    ],
+    "regressions": [
+      "Step Over Lower Height"
+    ],
+    "progressions": [
+      "Hurdle Step with Eyes Closed"
+    ],
+    "equipment_alternatives": [
+      "Box",
+      "Cone",
+      "Tape line"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-012",
+    "name": "Rotary Stability Assessment",
+    "category": "Assessment",
+    "subcategory": "Movement Screen",
+    "movement_pattern": "Assessment",
+    "equipment": "Mat",
+    "difficulty": "Advanced",
+    "source_organization": "FMS",
+    "description": "",
+    "coaching_cues": [
+      "Start on all fours, hands under shoulders",
+      "Extend opposite arm and leg simultaneously",
+      "Bring elbow to knee underneath body",
+      "Maintain stable trunk throughout"
+    ],
+    "common_errors": [
+      "Trunk rotation during movement",
+      "Hip shifting",
+      "Incomplete range of motion",
+      "Loss of neutral spine"
+    ],
+    "contraindications": [
+      "Wrist injury",
+      "Shoulder instability",
+      "Acute lower back pain"
+    ],
+    "regressions": [
+      "Bird Dog Only"
+    ],
+    "progressions": [
+      "Rotary Stability with Band"
+    ],
+    "equipment_alternatives": [
+      "Elevated hands",
+      "Knee pad",
+      "Wall version"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-013",
+    "name": "Thoracic Rotation Test",
+    "category": "Assessment",
+    "subcategory": "Mobility Screen",
+    "movement_pattern": "Assessment",
+    "equipment": "Chair, Dowel",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Sit on chair, hold dowel across chest",
+      "Rotate torso to one side as far as possible",
+      "Keep hips facing forward",
+      "Measure rotation angle or compare sides"
+    ],
+    "common_errors": [
+      "Rotating hips instead of thoracic spine",
+      "Leaning to side",
+      "Not keeping dowel level",
+      "Forcing beyond comfortable range"
+    ],
+    "contraindications": [
+      "Recent rib fracture",
+      "Spinal fusion",
+      "Acute disc injury"
+    ],
+    "regressions": [
+      "Seated Rotation Smaller ROM"
+    ],
+    "progressions": [
+      "Rotary Stability Test"
+    ],
+    "equipment_alternatives": [
+      "Floor seated version",
+      "Wall markers",
+      "Phone angle app"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-014",
+    "name": "Hip Internal/External Rotation Test",
+    "category": "Assessment",
+    "subcategory": "Mobility Screen",
+    "movement_pattern": "Assessment",
+    "equipment": "Mat, Goniometer",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Lie prone, knee bent to 90 degrees",
+      "Rotate lower leg outward (IR) then inward (ER)",
+      "Keep pelvis flat on ground",
+      "Measure angle at end range each direction"
+    ],
+    "common_errors": [
+      "Pelvis lifting off ground",
+      "Compensating with lumbar extension",
+      "Not maintaining 90 degree knee bend",
+      "Forcing beyond pain-free range"
+    ],
+    "contraindications": [
+      "Hip labral tear",
+      "Recent hip surgery",
+      "Acute groin strain"
+    ],
+    "regressions": [
+      "Supine Figure 4"
+    ],
+    "progressions": [
+      "Weighted Hip Rotation"
+    ],
+    "equipment_alternatives": [
+      "Phone angle app",
+      "Visual estimation",
+      "Comparison to norms"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-015",
+    "name": "Reactive Strength Index Test",
+    "category": "Assessment",
+    "subcategory": "Performance Test",
+    "movement_pattern": "Assessment",
+    "equipment": "Drop Box, Jump Mat, Timer",
+    "difficulty": "Advanced",
+    "source_organization": "Elite Performance Institute",
+    "description": "",
+    "coaching_cues": [
+      "Step off box (30-40cm), don't jump",
+      "Upon landing, immediately jump maximal height",
+      "Minimize ground contact time",
+      "Measure jump height and contact time"
+    ],
+    "common_errors": [
+      "Jumping off the box",
+      "Pausing between landing and jump",
+      "Landing stiff-legged",
+      "Not jumping maximally"
+    ],
+    "contraindications": [
+      "Achilles tendinopathy",
+      "Patellar tendinopathy",
+      "Recent lower limb injury"
+    ],
+    "regressions": [
+      "Pogo Hops Assessment"
+    ],
+    "progressions": [
+      "Higher Drop Height"
+    ],
+    "equipment_alternatives": [
+      "Force plate",
+      "Contact mat",
+      "Phone slow-mo video"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-016",
+    "name": "Repeated Jump Ability Test",
+    "category": "Assessment",
+    "subcategory": "Performance Test",
+    "movement_pattern": "Assessment",
+    "equipment": "Jump Mat, Timer",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Perform 5 consecutive maximal jumps",
+      "Minimize ground contact between jumps",
+      "Maintain jump height throughout",
+      "Measure fatigue index (best vs worst)"
+    ],
+    "common_errors": [
+      "Not jumping maximally on each rep",
+      "Pausing too long between jumps",
+      "Significant technique breakdown",
+      "Not landing consistently"
+    ],
+    "contraindications": [
+      "Patellar tendinopathy",
+      "ACL reconstruction (<9 months)",
+      "Stress fracture history"
+    ],
+    "regressions": [
+      "3 Jump Test"
+    ],
+    "progressions": [
+      "10 Jump Test"
+    ],
+    "equipment_alternatives": [
+      "Force plate",
+      "Vertec",
+      "Video analysis"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-017",
+    "name": "Star Excursion Balance Test",
+    "category": "Assessment",
+    "subcategory": "Balance/Stability",
+    "movement_pattern": "Assessment",
+    "equipment": "Tape, Measuring Stick",
+    "difficulty": "Advanced",
+    "source_organization": "FMS",
+    "description": "",
+    "coaching_cues": [
+      "Stand at center of star grid",
+      "Reach maximally in each of 8 directions",
+      "Return to center without touching down",
+      "Complete 3 trials each direction"
+    ],
+    "common_errors": [
+      "Lifting stance foot",
+      "Touching down with reach foot",
+      "Not returning to true center",
+      "Inconsistent starting position"
+    ],
+    "contraindications": [
+      "Acute ankle sprain",
+      "Recent knee surgery",
+      "Vestibular disorders"
+    ],
+    "regressions": [
+      "Y-Balance Test"
+    ],
+    "progressions": [
+      "SEBT with Cognitive Task"
+    ],
+    "equipment_alternatives": [
+      "Chalk lines",
+      "Mats with markings",
+      "Custom grid"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-018",
+    "name": "Single Leg Stance Eyes Closed",
+    "category": "Assessment",
+    "subcategory": "Balance/Stability",
+    "movement_pattern": "Assessment",
+    "equipment": "Timer, Flat Surface",
+    "difficulty": "Advanced",
+    "source_organization": "NSCA",
+    "description": "",
+    "coaching_cues": [
+      "Stand on one leg, hands on hips",
+      "Close eyes once balanced",
+      "Maintain position as long as possible",
+      "Stop if stance foot moves or eyes open"
+    ],
+    "common_errors": [
+      "Opening eyes to regain balance",
+      "Hands coming off hips",
+      "Stance foot shuffling",
+      "Non-stance foot touching ground"
+    ],
+    "contraindications": [
+      "Vestibular disorders",
+      "Severe balance impairment",
+      "Recent concussion"
+    ],
+    "regressions": [
+      "Single Leg Stance Eyes Open"
+    ],
+    "progressions": [
+      "Unstable Surface SLEC"
+    ],
+    "equipment_alternatives": [
+      "Foam pad",
+      "BOSU",
+      "Grass surface"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-019",
+    "name": "Side Plank Endurance Test",
+    "category": "Assessment",
+    "subcategory": "Endurance Test",
+    "movement_pattern": "Assessment",
+    "equipment": "Mat, Timer",
+    "difficulty": "Intermediate",
+    "source_organization": "McGill Spine Research",
+    "description": "",
+    "coaching_cues": [
+      "Lie on side, prop up on forearm",
+      "Stack feet, lift hips off ground",
+      "Body in straight line head to heels",
+      "Hold as long as form maintained"
+    ],
+    "common_errors": [
+      "Hips sagging backward",
+      "Hips piked forward",
+      "Head dropping",
+      "Continuing after form breakdown"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Acute oblique strain",
+      "Lateral hip pain"
+    ],
+    "regressions": [
+      "Bent Knee Side Plank"
+    ],
+    "progressions": [
+      "Side Plank with Leg Lift"
+    ],
+    "equipment_alternatives": [
+      "Bench",
+      "Elevated forearm",
+      "Wall version"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "ASMT-020",
+    "name": "Back Extension Endurance Test",
+    "category": "Assessment",
+    "subcategory": "Endurance Test",
+    "movement_pattern": "Assessment",
+    "equipment": "Roman Chair, Timer",
+    "difficulty": "Intermediate",
+    "source_organization": "McGill Spine Research",
+    "description": "",
+    "coaching_cues": [
+      "Position hips on pad, arms crossed",
+      "Lower torso until slight flexion",
+      "Raise to neutral spine, hold position",
+      "Maintain as long as possible"
+    ],
+    "common_errors": [
+      "Hyperextending at top",
+      "Rounding lower back",
+      "Using momentum to rise",
+      "Holding breath"
+    ],
+    "contraindications": [
+      "Acute lower back injury",
+      "Spondylolisthesis",
+      "Recent spinal surgery"
+    ],
+    "regressions": [
+      "Prone Back Extension Hold"
+    ],
+    "progressions": [
+      "Weighted Back Extension"
+    ],
+    "equipment_alternatives": [
+      "Bench (prone)",
+      "Swiss ball",
+      "Floor version"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-01T00:00:00Z"
   }
 ]
