@@ -2,43 +2,65 @@
 # Dependencies
 node_modules/
 
+# Build outputs
+dist/
+build/
+*.js.map
+
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Logs
-*.log
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# IDE
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
+
+# Logs
+*.log
+
+# Temp files
 *.tmp
 
-# Build artifacts
-dist/
-build/
-target/
-*.o
-*.obj
-*.out
+# Coverage
+coverage/
+htmlcov/
+*.coverage
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.pytest_cache/
-.mypy_cache/
+.Python
+*.so
+*.egg-info/
+.eggs/
 
-# Compressed files
+# Compiled
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.mypy_cache/
+.pytest_cache/
+
+# Gradle
+.gradle/
+target/
+
+# Compressed
 *.zip
 *.gz
 *.tar

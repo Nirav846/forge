@@ -155,32 +155,32 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
   return (
     <div className="flex flex-col h-full">
       {/* Top sticky: name input + mode toggle + generate */}
-      <div className="sticky top-0 bg-white border-b border-slate-200 z-20 shadow-sm">
+      <div className="sticky top-0 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 z-20 shadow-sm">
         <div className="p-4 pb-3 space-y-3">
-          {/* Mode toggle */}
-          <div className="flex bg-slate-100 p-0.5 rounded-lg">
+          {/* Mode toggle - Enhanced */}
+          <div className="flex bg-slate-200/50 p-1 rounded-xl">
             <button
               onClick={() => setMode('core')}
-              className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-all ${mode === 'core' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all ${mode === 'core' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
             >
               Core Mode
             </button>
             <button
               onClick={() => setMode('premium')}
-              className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-all flex items-center justify-center gap-1 ${mode === 'premium' ? 'bg-indigo-50 text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${mode === 'premium' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
             >
-              <Settings2 className="w-3 h-3" /> Premium
+              <Settings2 className="w-3.5 h-3.5" /> Premium
             </button>
           </div>
 
           {/* Athlete name — keyboard only */}
           <div>
-            <label className="block text-xs font-medium text-slate-700 mb-1">Athlete Name *</label>
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">Athlete Name *</label>
             <input
               type="text"
               value={builder.athleteName}
               onChange={e => update('athleteName', e.target.value)}
-              className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+              className="w-full px-3 py-2.5 text-sm bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-400"
               placeholder="e.g. John Doe"
             />
           </div>
@@ -188,25 +188,25 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
           {/* Age + Training Age — optional */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-medium text-slate-700 mb-1">Age</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Age</label>
               <input
                 type="number"
                 min={0}
                 value={builder.age}
                 onChange={e => update('age', e.target.value === '' ? '' : Number(e.target.value))}
-                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                className="w-full px-3 py-2.5 text-sm bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-400"
                 placeholder="e.g. 22"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-700 mb-1">Training Age (yrs)</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Training Age (yrs)</label>
               <input
                 type="number"
                 step="0.5"
                 min={0}
                 value={builder.trainingAge}
                 onChange={e => update('trainingAge', e.target.value === '' ? '' : Number(e.target.value))}
-                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+                className="w-full px-3 py-2.5 text-sm bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-400"
                 placeholder="e.g. 2.5"
               />
             </div>
@@ -214,30 +214,30 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
 
           {/* Environments — multi-select; engine auto-assigns each session */}
           <div>
-            <label className="block text-xs font-medium text-slate-700 mb-1">Available Environments</label>
-            <div className="flex gap-4 mt-1">
+            <label className="block text-xs font-semibold text-slate-700 mb-2">Available Environments</label>
+            <div className="flex gap-3 mt-1">
               {SCORED_ENV_OPTIONS.map(({ value, label, emoji }) => (
-                <label key={value} className="flex items-center gap-1.5 text-sm text-slate-700">
+                <label key={value} className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer group">
                   <input
                     type="checkbox"
                     checked={builder.environments.includes(value)}
                     onChange={e => toggleEnvironment(setBuilder, value, e.target.checked)}
-                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                    className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 transition-colors"
                   />
-                  {emoji} {label}
+                  <span className="group-hover:text-indigo-600 transition-colors">{emoji} {label}</span>
                 </label>
               ))}
             </div>
-            <p className="text-[10px] text-slate-400 mt-1">
+            <p className="text-[10px] text-slate-400 mt-1.5 leading-relaxed">
               Sessions auto-assign to the most suitable environment; per-session override still available.
             </p>
           </div>
 
-          {/* Generate button */}
+          {/* Generate button - Enhanced */}
           <button
             onClick={handleGenerate}
             disabled={isGenerating || !canGenerate}
-            className="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 disabled:cursor-not-allowed text-white py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-slate-300 disabled:to-slate-400 text-white py-3 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:shadow-none"
           >
             {isGenerating ? (
               <span className="flex items-center gap-2"><Zap className="w-4 h-4 animate-pulse" /> Generating...</span>
@@ -246,8 +246,8 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
             )}
           </button>
           {errors.length > 0 && !isGenerating && (
-            <div className="flex items-center gap-1.5 text-xs text-red-600 bg-red-50 px-2 py-1.5 rounded border border-red-200">
-              <AlertCircle className="w-3 h-3 shrink-0" />
+            <div className="flex items-start gap-2 text-xs text-red-700 bg-red-50 px-3 py-2 rounded-lg border border-red-200">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>{errors.length} required field{errors.length !== 1 ? 's' : ''} missing</span>
             </div>
           )}
@@ -255,17 +255,23 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
       </div>
 
       {/* Scrollable builder sections */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-5">
+      <div className="flex-1 overflow-y-auto p-4 space-y-5 bg-white">
         {/* Sport */}
-        <section className="space-y-2">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Sport</h3>
+        <section className="space-y-2.5">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+            Sport
+          </h3>
           <SportSelector value={builder.sport} onChange={v => update('sport', v)} />
         </section>
 
         {/* Role — shown only after sport is selected */}
         {builder.sport && (
-          <section className="space-y-2">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Role / Position</h3>
+          <section className="space-y-2.5">
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+              Role / Position
+            </h3>
             <RoleSelector
               sport={builder.sport}
               value={builder.role}
@@ -280,26 +286,38 @@ export default function LeftPanel({ request, setRequest, onGenerate, status }: L
         )}
 
         {/* Season */}
-        <section className="space-y-2">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Season Phase</h3>
+        <section className="space-y-2.5">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+            Season Phase
+          </h3>
           <SeasonTimeline value={builder.seasonPhase} onChange={v => update('seasonPhase', v)} />
         </section>
 
         {/* Goal */}
-        <section className="space-y-2">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Primary Goal</h3>
+        <section className="space-y-2.5">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+            Primary Goal
+          </h3>
           <GoalSelector value={builder.goal} onChange={v => update('goal', v)} />
         </section>
 
         {/* Weekly Schedule */}
-        <section className="space-y-2">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Training Days</h3>
+        <section className="space-y-2.5">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+            Training Days
+          </h3>
           <WeeklySchedule value={builder.trainingDays} onChange={v => update('trainingDays', v)} />
         </section>
 
         {/* Session Length */}
-        <section className="space-y-2">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Session Length</h3>
+        <section className="space-y-2.5">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+            Session Length
+          </h3>
           <SessionLengthSlider value={builder.sessionLength} onChange={v => update('sessionLength', v)} />
         </section>
       </div>
