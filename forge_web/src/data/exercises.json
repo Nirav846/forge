@@ -14776,5 +14776,326 @@
     ],
     "is_pain_safe": true,
     "created_at": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": 901,
+    "name": "Close-Grip Push-Up",
+    "category": "HPush",
+    "subcategory": "Horizontal Pressing",
+    "movement_pattern": "Horizontal Push",
+    "equipment": "Bodyweight",
+    "difficulty": "Intermediate",
+    "source_organization": "NSCA",
+    "description": "Narrow hand placement push-up emphasizing triceps and inner chest development.",
+    "coaching_cues": [
+      "Hands placed directly under sternum",
+      "Elbows track back at 45 degrees",
+      "Core tight throughout movement"
+    ],
+    "common_errors": [
+      "Hands too wide defeating the purpose",
+      "Elbows flaring out excessively",
+      "Hips sagging or piking"
+    ],
+    "contraindications": [
+      "Wrist pain",
+      "Elbow tendonitis",
+      "Shoulder impingement"
+    ],
+    "regressions": [
+      "Incline Close-Grip Push-Up",
+      "Knee Close-Grip Push-Up"
+    ],
+    "progressions": [
+      "Weighted Close-Grip Push-Up",
+      "Ring Close-Grip Push-Up",
+      "Archer Push-Up"
+    ],
+    "equipment_alternatives": [
+      "Dumbbell Floor Press (neutral grip)",
+      "Diamond Push-Up"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 902,
+    "name": "Floor Press (Barbell)",
+    "category": "HPush",
+    "subcategory": "Horizontal Pressing",
+    "movement_pattern": "Horizontal Push",
+    "equipment": "Barbell",
+    "difficulty": "Intermediate",
+    "source_organization": "Westside Barbell",
+    "description": "Bench press variation performed on the floor, limiting range of motion to build lockout strength.",
+    "coaching_cues": [
+      "Elbows touch floor briefly before pressing",
+      "Maintain shoulder blade retraction",
+      "Explosive press from bottom"
+    ],
+    "common_errors": [
+      "Bouncing elbows off floor",
+      "Losing arch in upper back",
+      "Pressing with uneven arm extension"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Elbow issues",
+      "Pectoral strain"
+    ],
+    "regressions": [
+      "Dumbbell Floor Press",
+      "Spoto Press"
+    ],
+    "progressions": [
+      "Band-Resisted Floor Press",
+      "Chain Floor Press",
+      "Paused Floor Press"
+    ],
+    "equipment_alternatives": [
+      "Dumbbell Floor Press",
+      "Kettlebell Floor Press"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 903,
+    "name": "Landmine Press (Half-Kneeling)",
+    "category": "VPush",
+    "subcategory": "Vertical Pressing",
+    "movement_pattern": "Vertical Push",
+    "equipment": "Landmine",
+    "difficulty": "Beginner",
+    "source_organization": "EXOS",
+    "description": "Single-arm overhead press in half-kneeling position, promoting core stability and shoulder health.",
+    "coaching_cues": [
+      "Front knee at 90 degrees",
+      "Press slightly forward not straight up",
+      "Keep ribs down and core engaged"
+    ],
+    "common_errors": [
+      "Leaning back excessively",
+      "Pressing straight up instead of angled",
+      "Losing core tension"
+    ],
+    "contraindications": [
+      "Knee pain (front leg)",
+      "Lower back issues",
+      "Shoulder impingement"
+    ],
+    "regressions": [
+      "Tall-Kneeling Landmine Press",
+      "Seated Landmine Press"
+    ],
+    "progressions": [
+      "Standing Landmine Press",
+      "Walking Landmine Press"
+    ],
+    "equipment_alternatives": [
+      "Single-Arm DB Press",
+      "Cable Press"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 904,
+    "name": "Z-Press",
+    "category": "VPush",
+    "subcategory": "Vertical Pressing",
+    "movement_pattern": "Vertical Push",
+    "equipment": "Dumbbells",
+    "difficulty": "Advanced",
+    "source_organization": "StrongFirst",
+    "description": "Seated overhead press with legs extended in front, demanding exceptional core and hip mobility.",
+    "coaching_cues": [
+      "Sit tall with spine elongated",
+      "Legs straight and together",
+      "Press without leaning back"
+    ],
+    "common_errors": [
+      "Leaning back to complete press",
+      "Rounding lower back",
+      "Spreading legs for stability"
+    ],
+    "contraindications": [
+      "Poor hip mobility",
+      "Lower back issues",
+      "Hamstring tightness"
+    ],
+    "regressions": [
+      "Seated DB Press (bench)",
+      "Half-Kneeling Landmine Press"
+    ],
+    "progressions": [
+      "Double Kettlebell Z-Press",
+      "Barbell Z-Press"
+    ],
+    "equipment_alternatives": [
+      "Seated KB Press",
+      "Landmine Press"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 905,
+    "name": "Meadows Row",
+    "category": "HPull",
+    "subcategory": "Horizontal Pulling",
+    "movement_pattern": "Horizontal Pull",
+    "equipment": "Barbell",
+    "difficulty": "Intermediate",
+    "source_organization": "John Meadows",
+    "description": "Single-arm barbell row with unique stance and grip, targeting lats and mid-back.",
+    "coaching_cues": [
+      "Staggered stance with front foot forward",
+      "Grip barbell end with towel or fat grip",
+      "Pull toward hip not chest"
+    ],
+    "common_errors": [
+      "Rotating torso excessively",
+      "Pulling toward chest instead of hip",
+      "Using momentum"
+    ],
+    "contraindications": [
+      "Lower back issues",
+      "Shoulder instability",
+      "Hip problems"
+    ],
+    "regressions": [
+      "Single-Arm DB Row",
+      "Chest-Supported Row"
+    ],
+    "progressions": [
+      "Heavy Meadows Row",
+      "Paused Meadows Row"
+    ],
+    "equipment_alternatives": [
+      "T-Bar Row",
+      "Single-Arm Cable Row"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 906,
+    "name": "Face Pull",
+    "category": "HPull",
+    "subcategory": "Horizontal Pulling",
+    "movement_pattern": "Horizontal Pull",
+    "equipment": "Cable Machine",
+    "difficulty": "Beginner",
+    "source_organization": "EXOS",
+    "description": "High cable pull targeting rear delts and external rotators for shoulder health.",
+    "coaching_cues": [
+      "Rope attachment at eye level",
+      "Pull toward forehead with external rotation",
+      "Squeeze shoulder blades together"
+    ],
+    "common_errors": [
+      "Pulling too low",
+      "Not externally rotating",
+      "Using too much weight"
+    ],
+    "contraindications": [
+      "Shoulder impingement (acute)",
+      "Rotator cuff tear"
+    ],
+    "regressions": [
+      "Band Face Pull",
+      "Light Cable Face Pull"
+    ],
+    "progressions": [
+      "Single-Arm Face Pull",
+      "Paused Face Pull"
+    ],
+    "equipment_alternatives": [
+      "Band Face Pull",
+      "Reverse Fly"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 907,
+    "name": "Archer Pull-Up",
+    "category": "VPull",
+    "subcategory": "Vertical Pulling",
+    "movement_pattern": "Vertical Pull",
+    "equipment": "Pull-Up Bar",
+    "difficulty": "Advanced",
+    "source_organization": "Calisthenics",
+    "description": "Asymmetric pull-up progressing toward one-arm pull-up, building unilateral strength.",
+    "coaching_cues": [
+      "Wide grip on bar",
+      "Pull to one side while keeping other arm straight",
+      "Control descent"
+    ],
+    "common_errors": [
+      "Not going full range",
+      "Swinging or kipping",
+      "Rushing the movement"
+    ],
+    "contraindications": [
+      "Elbow tendonitis",
+      "Shoulder instability",
+      "Lat strain"
+    ],
+    "regressions": [
+      "Assisted Archer Pull-Up",
+      "Typewriter Pull-Up"
+    ],
+    "progressions": [
+      "One-Arm Pull-Up",
+      "Weighted Archer Pull-Up"
+    ],
+    "equipment_alternatives": [
+      "Archer Lat Pulldown",
+      "Single-Arm Pull-Up (assisted)"
+    ],
+    "is_pain_safe": false,
+    "created_at": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": 908,
+    "name": "Commando Pull-Up",
+    "category": "VPull",
+    "subcategory": "Vertical Pulling",
+    "movement_pattern": "Vertical Pull",
+    "equipment": "Pull-Up Bar",
+    "difficulty": "Intermediate",
+    "source_organization": "Military Training",
+    "description": "Pull-up with hands close together, alternating sides to develop unilateral pulling strength.",
+    "coaching_cues": [
+      "Hands close together on bar",
+      "Pull head to alternating sides of bar",
+      "Keep body straight"
+    ],
+    "common_errors": [
+      "Twisting body excessively",
+      "Not alternating sides",
+      "Incomplete range of motion"
+    ],
+    "contraindications": [
+      "Shoulder impingement",
+      "Elbow issues",
+      "Wrist pain"
+    ],
+    "regressions": [
+      "Commando Lat Pulldown",
+      "Assisted Commando Pull-Up"
+    ],
+    "progressions": [
+      "Weighted Commando Pull-Up",
+      "Archer Pull-Up"
+    ],
+    "equipment_alternatives": [
+      "Neutral-Grip Pull-Up",
+      "Single-Arm Lat Pulldown"
+    ],
+    "is_pain_safe": true,
+    "created_at": "2024-01-15T00:00:00Z"
   }
 ]

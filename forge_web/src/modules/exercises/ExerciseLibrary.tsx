@@ -15,11 +15,11 @@ const CATEGORY_GROUPS: Record<string, { name: string; icon: string; description:
   'SLKD': { name: 'Single Leg - Knee Dominant', icon: '🦵', description: 'Single leg squats, step-ups' },
   'SLHD': { name: 'Single Leg - Hip Dominant', icon: '🍑', description: 'Single leg deadlifts, bridges' },
   // Upper Body Push
-  'HPush': { name: 'Horizontal Push', icon: '➡️', description: 'Push-ups, bench press variations' },
-  'VPush': { name: 'Vertical Push', icon: '⬆️', description: 'Overhead press, push press' },
+  'HPush': { name: 'Horizontal Push', icon: '👊', description: 'Push-ups, bench press, horizontal pressing' },
+  'VPush': { name: 'Vertical Push', icon: '🙌', description: 'Overhead press, push press, vertical pressing' },
   // Upper Body Pull
-  'HPull': { name: 'Horizontal Pull', icon: '⬅️', description: 'Rows, face pulls' },
-  'VPull': { name: 'Vertical Pull', icon: '⬇️', description: 'Pull-ups, lat pulldowns' },
+  'HPull': { name: 'Horizontal Pull', icon: '🤸', description: 'Rows, face pulls, horizontal pulling' },
+  'VPull': { name: 'Vertical Pull', icon: '🧗', description: 'Pull-ups, lat pulldowns, vertical pulling' },
   // Core
   'Core': { name: 'Core & Stability', icon: '🎯', description: 'Anti-rotation, planks, carries' },
   'Carry': { name: 'Carries', icon: '🏋️', description: 'Farmer walks, suitcase carries' },
