@@ -664,19 +664,27 @@ export default function ExerciseLibraryPage() {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">📈 Progressions</h3>
-                  <ul className="list-disc list-inside space-y-1 text-green-700 text-sm">
-                    {selectedExercise.progressions.map((prog, idx) => (
-                      <li key={idx}>{prog}</li>
-                    ))}
-                  </ul>
+                  {selectedExercise.progressions && selectedExercise.progressions.length > 0 ? (
+                    <ul className="list-disc list-inside space-y-1 text-green-700 text-sm">
+                      {selectedExercise.progressions.map((prog, idx) => (
+                        <li key={idx}>{prog}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-400 text-sm italic">No progressions available</p>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">📉 Regressions</h3>
-                  <ul className="list-disc list-inside space-y-1 text-blue-700 text-sm">
-                    {selectedExercise.regressions.map((reg, idx) => (
-                      <li key={idx}>{reg}</li>
-                    ))}
-                  </ul>
+                  {selectedExercise.regressions && selectedExercise.regressions.length > 0 ? (
+                    <ul className="list-disc list-inside space-y-1 text-blue-700 text-sm">
+                      {selectedExercise.regressions.map((reg, idx) => (
+                        <li key={idx}>{reg}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-400 text-sm italic">No regressions available</p>
+                  )}
                 </div>
               </div>
 
@@ -696,13 +704,24 @@ export default function ExerciseLibraryPage() {
                 )}
               </div>
 
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedExercise(null)}
-                className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-              >
-                Close
-              </button>
+              {/* Action Buttons */}
+              <div className="flex gap-3 pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => {
+                    addToWorkout(selectedExercise);
+                    setSelectedExercise(null);
+                  }}
+                  className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
+                >
+                  Add to Workout
+                </button>
+                <button
+                  onClick={() => setSelectedExercise(null)}
+                  className="px-6 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors font-medium"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
