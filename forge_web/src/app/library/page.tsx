@@ -19,12 +19,23 @@ export default function ExerciseLibraryPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [filterOptions, setFilterOptions] = useState<{
+    categories: string[];
+    movementPatterns: string[];
+    equipment: string[];
+    difficulties: string[];
+    sources: string[];
+  } | null>(null);
   
   const [filters, setFilters] = useState<ExerciseFilters>({
     search_query: '',
     category: undefined,
     difficulty_level: undefined,
-    force_vector: undefined
+    force_vector: undefined,
+    equipment: undefined,
+    movement_pattern: undefined,
+    has_coaching_cues: undefined
   });
 
   // Load favorites from localStorage
@@ -33,6 +44,19 @@ export default function ExerciseLibraryPage() {
     if (savedFavorites) {
       setFavorites(new Set(JSON.parse(savedFavorites)));
     }
+  }, []);
+
+  // Load filter options
+  useEffect(() => {
+    async function loadFilterOptions() {
+      try {
+        const options = await exerciseService.getFilterOptions();
+        setFilterOptions(options);
+      } catch (err) {
+        console.error('Failed to load filter options:', err);
+      }
+    }
+    loadFilterOptions();
   }, []);
 
   // Save favorites to localStorage
@@ -71,7 +95,10 @@ export default function ExerciseLibraryPage() {
       search_query: '',
       category: undefined,
       difficulty_level: undefined,
-      force_vector: undefined
+      force_vector: undefined,
+      equipment: undefined,
+      movement_pattern: undefined,
+      has_coaching_cues: undefined
     });
     setShowFavoritesOnly(false);
   }
@@ -117,11 +144,20 @@ export default function ExerciseLibraryPage() {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">📚 FORGE Exercise Library</h1>
-              <p className="mt-2 text-gray-600">
-                CSCS-Certified Exercise Database • {exercises.length} Exercises Available{showFavoritesOnly && ' (Favorites Only)'}
-              </p>
+            <div className="flex items-center gap-4">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900">📚 FORGE Exercise Library</h1>
+                <p className="mt-2 text-gray-600">
+                  CSCS-Certified Exercise Database • {exercises.length} Exercises Available{showFavoritesOnly && ' (Favorites Only)'}
+                </p>
+              </div>
+              {/* Mobile Sidebar Toggle */}
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="lg:hidden p-2 text-gray-500 hover:text-gray-700"
+              >
+                🔍
+              </button>
             </div>
             <div className="flex items-center gap-3">
               {/* View Mode Toggle */}
@@ -156,9 +192,17 @@ export default function ExerciseLibraryPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           
           {/* Filters Sidebar */}
-          <div className="lg:col-span-1 space-y-4">
+          <div className={`lg:col-span-1 space-y-4 transition-all duration-300 ${sidebarOpen ? 'block' : 'hidden lg:block'}`}>
             <div className="bg-white rounded-lg shadow p-4">
-              <h2 className="font-semibold text-gray-900 mb-4">🔍 Filters</h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-semibold text-gray-900">🔍 Filters</h2>
+                <button
+                  onClick={() => setSidebarOpen(false)}
+                  className="lg:hidden text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
+              </div>
               
               {/* Search */}
               <div className="mb-4">
@@ -177,16 +221,34 @@ export default function ExerciseLibraryPage() {
               {/* Category Filter */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Category
+                  Movement Pattern
                 </label>
                 <select
                   value={filters.category || ''}
                   onChange={(e) => updateFilter('category', e.target.value || undefined)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">All Categories</option>
+                  <option value="">All Patterns</option>
                   {EXERCISE_CATEGORIES.map(cat => (
                     <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Equipment Filter */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Equipment
+                </label>
+                <select
+                  value={filters.equipment || ''}
+                  onChange={(e) => updateFilter('equipment', e.target.value || undefined)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  disabled={!filterOptions}
+                >
+                  <option value="">All Equipment</option>
+                  {filterOptions?.equipment.map(eq => (
+                    <option key={eq} value={eq}>{eq}</option>
                   ))}
                 </select>
               </div>
@@ -225,6 +287,19 @@ export default function ExerciseLibraryPage() {
                 </select>
               </div>
 
+              {/* Has Coaching Cues Toggle */}
+              <div className="mb-4">
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={filters.has_coaching_cues || false}
+                    onChange={(e) => updateFilter('has_coaching_cues', e.target.checked || undefined)}
+                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  />
+                  Has Coaching Cues
+                </label>
+              </div>
+
               {/* Clear Filters Button */}
               <button
                 onClick={clearFilters}
@@ -232,6 +307,14 @@ export default function ExerciseLibraryPage() {
               >
                 Clear All Filters
               </button>
+
+              {/* Active Filters Count */}
+              <div className="mt-3 pt-3 border-t border-gray-200">
+                <p className="text-xs text-gray-500">
+                  Active filters:{' '}
+                  {[filters.category, filters.equipment, filters.difficulty_level, filters.force_vector, filters.has_coaching_cues].filter(Boolean).length}
+                </p>
+              </div>
             </div>
 
             {/* Stats */}

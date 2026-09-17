@@ -33,6 +33,10 @@ export interface ExerciseFilters {
   source_organization?: string;
   is_pain_safe?: boolean;
   search?: string;
+  search_query?: string;
+  difficulty_level?: string;
+  force_vector?: string;
+  has_coaching_cues?: boolean;
 }
 
 const USE_LOCAL_DATA = true; // Offline-first: use local JSON by default
@@ -150,15 +154,21 @@ function filterExercises(exercises: Exercise[], filters: ExerciseFilters): Exerc
     if (filters.subcategory && exercise.subcategory !== filters.subcategory) return false;
     if (filters.movement_pattern && exercise.movement_pattern !== filters.movement_pattern) return false;
     if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
+    if (filters.difficulty_level && exercise.difficulty !== filters.difficulty_level) return false;
     if (filters.is_pain_safe !== undefined && exercise.is_pain_safe !== filters.is_pain_safe) return false;
     if (filters.equipment && !exercise.equipment.toLowerCase().includes(filters.equipment.toLowerCase())) return false;
     if (filters.source_organization && !exercise.source_organization.includes(filters.source_organization)) return false;
-    if (filters.search) {
-      const query = filters.search.toLowerCase();
-      const matchesName = exercise.name.toLowerCase().includes(query);
-      const matchesCategory = exercise.category.toLowerCase().includes(query);
-      const matchesEquipment = exercise.equipment.toLowerCase().includes(query);
-      if (!matchesName && !matchesCategory && !matchesEquipment) return false;
+    if (filters.force_vector && exercise.movement_pattern !== filters.force_vector) return false;
+    if (filters.has_coaching_cues && (!exercise.coaching_cues || exercise.coaching_cues.length === 0)) return false;
+    
+    // Search across multiple fields
+    const searchTerm = (filters.search || filters.search_query || '').toLowerCase();
+    if (searchTerm) {
+      const matchesName = exercise.name.toLowerCase().includes(searchTerm);
+      const matchesCategory = exercise.category.toLowerCase().includes(searchTerm);
+      const matchesEquipment = exercise.equipment.toLowerCase().includes(searchTerm);
+      const matchesDescription = exercise.description.toLowerCase().includes(searchTerm);
+      if (!matchesName && !matchesCategory && !matchesEquipment && !matchesDescription) return false;
     }
     return true;
   });
