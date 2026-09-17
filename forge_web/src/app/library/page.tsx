@@ -219,26 +219,24 @@ export default function ExerciseLibraryPage() {
   }
 
   function addToWorkout(exercise: Exercise) {
-    // Get existing workout plan from localStorage
-    const existing = localStorage.getItem('forge_current_workout');
-    const workout = existing ? JSON.parse(existing) : [];
-    
-    // Add exercise if not already present
-    if (!workout.find((e: any) => e.id === exercise.id)) {
-      workout.push({
+    // Dispatch custom event for WorkoutBuilder to catch
+    window.dispatchEvent(new CustomEvent('forge-add-to-workout', {
+      detail: {
         id: exercise.id,
         name: exercise.name,
+        category: exercise.category,
         sets: 3,
         reps: '8-12',
+        load: '',
+        rest: 60,
         notes: ''
-      });
-      localStorage.setItem('forge_current_workout', JSON.stringify(workout));
-      
-      // Show toast notification
-      alert(`✅ "${exercise.name}" added to workout!`);
-    } else {
-      alert(`ℹ️ "${exercise.name}" is already in your workout.`);
-    }
+      }
+    }));
+    
+    // Also switch to workout view
+    window.dispatchEvent(new CustomEvent('forge-open-workout'));
+    
+    alert(`"${exercise.name}" added to workout!`);
   }
 
   return (

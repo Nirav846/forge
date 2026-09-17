@@ -30,10 +30,11 @@ import { TeamTemplateView } from './components/team/TeamTemplateView';
 import { TeamAdaptationWizard } from './components/team/TeamAdaptationWizard';
 import { TeamLibraryDrawer } from './components/team/TeamLibraryDrawer';
 import ExerciseLibrary from './modules/exercises/ExerciseLibrary';
+import WorkoutBuilder from './components/WorkoutBuilder';
 
 export type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 type TeamStage = 'team_form' | 'team_view' | 'team_adapt' | null;
-type ViewMode = 'entry' | 'builder' | 'library';
+type ViewMode = 'entry' | 'builder' | 'library' | 'workout';
 
 export default function App() {
   const [request, setRequest] = useState<ProgramRequest>(defaultEmptyRequest);
@@ -62,6 +63,13 @@ export default function App() {
   const [overrideSaveState, setOverrideSaveState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [overrideSaveTimer, setOverrideSaveTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const [reviewSaveState, setReviewSaveState] = useState<SaveState>('idle');
+
+  // Listen for global events from Library
+  useEffect(() => {
+    const handleOpenWorkout = () => setViewMode('workout');
+    window.addEventListener('forge-open-workout', handleOpenWorkout as EventListener);
+    return () => window.removeEventListener('forge-open-workout', handleOpenWorkout as EventListener);
+  }, []);
 
   // ── Undo/Redo stack (ref avoids stale-closure + async-setter issues) ──
   const undoStack = useRef<WeekVM[][]>([]);
@@ -164,6 +172,10 @@ export default function App() {
 
   const handleOpenLibrary = useCallback(() => {
     setViewMode('library');
+  }, []);
+
+  const handleOpenWorkoutBuilder = useCallback(() => {
+    setViewMode('workout');
   }, []);
 
 
@@ -748,7 +760,15 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 flex overflow-hidden relative">
-        {viewMode === 'library' ? (
+        {viewMode === 'workout' ? (
+          <div className="flex-1 overflow-auto p-6 bg-gray-50">
+            <ErrorBoundary>
+              <WorkoutBuilder 
+                onExit={() => setViewMode('entry')}
+              />
+            </ErrorBoundary>
+          </div>
+        ) : viewMode === 'library' ? (
           <div className="flex-1 overflow-auto">
             <ErrorBoundary>
               <ExerciseLibrary />
@@ -763,6 +783,7 @@ export default function App() {
                 onStartFresh={handleStartFresh}
                 onStartTeamTemplate={handleStartTeamTemplate}
                 onOpenLibrary={() => setViewMode('library')}
+                onOpenWorkout={handleOpenWorkoutBuilder}
                 savedPrograms={savedPrograms}
               />
             </ErrorBoundary>

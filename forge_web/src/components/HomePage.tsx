@@ -94,6 +94,7 @@ interface HomePageProps {
   onStartFresh: () => void;
   onStartTeamTemplate: () => void;
   onOpenLibrary: () => void;
+  onOpenWorkout?: () => void;
   savedPrograms: SavedProgramArtifact[];
 }
 
@@ -116,7 +117,8 @@ export function HomePage({
   onSelectTemplate, 
   onStartFresh, 
   onStartTeamTemplate, 
-  onOpenLibrary, 
+  onOpenLibrary,
+  onOpenWorkout,
   savedPrograms 
 }: HomePageProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -342,6 +344,24 @@ export function HomePage({
                 <div className="text-sm text-slate-500">{allExercises.length} exercises with full coaching knowledge</div>
               </div>
               <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
+            </button>
+
+            {/* Workout Builder */}
+            <button
+              onClick={() => {
+                if (onOpenWorkout) onOpenWorkout();
+                else setLibraryOpen(true); // Fallback
+              }}
+              className="flex items-center gap-4 p-5 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 rounded-xl transition-all shadow-sm hover:shadow-md group text-left"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md">
+                <ClipboardCheck className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="font-bold text-slate-900 text-lg">Workout Builder</div>
+                <div className="text-sm text-slate-500">Create custom training sessions</div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
             </button>
           </div>
 
