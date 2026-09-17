@@ -1,13 +1,24 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Exercise, ExerciseFilters, fetchExercises, EXERCISE_CATEGORIES, DIFFICULTY_LEVELS, FORCE_VECTORS, SOURCE_ORGANIZATIONS, getDifficultyColor, getCategoryIcon } from '@/modules/exercises/exerciseService';
+import { Exercise, ExerciseFilters, exerciseService } from '@/modules/exercises/exercise.service';
+import { 
+  EXERCISE_CATEGORIES, 
+  DIFFICULTY_LEVELS, 
+  FORCE_VECTORS, 
+  SOURCE_ORGANIZATIONS, 
+  getDifficultyColor, 
+  getCategoryIcon 
+} from '@/modules/exercises/exerciseService';
 
 export default function ExerciseLibraryPage() {
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   
   const [filters, setFilters] = useState<ExerciseFilters>({
     search_query: '',
@@ -16,16 +27,33 @@ export default function ExerciseLibraryPage() {
     force_vector: undefined
   });
 
+  // Load favorites from localStorage
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem('forge_favorites');
+    if (savedFavorites) {
+      setFavorites(new Set(JSON.parse(savedFavorites)));
+    }
+  }, []);
+
+  // Save favorites to localStorage
+  useEffect(() => {
+    localStorage.setItem('forge_favorites', JSON.stringify(Array.from(favorites)));
+  }, [favorites]);
+
   useEffect(() => {
     loadExercises();
-  }, [filters]);
+  }, [filters, showFavoritesOnly]);
 
   async function loadExercises() {
     setLoading(true);
     setError(null);
     try {
-      const data = await fetchExercises(filters);
-      setExercises(data);
+      const data = await exerciseService.getExercises(filters);
+      // Filter by favorites if needed
+      const filtered = showFavoritesOnly 
+        ? data.filter(ex => favorites.has(String(ex.id)))
+        : data;
+      setExercises(filtered);
     } catch (err) {
       setError('Failed to load exercises. Please try again.');
       console.error(err);
@@ -45,6 +73,42 @@ export default function ExerciseLibraryPage() {
       difficulty_level: undefined,
       force_vector: undefined
     });
+    setShowFavoritesOnly(false);
+  }
+
+  function toggleFavorite(exerciseId: string) {
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(exerciseId)) {
+        next.delete(exerciseId);
+      } else {
+        next.add(exerciseId);
+      }
+      return next;
+    });
+  }
+
+  function addToWorkout(exercise: Exercise) {
+    // Get existing workout plan from localStorage
+    const existing = localStorage.getItem('forge_current_workout');
+    const workout = existing ? JSON.parse(existing) : [];
+    
+    // Add exercise if not already present
+    if (!workout.find((e: any) => e.id === exercise.id)) {
+      workout.push({
+        id: exercise.id,
+        name: exercise.name,
+        sets: 3,
+        reps: '8-12',
+        notes: ''
+      });
+      localStorage.setItem('forge_current_workout', JSON.stringify(workout));
+      
+      // Show toast notification
+      alert(`✅ "${exercise.name}" added to workout!`);
+    } else {
+      alert(`ℹ️ "${exercise.name}" is already in your workout.`);
+    }
   }
 
   return (
@@ -52,10 +116,39 @@ export default function ExerciseLibraryPage() {
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">📚 FORGE Exercise Library</h1>
-          <p className="mt-2 text-gray-600">
-            CSCS-Certified Exercise Database • {exercises.length} Exercises Available
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">📚 FORGE Exercise Library</h1>
+              <p className="mt-2 text-gray-600">
+                CSCS-Certified Exercise Database • {exercises.length} Exercises Available{showFavoritesOnly && ' (Favorites Only)'}
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              {/* View Mode Toggle */}
+              <div className="flex items-center bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${viewMode === 'grid' ? 'bg-white shadow text-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                >
+                  ▦ Grid
+                </button>
+                <button
+                  onClick={() => setViewMode('list')}
+                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${viewMode === 'list' ? 'bg-white shadow text-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                >
+                  ☰ List
+                </button>
+              </div>
+              {/* Favorites Filter */}
+              <button
+                onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${showFavoritesOnly ? 'bg-yellow-100 text-yellow-800 border-2 border-yellow-400' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+              >
+                <span>⭐</span>
+                <span>Favorites ({favorites.size})</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -174,43 +267,107 @@ export default function ExerciseLibraryPage() {
               </div>
             ) : exercises.length === 0 ? (
               <div className="bg-white rounded-lg shadow p-8 text-center">
-                <p className="text-gray-600">No exercises found matching your filters.</p>
+                <p className="text-gray-600">
+                  {showFavoritesOnly 
+                    ? "No favorite exercises found. Click the star icon on exercises to add them to your favorites!"
+                    : "No exercises found matching your filters."}
+                </p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className={viewMode === 'grid' ? "grid grid-cols-1 md:grid-cols-2 gap-4" : "space-y-3"}>
                 {exercises.map(exercise => (
                   <div
                     key={exercise.id}
                     onClick={() => setSelectedExercise(exercise)}
-                    className="bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow cursor-pointer"
+                    className={`bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow cursor-pointer ${viewMode === 'list' ? 'flex items-center justify-between' : ''}`}
                   >
-                    <div className="flex items-start justify-between mb-2">
-                      <h3 className="font-semibold text-gray-900 flex items-center">
-                        <span className="mr-2">{getCategoryIcon(exercise.category)}</span>
-                        {exercise.name}
-                      </h3>
+                    <div className={viewMode === 'list' ? 'flex-1' : ''}>
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="font-semibold text-gray-900 flex items-center">
+                          <span className="mr-2">{getCategoryIcon(exercise.category)}</span>
+                          {exercise.name}
+                        </h3>
+                        {viewMode === 'list' && (
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFavorite(String(exercise.id));
+                              }}
+                              className={`p-2 rounded-full hover:bg-gray-100 transition-colors ${favorites.has(String(exercise.id)) ? 'text-yellow-500' : 'text-gray-400'}`}
+                              title={favorites.has(String(exercise.id)) ? 'Remove from favorites' : 'Add to favorites'}
+                            >
+                              <svg className="w-5 h-5" fill={favorites.has(String(exercise.id)) ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                              </svg>
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                addToWorkout(exercise);
+                              }}
+                              className="p-2 rounded-full hover:bg-blue-50 text-blue-600 transition-colors"
+                              title="Add to workout"
+                            >
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                              </svg>
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(exercise.difficulty_level)}`}>
+                          {exercise.difficulty_level}
+                        </span>
+                        <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
+                          {exercise.category}
+                        </span>
+                        <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs">
+                          {exercise.force_vector}
+                        </span>
+                      </div>
+                      
+                      <div className="text-sm text-gray-600">
+                        <p className="truncate">
+                          <span className="font-medium">Source:</span> {exercise.source_organization}
+                        </p>
+                        <p className="truncate mt-1">
+                          <span className="font-medium">Equipment:</span> {exercise.equipment_needed}
+                        </p>
+                      </div>
                     </div>
                     
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(exercise.difficulty_level)}`}>
-                        {exercise.difficulty_level}
-                      </span>
-                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
-                        {exercise.category}
-                      </span>
-                      <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs">
-                        {exercise.force_vector}
-                      </span>
-                    </div>
-                    
-                    <div className="text-sm text-gray-600">
-                      <p className="truncate">
-                        <span className="font-medium">Source:</span> {exercise.source_organization}
-                      </p>
-                      <p className="truncate mt-1">
-                        <span className="font-medium">Equipment:</span> {exercise.equipment_needed}
-                      </p>
-                    </div>
+                    {viewMode === 'grid' && (
+                      <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleFavorite(String(exercise.id));
+                          }}
+                          className={`p-1.5 rounded-full hover:bg-gray-100 transition-colors ${favorites.has(String(exercise.id)) ? 'text-yellow-500' : 'text-gray-400'}`}
+                          title={favorites.has(String(exercise.id)) ? 'Remove from favorites' : 'Add to favorites'}
+                        >
+                          <svg className="w-4 h-4" fill={favorites.has(String(exercise.id)) ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            addToWorkout(exercise);
+                          }}
+                          className="p-1.5 rounded-full hover:bg-blue-50 text-blue-600 transition-colors"
+                          title="Add to workout"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          </svg>
+                        </button>
+                        <span className="ml-auto text-xs text-gray-500">Click for details →</span>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
