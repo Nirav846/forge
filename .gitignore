@@ -1,73 +1,35 @@
 ```
 # Dependencies
-__pycache__/
+node_modules/
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
+# Build artifacts
+dist/
+build/
+*.js.map
+*.ts.map
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Coverage
-.coverage
-coverage/
-htmlcov/
-
-# Build artifacts
-build/
-dist/
-
 # Editors
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Python specific
+# Logs and temp files
+*.log
+*.tmp
+
+# Python
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.py~
-*.py.class
-*.pyc.class
-*.pyo.class
-*.pyd.class
-*.py~.class
-*.py.class~
-*.pyc~
-*.pyo~
-*.pyd~
-*.py~
-*.py.class
-*.pyc.class
-*.pyo.class
-*.pyd.class
-*.py~.class
-*.py.class~
-*.pyc~
-*.pyo~
-*.pyd~
-*.py~
-
-# Cache
-.mypy_cache/
-.pytest_cache/
-__pycache__/
-*.py[cod]
-*$py.class
-*$pyc.class
-*$pyo.class
-*$pyd.class
-*$py~.class
-*$py.class~
-*$pyc~
-*$pyo~
-*$pyd~
-*$py~
-
-# System
-.DS_Store
-Thumbs.db
+.Python
+venv/
+.venv/
+.env
 ```
