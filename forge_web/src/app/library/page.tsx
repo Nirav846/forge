@@ -10,6 +10,101 @@ import {
   getDifficultyColor, 
   getCategoryIcon 
 } from '@/modules/exercises/exerciseService';
+import { Grid, Activity, Zap, Dumbbell, Award } from 'lucide-react';
+
+// --- Smart Collections Configuration ---
+type CollectionId = 'all' | 'mobility' | 'power' | 'upper' | 'lower' | 'core';
+
+interface SmartCollection {
+  id: CollectionId;
+  label: string;
+  icon: React.ElementType;
+  color: string;
+  description: string;
+  match: (ex: Exercise) => boolean;
+}
+
+const SMART_COLLECTIONS: SmartCollection[] = [
+  {
+    id: 'all',
+    label: 'All Exercises',
+    icon: Grid,
+    color: 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200',
+    description: 'Complete exercise library',
+    match: () => true,
+  },
+  {
+    id: 'mobility',
+    label: 'Mobility & Prep',
+    icon: Activity,
+    color: 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100',
+    description: 'Dynamic stretching, activation, ROM',
+    match: (ex) => {
+      const cat = ex.category as string;
+      return cat === 'Mobility' || cat === 'Activation' || 
+             ex.name.toLowerCase().includes('stretch') || 
+             ex.name.toLowerCase().includes('mobil');
+    },
+  },
+  {
+    id: 'power',
+    label: 'Power & Plyo',
+    icon: Zap,
+    color: 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100',
+    description: 'Explosive movements, jumps, throws',
+    match: (ex) => {
+      const cat = ex.category as string;
+      return cat === 'Plyometric' || cat === 'Ballistic' || cat === 'Sprint' ||
+             ex.name.toLowerCase().includes('jump') || 
+             ex.name.toLowerCase().includes('throw') ||
+             ex.name.toLowerCase().includes('ball');
+    },
+  },
+  {
+    id: 'upper',
+    label: 'Upper Body',
+    icon: Dumbbell,
+    color: 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100',
+    description: 'Push, Pull, Press variations',
+    match: (ex) => {
+      const name = ex.name.toLowerCase();
+      const fv = ex.force_vector || '';
+      return name.includes('push') || name.includes('pull') || name.includes('press') || 
+             name.includes('row') || name.includes('curl') || name.includes('dip') || 
+             name.includes('chin') || name.includes('bench') ||
+             fv.includes('Push') || fv.includes('Pull');
+    },
+  },
+  {
+    id: 'lower',
+    label: 'Lower Body',
+    icon: Activity,
+    color: 'bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100',
+    description: 'Squat, Hinge, Lunge patterns',
+    match: (ex) => {
+      const name = ex.name.toLowerCase();
+      const fv = ex.force_vector || '';
+      return name.includes('squat') || name.includes('deadlift') || name.includes('lunge') || 
+             name.includes('hinge') || name.includes('leg') || name.includes('hip') ||
+             fv.includes('Knee') || fv.includes('Hip');
+    },
+  },
+  {
+    id: 'core',
+    label: 'Core & Carry',
+    icon: Award,
+    color: 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100',
+    description: 'Anti-rotation, stability, loaded carries',
+    match: (ex) => {
+      const name = ex.name.toLowerCase();
+      const cat = ex.category as string;
+      const fv = ex.force_vector || '';
+      return name.includes('plank') || name.includes('carry') || name.includes('rotation') || 
+             name.includes('anti') || name.includes('brace') || name.includes('pallof') ||
+             cat === 'Core' || fv.includes('Rotation');
+    },
+  },
+];
 
 export default function ExerciseLibraryPage() {
   const [exercises, setExercises] = useState<Exercise[]>([]);
@@ -20,6 +115,7 @@ export default function ExerciseLibraryPage() {
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [activeCollection, setActiveCollection] = useState<CollectionId>('all');
   const [filterOptions, setFilterOptions] = useState<{
     categories: string[];
     movementPatterns: string[];
@@ -66,7 +162,7 @@ export default function ExerciseLibraryPage() {
 
   useEffect(() => {
     loadExercises();
-  }, [filters, showFavoritesOnly]);
+  }, [filters, showFavoritesOnly, activeCollection]);
 
   async function loadExercises() {
     setLoading(true);
@@ -74,9 +170,16 @@ export default function ExerciseLibraryPage() {
     try {
       const data = await exerciseService.getExercises(filters);
       // Filter by favorites if needed
-      const filtered = showFavoritesOnly 
+      let filtered = showFavoritesOnly 
         ? data.filter(ex => favorites.has(String(ex.id)))
         : data;
+      
+      // Apply Smart Collection filter
+      const collection = SMART_COLLECTIONS.find(c => c.id === activeCollection);
+      if (collection && activeCollection !== 'all') {
+        filtered = filtered.filter(ex => collection.match(ex));
+      }
+      
       setExercises(filtered);
     } catch (err) {
       setError('Failed to load exercises. Please try again.');
@@ -184,6 +287,33 @@ export default function ExerciseLibraryPage() {
                 <span>Favorites ({favorites.size})</span>
               </button>
             </div>
+          </div>
+
+          {/* Smart Collections Tabs */}
+          <div className="mt-6">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              {SMART_COLLECTIONS.map((collection) => {
+                const Icon = collection.icon;
+                const isActive = activeCollection === collection.id;
+                return (
+                  <button
+                    key={collection.id}
+                    onClick={() => setActiveCollection(collection.id)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap border transition-all ${
+                      isActive
+                        ? `${collection.color} shadow-sm`
+                        : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{collection.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-xs text-gray-500">
+              {SMART_COLLECTIONS.find(c => c.id === activeCollection)?.description}
+            </p>
           </div>
         </div>
       </div>
