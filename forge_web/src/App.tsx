@@ -24,6 +24,7 @@ import { SavedProgramsDrawer } from './components/program/SavedProgramsDrawer';
 import { ProgramDocumentView } from './components/program/ProgramDocumentView';
 import { UATRunner } from './components/UATRunner';
 import { EntryScreen, TemplateType } from './components/EntryScreen';
+import { HomePage } from './components/HomePage';
 import { TeamTemplateForm } from './components/team/TeamTemplateForm';
 import { TeamTemplateView } from './components/team/TeamTemplateView';
 import { TeamAdaptationWizard } from './components/team/TeamAdaptationWizard';
@@ -754,14 +755,14 @@ export default function App() {
             </ErrorBoundary>
           </div>
         ) : status === 'idle' && viewMode === 'entry' && !teamStage ? (
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 overflow-auto">
             <ErrorBoundary>
-              <EntryScreen
+              <HomePage
                 onSelectSource={handleSelectSource}
                 onSelectTemplate={handleSelectTemplate}
                 onStartFresh={handleStartFresh}
                 onStartTeamTemplate={handleStartTeamTemplate}
-                onOpenLibrary={handleOpenLibrary}
+                onOpenLibrary={() => setViewMode('library')}
                 savedPrograms={savedPrograms}
               />
             </ErrorBoundary>
