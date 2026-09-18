@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ProgramViewModel, ProgramStatus } from '../../types/ui';
-import { Save, Copy, FileText, Download, Printer, CheckCircle, GitCompare, Library, Clock, StickyNote, ChevronDown, Loader2, AlertCircle } from 'lucide-react';
+import { Save, Copy, FileText, Download, Printer, CheckCircle, GitCompare, Clock, StickyNote, ChevronDown, Loader2, AlertCircle, ArrowLeft } from 'lucide-react';
 import { SaveIndicator, SaveState } from '../SaveIndicator';
 
 interface ProgramWorkspaceHeaderProps {
@@ -14,6 +14,7 @@ interface ProgramWorkspaceHeaderProps {
   onPrintMode: () => void;
   onMarkReviewed: () => void;
   onCompare: () => void;
+  onBackToDashboard?: () => void;
   onUpdateNotes?: (notes: string, field: 'coach_notes' | 'internal_notes') => Promise<boolean> | void;
   coachNotes?: string;
   internalNotes?: string;
@@ -32,6 +33,7 @@ export function ProgramWorkspaceHeader({
   onPrintMode,
   onMarkReviewed,
   onCompare,
+  onBackToDashboard,
   onUpdateNotes,
   coachNotes = '',
   internalNotes = '',
@@ -79,28 +81,40 @@ export function ProgramWorkspaceHeader({
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm mb-6 overflow-hidden">
       {/* Top Main Command Bar */}
       <div className="px-5 py-4 flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-slate-100 bg-slate-50">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-xl font-bold text-slate-900 tracking-tight leading-tight">
-              {viewModel.summary.blueprint_selected}
-            </h1>
-            {status === 'reviewed' ? (
-              <span className="flex items-center gap-1 text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide border border-emerald-200">
-                <CheckCircle className="w-3 h-3" /> Reviewed
-              </span>
-            ) : status === 'draft' ? (
-               <span className="flex items-center gap-1 text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide border border-amber-200">
-                 Draft
-               </span>
-            ) : null}
-          </div>
-          
-          <div className="flex flex-wrap items-center text-sm text-slate-500 space-x-2">
-            <span className="font-semibold text-slate-800">{requestName || 'Athlete'}</span>
-            <span className="text-slate-300">&bull;</span>
-            <span>Role: <strong>{viewModel.summary.role_emphasis}</strong></span>
-            <span className="text-slate-300">&bull;</span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {new Date(viewModel.metadata.generated_at).toLocaleDateString()}</span>
+        <div className="flex items-center gap-3">
+          {onBackToDashboard && (
+            <button 
+              onClick={onBackToDashboard} 
+              className="flex items-center px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+              title="Back to Dashboard"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />
+              Back
+            </button>
+          )}
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <h1 className="text-xl font-bold text-slate-900 tracking-tight leading-tight">
+                {viewModel.summary.blueprint_selected}
+              </h1>
+              {status === 'reviewed' ? (
+                <span className="flex items-center gap-1 text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide border border-emerald-200">
+                  <CheckCircle className="w-3 h-3" /> Reviewed
+                </span>
+              ) : status === 'draft' ? (
+                 <span className="flex items-center gap-1 text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide border border-amber-200">
+                   Draft
+                 </span>
+              ) : null}
+            </div>
+            
+            <div className="flex flex-wrap items-center text-sm text-slate-500 space-x-2">
+              <span className="font-semibold text-slate-800">{requestName || 'Athlete'}</span>
+              <span className="text-slate-300">&bull;</span>
+              <span>Role: <strong>{viewModel.summary.role_emphasis}</strong></span>
+              <span className="text-slate-300">&bull;</span>
+              <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {new Date(viewModel.metadata.generated_at).toLocaleDateString()}</span>
+            </div>
           </div>
         </div>
 

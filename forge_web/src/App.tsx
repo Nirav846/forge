@@ -780,7 +780,7 @@ export default function App() {
         {viewMode === 'complexes' ? (
           <div className="flex-1 overflow-auto">
             <ErrorBoundary>
-              <ComplexesLibrary />
+              <ComplexesLibrary onExit={() => setViewMode('entry')} />
             </ErrorBoundary>
           </div>
         ) : viewMode === 'workout' ? (
@@ -794,7 +794,7 @@ export default function App() {
         ) : viewMode === 'library' ? (
           <div className="flex-1 overflow-auto">
             <ErrorBoundary>
-              <ExerciseLibrary />
+              <ExerciseLibrary onExit={() => setViewMode('entry')} />
             </ErrorBoundary>
           </div>
         ) : status === 'idle' && viewMode === 'entry' && !teamStage ? (
@@ -869,6 +869,7 @@ export default function App() {
                   onMarkReviewed={handleMarkReviewed}
                   onOpenDocument={() => setIsDocumentViewOpen(true)}
                   onDuplicate={handleDuplicate}
+                  onBackToDashboard={() => setViewMode('entry')}
                   onUpdateNotes={handleUpdateNotes}
                   coachNotes={savedPrograms.find(p => p.id === activeArtifactId)?.coach_notes ?? ''}
                   internalNotes={savedPrograms.find(p => p.id === activeArtifactId)?.internal_notes ?? ''}

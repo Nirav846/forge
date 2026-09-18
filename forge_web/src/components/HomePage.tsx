@@ -48,7 +48,7 @@ const SMART_COLLECTIONS = [
     icon: Zap,
     color: 'from-emerald-500 to-teal-600',
     description: 'Dynamic warmups and movement prep',
-    filter: (ex: any) => ex.family?.includes('Mobility') || ex.family?.includes('Prep'),
+    filter: (ex: any) => ex.category === 'Activation' || ex.subcategory?.includes('Mobility'),
     count: 0
   },
   { 
@@ -57,7 +57,7 @@ const SMART_COLLECTIONS = [
     icon: TrendingUp,
     color: 'from-orange-500 to-red-600',
     description: 'Ballistic, plyo, and speed work',
-    filter: (ex: any) => ['Ball', 'Plyo', 'Sprint'].some(k => ex.family?.includes(k)),
+    filter: (ex: any) => ['Ball', 'Plyo', 'Landing'].includes(ex.category) || ex.category === 'Explosive Performance',
     count: 0
   },
   { 
@@ -66,7 +66,7 @@ const SMART_COLLECTIONS = [
     icon: Activity,
     color: 'from-blue-500 to-indigo-600',
     description: 'Push, pull, and shoulder health',
-    filter: (ex: any) => ['HPush', 'HPull', 'VPush', 'VPull'].some(k => ex.family?.includes(k)),
+    filter: (ex: any) => ['HPush', 'VPush', 'HPull', 'VPull'].includes(ex.category),
     count: 0
   },
   { 
@@ -75,7 +75,7 @@ const SMART_COLLECTIONS = [
     icon: Target,
     color: 'from-purple-500 to-pink-600',
     description: 'Squat, hinge, and unilateral work',
-    filter: (ex: any) => ['DLKD', 'DLHD', 'SLKD', 'SLHD'].some(k => ex.family?.includes(k)),
+    filter: (ex: any) => ['DLKD', 'DLHD', 'SLKD', 'SLHD'].includes(ex.category),
     count: 0
   },
   { 
@@ -84,7 +84,7 @@ const SMART_COLLECTIONS = [
     icon: Target,
     color: 'from-cyan-500 to-blue-600',
     description: 'Anti-rotation, bracing, and loaded carries',
-    filter: (ex: any) => ['Core', 'Carry', 'Rot'].some(k => ex.family?.includes(k)),
+    filter: (ex: any) => ['Core', 'Carry', 'Rot'].includes(ex.category),
     count: 0
   },
 ];
@@ -103,7 +103,7 @@ interface HomePageProps {
 interface FavoriteExercise {
   id: string;
   name: string;
-  family: string;
+  category: string;
 }
 
 interface RecentWorkout {
@@ -147,7 +147,7 @@ export function HomePage({
         const favExercises = allExercises
           .filter(ex => favIds.includes(ex.id.toString()))
           .slice(0, 8)
-          .map(ex => ({ id: ex.id.toString(), name: ex.name, family: ex.family }));
+          .map(ex => ({ id: ex.id.toString(), name: ex.name, category: ex.category }));
         setFavorites(favExercises);
       } catch (e) {
         console.error('Failed to load favorites:', e);
@@ -453,7 +453,7 @@ export function HomePage({
                           {ex.name}
                         </div>
                         <div className="text-xs text-slate-500 group-hover:text-slate-600 mt-1">
-                          {ex.family}
+                          {ex.category}
                         </div>
                       </button>
                     ))}
