@@ -36,10 +36,11 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
 
 # Temporary files
 *.tmp
