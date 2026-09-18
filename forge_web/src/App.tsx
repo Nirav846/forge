@@ -31,10 +31,11 @@ import { TeamAdaptationWizard } from './components/team/TeamAdaptationWizard';
 import { TeamLibraryDrawer } from './components/team/TeamLibraryDrawer';
 import ExerciseLibrary from './modules/exercises/ExerciseLibrary';
 import WorkoutBuilder from './components/WorkoutBuilder';
+import ComplexesLibrary from './components/ComplexesLibrary';
 
 export type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 type TeamStage = 'team_form' | 'team_view' | 'team_adapt' | null;
-type ViewMode = 'entry' | 'builder' | 'library' | 'workout';
+type ViewMode = 'entry' | 'builder' | 'library' | 'workout' | 'complexes';
 
 export default function App() {
   const [request, setRequest] = useState<ProgramRequest>(defaultEmptyRequest);
@@ -172,6 +173,10 @@ export default function App() {
 
   const handleOpenLibrary = useCallback(() => {
     setViewMode('library');
+  }, []);
+
+  const handleOpenComplexes = useCallback(() => {
+    setViewMode('complexes');
   }, []);
 
   const handleOpenWorkoutBuilder = useCallback(() => {
@@ -760,7 +765,13 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 flex overflow-hidden relative">
-        {viewMode === 'workout' ? (
+        {viewMode === 'complexes' ? (
+          <div className="flex-1 overflow-auto">
+            <ErrorBoundary>
+              <ComplexesLibrary />
+            </ErrorBoundary>
+          </div>
+        ) : viewMode === 'workout' ? (
           <div className="flex-1 overflow-auto p-6 bg-gray-50">
             <ErrorBoundary>
               <WorkoutBuilder 
@@ -783,6 +794,7 @@ export default function App() {
                 onStartFresh={handleStartFresh}
                 onStartTeamTemplate={handleStartTeamTemplate}
                 onOpenLibrary={() => setViewMode('library')}
+                onOpenComplexes={handleOpenComplexes}
                 onOpenWorkout={handleOpenWorkoutBuilder}
                 savedPrograms={savedPrograms}
               />
