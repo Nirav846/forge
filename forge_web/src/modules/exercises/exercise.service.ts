@@ -1,7 +1,7 @@
 /**
  * Exercise Library API Service
  * Modular service for fetching and filtering exercises
- * Works with local JSON data for offline-first architecture
+ * Uses lazy-loaded JSON data for better initial bundle size
  */
 
 export interface Exercise {
@@ -41,9 +41,29 @@ export interface ExerciseFilters {
 
 const USE_LOCAL_DATA = true; // Offline-first: use local JSON by default
 
-// Load exercises from static import (Vite will bundle this)
-import exercisesData from '../../data/exercises.json';
-const exercises: Exercise[] = exercisesData as Exercise[];
+// Lazy load exercises data - will be loaded on first call
+let exercisesCache: Exercise[] | null = null;
+let exercisesLoadPromise: Promise<Exercise[]> | null = null;
+
+async function getExercisesData(): Promise<Exercise[]> {
+  if (exercisesCache) {
+    return exercisesCache;
+  }
+  
+  if (!exercisesLoadPromise) {
+    exercisesLoadPromise = import('../../data/exercises.json')
+      .then(module => {
+        exercisesCache = module.default as Exercise[];
+        return exercisesCache;
+      })
+      .catch(error => {
+        console.error('Failed to load exercises data:', error);
+        throw new Error('Failed to load exercise library');
+      });
+  }
+  
+  return exercisesLoadPromise;
+}
 
 export const exerciseService = {
   /**
@@ -52,6 +72,7 @@ export const exerciseService = {
    */
   async getExercises(filters?: ExerciseFilters): Promise<Exercise[]> {
     try {
+      const exercises = await getExercisesData();
       // Apply client-side filtering
       return filterExercises(exercises, filters || {});
     } catch (error) {
@@ -65,6 +86,7 @@ export const exerciseService = {
    */
   async getExerciseById(id: number | string): Promise<Exercise> {
     try {
+      const exercises = await getExercisesData();
       const exercise = exercises.find((e: Exercise) => String(e.id) === String(id));
       if (!exercise) throw new Error('Exercise not found');
       return exercise;
@@ -85,6 +107,7 @@ export const exerciseService = {
     sources: string[];
   }> {
     try {
+      const exercises = await getExercisesData();
       return {
         categories: [...new Set(exercises.map(e => e.category))].sort(),
         movementPatterns: [...new Set(exercises.map(e => e.movement_pattern))].sort(),
@@ -109,6 +132,7 @@ export const exerciseService = {
    */
   async searchExercises(query: string): Promise<Exercise[]> {
     try {
+      const exercises = await getExercisesData();
       const queryLower = query.toLowerCase();
       
       return exercises.filter(exercise => 
@@ -127,6 +151,7 @@ export const exerciseService = {
    * Get pain-safe exercises for return-to-play
    */
   async getPainSafeExercises(): Promise<Exercise[]> {
+    const exercises = await getExercisesData();
     return filterExercises(exercises, { is_pain_safe: true });
   },
 
@@ -134,6 +159,7 @@ export const exerciseService = {
    * Get exercises by movement pattern
    */
   async getByMovementPattern(pattern: string): Promise<Exercise[]> {
+    const exercises = await getExercisesData();
     return filterExercises(exercises, { movement_pattern: pattern });
   },
 
@@ -141,6 +167,7 @@ export const exerciseService = {
    * Get exercises by category
    */
   async getByCategory(category: string): Promise<Exercise[]> {
+    const exercises = await getExercisesData();
     return filterExercises(exercises, { category });
   },
 };

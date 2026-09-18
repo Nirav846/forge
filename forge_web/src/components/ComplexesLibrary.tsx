@@ -1,10 +1,13 @@
+/**
+ * Complexes Library with lazy-loaded data
+ * Improves initial bundle size by loading complexes data on demand
+ */
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Filter, Search, Activity, Zap, Shield, Clock, 
   ChevronRight, X, CheckCircle, Dumbbell, Users, 
   TrendingUp, Award, PlayCircle, PlusCircle 
 } from 'lucide-react';
-import complexesData from '../data/complexes.json';
 
 interface Complex {
   id: string;
@@ -37,6 +40,10 @@ interface ComplexesLibraryProps {
 }
 
 const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
+  const [complexesData, setComplexesData] = useState<Complex[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  
   const [filters, setFilters] = useState<FilterState>({
     sport: 'All',
     role: 'All',
@@ -48,10 +55,55 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
   const [selectedComplex, setSelectedComplex] = useState<Complex | null>(null);
   const [availableRoles, setAvailableRoles] = useState<string[]>([]);
 
+  // Lazy load complexes data
+  useEffect(() => {
+    const loadComplexes = async () => {
+      try {
+        setIsLoading(true);
+        const response = await import('../data/complexes.json');
+        setComplexesData(response.default as Complex[]);
+        setLoadError(null);
+      } catch (error) {
+        console.error('Failed to load complexes data:', error);
+        setLoadError('Failed to load complexes library');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    loadComplexes();
+  }, []);
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mb-4"></div>
+        <p className="text-gray-600 font-medium">Loading Complexes Library...</p>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (loadError) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-red-50">
+        <div className="text-red-500 text-5xl mb-4">⚠️</div>
+        <h3 className="text-lg font-bold text-red-800 mb-2">{loadError}</h3>
+        <button
+          onClick={() => window.location.reload()}
+          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors mt-4"
+        >
+          Reload Page
+        </button>
+      </div>
+    );
+  }
+
   // Extract unique values for filters
-  const sports = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.sport)))], []);
-  const planes = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.plane)))], []);
-  const intents = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.intent)))], []);
+  const sports = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.sport)))], [complexesData]);
+  const planes = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.plane)))], [complexesData]);
+  const intents = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.intent)))], [complexesData]);
 
   // Update available roles when sport changes
   useEffect(() => {
