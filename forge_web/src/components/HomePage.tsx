@@ -94,6 +94,7 @@ interface HomePageProps {
   onStartFresh: () => void;
   onStartTeamTemplate: () => void;
   onOpenLibrary: () => void;
+  onOpenComplexes?: () => void;
   onOpenWorkout?: () => void;
   savedPrograms: SavedProgramArtifact[];
 }
@@ -118,6 +119,7 @@ export function HomePage({
   onStartFresh, 
   onStartTeamTemplate, 
   onOpenLibrary,
+  onOpenComplexes,
   onOpenWorkout,
   savedPrograms 
 }: HomePageProps) {
@@ -344,6 +346,24 @@ export function HomePage({
                 <div className="text-sm text-slate-500">{allExercises.length} exercises with full coaching knowledge</div>
               </div>
               <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
+            </button>
+
+            {/* Complexes Library */}
+            <button
+              onClick={() => {
+                if (onOpenComplexes) onOpenComplexes();
+                else setLibraryOpen(true); // Fallback
+              }}
+              className="flex items-center gap-4 p-5 bg-white border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 rounded-xl transition-all shadow-sm hover:shadow-md group text-left"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md">
+                <Activity className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="font-bold text-slate-900 text-lg">Sport Complexes</div>
+                <div className="text-sm text-slate-500">210 role-specific multi-exercise sequences</div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" />
             </button>
 
             {/* Workout Builder */}

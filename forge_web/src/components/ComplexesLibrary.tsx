@@ -1,0 +1,488 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { 
+  Filter, Search, Activity, Zap, Shield, Clock, 
+  ChevronRight, X, CheckCircle, Dumbbell, Users, 
+  TrendingUp, Award, PlayCircle, PlusCircle 
+} from 'lucide-react';
+import complexesData from '../data/complexes.json';
+
+interface Complex {
+  id: string;
+  name: string;
+  sport: string;
+  role: string;
+  plane: string;
+  intent: string;
+  description: string;
+  exercises: Array<{
+    id: string;
+    sets: number;
+    reps: string;
+    rest: number;
+  }>;
+  coachingNotes: string;
+  equipment: string[];
+}
+
+interface FilterState {
+  sport: string;
+  role: string;
+  plane: string;
+  intent: string;
+  search: string;
+}
+
+const ComplexesLibrary: React.FC = () => {
+  const [filters, setFilters] = useState<FilterState>({
+    sport: 'All',
+    role: 'All',
+    plane: 'All',
+    intent: 'All',
+    search: ''
+  });
+  
+  const [selectedComplex, setSelectedComplex] = useState<Complex | null>(null);
+  const [availableRoles, setAvailableRoles] = useState<string[]>([]);
+
+  // Extract unique values for filters
+  const sports = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.sport)))], []);
+  const planes = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.plane)))], []);
+  const intents = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.intent)))], []);
+
+  // Update available roles when sport changes
+  useEffect(() => {
+    if (filters.sport === 'All') {
+      setAvailableRoles(['All', ...Array.from(new Set(complexesData.map(c => c.role)))]);
+    } else {
+      const sportRoles = complexesData
+        .filter(c => c.sport === filters.sport)
+        .map(c => c.role);
+      setAvailableRoles(['All', ...Array.from(new Set(sportRoles))]);
+      
+      // Reset role if current selection is not available
+      if (filters.role !== 'All' && !sportRoles.includes(filters.role)) {
+        setFilters(prev => ({ ...prev, role: 'All' }));
+      }
+    }
+  }, [filters.sport]);
+
+  // Filter complexes
+  const filteredComplexes = useMemo(() => {
+    return complexesData.filter(complex => {
+      const matchesSport = filters.sport === 'All' || complex.sport === filters.sport;
+      const matchesRole = filters.role === 'All' || complex.role === filters.role;
+      const matchesPlane = filters.plane === 'All' || complex.plane === filters.plane;
+      const matchesIntent = filters.intent === 'All' || complex.intent === filters.intent;
+      const matchesSearch = filters.search === '' || 
+        complex.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+        complex.description.toLowerCase().includes(filters.search.toLowerCase());
+      
+      return matchesSport && matchesRole && matchesPlane && matchesIntent && matchesSearch;
+    });
+  }, [filters]);
+
+  const getBadgeColor = (type: string, value: string) => {
+    const colors: Record<string, Record<string, string>> = {
+      sport: {
+        Cricket: 'bg-blue-100 text-blue-800 border-blue-200',
+        Tennis: 'bg-green-100 text-green-800 border-green-200',
+        Badminton: 'bg-red-100 text-red-800 border-red-200',
+        Football: 'bg-orange-100 text-orange-800 border-orange-200',
+        Rugby: 'bg-purple-100 text-purple-800 border-purple-200'
+      },
+      plane: {
+        Sagittal: 'bg-blue-50 text-blue-700 border-blue-200',
+        Frontal: 'bg-green-50 text-green-700 border-green-200',
+        Transverse: 'bg-purple-50 text-purple-700 border-purple-200',
+        'Multi-Planar': 'bg-indigo-50 text-indigo-700 border-indigo-200'
+      },
+      intent: {
+        Preparation: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+        Power: 'bg-red-50 text-red-700 border-red-200',
+        Stability: 'bg-blue-50 text-blue-700 border-blue-200',
+        Agility: 'bg-orange-50 text-orange-700 border-orange-200',
+        Conditioning: 'bg-purple-50 text-purple-700 border-purple-200',
+        Recovery: 'bg-green-50 text-green-700 border-green-200'
+      }
+    };
+    return colors[type]?.[value] || 'bg-gray-100 text-gray-800 border-gray-200';
+  };
+
+  const getIcon = (intent: string) => {
+    switch(intent) {
+      case 'Preparation': return <Activity className="w-4 h-4" />;
+      case 'Power': return <Zap className="w-4 h-4" />;
+      case 'Stability': return <Shield className="w-4 h-4" />;
+      case 'Agility': return <TrendingUp className="w-4 h-4" />;
+      case 'Conditioning': return <Clock className="w-4 h-4" />;
+      case 'Recovery': return <Award className="w-4 h-4" />;
+      default: return <Activity className="w-4 h-4" />;
+    }
+  };
+
+  const handleAddToWorkout = (complex: Complex) => {
+    alert(`Added "${complex.name}" to workout!\n\nThis will add all ${complex.exercises.length} exercises with prescribed sets/reps.`);
+    setSelectedComplex(null);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-6">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900">Exercise Complexes</h1>
+                <p className="mt-1 text-sm text-gray-500">
+                  Sport-specific multi-exercise sequences for athletic performance
+                </p>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="bg-blue-50 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-blue-700">
+                    {filteredComplexes.length} Complexes
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Search Bar */}
+            <div className="relative mb-4">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search complexes by name or description..."
+                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                value={filters.search}
+                onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
+              />
+            </div>
+
+            {/* Filters */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {/* Sport Filter */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Sport</label>
+                <select
+                  value={filters.sport}
+                  onChange={(e) => setFilters(prev => ({ ...prev, sport: e.target.value }))}
+                  className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                >
+                  {sports.map(sport => (
+                    <option key={sport} value={sport}>{sport}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Role Filter */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                <select
+                  value={filters.role}
+                  onChange={(e) => setFilters(prev => ({ ...prev, role: e.target.value }))}
+                  disabled={filters.sport === 'All' ? false : availableRoles.length <= 1}
+                  className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md disabled:bg-gray-100"
+                >
+                  {availableRoles.map(role => (
+                    <option key={role} value={role}>{role}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Plane Filter */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Plane of Motion</label>
+                <select
+                  value={filters.plane}
+                  onChange={(e) => setFilters(prev => ({ ...prev, plane: e.target.value }))}
+                  className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                >
+                  {planes.map(plane => (
+                    <option key={plane} value={plane}>{plane}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Intent Filter */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Training Intent</label>
+                <select
+                  value={filters.intent}
+                  onChange={(e) => setFilters(prev => ({ ...prev, intent: e.target.value }))}
+                  className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                >
+                  {intents.map(intent => (
+                    <option key={intent} value={intent}>{intent}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Active Filters */}
+            {(filters.sport !== 'All' || filters.role !== 'All' || filters.plane !== 'All' || filters.intent !== 'All' || filters.search) && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {filters.sport !== 'All' && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    {filters.sport}
+                    <button onClick={() => setFilters(prev => ({ ...prev, sport: 'All' }))} className="ml-1 hover:text-blue-900">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+                {filters.role !== 'All' && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    {filters.role}
+                    <button onClick={() => setFilters(prev => ({ ...prev, role: 'All' }))} className="ml-1 hover:text-green-900">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+                {filters.plane !== 'All' && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                    {filters.plane}
+                    <button onClick={() => setFilters(prev => ({ ...prev, plane: 'All' }))} className="ml-1 hover:text-purple-900">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+                {filters.intent !== 'All' && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                    {filters.intent}
+                    <button onClick={() => setFilters(prev => ({ ...prev, intent: 'All' }))} className="ml-1 hover:text-orange-900">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+                {filters.search && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    "{filters.search}"
+                    <button onClick={() => setFilters(prev => ({ ...prev, search: '' }))} className="ml-1 hover:text-gray-900">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+                <button
+                  onClick={() => setFilters({ sport: 'All', role: 'All', plane: 'All', intent: 'All', search: '' })}
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-700 hover:bg-gray-300"
+                >
+                  Clear All
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {filteredComplexes.length === 0 ? (
+          <div className="text-center py-12">
+            <Users className="mx-auto h-12 w-12 text-gray-400" />
+            <h3 className="mt-2 text-sm font-medium text-gray-900">No complexes found</h3>
+            <p className="mt-1 text-sm text-gray-500">Try adjusting your filters or search terms.</p>
+            <button
+              onClick={() => setFilters({ sport: 'All', role: 'All', plane: 'All', intent: 'All', search: '' })}
+              className="mt-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+            >
+              Clear all filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredComplexes.map(complex => (
+              <div key={complex.id} className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+                <div className="p-6">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">{complex.name}</h3>
+                      <p className="text-sm text-gray-500 mt-1">{complex.role} • {complex.sport}</p>
+                    </div>
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBadgeColor('sport', complex.sport)}`}>
+                      {complex.sport}
+                    </span>
+                  </div>
+
+                  {/* Badges */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBadgeColor('plane', complex.plane)}`}>
+                      {complex.plane}
+                    </span>
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBadgeColor('intent', complex.intent)}`}>
+                      {getIcon(complex.intent)}
+                      <span className="ml-1">{complex.intent}</span>
+                    </span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">{complex.description}</p>
+
+                  {/* Exercise Preview */}
+                  <div className="mb-4">
+                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Exercises</h4>
+                    <div className="space-y-2">
+                      {complex.exercises.slice(0, 3).map((exercise, idx) => (
+                        <div key={idx} className="flex items-center justify-between text-sm">
+                          <span className="text-gray-700 truncate flex-1">
+                            {idx + 1}. {exercise.id}
+                          </span>
+                          <span className="text-gray-500 text-xs ml-2">
+                            {exercise.sets}x{exercise.reps}
+                          </span>
+                        </div>
+                      ))}
+                      {complex.exercises.length > 3 && (
+                        <p className="text-xs text-gray-500 italic">+{complex.exercises.length - 3} more</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <button
+                    onClick={() => setSelectedComplex(complex)}
+                    className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                    View Protocol
+                    <ChevronRight className="ml-2 w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Detail Modal */}
+      {selectedComplex && (
+        <div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            {/* Background overlay */}
+            <div 
+              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" 
+              aria-hidden="true"
+              onClick={() => setSelectedComplex(null)}
+            ></div>
+
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+              {/* Modal Header */}
+              <div className="bg-gray-50 px-4 py-3 sm:px-6 flex justify-between items-start">
+                <div>
+                  <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                    {selectedComplex.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {selectedComplex.role} • {selectedComplex.sport} • {selectedComplex.intent}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedComplex(null)}
+                  className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              {/* Modal Body */}
+              <div className="px-4 py-5 sm:p-6">
+                {/* Key Info Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <div className="text-xs font-medium text-blue-600 uppercase">Plane</div>
+                    <div className="text-sm font-semibold text-blue-900">{selectedComplex.plane}</div>
+                  </div>
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <div className="text-xs font-medium text-green-600 uppercase">Exercises</div>
+                    <div className="text-sm font-semibold text-green-900">{selectedComplex.exercises.length}</div>
+                  </div>
+                  <div className="bg-purple-50 p-3 rounded-lg">
+                    <div className="text-xs font-medium text-purple-600 uppercase">Duration</div>
+                    <div className="text-sm font-semibold text-purple-900">~15 min</div>
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg">
+                    <div className="text-xs font-medium text-orange-600 uppercase">Equipment</div>
+                    <div className="text-sm font-semibold text-orange-900">{selectedComplex.equipment.length}</div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Purpose</h4>
+                  <p className="text-sm text-gray-600">{selectedComplex.description}</p>
+                </div>
+
+                {/* Exercise List */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-gray-900 mb-3">Protocol</h4>
+                  <div className="space-y-3">
+                    {selectedComplex.exercises.map((exercise, idx) => (
+                      <div key={idx} className="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <div className="flex-shrink-0 h-8 w-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                          {idx + 1}
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-medium text-gray-900">{exercise.id}</div>
+                          <div className="text-sm text-gray-600 mt-1">
+                            <span className="font-medium">Sets:</span> {exercise.sets} • 
+                            <span className="font-medium ml-2">Reps:</span> {exercise.reps} • 
+                            <span className="font-medium ml-2">Rest:</span> {exercise.rest}s
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Coaching Notes */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Coaching Notes</h4>
+                  <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                    <p className="text-sm text-yellow-700">{selectedComplex.coachingNotes}</p>
+                  </div>
+                </div>
+
+                {/* Equipment */}
+                <div>
+                  <h4 className="text-sm font-medium text-gray-900 mb-2">Equipment Needed</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedComplex.equipment.map((item, idx) => (
+                      <span key={idx} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                        <Dumbbell className="w-3 h-3 mr-1" />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button
+                  type="button"
+                  onClick={() => handleAddToWorkout(selectedComplex)}
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                >
+                  <PlusCircle className="w-4 h-4 mr-2" />
+                  Add to Workout
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedComplex(null)}
+                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ComplexesLibrary;
