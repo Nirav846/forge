@@ -15,7 +15,8 @@ import {
   TrendingUp,
   Calendar,
   Filter,
-  Search
+  Search,
+  ClipboardCheck
 } from 'lucide-react';
 import { SavedProgramArtifact } from '../types/ui';
 import { SavedProgramsDrawer } from './program/SavedProgramsDrawer';
