@@ -32,6 +32,8 @@ import { TeamLibraryDrawer } from './components/team/TeamLibraryDrawer';
 import ExerciseLibrary from './modules/exercises/ExerciseLibrary';
 import WorkoutBuilder from './components/WorkoutBuilder';
 import ComplexesLibrary from './components/ComplexesLibrary';
+import { useAppSettings, SettingsModal } from './components/Settings/SettingsModal';
+import { Settings } from 'lucide-react';
 
 export type AppStatus = 'idle' | 'loading' | 'success' | 'error';
 type TeamStage = 'team_form' | 'team_view' | 'team_adapt' | null;
@@ -64,6 +66,10 @@ export default function App() {
   const [overrideSaveState, setOverrideSaveState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [overrideSaveTimer, setOverrideSaveTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const [reviewSaveState, setReviewSaveState] = useState<SaveState>('idle');
+
+  // Settings hook
+  const { settings, updateSettings, resetSettings, clearAllData, isLoaded } = useAppSettings();
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   // Listen for global events from Library
   useEffect(() => {
@@ -704,6 +710,12 @@ export default function App() {
         
         {/* Desktop Navigation - Hidden on mobile */}
         <div className="hidden lg:flex items-center gap-2">
+            <button 
+              onClick={() => setIsSettingsOpen(true)} 
+              className="flex items-center gap-2 text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-md transition-colors"
+            >
+               <Settings className="w-4 h-4" /> Settings
+            </button>
             <button onClick={() => setIsTeamLibraryOpen(true)} className="flex items-center gap-2 text-xs text-amber-300 hover:text-white bg-amber-900/30 hover:bg-amber-800/50 px-3 py-1.5 rounded-md transition-colors border border-amber-800/30">
                <Library className="w-4 h-4" /> Team Templates
             </button>
@@ -927,6 +939,18 @@ export default function App() {
         onClose={() => setIsTeamLibraryOpen(false)}
         onSelectTemplate={handleViewTeamTemplate}
       />
+
+      {/* Settings Modal */}
+      {isLoaded && (
+        <SettingsModal
+          isOpen={isSettingsOpen}
+          onClose={() => setIsSettingsOpen(false)}
+          settings={settings}
+          updateSettings={updateSettings}
+          resetSettings={resetSettings}
+          clearAllData={clearAllData}
+        />
+      )}
     </div>
   );
 }
