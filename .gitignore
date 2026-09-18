@@ -7,53 +7,38 @@ dist/
 build/
 target/
 
-# Environment variables
+# TypeScript/JavaScript
+*.js.map
+*.tsbuildinfo
+.nyc_output/
+coverage/
+
+# Environment
 .env
 .env.local
-.env.*
+.env.
 
-# Python specific
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.ENV
-
-# Logs
-*.log
-
-# IDE files
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# OS generated files
-.DS_Store
-Thumbs.db
+# Logs
+*.log
 
-# Temporary files
+# Temp files
 *.tmp
-*.temp
-*.bak
-*.backup
 
-# Temporary files
-*.tmp
-*.temp
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
+# Python (if applicable)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
 ```
