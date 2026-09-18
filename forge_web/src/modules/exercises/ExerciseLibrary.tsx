@@ -1,6 +1,7 @@
 /**
  * Exercise Library Page
  * Browse, filter, and search all exercises with left navigation panel
+ * Uses lazy-loaded data for better initial bundle size
  */
 
 import React, { useState, useEffect, useMemo } from 'react';
