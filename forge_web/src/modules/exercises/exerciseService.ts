@@ -4,8 +4,30 @@
  */
 
 import exerciseService, { Exercise, ExerciseFilters } from './exercise.service';
+import { 
+  SUPER_CATEGORIES, 
+  ENHANCED_CATEGORIES, 
+  CURATED_COLLECTIONS,
+  normalizeEquipment,
+  getEquipmentDisplay,
+  categorizeMovementPattern,
+  getMuscleGroups,
+  getSuperCategoryByCategoryId
+} from '../../data/exerciseOrganization';
 
 export type { Exercise, ExerciseFilters };
+
+// Re-export organization utilities
+export { 
+  SUPER_CATEGORIES, 
+  ENHANCED_CATEGORIES, 
+  CURATED_COLLECTIONS,
+  normalizeEquipment,
+  getEquipmentDisplay,
+  categorizeMovementPattern,
+  getMuscleGroups,
+  getSuperCategoryByCategoryId
+};
 
 export const EXERCISE_CATEGORIES = [
   'DLKD', 'DLHD', 'SLKD', 'SLHD',
