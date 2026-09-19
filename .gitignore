@@ -1,44 +1,33 @@
 ```
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+
 # Dependencies
-node_modules/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
 
-# Build outputs
-dist/
-build/
-target/
-
-# TypeScript/JavaScript
-*.js.map
-*.tsbuildinfo
-.nyc_output/
-coverage/
+# Logs and temp files
+*.log
+*.tmp
 
 # Environment
 .env
 .env.local
-.env.
+*.env.*
+
+# Coverage reports
+.coverage
+coverage/
+htmlcov/
 
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Logs
-*.log
-
-# Temp files
-*.tmp
-
-# Python (if applicable)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-.coverage
-htmlcov/
-.pytest_cache/
-.mypy_cache/
+# OS generated files
+.DS_Store
+Thumbs.db
 ```
