@@ -801,13 +801,13 @@ export default function App() {
         {viewMode === 'complexes' ? (
           <div className="flex-1 overflow-auto">
             <ErrorBoundary>
-              <ComplexesLibrary onExit={() => setViewMode('entry')} />
+              <LazyComplexesLibrary onExit={() => setViewMode('entry')} />
             </ErrorBoundary>
           </div>
         ) : viewMode === 'workout' ? (
           <div className="flex-1 overflow-auto p-6 bg-gray-50">
             <ErrorBoundary>
-              <WorkoutBuilder 
+              <LazyWorkoutBuilder 
                 onExit={() => setViewMode('entry')}
               />
             </ErrorBoundary>
@@ -815,7 +815,7 @@ export default function App() {
         ) : viewMode === 'library' ? (
           <div className="flex-1 overflow-auto">
             <ErrorBoundary>
-              <ExerciseLibrary onExit={() => setViewMode('entry')} />
+              <LazyExerciseLibrary onExit={() => setViewMode('entry')} />
             </ErrorBoundary>
           </div>
         ) : status === 'idle' && viewMode === 'entry' && !teamStage ? (
