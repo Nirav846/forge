@@ -51,9 +51,13 @@ async function getExercisesData(): Promise<Exercise[]> {
   }
   
   if (!exercisesLoadPromise) {
-    exercisesLoadPromise = import('/forge/data/exercises.json')
-      .then(module => {
-        exercisesCache = module.default as Exercise[];
+    exercisesLoadPromise = fetch('/forge/data/exercises.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load exercises');
+        return response.json();
+      })
+      .then(data => {
+        exercisesCache = data as Exercise[];
         return exercisesCache;
       })
       .catch(error => {
