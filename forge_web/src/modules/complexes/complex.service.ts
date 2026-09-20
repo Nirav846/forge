@@ -31,7 +31,7 @@ class ComplexService {
     if (this.loaded) return;
     
     try {
-      const response = await fetch('/data/complexes.json');
+      const response = await fetch('/forge/data/complexes.json');
       if (!response.ok) throw new Error('Failed to load complexes');
       this.complexes = await response.json();
       this.loaded = true;
