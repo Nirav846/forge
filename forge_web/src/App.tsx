@@ -20,7 +20,7 @@ import { SavedProgramsDrawer } from './components/program/SavedProgramsDrawer';
 import { ProgramDocumentView } from './components/program/ProgramDocumentView';
 import { UATRunner } from './components/UATRunner';
 import { EntryScreen, TemplateType } from './components/EntryScreen';
-import { HomePage } from './components/HomePage';
+import { HomePage } from './components/home/HomePage';
 import { TeamTemplateForm } from './components/team/TeamTemplateForm';
 import { TeamTemplateView } from './components/team/TeamTemplateView';
 import { TeamAdaptationWizard } from './components/team/TeamAdaptationWizard';
