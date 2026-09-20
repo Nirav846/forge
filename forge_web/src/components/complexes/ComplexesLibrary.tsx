@@ -60,7 +60,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
     const loadComplexes = async () => {
       try {
         setIsLoading(true);
-        const response = await import('../../data/complexes.json');
+        const response = await import('/forge/data/complexes.json');
         setComplexesData(response.default as Complex[]);
         setLoadError(null);
       } catch (error) {

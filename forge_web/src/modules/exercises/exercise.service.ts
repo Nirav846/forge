@@ -51,7 +51,7 @@ async function getExercisesData(): Promise<Exercise[]> {
   }
   
   if (!exercisesLoadPromise) {
-    exercisesLoadPromise = import('../../data/exercises.json')
+    exercisesLoadPromise = import('/forge/data/exercises.json')
       .then(module => {
         exercisesCache = module.default as Exercise[];
         return exercisesCache;
