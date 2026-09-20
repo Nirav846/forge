@@ -13,7 +13,7 @@ const ExerciseLibraryLazy = lazy(() =>
 
 // Lazy import complexes library
 const ComplexesLibraryLazy = lazy(() => 
-  import('../components/ComplexesLibrary').then(module => ({
+  import('../components/complexes/ComplexesLibrary').then(module => ({
     default: module.default
   }))
 );
