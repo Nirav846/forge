@@ -1,0 +1,94 @@
+{
+  "sport": "Cricket",
+  "rules": [
+    {
+      "rule_id": "RULE_JUMP_SQUAT_INTENSITY",
+      "name": "Jump Squat Ballistic Loading Cap",
+      "description": "Jump squats must be loaded in the speed-strength/velocity zone (30-40% 1RM) to preserve rate of force development.",
+      "severity": "Critical",
+      "check_type": "intensity_regex",
+      "conditions": {
+        "exercise_matches": ".*jump squat.*"
+      },
+      "constraints": {
+        "max_1rm_percent": 45.0,
+        "min_1rm_percent": 25.0,
+        "forbidden_intensity_pattern": "75%|80%|85%|90%"
+      },
+      "error_message": "Jump squat intensity exceeds the speed-strength threshold of 45% 1RM."
+    },
+    {
+      "rule_id": "RULE_MED_BALL_INTENSITY",
+      "name": "Medicine Ball Weight Prescription",
+      "description": "Medicine ball exercises must prescribe load via ball mass (e.g., 2-5 kg) and not % 1RM.",
+      "severity": "Critical",
+      "check_type": "intensity_format",
+      "conditions": {
+        "exercise_matches": ".*medicine ball.*|.*mb .*"
+      },
+      "constraints": {
+        "required_pattern": ".*kg|.*lbs|.*mass|.*effort",
+        "forbidden_pattern": ".*1RM"
+      },
+      "error_message": "Medicine ball throws must be prescribed by ball weight or effort, not % 1RM."
+    },
+    {
+      "rule_id": "RULE_PLANK_REPS_INTENSITY",
+      "name": "Isometric Core Duration & Load Constraints",
+      "description": "Planks and isometric core holds must use bodyweight or static tension parameters, not % 1RM.",
+      "severity": "Critical",
+      "check_type": "core_prescription",
+      "conditions": {
+        "exercise_matches": ".*plank.*"
+      },
+      "constraints": {
+        "forbidden_intensity_pattern": ".*% 1RM",
+        "min_rest_seconds": 60
+      },
+      "error_message": "Isometric core holds cannot be loaded via % 1RM."
+    },
+    {
+      "rule_id": "RULE_NORDIC_CURL_VOLUME_SAFETY",
+      "name": "Nordic Hamstring Curl Safety Volume Cap",
+      "description": "Nordic Hamstring Curls are highly taxing eccentrically and must be capped at 5 reps per set to prevent hamstring strains.",
+      "severity": "Critical",
+      "check_type": "rep_cap",
+      "conditions": {
+        "exercise_matches": ".*nordic hamstring.*"
+      },
+      "constraints": {
+        "max_reps_per_set": 5,
+        "forbidden_intensity_pattern": ".*1RM"
+      },
+      "error_message": "Nordic Hamstring Curls exceed the safety threshold of 5 reps per set or use inappropriate % 1RM loading."
+    },
+    {
+      "rule_id": "RULE_SESSION_VARIATION",
+      "name": "Weekly Exercise Monotony Cap",
+      "description": "An exercise cannot be repeated across every session in a weekly microcycle to prevent pattern accommodation.",
+      "severity": "High",
+      "check_type": "weekly_monotony",
+      "conditions": {
+        "sessions_per_week_min": 3
+      },
+      "constraints": {
+        "max_reps_of_exercise_per_week": 2
+      },
+      "error_message": "Exercise is repeated too frequently within the weekly microcycle, causing pattern monotony."
+    },
+    {
+      "rule_id": "RULE_CNS_EXERCISE_PAIRING",
+      "name": "Primary CNS Exercise Contrast Pairing",
+      "description": "Primary power and strength movements should be paired with mobility drills or low-load velocity contrast movements (PAP) to optimize CNS recovery.",
+      "severity": "Medium",
+      "check_type": "exercise_pairing",
+      "conditions": {
+        "slot_type": "Primary"
+      },
+      "constraints": {
+        "require_pairing": true
+      },
+      "error_message": "Primary exercises must be paired in a superset (A1/A2) with a recovery, mobility, or contrast movement."
+    }
+  ]
+}

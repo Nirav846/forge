@@ -1,0 +1,205 @@
+{
+  "sport": "Cricket",
+  "rules": [
+    {
+      "role": "Fast Bowler",
+      "qualities": {
+        "Strength": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-5",
+          "recommended_reps": "3-6",
+          "recommended_intensity": "80-90% 1RM (RPE 8-9)",
+          "progression_rules": "Linear loading progression. Add 2.5-5kg to lower body compounds weekly if target reps are achieved with perfect technique."
+        },
+        "Power": {
+          "weekly_frequency": 3,
+          "recommended_sets": "3-5",
+          "recommended_reps": "3-5",
+          "recommended_intensity": "30-50% 1RM (0.75-1.0 m/s)",
+          "progression_rules": "Velocity-based progression. Monitor bar speed. Increase load only if mean velocity remains above 0.90 m/s. Deload if velocity drops below 0.75 m/s."
+        },
+        "Acceleration": {
+          "weekly_frequency": 2,
+          "recommended_sets": "4-6",
+          "recommended_reps": "10-20m",
+          "recommended_intensity": "95-100% effort",
+          "progression_rules": "Focus on horizontal force production. Progression is volume-based (accumulate sprints up to 100m total distance) followed by resisted sprint loading (10% bodyweight sled)."
+        },
+        "Speed": {
+          "weekly_frequency": 1,
+          "recommended_sets": "3-5",
+          "recommended_reps": "30-40m",
+          "recommended_intensity": "100% velocity",
+          "progression_rules": "Neurological recovery rule. Full rest (1 min per 10m run) is mandatory. Increase total sprints by 1 weekly if top speed does not drop."
+        },
+        "Rotational Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "4-6",
+          "recommended_intensity": "Max effort throws (4-6 kg)",
+          "progression_rules": "Velocity transfer. Progress from slow, heavy anti-rotation movements (Pallof press) to explosive, light throwing volume (release speed focus)."
+        }
+      }
+    },
+    {
+      "role": "Spinner",
+      "qualities": {
+        "Strength": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "6-8",
+          "recommended_intensity": "75-85% 1RM (RPE 7-8)",
+          "progression_rules": "Double progression. Increase reps from 6 to 8 over weeks. Once 8 reps are hit for all sets, increase load by 5% and reset reps to 6."
+        },
+        "Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "4-6",
+          "recommended_intensity": "Bodyweight to 30% 1RM",
+          "progression_rules": "Qualitative movement speed. Increase jump distance/height weekly while maintaining high movement quality and landing stability."
+        },
+        "Acceleration": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-5",
+          "recommended_reps": "5-10m",
+          "recommended_intensity": "95-100% effort",
+          "progression_rules": "Lateral and multi-directional starts. Focus on reactive agility cues. Progression shifts from planned sprints to randomized auditory/visual reaction starts."
+        },
+        "Speed": {
+          "weekly_frequency": 1,
+          "recommended_sets": "3-4",
+          "recommended_reps": "20-30m",
+          "recommended_intensity": "95-100% velocity",
+          "progression_rules": "Max velocity maintenance. Progression is based on maintaining sprint times. Add 5m to sprint length when times are stable within 2% margin."
+        },
+        "Rotational Power": {
+          "weekly_frequency": 3,
+          "recommended_sets": "4-5",
+          "recommended_reps": "6-8",
+          "recommended_intensity": "High velocity (2-4 kg)",
+          "progression_rules": "Torque separation progression. Focus on pelvis-to-thorax separation angle. Progress by increasing rotational throwing speed or adding resisted cable loads."
+        }
+      }
+    },
+    {
+      "role": "Batter",
+      "qualities": {
+        "Strength": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "5-8",
+          "recommended_intensity": "75-85% 1RM (RPE 7-8)",
+          "progression_rules": "Linear load progression. Increase load by 2-5% when all reps in the target range are achieved."
+        },
+        "Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "3-5",
+          "recommended_intensity": "Bodyweight to 40% 1RM",
+          "progression_rules": "Contrast progression. Alternate heavy strength sets with explosive power sets (e.g. Back Squat at 85% 1RM followed by SL Bounds) to exploit post-activation potentiation (PAP)."
+        },
+        "Acceleration": {
+          "weekly_frequency": 2,
+          "recommended_sets": "5-8",
+          "recommended_reps": "10-15m",
+          "recommended_intensity": "100% max effort",
+          "progression_rules": "Sprint volume and setup progression. Progress from standing starts to deep athletic/crouch starts (carrying bat). Increase volume from 5 sprints of 15m to 8 sprints of 15m over a block."
+        },
+        "Speed": {
+          "weekly_frequency": 1,
+          "recommended_sets": "4-5",
+          "recommended_reps": "20-30m",
+          "recommended_intensity": "100% velocity",
+          "progression_rules": "Deceleration and change of direction (COD) integration. Progress from linear sprint to sprint-decelerate-turn. Monitor turning transition times."
+        },
+        "Rotational Power": {
+          "weekly_frequency": 3,
+          "recommended_sets": "3-4",
+          "recommended_reps": "5-8",
+          "recommended_intensity": "Max velocity (3-5 kg)",
+          "progression_rules": "Power progression. Increase the mass of the medicine ball by 1kg if throw velocity is maintained, or increase cable resistance by 5%."
+        }
+      }
+    },
+    {
+      "role": "Wicket Keeper",
+      "qualities": {
+        "Strength": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "5-8",
+          "recommended_intensity": "75-85% 1RM (RPE 7-8)",
+          "progression_rules": "Volume accumulation. Focus on time-under-tension (TUT) and isometric hold durations. Increase hold time by 5s weekly before increasing load."
+        },
+        "Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "4-5",
+          "recommended_reps": "3-5",
+          "recommended_intensity": "Bodyweight (reactive)",
+          "progression_rules": "Stretch-Shortening Cycle (SSC) progression. Focus on minimizing ground contact time (GCT < 150ms). Increase drop height by 5cm weekly up to 45cm limit."
+        },
+        "Acceleration": {
+          "weekly_frequency": 2,
+          "recommended_sets": "4-6",
+          "recommended_reps": "5-10m",
+          "recommended_intensity": "100% max effort",
+          "progression_rules": "Agility and lateral start rules. Progress by adding obstacles or bands to resisted lateral shuffles. Reduce ground response times."
+        },
+        "Speed": {
+          "weekly_frequency": 1,
+          "recommended_sets": "3-4",
+          "recommended_reps": "15-25m",
+          "recommended_intensity": "95-100% velocity",
+          "progression_rules": "Vertical to horizontal transition. Start from ground squat/sitting and transition to full sprint speed. Progress weekly by adding complex reactive start signals."
+        },
+        "Rotational Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "6-8",
+          "recommended_intensity": "High velocity (reactive)",
+          "progression_rules": "Positional constraint progression. Progress from standing to kneeling, then to split-squat stance throws to increase core demand."
+        }
+      }
+    },
+    {
+      "role": "All Rounder",
+      "qualities": {
+        "Strength": {
+          "weekly_frequency": 3,
+          "recommended_sets": "3-4",
+          "recommended_reps": "5-6",
+          "recommended_intensity": "80-85% 1RM (RPE 8)",
+          "progression_rules": "Linear loading. Add 2.5-5kg to main compound lifts every 2 weeks."
+        },
+        "Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "4-5",
+          "recommended_intensity": "40-60% 1RM (0.80-1.0 m/s)",
+          "progression_rules": "Linear power progression. Increase load by 2.5% weekly if explosive power velocity targets are met."
+        },
+        "Acceleration": {
+          "weekly_frequency": 2,
+          "recommended_sets": "4-6",
+          "recommended_reps": "10-20m",
+          "recommended_intensity": "95-100% effort",
+          "progression_rules": "Linear volume progression. Increase total acceleration distance from 60m to 100m over the 4-week block."
+        },
+        "Speed": {
+          "weekly_frequency": 1,
+          "recommended_sets": "4-5",
+          "recommended_reps": "30-40m",
+          "recommended_intensity": "100% velocity",
+          "progression_rules": "Rest-interval reduction or volume progression. Maintain max output with full neurological recovery (3-4 mins rest between repetitions)."
+        },
+        "Rotational Power": {
+          "weekly_frequency": 2,
+          "recommended_sets": "3-4",
+          "recommended_reps": "6-8",
+          "recommended_intensity": "Max effort (3-5 kg)",
+          "progression_rules": "Volume and complexity progression. Increase reps from 6 to 8, then progress to dynamic stepping starts before the rotational release."
+        }
+      }
+    }
+  ]
+}

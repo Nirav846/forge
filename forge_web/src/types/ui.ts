@@ -1,0 +1,218 @@
+import { Mode, Level } from './api';
+
+// --- LAYER 3: UI VIEW MODELS (What React renders) ---
+
+export type ProgramStatus = 'draft' | 'reviewed' | 'approved' | 'archive';
+
+export interface SavedProgramArtifact {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  version: number;
+  status: ProgramStatus;
+  
+  // Metadata for list view
+  athlete_display_name: string;
+  sport: string;
+  role: string;
+  goal: string;
+  blueprint_label: string;
+  week_label: string;
+  mode: 'core' | 'premium';
+  
+  // Scaffolding for coach workflows
+  coach_notes: string;
+  internal_notes: string;
+  
+  // Coach override state (persisted on artifact)
+  coach_overrides?: CoachOverrides;
+
+  // Payloads
+  request_snapshot: any; // ProgramRequest
+  result_snapshot: TransformationResult;
+}
+
+export interface TransformerWarning {
+  path: string;
+  issue: string;
+  action_taken: string;
+}
+
+export interface TransformationResult {
+  viewModel: ProgramViewModel | null;
+  warnings: TransformerWarning[];
+  rawPayload: any;
+}
+
+// Exercises are guaranteed to have these fields via transformer
+export interface ExerciseVM {
+  id: string;
+  name: string;
+  family: string;
+  sets_reps: string;
+  loading_method: string;
+  rest: string;
+  progression_note?: string;
+  coach_note?: string;
+}
+
+export interface SessionSectionVM {
+  title: string;
+  exercises: ExerciseVM[];
+  notes?: string;
+}
+
+export interface SessionVM {
+  id: string;
+  name: string;
+  week_number: number;
+  session_number: number;
+  focus: string;
+  warmup: SessionSectionVM;
+  main_work: SessionSectionVM;
+  conditioning: SessionSectionVM;
+  session_notes?: string;
+  structure_type?: string;
+  time_notes?: string[];
+  environment?: string;  // ponytail: planning-assigned env (overridable in UI)
+}
+
+export interface ProgramSummaryVM {
+  blueprint_selected: string;
+  total_weeks: number;
+  weekly_frequency: number;
+  conditioning_emphasis: string;
+  competition_window: string;
+  role_emphasis: string;
+}
+
+export interface ValidationNoteVM {
+  type: 'info' | 'warning' | 'success' | 'error';
+  message: string;
+}
+
+export interface ProgramMetadataVM {
+  generated_at: string;
+  request_id: string;
+  api_version: string;
+}
+
+export interface WeeklyExposureVM {
+  sprint_exposure: string;
+  jump_landing_exposure: string;
+  deceleration_exposure: string;
+  eccentric_stress: string;
+  conditioning_density: string;
+  week_type: string;
+  testing_markers: string[];
+  adjustment_notes: string[];
+}
+
+export interface ProgressionPlanVM {
+  volume_modifier: number;
+  intensity_modifier: number;
+  density_modifier: number;
+  complexity_level: number;
+  velocity_emphasis: string;
+  eccentric_emphasis: number;
+}
+
+export interface WeeklyStrategyVM {
+  week_number: number;
+  week_type: string;
+  primary_focus: string;
+  stress_level: string;
+  volume_modifier: number;
+  intensity_modifier: number;
+  exposure_budget: Record<string, number>;
+  rationale: string[];
+  progression?: ProgressionPlanVM;
+}
+
+export interface WeekVM {
+  week_number: number;
+  label: string;
+  exposure_summary: WeeklyExposureVM;
+  sessions: SessionVM[];
+  strategy?: WeeklyStrategyVM;
+}
+
+export interface CoachOverrides {
+  sessions?: Record<string, SessionOverride>;
+}
+
+export interface SessionOverride {
+  locked?: boolean;
+  note?: string;
+  exercises?: Record<string, ExerciseOverride>;
+}
+
+export interface ExerciseOverride {
+  swap?: ExerciseSwap;
+  prescription?: PrescriptionEdit;
+}
+
+export interface ExerciseSwap {
+  original_exercise_id?: string;
+  original_name: string;
+  original_family: string;
+  new_exercise_id?: string;
+  new_name: string;
+  new_family: string;
+  reason?: string;
+}
+
+export interface PrescriptionEdit {
+  sets_reps?: string;
+  loading_method?: string;
+  rest?: string;
+  coach_note?: string;
+}
+
+// ── Team Template Types ─────────────────────────────────────────────
+
+export interface TeamTemplate {
+  id: string;
+  name: string;
+  sport: string;
+  level: string;
+  phase: string;
+  goal: string;
+  program_length_weeks: number;
+  sessions_per_week: number;
+  minutes_per_session: number;
+  match_day: number;
+  team_training_days: number[];
+  heavy_field_days: number[];
+  travel_days: number[];
+  equipment_profile: string[];
+  coach_notes: string;
+  program_snapshot?: any;
+  created_at: string;
+  updated_at: string;
+  version?: number;
+}
+
+export interface TeamTemplateListItem {
+  id: string;
+  name: string;
+  sport: string;
+  level: string;
+  phase: string;
+  goal: string;
+  created_at: string;
+  updated_at: string;
+  program_length_weeks: number;
+  sessions_per_week: number;
+}
+
+export interface ProgramViewModel {
+  metadata: ProgramMetadataVM;
+  summary: ProgramSummaryVM;
+  weeks: WeekVM[];
+  sessions: SessionVM[]; // flat list for raw/backwards compat
+  rationale: string[];
+  personalization_notes: string[];
+  validation: ValidationNoteVM[];
+  dropped_constraints: string[];
+}
