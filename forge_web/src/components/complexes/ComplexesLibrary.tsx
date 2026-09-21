@@ -55,13 +55,15 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
   const [selectedComplex, setSelectedComplex] = useState<Complex | null>(null);
   const [availableRoles, setAvailableRoles] = useState<string[]>([]);
 
-  // Lazy load complexes data
+  // Lazy load complexes data using fetch
   useEffect(() => {
     const loadComplexes = async () => {
       try {
         setIsLoading(true);
-        const response = await import('/forge/data/complexes.json');
-        setComplexesData(response.default as Complex[]);
+        const response = await fetch('/forge/data/complexes.json');
+        if (!response.ok) throw new Error('Failed to load complexes');
+        const data = await response.json();
+        setComplexesData(data as Complex[]);
         setLoadError(null);
       } catch (error) {
         console.error('Failed to load complexes data:', error);
