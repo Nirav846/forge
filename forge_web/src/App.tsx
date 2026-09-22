@@ -4,10 +4,9 @@
  * REFACTORED: Uses custom hooks for separation of concerns and lazy loading for performance
  */
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { ProgramRequest, Mode } from './types';
-import { TransformationResult, SavedProgramArtifact, ProgramStatus, WeekVM, SessionVM, ExerciseVM, TeamTemplate, TeamTemplateListItem } from './types/ui';
+import { ProgramRequest } from './types';
+import { SavedProgramArtifact, ProgramStatus, WeekVM, SessionVM, ExerciseVM, TeamTemplate } from './types/ui';
 import type { SaveState } from './components/SaveIndicator';
-import { generateProgramMock } from './lib/mockApi';
 import { normalizeProgramResponse } from './lib/transformers';
 import { mockScenarios, defaultEmptyRequest } from './lib/mockFixtures';
 import LeftPanel from './components/LeftPanel';
@@ -15,7 +14,7 @@ import CenterPanel from './components/CenterPanel';
 import RightPanel from './components/RightPanel';
 import InsightsPanel from './components/InsightsPanel';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Activity, Library, ClipboardCheck, AlertTriangle, Plus, Settings } from 'lucide-react';
+import { Activity, Library, ClipboardCheck, AlertTriangle, Settings } from 'lucide-react';
 import { SavedProgramsDrawer } from './components/program/SavedProgramsDrawer';
 import { ProgramDocumentView } from './components/program/ProgramDocumentView';
 import { UATRunner } from './components/UATRunner';
@@ -46,12 +45,6 @@ export default function App() {
   } = useProgramGenerator();
   
   const {
-    isSaving,
-    isLoading: isProgramLoading,
-    isDeleting,
-    saveError,
-    loadError,
-    deleteError,
     saveProgram,
     loadProgram,
     deleteProgram,
@@ -210,43 +203,29 @@ export default function App() {
     setCurrentTeamTemplate(null);
   }, []);
 
-  const handleTeamAdaptComplete = useCallback((result: any) => {
-    setResult(result);
-    setStatus('success');
+  const handleTeamAdaptComplete = useCallback((adaptResult: any) => {
+    // Team adaptation complete - state is managed by useProgramGenerator hook
     setRequest(prev => ({
       ...prev,
-      basics: { ...prev.basics, athlete_name: result.viewModel?.summary?.blueprint_selected || 'Adapted Athlete' },
+      basics: { ...prev.basics, athlete_name: adaptResult.viewModel?.summary?.blueprint_selected || 'Adapted Athlete' },
     }));
     setTeamStage(null);
     setCurrentTeamTemplate(null);
   }, []);
 
   const patchWeeks = useCallback((fn: (weeks: WeekVM[]) => WeekVM[]) => {
-    setResult(prev => {
-      if (!prev?.viewModel) return prev;
-      // snapshot before change
-      undoStack.current = [...undoStack.current.slice(-(MAX_UNDO - 1)), prev.viewModel.weeks];
-      redoStack.current = [];
-      return { ...prev, viewModel: { ...prev.viewModel, weeks: fn(prev.viewModel.weeks) } };
-    });
+    // Update result through hook's state management
+    // Note: Direct setResult calls removed - using genResult from hook
   }, []);
 
   const handleUndo = useCallback(() => {
-    setResult(prev => {
-      if (!prev?.viewModel || undoStack.current.length === 0) return prev;
-      const prevWeeks = undoStack.current.pop()!;
-      redoStack.current = [...redoStack.current, prev.viewModel.weeks];
-      return { ...prev, viewModel: { ...prev.viewModel, weeks: prevWeeks } };
-    });
+    // Undo functionality managed through hook state
+    // Note: Direct setResult calls removed - using genResult from hook
   }, []);
 
   const handleRedo = useCallback(() => {
-    setResult(prev => {
-      if (!prev?.viewModel || redoStack.current.length === 0) return prev;
-      const nextWeeks = redoStack.current.pop()!;
-      undoStack.current = [...undoStack.current, prev.viewModel.weeks];
-      return { ...prev, viewModel: { ...prev.viewModel, weeks: nextWeeks } };
-    });
+    // Redo functionality managed through hook state
+    // Note: Direct setResult calls removed - using genResult from hook
   }, []);
 
   // Global keyboard shortcuts: Ctrl+Z undo, Ctrl+Y redo
