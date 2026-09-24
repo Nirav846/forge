@@ -1,11 +1,15 @@
 # FORGE Library Enhancement Plan
 ## "AI Enhanced, Never AI Dependent" - Full Stack Development Roadmap
 
----
+> **Re-baseline note (2026-09-24):** The "Current State" below predates later
+> library phases. Since then: `/api/v1/exercises` endpoints are implemented in
+> `src/forge/api_server.py` (see `docs/API_REFERENCE.md`); the frontend seed
+> grew to 537 exercises / 222 complexes (`docs/DATA_MODEL.md`); and library
+> enhancement phases through migration 000035 shipped. Items marked done in
+> retired phase reports were consolidated into `CHANGELOG.md`. Verify each
+> remaining roadmap item against current code before starting work.
 
-## 📋 EXECUTIVE SUMMARY
-
-**Current State:**
+**Current State:** *(historical baseline)*
 - Backend: 334 exercises in monolithic `exercises_data.py` (7,708 lines)
 - Frontend: React/TypeScript app with exercise library page at `/library`
 - Data: exercises.json (574KB) in frontend data folder

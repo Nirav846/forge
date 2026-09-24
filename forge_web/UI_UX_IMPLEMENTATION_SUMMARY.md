@@ -1,3 +1,12 @@
+# Exercise Library UI/UX Reference (Legacy Implementation Summary)
+
+> **Note (2026-09-24):** This document is retained as a historical record of
+> the library UI rework. The durable, current description of the UI now lives
+> in **`docs/FRONTEND_UI_GUIDE.md`** — read that first; consult this page only
+> for rationale behind past decisions.
+
+---
+
 # 🎨 Exercise Library UI/UX Enhancement - Implementation Summary
 
 ## ✅ What Was Implemented
