@@ -1,33 +1,27 @@
 # FORGE - GitHub Pages Deployment Guide
 
 ## Overview
-FORGE is now configured for deployment to GitHub Pages. The application builds as a static site that can be hosted directly on GitHub.
+FORGE is configured for deployment to GitHub Pages. The frontend builds as a
+static site hosted directly on GitHub via the `Deploy to GitHub Pages` workflow
+(`.github/workflows/deploy-pages.yml`: triggers on push to `main` and manual
+dispatch; sets up Node 22, runs `npm ci` and `npm run build` in `forge_web/`,
+and uploads `forge_web/dist` as the Pages artifact). As of 2026-09-24.
 
-## ✅ What's Been Configured
+> Note: the deployed site is the offline-first coach console. It does **not**
+> include the Python API server; features requiring `/api/*` need the backend
+> running separately (see `README.md`).
 
-### 1. **Exercise Library Button on Home Page**
-- Added prominent "Exercise Library" button on the Entry Screen
-- Styled with emerald/teal gradient for visibility
-- Displays: "Browse 334+ exercises with coaching cues, faults & alternatives"
-- Direct access to the full exercise library without creating a program first
+## Configuration
 
-### 2. **GitHub Pages Deployment**
-- **Vite Configuration**: Updated `vite.config.ts` with `base: '/forge/'`
-- **GitHub Actions Workflow**: Created `.github/workflows/deploy-pages.yml`
-- **Build Process**: Production build generates static files in `forge_web/dist/`
+- **Vite base path**: `forge_web/vite.config.ts` sets `base: '/forge/'`. This must match the repository name (see Step 3).
+- **Build output**: `npm run build` generates static files in `forge_web/dist/`, uploaded as the Pages artifact.
+- **Branding**: page title "FORGE - Elite Strength & Conditioning Coach Console" with SEO meta description in `forge_web/index.html`.
 
-### 3. **Branding Updates**
-- Updated page title: "FORGE - Elite Strength & Conditioning Coach Console"
-- Added meta description for SEO
-
-## 🚀 Deployment Steps
+## Deployment Steps
 
 ### Step 1: Push to GitHub
 ```bash
-cd /workspace
-git add .
-git commit -m "Add Exercise Library button and GitHub Pages config"
-git push origin main
+git push origin main   # the deploy-pages workflow runs automatically
 ```
 
 ### Step 2: Enable GitHub Pages
@@ -53,7 +47,7 @@ You can trigger a manual deployment:
 2. Select "Deploy to GitHub Pages" workflow
 3. Click "Run workflow" → "Run workflow" button
 
-## 📁 Build Output
+## Build Output
 After running `npm run build`, the `dist/` folder contains:
 ```
 dist/
@@ -63,7 +57,7 @@ dist/
     └── index-[hash].js    # Compiled JavaScript
 ```
 
-## 🔧 Local Testing
+## Local Testing
 Test the production build locally:
 ```bash
 cd forge_web
@@ -72,10 +66,11 @@ npx serve dist
 ```
 Then visit: `http://localhost:3000/forge/`
 
-## 🎯 Key Features Available
+## Key Features Available
 
-### Exercise Library (Now on Home Page!)
-- **334 exercises** across 21 movement families
+### Exercise Library
+- Frontend seed: 537 exercises + 222 complexes; backend engine data: 334
+  (authoritative counts and schema: `docs/DATA_MODEL.md`)
 - Complete metadata: coaching cues, common faults, contraindications
 - Equipment alternatives and progression pathways
 - Searchable and filterable interface
@@ -91,7 +86,7 @@ Then visit: `http://localhost:3000/forge/`
 - All core features work without AI
 - Rule-based engine produces credible programs
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Build Fails
 ```bash
@@ -111,7 +106,7 @@ npm run build
 - Check for CORS errors or missing assets
 - Ensure repository is public (or GitHub Pages is enabled for private repos)
 
-## 📝 Next Steps
+## Next Steps
 
 1. **Push code to GitHub**
 2. **Enable GitHub Pages** in repository settings

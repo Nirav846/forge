@@ -1,13 +1,21 @@
 # Exercise Library Completion Plan - Phased Approach
 
-## Current State Analysis
+> **Status note (updated 2026-09-24):** Much of the "missing metadata" listed
+> below has since been implemented — coaching cues, common faults,
+> contraindications, technical difficulty (`migrations/000020`), and
+> progression chains (`build_progression_chains.py`) are present in current
+> data. Verify each gap against `docs/DATA_MODEL.md` before working it; treat
+> this document as a tracked TODO list, not a current-state analysis. The
+> baseline below is historical.
+
+## Current State Analysis *(historical baseline)*
 
 **Total Exercises:** 198 conditioning exercises
 **Existing Categories:** 29 systems (Aerobic, Anaerobic, Recovery, Mobility, Assessment, etc.)
 
 ### Critical Gaps Identified:
 
-#### 1. Missing Metadata Fields (0/198 exercises have these):
+#### 1. Missing Metadata Fields (0/198 exercises have these): *(mostly resolved — verify per field)*
 - ✗ coaching_cues (4 specific cues per exercise)
 - ✗ common_faults (4 common errors to watch)
 - ✗ contraindications (when NOT to prescribe)

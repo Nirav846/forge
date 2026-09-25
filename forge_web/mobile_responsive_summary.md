@@ -1,3 +1,10 @@
+# Mobile Responsiveness Reference (Legacy Implementation Summary)
+
+> **Note (2026-09-24):** Historical record of the mobile-first pass. Current
+> responsive conventions are documented in **`docs/FRONTEND_UI_GUIDE.md`**.
+
+---
+
 # Mobile Responsiveness Improvements for FORGE Coach Console
 
 ## Summary

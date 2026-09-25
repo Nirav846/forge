@@ -1,0 +1,4767 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+new file mode 100644
+index 0000000..b26939f
+--- /dev/null
++++ b/CHANGELOG.md
+@@ -0,0 +1,29 @@
++# Changelog
++
++All notable changes to FORGE are documented here.
++Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [SemVer](https://semver.org/).
++
++> Note: this file replaces the retired per-phase completion reports (see
++> `docs/DOCUMENTATION_AUDIT.md`). Add an entry per release or data migration —
++> do not create new standalone "PHASE X COMPLETE" documents.
++
++## [Unreleased]
++
++### Added
++- Documentation set from the 2026-09 documentation audit: root `README.md`,
++  `docs/DATA_MODEL.md`, `docs/MIGRATIONS.md`, `docs/API_REFERENCE.md`,
++  `docs/FRONTEND_UI_GUIDE.md`, `docs/TESTING.md`, `CONTRIBUTING.md`,
++  `SECURITY.md`, and this changelog.
++
++### Removed
++- 17 obsolete phase/status completion reports and verification snapshots.
++- 3 superseded audit reports archived to `docs/archive/`.
++
++## Historical Baseline (reconstructed)
++
++Exercise-library data migrations 000026–000035 expanded the library from ~40 to
++the current frontend seed of **537 exercises / 222 complexes** (backend engine
++data: 334), adding coaching cues, common faults, contraindications, development
++levels, Olympic-lift framework fixes, unilateral/hip-dominant coverage,
++conditioning protocols, and plyometrics. Details per migration: see
++`migrations/` and `docs/DATA_MODEL.md`.
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+new file mode 100644
+index 0000000..ee0ad8a
+--- /dev/null
++++ b/CONTRIBUTING.md
+@@ -0,0 +1,52 @@
++# Contributing to FORGE
++
++## Workflow
++
++1. Branch from `main` (`feature/...`, `fix/...`, `docs/...`).
++2. Make focused changes; add/extend tests (see `docs/TESTING.md`).
++3. Open a pull request into `main`; keep PRs reviewable (< ~400 diff lines where practical).
++4. Update `CHANGELOG.md` in the same PR for user-visible or data changes.
++   Do not add new standalone status/completion reports — the changelog and PR
++   description replace them (policy from `docs/DOCUMENTATION_AUDIT.md`).
++
++## Environment Setup
++
++```bash
++# Backend
++python -m venv .venv && source .venv/bin/activate
++pip install fastapi uvicorn pytest          # plus any deps your change needs
++python validate_forge_env.py                # confirm environment
++
++# Frontend
++cd forge_web && npm install
++```
++
++## Running Checks Before Requesting Review
++
++```bash
++pytest src/ tests/                          # backend suites
++python test_complete_system.py              # end-to-end
++python validate_library.py                  # if you touched exercise data
++cd forge_web && npm run build && npm run test
++```
++
++Windows users can use `start_forge.bat` / `stop_forge.bat` to run the stack.
++
++## Domain Data Changes
++
++Adding or editing exercises/complexes must follow `docs/MIGRATIONS.md`
++(schema, required coaching metadata, ID allocation, view regeneration).
++Coaching content should cite authoritative S&C sources (NSCA/UKSCA/EXOS-style
++references as used in existing migrations).
++
++## Coding Conventions
++
++- Python: PEP 8, type hints on public functions, no print-debug leftovers.
++- TypeScript: strict mode; components colocated under `forge_web/src/`.
++- Keep the offline-first principle: the console must degrade gracefully when the API is unreachable.
++
++## Documentation Standards
++
++- One fact, one home: link to the canonical doc instead of restating counts or status.
++- Dated claims carry an "as of" stamp; neutral third-person tone; no emoji in headings.
++- Docs live in `docs/` (root reserved for README/CHANGELOG/CONTRIBUTING/SECURITY).
+diff --git a/ELITE_EXERCISE_LIBRARY_DEPLOYMENT.md b/ELITE_EXERCISE_LIBRARY_DEPLOYMENT.md
+deleted file mode 100644
+index 6228da4..0000000
+--- a/ELITE_EXERCISE_LIBRARY_DEPLOYMENT.md
++++ /dev/null
+@@ -1,248 +0,0 @@
+-# 🏋️ FORGE Elite Exercise Library - Phase 1 Deployment
+-
+-## CSCS Expert Audit & Remediation Report
+-
+-### The Brutal Truth (Before This Update)
+-❌ **Only ~40 basic exercises** - insufficient for professional programming  
+-❌ **ZERO complexes/combos** - critical gap for modern S&C  
+-❌ **No coaching metadata** - cues, errors, contraindications missing  
+-❌ **Limited periodization options** - couldn't build true blocks  
+-
+----
+-
+-## ✅ What We Fixed: Migration 000027
+-
+-### 📊 Exercise Breakdown by Category
+-
+-| Category | Count | Source Organizations |
+-|----------|-------|---------------------|
+-| **Power & Elasticity** | 5 | ALTIS, NSCA, Olympic Centers |
+-| **Max Strength** | 5 | UKSCA, NSCA, EXOS, ASCA |
+-| **Complexes/Contrast** | 8 | NSCA, UKSCA, EXOS, ALTIS |
+-| **Mobility & Prehab** | 4 | ALTIS, FMS, EXOS, Soccer Science |
+-| **Conditioning** | 3 | NFL Combine, ALTIS, EXOS |
+-| **TOTAL** | **25** | **10+ Elite Orgs** |
+-
+----
+-
+-## 🎯 THE COMPLEXES YOU ASKED FOR
+-
+-### Lower Body Complexes
+-1. **Lunge to Step-Up Knee Drive Complex** ⭐
+-   - *Your exact request implemented*
+-   - Equipment: Dumbbells + Box
+-   - Intent: Unilateral strength → power conversion
+-   - Sport: Soccer, Basketball, Tennis
+-
+-2. **RDL to Box Jump Contrast**
+-   - Posterior chain eccentric → plyometric rebound
+-   - PAP method for vertical development
+-
+-3. **Lateral Bound to Stick**
+-   - Frontal plane deceleration training
+-   - Critical for ACL injury prevention
+-
+-### Upper Body Complexes
+-4. **Renegade Row to Push-Up**
+-   - Anti-rotation core + push/pull flow
+-   - MMA/Wrestling staple
+-
+-5. **Inverted Row to Pike Push-Up**
+-   - Vertical pull → vertical push balance
+-   - Gymnastics progression model
+-
+-### Power/Contrast Complexes
+-6. **Trap Bar Deadlift to Vertical Jump**
+-   - Heavy strength (85%) → explosive jump
+-   - NSCA contrast training protocol
+-
+-7. **Bench Press to Med Ball Chest Pass**
+-   - Horizontal push PAP
+-   - Baseball/Tennis serve enhancement
+-
+-8. **Landmine Rotational Press to Woodchop**
+-   - Rotational power flow
+-   - Golf/Tennis/Batting sports
+-
+----
+-
+-## 📚 Professional Metadata on EVERY Exercise
+-
+-Each exercise now includes:
+-```json
+-{
+-  "coaching_cues": ["4 specific technical cues"],
+-  "common_errors": ["4 faults to watch for"],
+-  "contraindications": ["When NOT to prescribe"],
+-  "regressions": ["How to make easier"],
+-  "progressions": ["How to advance"],
+-  "source_organization": "NSCA / ALTIS / EXOS etc.",
+-  "sport_specific_tags": ["Relevant sports"]
+-}
+-```
+-
+-### Example: Nordic Hamstring Curl
+-- **Cues**: Hips extended, Lower slowly, Resist gravity, Catch with hands
+-- **Errors**: Hips flexing early, Dropping fast, Neck craning, Toes not anchored
+-- **Contraindications**: Acute hamstring tear, Knee ligament instability
+-- **Regressions**: Slider Leg Curl, Eccentric Slide
+-- **Progressions**: Full Nordic Curl, Add Band Assistance
+-- **Source**: ASCA / Soccer Science
+-- **Sports**: Soccer, Sprinting, Rugby, AFL
+-
+----
+-
+-## 🔬 Evidence-Based Sources
+-
+-### Organizations Represented:
+-- **NSCA** (National Strength & Conditioning Association)
+-- **UKSCA** (United Kingdom Strength & Conditioning Association)
+-- **ASCA** (Australian Strength & Conditioning Association)
+-- **EXOS** (Performance Menu / Military Sports)
+-- **ALTIS** (World-leading Track & Field)
+-- **Olympic Training Centers** (Weightlifting)
+-- **NFL Combine** (Pro Football Testing)
+-- **Soccer Science** (Premier League / La Liga research)
+-- **FMS** (Functional Movement Systems)
+-- **Run Lab** (Running Mechanics)
+-
+----
+-
+-## 🗂️ Intelligent Organization System
+-
+-### Primary Categories:
+-1. **Power** - RFD, elasticity, olympic derivatives
+-2. **Strength** - Max force, unilateral, loaded carries
+-3. **Complex** - Multi-movement flows, PAP contrast
+-4. **Mobility** - ROM, tissue quality, joint prep
+-5. **Prehab** - Injury mitigation, isometric strength
+-6. **Conditioning** - Energy systems, agility, work capacity
+-
+-### Subcategories Enable Smart Filtering:
+-- `Elastic/Plyometric`, `Olympic Derivative`, `Rotational`
+-- `Unilateral Lower`, `Loaded Carry`, `Posterior Chain`
+-- `Lower Body Flow`, `Upper Body Flow`, `Total Body Power`
+-- `Hip`, `T-Spine`, `Ankle`
+-- `Adductor/Groin`
+-- `Agility`, `Alactic Power`, `Work Capacity`
+-
+----
+-
+-## 🚀 How to Deploy
+-
+-### Step 1: Apply Migration
+-```bash
+-cd /workspace
+-psql -U forge_user -d forge_db -f migrations/000027_elite_exercise_library.up.sql
+-```
+-
+-### Step 2: Verify Installation
+-```bash
+-psql -U forge_user -d forge_db -c "
+-SELECT category, subcategory, COUNT(*) as count 
+-FROM exercises 
+-GROUP BY category, subcategory 
+-ORDER BY category, count DESC;
+-"
+-```
+-
+-### Step 3: Test Complexes in Program Generation
+-```bash
+-python test_complexes.py
+-# Should show programs using:
+-# - Lunge to Step-Up Knee Drive Complex
+-# - Trap Bar Deadlift to Vertical Jump
+-# - Renegade Row to Push-Up
+-```
+-
+----
+-
+-## 📈 Impact on Programming
+-
+-### Before:
+-- Generic "Jump Squat" prescription
+-- No coaching cues for athletes
+-- Limited exercise rotation (programs felt repetitive)
+-- Couldn't prescribe complexes for density training
+-
+-### After:
+-- **Specific**: "Lunge to Step-Up Knee Drive Complex"
+-- **Coaching**: 4 cues, 4 errors, regressions/progressions
+-- **Variety**: 25 new elite movements
+-- **Advanced**: PAP contrast methods, flow complexes
+-
+----
+-
+-## 🎓 Would a CSCS Coach Use This Now?
+-
+-### YES - Because:
+-
+-✅ **Exercise Selection matches elite curricula** (NSCA/UKSCA exams)  
+-✅ **Complexes included** (modern S&C methodology)  
+-✅ **Coaching metadata present** (can teach assistants)  
+-✅ **Contraindications listed** (risk management)  
+-✅ **Progression/regression paths** (athlete-centered)  
+-✅ **Source attribution** (evidence-based practice)  
+-✅ **Sport-specific tagging** (context-aware programming)  
+-
+-### Still Missing (Phase 2 Priorities):
+-- Video demonstrations (or GIF links)
+-- Load calculators (%1RM tables)
+-- Auto-regulation notes (RPE/RIR guidance)
+-- Rehab-specific protocols (return-to-play)
+-- Youth athlete modifications (LTAD stages)
+-- Female-specific considerations (ACL risk, pregnancy)
+-
+----
+-
+-## 📋 Next Phases
+-
+-### Phase 2: Advanced Modalities
+-- Blood Flow Restriction (BFR) exercises
+-- Flywheel/Eccentric overload devices
+-- Velocity-Based Training (VBT) presets
+-- Strongman implements (Atlas stones, Yoke)
+-
+-### Phase 3: Sport-Specific Libraries
+-- Cricket: Bowling load management, batting rotational power
+-- Tennis: Serve preparation, slide mechanics
+-- Badminton: Lunging endurance, net play agility
+-- Football: Position-specific profiles (CB vs ST vs GK)
+-
+-### Phase 4: Clinical Integration
+-- Return-to-sport protocols (ACL, Achilles, Shoulder)
+-- Pain-modified exercises (load without aggravation)
+-- Post-surgical progressions (timeline-based)
+-
+----
+-
+-## 🔍 Sample Query for Coaches
+-
+-Find all exercises for basketball players with knee safety:
+-```sql
+-SELECT name, category, coaching_cues, contraindications
+-FROM exercises
+-WHERE sport_specific_tags @> ARRAY['Basketball']
+-  AND contraindications NOT LIKE '%ACL%';
+-```
+-
+-Find all complexes for lower body power:
+-```sql
+-SELECT name, equipment, progressions
+-FROM exercises
+-WHERE category = 'Complex'
+-  AND subcategory IN ('Lower Body Flow', 'Total Body Power');
+-```
+-
+----
+-
+-## 📞 Support
+-
+-For exercise additions or corrections:
+-- Reference peer-reviewed sources (JSCR, BJSM, IJSPP)
+-- Cite organization methodologies (ALTIS, EXOS manuals)
+-- Include coaching rationale (why this cue works)
+-
+-**Built by**: CSCS-Informed AI System  
+-**Reviewed Against**: NSCA Essentials 4th Ed., UKSCA CPD Framework  
+-**Last Updated**: Phase 1 Deployment
+diff --git a/EXERCISE_LIBRARY_COMPLETION_PLAN.md b/EXERCISE_LIBRARY_COMPLETION_PLAN.md
+index 6ce76ed..53a293a 100644
+--- a/EXERCISE_LIBRARY_COMPLETION_PLAN.md
++++ b/EXERCISE_LIBRARY_COMPLETION_PLAN.md
+@@ -1,13 +1,21 @@
+ # Exercise Library Completion Plan - Phased Approach
+ 
+-## Current State Analysis
++> **Status note (updated 2026-09-24):** Much of the "missing metadata" listed
++> below has since been implemented — coaching cues, common faults,
++> contraindications, technical difficulty (`migrations/000020`), and
++> progression chains (`build_progression_chains.py`) are present in current
++> data. Verify each gap against `docs/DATA_MODEL.md` before working it; treat
++> this document as a tracked TODO list, not a current-state analysis. The
++> baseline below is historical.
++
++## Current State Analysis *(historical baseline)*
+ 
+ **Total Exercises:** 198 conditioning exercises
+ **Existing Categories:** 29 systems (Aerobic, Anaerobic, Recovery, Mobility, Assessment, etc.)
+ 
+ ### Critical Gaps Identified:
+ 
+-#### 1. Missing Metadata Fields (0/198 exercises have these):
++#### 1. Missing Metadata Fields (0/198 exercises have these): *(mostly resolved — verify per field)*
+ - ✗ coaching_cues (4 specific cues per exercise)
+ - ✗ common_faults (4 common errors to watch)
+ - ✗ contraindications (when NOT to prescribe)
+diff --git a/EXERCISE_LIBRARY_STATUS.md b/EXERCISE_LIBRARY_STATUS.md
+index 0be5822..ee53b31 100644
+--- a/EXERCISE_LIBRARY_STATUS.md
++++ b/EXERCISE_LIBRARY_STATUS.md
+@@ -1,11 +1,15 @@
+-# FORGE Exercise Library - Complete Status Report
++# FORGE Exercise Library - Status Report
+ 
+-## Executive Summary
+-**YES, the exercise library is COMPLETE and ready for CSCS coach use.**
++**As of:** 2026-09-24 (refreshed during documentation audit; see `docs/DOCUMENTATION_AUDIT.md`).
++**Canonical data facts:** `docs/DATA_MODEL.md`. This page reports migration coverage only.
+ 
+-## Total Exercise Count: 271 Movements
++## Executive Summary
++The migration-seeded library (SQL migrations 000026–000031) contains **271 movements**.
++Subsequent phases expanded coverage further; current authoritative counts are:
++backend engine data **334 exercises**, frontend seed **537 exercises / 222 complexes**,
++migrations through **000035** (`000034_conditioning_library`, `000035_conditioning_plyometrics`).
+ 
+-### Migration Files Created (All Phases Complete):
++### Migration Files Created (Library Seed Phases):
+ | Migration | Phase | Exercises | Category |
+ |-----------|-------|-----------|----------|
+ | 000026 | Phase 1 | 114 | Complexes, Olympic Variations, Core |
+@@ -14,7 +18,8 @@
+ | 000029 | Phase 4 | 12 | Olympic Accessories |
+ | 000030 | Phase 6 | 75 | Elite Locker Room (Strongman, Gymnastics) |
+ | 000031 | Phase 5 | 10 | Unilateral Hip Dominant |
+-| **TOTAL** | **All** | **271** | **Complete Library** |
++| 000032+ | Phases 7–9 | — | Bridge/pain-safe, combo expansion, conditioning, plyometrics |
++| **Seed total (000026–000031)** | | **271** | |
+ 
+ ### Movement Pattern Coverage (CSCS Standards):
+ ✅ **Bilateral Knee Dominant**: 28 exercises
+diff --git a/FORGE_SYSTEM_STATUS_REPORT.md b/FORGE_SYSTEM_STATUS_REPORT.md
+deleted file mode 100644
+index 31fc0a5..0000000
+--- a/FORGE_SYSTEM_STATUS_REPORT.md
++++ /dev/null
+@@ -1,420 +0,0 @@
+-# 🏋️ FORGE System Status Report
+-
+-**Date:** December 2024  
+-**System:** Forge - Elite Strength & Conditioning Platform  
+-**Philosophy:** "AI Enhanced, Never AI Dependent"  
+-
+----
+-
+-## ✅ SYSTEM VERIFICATION COMPLETE
+-
+-### Core Capabilities Confirmed Working
+-
+-| Component | Status | Details |
+-|-----------|--------|---------|
+-| **Exercise Library** | ✅ OPERATIONAL | 334 exercises across 21 movement families |
+-| **Conditioning Protocols** | ✅ OPERATIONAL | 107 protocols (A/B/C tiered) |
+-| **Program Generation** | ✅ OPERATIONAL | Multi-sport, periodized 4-8 week plans |
+-| **Blueprint Engine** | ✅ OPERATIONAL | 14 training blueprints |
+-| **Credibility Scoring** | ✅ OPERATIONAL | Programs score 0.89-1.0 credibility |
+-
+----
+-
+-## 📚 EXERCISE LIBRARY
+-
+-### Library Composition
+-```
+-Total Exercises: 334
+-
+-By Movement Family:
+-├── DLKD (Lower Body Knee Dominant): 14 exercises
+-├── DLHD (Lower Body Hip Dominant): 14 exercises  
+-├── SLKD/SLHD (Single Leg): ~28 exercises
+-├── HPush/HPull (Horizontal Push/Pull): ~40 exercises
+-├── VPush/VPull (Vertical Push/Pull): ~30 exercises
+-├── Plyo (Plyometrics): 23 exercises
+-├── Core: 24 exercises
+-├── Sprint/Landing/Agility: ~35 exercises
+-├── Recovery: 15 exercises
+-├── Activation: 10 exercises
+-└── Assessment: 10 exercises
+-```
+-
+-### Exercise Metadata (Per Exercise)
+-Each exercise includes:
+-- ✅ **Coaching Cues** (4 technical instructions)
+-- ✅ **Common Faults** (4 movement errors to watch)
+-- ✅ **Contraindications** (3 scenarios when NOT to use)
+-- ✅ **Equipment Alternatives** (3 substitute options)
+-- ✅ **Technical Difficulty** (1-10 scale)
+-- ✅ **Training Age Minimum** (months of experience required)
+-- ✅ **Force Vector** (biomechanical classification)
+-- ✅ **Sport Tags** (applicable sports)
+-- ✅ **Progression/Regression** (exercise pathway)
+-
+-### Sample Exercise Output
+-```
+-EXERCISE: Air Squat (DLKD-001)
+-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+-Family: DLKD | Objective: STR | Difficulty: 1/10
+-Equipment: Bodyweight
+-
+-Coaching Cues:
+-  • Keep chest tall and core braced throughout movement
+-  • Push through mid-foot, not toes or heels
+-  • Knees track over toes, don't let them cave inward
+-  • Control the descent, don't drop into the bottom
+-
+-Common Faults:
+-  ⚠ Knee valgus (knees caving inward)
+-  ⚠ Excessive forward lean or chest collapse
+-  ⚠ Heels lifting off ground
+-  ⚠ Incomplete depth (parallel or above)
+-
+-Contraindications:
+-  ❌ Acute knee injury or instability
+-  ❌ Severe ankle mobility restrictions
+-  ❌ Recent hip surgery
+-
+-Progression: Goblet Squat → Regression: Wall Sit
+-Sport Tags: Baseball, Basketball, Cricket, Football, Rugby, Tennis
+-```
+-
+----
+-
+-## 🎯 WORKOUT PLAN GENERATION
+-
+-### Supported Sports (Verified)
+-- ✅ Cricket (Fast Bowler, Batter, Spinner profiles)
+-- ✅ Badminton (Singles/Doubles)
+-- ✅ Tennis
+-- ✅ Rugby (Position-specific)
+-- ✅ Basketball (Guard/Forward/Center)
+-- ✅ Soccer, Volleyball, Track & Field, Wrestling
+-
+-### Program Structure
+-```
+-4-Week Example Program:
+-├── Athlete Profile
+-│   ├── Sport, Position/Role
+-│   ├── Training Age, Level (Beginner/Intermediate/Advanced)
+-│   ├── Season Phase (Off/Pre/In/Transition)
+-│   ├── Equipment Profile (Gym/Field/Court)
+-│   └── Goals (Strength/Power/Hypertrophy/Conditioning)
+-│
+-├── Blueprint Selection
+-│   ├── Full Body Strength
+-│   ├── Strength + Power
+-│   ├── Strength + Conditioning
+-│   ├── Power + Speed
+-│   ├── Upper/Lower Split
+-│   ├── Power Maintenance
+-│   ├── Youth Foundation (U14-U20)
+-│   ├── Court Sport Athletic Development
+-│   ├── Rugby Off-Season
+-│   ├── Sprint Development
+-│   ├── Hypertrophy / Mass Accrual
+-│   ├── Return to Sport (Foundation)
+-│   ├── Deload / Active Recovery
+-│   └── Mixed Modal (GPP)
+-│
+-├── Weekly Progression Strategy
+-│   ├── Week 1: Accumulation (Volume focus)
+-│   ├── Week 2: Accumulation (Progressive overload)
+-│   ├── Week 3: Intensification (Load increase)
+-│   └── Week 4: Intensification (Peak)
+-│
+-└── Session Structure (per workout)
+-    ├── Warmup Protocol (Raise/Activate/Potentiate)
+-    ├── Movement Blocks (5-7 per session)
+-    │   ├── Primary Strength (DLKD/SLHD/etc.)
+-    │   ├── Secondary Strength
+-    │   ├── Power/Plyometric
+-    │   ├── Accessory Work
+-    │   └── Core/Stability
+-    ├── Conditioning (optional, sport-specific)
+-    └── Recovery Protocol
+-```
+-
+-### Personalization Features
+-Programs adapt based on:
+-- ✅ **Sport-Specific Demands** (e.g., cricket prop vs. spinner)
+-- ✅ **Position/Role** (e.g., basketball guard vs. center)
+-- ✅ **Training Age** (exercise difficulty caps)
+-- ✅ **Season Phase** (volume/intensity modulation)
+-- ✅ **Equipment Availability** (gym/field/court)
+-- ✅ **Injury History** (exercise contraindications)
+-- ✅ **Fatigue Level** (load adjustment)
+-
+-### Sample Program Output
+-```
+-================================================================================
+-BADMINTON SINGLES PLAYER (PRE-SEASON)
+-================================================================================
+-Blueprint: Full Body Strength
+-Duration: 4 weeks | Frequency: 4x/week
+-Credibility Score: 0.89/1.0
+-
+-PERSONALIZATION NOTES:
+-  • Singles role -> repeat lunge & court coverage emphasis
+-  • Singles role -> velocity / speed-power / repeat conditioning bias
+-  • Sprint exposure elevated per role
+-  • Higher conditioning density than role baseline
+-
+-WEEKLY PROGRESSION STRATEGY:
+-  Week 1 (accumulation): strength
+-  Week 2 (accumulation): strength
+-  Week 3 (intensification): strength
+-  Week 4 (intensification): strength
+-
+-WEEK 1 SESSIONS:
+-  Session 1: Main (5 movement blocks)
+-  Session 2: Main (5 movement blocks)
+-  Session 3: Main (5 movement blocks)
+-  Session 4: Main (3 movement blocks)
+-```
+-
+----
+-
+-## 🔬 CONDITIONING ECOSYSTEM
+-
+-### Protocol Tiers
+-```
+-Total Protocols: 107
+-
+-├── A Tier (57 protocols): Primary conditioning methods
+-│   ├── Aerobic Capacity (Long Slow Distance, Tempo)
+-│   ├── Anaerobic Capacity (HIIT, Intervals)
+-│   ├── Speed-Endurance (Repeat Sprint Ability)
+-│   └── Sport-Specific (Court/Field patterns)
+-│
+-├── B Tier (42 protocols): Secondary/supportive methods
+-│   ├── Threshold Training
+-│   ├── Fartlek/Variable Pace
+-│   └── Circuit Conditioning
+-│
+-└── C Tier (8 protocols): Specialized/niche applications
+-    ├── Extreme Density
+-    └── Contrast Methods
+-```
+-
+-### Sample Conditioning Protocol
+-```
+-SAMPLE: Long Slow Distance — Base Builder
+-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+-Objective: Build aerobic foundation, mitochondrial density
+-System: Aerobic Capacity
+-Level: Beginner to Elite
+-Duration: 20-30 min
+-Work: Continuous running at conversational pace
+-Rest: None — continuous effort
+-Sets: 1
+-Total Volume: 2-5 km
+-Fatigue Score: 2/10
+-```
+-
+----
+-
+-## 🧪 SYSTEM TESTING RESULTS
+-
+-### Multi-Sport Program Generation Test
+-```bash
+-✓ CRICKET   - 12 sessions, 4 weekly strategies, credibility: 1.0
+-✓ TENNIS    - 12 sessions, 4 weekly strategies, credibility: 1.0
+-✓ RUGBY     - 12 sessions, 4 weekly strategies, credibility: 1.0
+-✓ BASKETBALL- 12 sessions, 4 weekly strategies, credibility: 1.0
+-```
+-
+-### Code Quality Checks
+-- ✅ All imports resolve correctly
+-- ✅ Exercise library loads (334 exercises)
+-- ✅ Conditioning library loads (107 protocols)
+-- ✅ Blueprint engine operational (14 blueprints)
+-- ✅ Program generation produces valid output
+-- ✅ Credibility scoring functional
+-- ✅ Periodization logic working
+-- ✅ Sport-specific personalization active
+-
+----
+-
+-## 📊 CURRENT ARCHITECTURE
+-
+-### Backend (Python/FastAPI)
+-```
+-src/forge/
+-├── exercises_data.py      # 334 exercises with metadata
+-├── conditioning_data.py   # 107 conditioning protocols
+-├── blueprint_data.py      # 14 training blueprints
+-├── models.py              # Pydantic/Dataclass schemas
+-├── main.py                # Core program generation engine
+-├── planning_engine.py     # Weekly periodization logic
+-├── session_assembly.py    # Workout construction
+-├── exercise_selector.py   # Exercise matching algorithms
+-├── prescription_rules.py  # Set/rep/loading prescriptions
+-├── progression_engine.py  # Weekly progression logic
+-├── substitution_engine.py # Exercise alternatives
+-├── warmup_engine.py       # Warmup protocol generation
+-└── recovery_engine.py     # Recovery protocol generation
+-```
+-
+-### Frontend (React/TypeScript/Vite)
+-```
+-forge_web/
+-├── src/
+-│   ├── components/        # UI components
+-│   ├── lib/              # Utility functions
+-│   └── App.tsx           # Main application
+-├── package.json          # Dependencies
+-└── vite.config.ts        # Build configuration
+-```
+-
+-### Database Status
+-- ⚠️ **Issue Identified**: 35 PostgreSQL migration files exist
+-- ⚠️ **Issue Identified**: Only empty SQLite database (`forge.db`) present
+-- ✅ **Workaround**: System currently runs on in-memory data (no DB required for core functionality)
+-
+----
+-
+-## 🎯 RECOMMENDATIONS FOR PRODUCTION DEPLOYMENT
+-
+-### Immediate Priorities (P0)
+-
+-1. **Database Architecture Decision**
+-   - Current: PostgreSQL migrations + empty SQLite
+-   - Needed: Choose one path
+-     - Option A: Full PostgreSQL deployment (server-based)
+-     - Option B: Convert to SQLite for offline-first (matches Room philosophy)
+-     - Option C: Hybrid (SQLite local + optional cloud sync)
+-
+-2. **Fix FamilyCode Enum Mismatch** ✅ COMPLETED
+-   - Added missing: `RECOVERY`, `ACTIVATION`, `ASSESSMENT`, `MOBILITY`
+-   - System now loads all 334 exercises without errors
+-
+-### Short-Term Enhancements (P1)
+-
+-3. **Data Export/Import**
+-   - JSON export for athlete programs
+-   - Backup/restore functionality
+-   - GDPR compliance (data ownership)
+-
+-4. **API Server Hardening**
+-   - Add authentication layer
+-   - Rate limiting
+-   - Error handling improvements
+-
+-5. **Testing Coverage**
+-   - Unit tests for all engines
+-   - Integration tests for full program generation
+-   - CI/CD pipeline setup
+-
+-### Medium-Term Vision (P2)
+-
+-6. **Mobile App (Android)**
+-   - Kotlin native app with Room database
+-   - Pre-bundled exercise library (334 exercises)
+-   - Offline program viewing
+-   - Optional cloud sync when online
+-
+-7. **Exercise Media Library**
+-   - Video demonstrations (local files or embedded)
+-   - Image libraries for each exercise
+-   - QR codes for printed programs
+-
+-8. **Load Tracking & Autoregulation**
+-   - RPE/RIR logging
+-   - Automatic load adjustments
+-   - Fatigue monitoring
+-
+----
+-
+-## 💡 PHILOSOPHY ALIGNMENT CHECK
+-
+-### "AI Enhanced, Never AI Dependent"
+-
+-| Feature | Current State | AI Dependency |
+-|---------|--------------|---------------|
+-| Exercise Selection | Rule-based engine | ❌ None |
+-| Program Generation | Deterministic algorithms | ❌ None |
+-| Periodization | Sports science rules | ❌ None |
+-| Substitutions | Classification-based | ❌ None |
+-| Credibility Scoring | Validation rules | ❌ None |
+-| Future AI Features | Not yet implemented | ⏳ Planned (opt-in) |
+-
+-✅ **Verdict**: System fully aligns with philosophy - all core features work without AI
+-
+----
+-
+-## 📈 METRICS SUMMARY
+-
+-| Metric | Value | Status |
+-|--------|-------|--------|
+-| Total Exercises | 334 | ✅ Complete |
+-| Movement Families | 21 | ✅ Complete |
+-| Conditioning Protocols | 107 | ✅ Complete |
+-| Training Blueprints | 14 | ✅ Complete |
+-| Supported Sports | 10+ | ✅ Extensible |
+-| Program Credibility | 0.89-1.0 | ✅ High |
+-| Code Files (Backend) | 40+ | ✅ Modular |
+-| Test Coverage | Unknown | ⚠️ Needs audit |
+-
+----
+-
+-## 🚀 QUICK START GUIDE
+-
+-### Generate Your First Program
+-
+-```python
+-from src.forge.main import generate_program
+-from src.forge.models import (
+-    AthleteProfile, SeasonPhase, 
+-    EquipmentProfile, AthleteLevel
+-)
+-
+-# Define athlete
+-profile = AthleteProfile(
+-    sport='Basketball',
+-    training_age_years=2.0,
+-    season_phase=SeasonPhase.OFF_SEASON,
+-    goal='Power Development',
+-    equipment_profile=EquipmentProfile.GYM,
+-    athlete_level=AthleteLevel.INTERMEDIATE,
+-    age=19,
+-    frequency_per_week=3,
+-    program_length_weeks=4
+-)
+-
+-# Generate program
+-program = generate_program(profile)
+-
+-# Output results
+-print(f"Blueprint: {program.blueprint_name}")
+-print(f"Sessions: {len(program.sessions)}")
+-print(f"Credibility: {program.credibility_score}")
+-```
+-
+-### Run Demo Script
+-```bash
+-cd /workspace
+-python run_forge_demo.py
+-```
+-
+-### Start API Server (if needed)
+-```bash
+-python run_forge_api.py
+-```
+-
+----
+-
+-## 📞 NEXT STEPS
+-
+-1. **Confirm Database Strategy** - PostgreSQL vs SQLite vs Hybrid
+-2. **Define MVP Feature Set** - What's essential for v1.0 launch?
+-3. **Plan Mobile Development** - Android Room implementation timeline
+-4. **Establish Testing Protocol** - QA process before production
+-5. **Document User Guides** - Coach-facing documentation
+-
+----
+-
+-**Report Generated By:** FORGE System Audit  
+-**Status:** ✅ READY FOR COACH USE (with noted caveats)  
+-**Confidence Level:** HIGH - Core functionality verified working
+diff --git a/FORGE_SYSTEM_VERIFICATION.md b/FORGE_SYSTEM_VERIFICATION.md
+index 692d519..3af3ce8 100644
+--- a/FORGE_SYSTEM_VERIFICATION.md
++++ b/FORGE_SYSTEM_VERIFICATION.md
+@@ -1,20 +1,26 @@
+-# ✅ FORGE Strength & Conditioning System - VERIFICATION REPORT
+-
+-## Executive Summary
+-
+-The **FORGE (Framework for Optimized Resistance & Ground-based Exercise)** system is a **COMPLETE, PRODUCTION-READY** Strength & Conditioning platform that generates real, scientifically-backed workout programs for athletes.
+-
+----
+-
+-## 🎯 System Status: FULLY OPERATIONAL
+-
+-### Components Running
+-| Component | Status | URL/Port | Details |
+-|-----------|--------|----------|---------|
+-| **Backend API** | ✅ RUNNING | `http://127.0.0.1:8000` | FastAPI server with full program generation engine |
+-| **Frontend Web App** | ✅ RUNNING | `http://localhost:3001` | React/TypeScript coach console |
+-| **Database** | ✅ READY | SQLite | 22 migration files, complete schema |
+-| **Test Suite** | ✅ PASSING | - | End-to-end validation tests |
++# FORGE Strength & Conditioning System — Verification Checklist
++
++**Purpose:** Standing checklist and expected results for verifying a FORGE
++deployment. Historical test outputs below are illustrative baselines from an
++earlier build ("as of" the original report); re-run them locally rather than
++trusting the snapshot. See `README.md` for quick start and `docs/TESTING.md`
++for the full test map.
++
++## Verification Procedure
++
++### Components to Start
++| Component | Command | URL/Port | Details |
++|-----------|---------|----------|---------|
++| **Backend API** | `python run_forge_api.py` | `http://127.0.0.1:8000` | FastAPI server with program generation engine |
++| **Frontend Web App** | `npm run dev` (or preview) in `forge_web` | `http://localhost:3000+` | React/TypeScript coach console |
++| **Database** | migrations applied via `migrations/` | SQLite (`forge.db`) | Schema through migration 000035; see `docs/MIGRATIONS.md` |
++| **Test Suite** | `pytest src/ tests/` + `python test_complete_system.py` | - | End-to-end validation; see `docs/TESTING.md` |
++
++### Checks
++- [ ] `GET /api/health` returns OK
++- [ ] `POST /api/programs/generate` returns a complete 8-week program (see `docs/API_REFERENCE.md` for request shape)
++- [ ] Library page lists exercises with cues/faults populated
++- [ ] Offline mode: frontend loads without the API running
+ 
+ ---
+ 
+@@ -59,7 +65,7 @@ Each exercise includes:
+ 
+ ---
+ 
+-## 🧪 Verification Test Results
++## Verification Test Results (historical baseline — re-run to confirm)
+ 
+ ### Test 1: Rugby Prop (Strength Focus)
+ ```
+@@ -131,7 +137,7 @@ Each exercise includes:
+ | `api.ts` | Backend API integration |
+ | `transformers.ts` | Data normalization |
+ 
+-### Database Schema (22 Migrations)
++### Database Schema (migrations through 000035; see docs/MIGRATIONS.md)
+ 
+ ```sql
+ -- Core tables:
+diff --git a/GITHUB_PAGES_GUIDE.md b/GITHUB_PAGES_GUIDE.md
+index 3ead892..4c82a5e 100644
+--- a/GITHUB_PAGES_GUIDE.md
++++ b/GITHUB_PAGES_GUIDE.md
+@@ -1,33 +1,27 @@
+ # FORGE - GitHub Pages Deployment Guide
+ 
+ ## Overview
+-FORGE is now configured for deployment to GitHub Pages. The application builds as a static site that can be hosted directly on GitHub.
++FORGE is configured for deployment to GitHub Pages. The frontend builds as a
++static site hosted directly on GitHub via the `Deploy to GitHub Pages` workflow
++(`.github/workflows/deploy-pages.yml`: triggers on push to `main` and manual
++dispatch; sets up Node 22, runs `npm ci` and `npm run build` in `forge_web/`,
++and uploads `forge_web/dist` as the Pages artifact). As of 2026-09-24.
+ 
+-## ✅ What's Been Configured
++> Note: the deployed site is the offline-first coach console. It does **not**
++> include the Python API server; features requiring `/api/*` need the backend
++> running separately (see `README.md`).
+ 
+-### 1. **Exercise Library Button on Home Page**
+-- Added prominent "Exercise Library" button on the Entry Screen
+-- Styled with emerald/teal gradient for visibility
+-- Displays: "Browse 334+ exercises with coaching cues, faults & alternatives"
+-- Direct access to the full exercise library without creating a program first
++## Configuration
+ 
+-### 2. **GitHub Pages Deployment**
+-- **Vite Configuration**: Updated `vite.config.ts` with `base: '/forge/'`
+-- **GitHub Actions Workflow**: Created `.github/workflows/deploy-pages.yml`
+-- **Build Process**: Production build generates static files in `forge_web/dist/`
++- **Vite base path**: `forge_web/vite.config.ts` sets `base: '/forge/'`. This must match the repository name (see Step 3).
++- **Build output**: `npm run build` generates static files in `forge_web/dist/`, uploaded as the Pages artifact.
++- **Branding**: page title "FORGE - Elite Strength & Conditioning Coach Console" with SEO meta description in `forge_web/index.html`.
+ 
+-### 3. **Branding Updates**
+-- Updated page title: "FORGE - Elite Strength & Conditioning Coach Console"
+-- Added meta description for SEO
+-
+-## 🚀 Deployment Steps
++## Deployment Steps
+ 
+ ### Step 1: Push to GitHub
+ ```bash
+-cd /workspace
+-git add .
+-git commit -m "Add Exercise Library button and GitHub Pages config"
+-git push origin main
++git push origin main   # the deploy-pages workflow runs automatically
+ ```
+ 
+ ### Step 2: Enable GitHub Pages
+@@ -53,7 +47,7 @@ You can trigger a manual deployment:
+ 2. Select "Deploy to GitHub Pages" workflow
+ 3. Click "Run workflow" → "Run workflow" button
+ 
+-## 📁 Build Output
++## Build Output
+ After running `npm run build`, the `dist/` folder contains:
+ ```
+ dist/
+@@ -63,7 +57,7 @@ dist/
+     └── index-[hash].js    # Compiled JavaScript
+ ```
+ 
+-## 🔧 Local Testing
++## Local Testing
+ Test the production build locally:
+ ```bash
+ cd forge_web
+@@ -72,10 +66,11 @@ npx serve dist
+ ```
+ Then visit: `http://localhost:3000/forge/`
+ 
+-## 🎯 Key Features Available
++## Key Features Available
+ 
+-### Exercise Library (Now on Home Page!)
+-- **334 exercises** across 21 movement families
++### Exercise Library
++- Frontend seed: 537 exercises + 222 complexes; backend engine data: 334
++  (authoritative counts and schema: `docs/DATA_MODEL.md`)
+ - Complete metadata: coaching cues, common faults, contraindications
+ - Equipment alternatives and progression pathways
+ - Searchable and filterable interface
+@@ -91,7 +86,7 @@ Then visit: `http://localhost:3000/forge/`
+ - All core features work without AI
+ - Rule-based engine produces credible programs
+ 
+-## 🐛 Troubleshooting
++## Troubleshooting
+ 
+ ### Build Fails
+ ```bash
+@@ -111,7 +106,7 @@ npm run build
+ - Check for CORS errors or missing assets
+ - Ensure repository is public (or GitHub Pages is enabled for private repos)
+ 
+-## 📝 Next Steps
++## Next Steps
+ 
+ 1. **Push code to GitHub**
+ 2. **Enable GitHub Pages** in repository settings
+diff --git a/IMPLEMENTATION_GUIDE_QUICK_WINS.md b/IMPLEMENTATION_GUIDE_QUICK_WINS.md
+deleted file mode 100644
+index d19b987..0000000
+--- a/IMPLEMENTATION_GUIDE_QUICK_WINS.md
++++ /dev/null
+@@ -1,741 +0,0 @@
+-# 🛠️ Implementation Guide: Library Organization Quick Wins
+-
+-This guide provides ready-to-use code implementations for the highest-impact UI/UX improvements identified in the analysis.
+-
+----
+-
+-## Quick Win #1: Enhanced Category Configuration
+-
+-**File:** `forge_web/src/modules/exercises/ExerciseLibrary.tsx`
+-
+-Replace the current `CATEGORY_GROUPS` with this enhanced version that includes super-category grouping:
+-
+-```typescript
+-// Enhanced category configuration with super-categories
+-const SUPER_CATEGORIES = {
+-  'FOUNDATIONAL': {
+-    name: 'Foundational Movements',
+-    icon: '🏗️',
+-    description: 'Master the basic movement patterns',
+-    categories: ['DLKD', 'DLHD', 'SLKD', 'SLHD', 'HPush', 'VPush', 'HPull', 'VPull']
+-  },
+-  'POWER': {
+-    name: 'Power & Explosiveness',
+-    icon: '💥',
+-    description: 'Develop rate of force production',
+-    categories: ['Plyo', 'Ball', 'Explosive Performance']
+-  },
+-  'SPEED': {
+-    name: 'Speed & Agility',
+-    icon: '⚡',
+-    description: 'Improve acceleration, max velocity, and change of direction',
+-    categories: ['Sprint', 'Acc', 'Agility', 'Landing']
+-  },
+-  'CORE': {
+-    name: 'Core & Stability',
+-    icon: '🎯',
+-    description: 'Build trunk stability and rotational power',
+-    categories: ['Core', 'Rot', 'Carry']
+-  },
+-  'CONDITIONING': {
+-    name: 'Conditioning',
+-    icon: '❤️',
+-    description: 'Energy system development',
+-    categories: ['Cond']
+-  },
+-  'PREPARATION': {
+-    name: 'Preparation & Recovery',
+-    icon: '🧘',
+-    description: 'Warm-up, mobility, and regeneration',
+-    categories: ['Activation', 'Recovery']
+-  },
+-  'ASSESSMENT': {
+-    name: 'Assessment',
+-    icon: '📊',
+-    description: 'Movement screens and performance tests',
+-    categories: ['Assessment']
+-  }
+-};
+-
+-const CATEGORY_GROUPS: Record<string, { 
+-  name: string; 
+-  icon: string; 
+-  description: string;
+-  superCategory?: string;
+-}> = {
+-  // Foundational - Lower Body
+-  'DLKD': { 
+-    name: 'Double Leg - Knee Dominant', 
+-    icon: '🦵', 
+-    description: 'Squats and knee-focused bilateral movements',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  'DLHD': { 
+-    name: 'Double Leg - Hip Dominant', 
+-    icon: '🍑', 
+-    description: 'Deadlifts, hinges, and hip-focused bilateral movements',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  'SLKD': { 
+-    name: 'Single Leg - Knee Dominant', 
+-    icon: '🦵', 
+-    description: 'Single leg squats, step-ups, and unilateral knee-dominant work',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  'SLHD': { 
+-    name: 'Single Leg - Hip Dominant', 
+-    icon: '🍑', 
+-    description: 'Single leg deadlifts, bridges, and unilateral hip-dominant work',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  // Foundational - Upper Body Push
+-  'HPush': { 
+-    name: 'Horizontal Push', 
+-    icon: '👊', 
+-    description: 'Push-ups, bench press, and horizontal pressing patterns',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  'VPush': { 
+-    name: 'Vertical Push', 
+-    icon: '🙌', 
+-    description: 'Overhead press, push press, and vertical pressing patterns',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  // Foundational - Upper Body Pull
+-  'HPull': { 
+-    name: 'Horizontal Pull', 
+-    icon: '🤸', 
+-    description: 'Rows, face pulls, and horizontal pulling patterns',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  'VPull': { 
+-    name: 'Vertical Pull', 
+-    icon: '🧗', 
+-    description: 'Pull-ups, lat pulldowns, and vertical pulling patterns',
+-    superCategory: 'FOUNDATIONAL'
+-  },
+-  // Power & Explosiveness
+-  'Plyo': { 
+-    name: 'Plyometrics', 
+-    icon: '💥', 
+-    description: 'Jumps, bounds, and explosive stretch-shortening cycle work',
+-    superCategory: 'POWER'
+-  },
+-  'Ball': { 
+-    name: 'Medicine Ball', 
+-    icon: '🏀', 
+-    description: 'Med ball throws, slams, and dynamic implements',
+-    superCategory: 'POWER'
+-  },
+-  'Explosive Performance': { 
+-    name: 'Explosive Performance', 
+-    icon: '⚡', 
+-    description: 'Olympic derivatives, power exercises, and ballistic movements',
+-    superCategory: 'POWER'
+-  },
+-  // Speed & Agility
+-  'Sprint': { 
+-    name: 'Sprinting', 
+-    icon: '🏃', 
+-    description: 'Max velocity sprinting mechanics and drills',
+-    superCategory: 'SPEED'
+-  },
+-  'Acc': { 
+-    name: 'Acceleration', 
+-    icon: '🚀', 
+-    description: 'First step quality and initial acceleration mechanics',
+-    superCategory: 'SPEED'
+-  },
+-  'Agility': { 
+-    name: 'Agility', 
+-    icon: '⚡', 
+-    description: 'Change of direction, reactive drills, and footwork',
+-    superCategory: 'SPEED'
+-  },
+-  'Landing': { 
+-    name: 'Landing Mechanics', 
+-    icon: '🛬', 
+-    description: 'Deceleration technique and safe landing patterns',
+-    superCategory: 'SPEED'
+-  },
+-  // Core & Stability
+-  'Core': { 
+-    name: 'Core & Stability', 
+-    icon: '🎯', 
+-    description: 'Anti-rotation, anti-extension, and trunk stability',
+-    superCategory: 'CORE'
+-  },
+-  'Carry': { 
+-    name: 'Carries', 
+-    icon: '🏋️', 
+-    description: 'Farmer walks, suitcase carries, and loaded gait patterns',
+-    superCategory: 'CORE'
+-  },
+-  'Rot': { 
+-    name: 'Rotation', 
+-    icon: '🔄', 
+-    description: 'Rotational power and transverse plane stability',
+-    superCategory: 'CORE'
+-  },
+-  // Conditioning
+-  'Cond': { 
+-    name: 'Conditioning', 
+-    icon: '❤️', 
+-    description: 'Energy system development and metabolic conditioning',
+-    superCategory: 'CONDITIONING'
+-  },
+-  // Preparation & Recovery
+-  'Activation': { 
+-    name: 'Activation', 
+-    icon: '🔌', 
+-    description: 'Movement preparation and muscle activation drills',
+-    superCategory: 'PREPARATION'
+-  },
+-  'Recovery': { 
+-    name: 'Recovery', 
+-    icon: '🧘', 
+-    description: 'Mobility, regeneration, and restoration work',
+-    superCategory: 'PREPARATION'
+-  },
+-  // Assessment
+-  'Assessment': { 
+-    name: 'Assessment', 
+-    icon: '📊', 
+-    description: 'Movement screens, performance tests, and assessments',
+-    superCategory: 'ASSESSMENT'
+-  }
+-};
+-```
+-
+----
+-
+-## Quick Win #2: Super-Category Grouped Navigation
+-
+-Add this component to show categories grouped by super-category in the sidebar:
+-
+-```typescript
+-// Add this method inside ExerciseLibrary component
+-const renderGroupedCategories = () => {
+-  return Object.entries(SUPER_CATEGORIES).map(([superKey, superInfo]) => {
+-    const categoryKeys = superInfo.categories.filter(key => categoryCounts[key] || 0 > 0);
+-    if (categoryKeys.length === 0) return null;
+-
+-    return (
+-      <div key={superKey} className="mb-4">
+-        <div className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-gray-500 uppercase tracking-wider">
+-          <span>{superInfo.icon}</span>
+-          <span>{superInfo.name}</span>
+-        </div>
+-        <div className="space-y-1">
+-          {categoryKeys.map((key) => {
+-            const info = CATEGORY_GROUPS[key];
+-            const count = categoryCounts[key] || 0;
+-            return (
+-              <button
+-                key={key}
+-                onClick={() => setSelectedCategory(key)}
+-                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+-                  selectedCategory === key 
+-                    ? 'bg-blue-100 text-blue-800' 
+-                    : 'text-gray-700 hover:bg-gray-100'
+-                }`}
+-              >
+-                <span className="flex items-center justify-between">
+-                  <span className="truncate">
+-                    <span className="mr-2">{info.icon}</span>
+-                    <span className="font-medium">{info.name}</span>
+-                  </span>
+-                  <span className="text-xs bg-gray-200 px-2 py-0.5 rounded-full ml-2 flex-shrink-0">
+-                    {count}
+-                  </span>
+-                </span>
+-              </button>
+-            );
+-          })}
+-        </div>
+-      </div>
+-    );
+-  });
+-};
+-
+-// Then in your sidebar navigation, replace the current category list with:
+-<nav className="flex-1 overflow-y-auto">
+-  <button
+-    onClick={() => setSelectedCategory('')}
+-    className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors mb-4 ${
+-      selectedCategory === '' 
+-        ? 'bg-blue-100 text-blue-800' 
+-        : 'text-gray-700 hover:bg-gray-100'
+-    }`}
+-  >
+-    <span className="flex items-center justify-between">
+-      <span>📚 All Exercises</span>
+-      <span className="text-xs bg-gray-200 px-2 py-0.5 rounded-full">
+-        {allExercises.length}
+-      </span>
+-    </span>
+-  </button>
+-  
+-  {renderGroupedCategories()}
+-</nav>
+-```
+-
+----
+-
+-## Quick Win #3: Curated Collections Section
+-
+-Add a new view mode for curated collections. Create a new file:
+-
+-**File:** `forge_web/src/data/collections.ts`
+-
+-```typescript
+-export interface Collection {
+-  id: string;
+-  name: string;
+-  description: string;
+-  icon: string;
+-  color: string;
+-  exerciseIds?: string[];
+-  filterFn?: (exercise: any) => boolean;
+-  count?: number;
+-}
+-
+-export const COLLECTIONS: Collection[] = [
+-  {
+-    id: 'foundation-five',
+-    name: 'Foundation Five',
+-    description: 'Master these fundamental patterns before progressing',
+-    icon: '🏛️',
+-    color: 'from-amber-500 to-orange-500',
+-    exerciseIds: ['DLKD-001', 'DLHD-001', 'HPush-001', 'HPull-001', 'Core-001'],
+-    count: 5
+-  },
+-  {
+-    id: 'pain-safe',
+-    name: 'Return-to-Play Safe',
+-    description: 'Pain-free movements for rehabilitation phases',
+-    icon: '✓',
+-    color: 'from-green-500 to-emerald-500',
+-    filterFn: (exercise: any) => exercise.is_pain_safe === true,
+-  },
+-  {
+-    id: 'no-equipment',
+-    name: 'No Equipment Needed',
+-    description: 'Train anywhere with just your bodyweight',
+-    icon: '🎒',
+-    color: 'from-blue-500 to-cyan-500',
+-    filterFn: (exercise: any) => 
+-      exercise.equipment.toLowerCase().includes('bodyweight') ||
+-      exercise.equipment.toLowerCase() === 'none',
+-  },
+-  {
+-    id: 'beginner-friendly',
+-    name: 'Beginner Essentials',
+-    description: 'Perfect starting point for new athletes',
+-    icon: '🌱',
+-    color: 'from-purple-500 to-pink-500',
+-    filterFn: (exercise: any) => exercise.difficulty === 'Beginner',
+-  },
+-  {
+-    id: 'advanced-only',
+-    name: 'Advanced Mastery',
+-    description: 'High-skill movements for experienced athletes',
+-    icon: '🔥',
+-    color: 'from-red-500 to-rose-500',
+-    filterFn: (exercise: any) => exercise.difficulty === 'Advanced',
+-  },
+-  {
+-    id: 'core-stability',
+-    name: 'Core Stability Suite',
+-    description: 'Complete trunk training from anti-rotation to carries',
+-    icon: '🎯',
+-    color: 'from-indigo-500 to-violet-500',
+-    filterFn: (exercise: any) => 
+-      ['Core', 'Carry', 'Rot'].includes(exercise.category),
+-  }
+-];
+-
+-// Helper function to get collection exercises
+-export const getCollectionExercises = async (
+-  collection: Collection, 
+-  allExercises: any[]
+-): Promise<any[]> => {
+-  if (collection.exerciseIds) {
+-    return allExercises.filter(ex => collection.exerciseIds!.includes(ex.id));
+-  }
+-  if (collection.filterFn) {
+-    return allExercises.filter(collection.filterFn);
+-  }
+-  return [];
+-};
+-```
+-
+----
+-
+-## Quick Win #4: Collections View Component
+-
+-Create a new component for browsing collections:
+-
+-**File:** `forge_web/src/components/CollectionsView.tsx`
+-
+-```typescript
+-import React, { useState } from 'react';
+-import { COLLECTIONS, Collection } from '../data/collections';
+-import { Exercise } from '../modules/exercises/exercise.service';
+-import ExerciseCard from '../modules/exercises/ExerciseCard';
+-
+-interface CollectionsViewProps {
+-  allExercises: Exercise[];
+-  onBack?: () => void;
+-}
+-
+-const CollectionsView: React.FC<CollectionsViewProps> = ({ allExercises, onBack }) => {
+-  const [selectedCollection, setSelectedCollection] = useState<Collection | null>(null);
+-
+-  const getCollectionExercises = (collection: Collection): Exercise[] => {
+-    if (collection.exerciseIds) {
+-      return allExercises.filter(ex => collection.exerciseIds!.includes(ex.id));
+-    }
+-    if (collection.filterFn) {
+-      return allExercises.filter(collection.filterFn);
+-    }
+-    return [];
+-  };
+-
+-  if (selectedCollection) {
+-    const exercises = getCollectionExercises(selectedCollection);
+-    return (
+-      <div className="min-h-screen bg-gray-50">
+-        <div className="bg-white border-b border-gray-200 sticky top-0 z-40">
+-          <div className="px-6 py-4">
+-            <div className="flex items-center gap-4">
+-              <button
+-                onClick={() => setSelectedCollection(null)}
+-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+-              >
+-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+-                </svg>
+-              </button>
+-              <div className="flex items-center gap-3">
+-                <span className="text-3xl">{selectedCollection.icon}</span>
+-                <div>
+-                  <h1 className="text-xl font-bold text-gray-900">{selectedCollection.name}</h1>
+-                  <p className="text-sm text-gray-600">{selectedCollection.description}</p>
+-                </div>
+-                <span className="ml-auto px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+-                  {exercises.length} exercises
+-                </span>
+-              </div>
+-            </div>
+-          </div>
+-        </div>
+-
+-        <div className="p-6">
+-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+-            {exercises.map(exercise => (
+-              <ExerciseCard 
+-                key={exercise.id} 
+-                exercise={exercise} 
+-                onClick={() => console.log('Clicked:', exercise.name)}
+-              />
+-            ))}
+-          </div>
+-        </div>
+-      </div>
+-    );
+-  }
+-
+-  return (
+-    <div className="min-h-screen bg-gray-50 p-6">
+-      <div className="max-w-6xl mx-auto">
+-        <div className="flex items-center justify-between mb-8">
+-          <div>
+-            <h1 className="text-2xl font-bold text-gray-900">Curated Collections</h1>
+-            <p className="text-gray-600 mt-1">Hand-picked exercise groupings for specific goals</p>
+-          </div>
+-          {onBack && (
+-            <button
+-              onClick={onBack}
+-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+-            >
+-              Back to Library
+-            </button>
+-          )}
+-        </div>
+-
+-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+-          {COLLECTIONS.map(collection => {
+-            const count = collection.count || getCollectionExercises(collection).length;
+-            return (
+-              <button
+-                key={collection.id}
+-                onClick={() => setSelectedCollection(collection)}
+-                className={`relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br ${collection.color} text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200 text-left`}
+-              >
+-                <div className="relative z-10">
+-                  <div className="text-4xl mb-3">{collection.icon}</div>
+-                  <h3 className="text-xl font-bold mb-2">{collection.name}</h3>
+-                  <p className="text-white/90 text-sm mb-4">{collection.description}</p>
+-                  <div className="flex items-center gap-2 text-sm font-medium">
+-                    <span className="px-3 py-1 bg-white/20 rounded-full">
+-                      {count} exercises
+-                    </span>
+-                    <span className="flex items-center gap-1">
+-                      Browse →
+-                    </span>
+-                  </div>
+-                </div>
+-                
+-                {/* Decorative background pattern */}
+-                <div className="absolute -bottom-4 -right-4 text-8xl opacity-10">
+-                  {collection.icon}
+-                </div>
+-              </button>
+-            );
+-          })}
+-        </div>
+-      </div>
+-    </div>
+-  );
+-};
+-
+-export default CollectionsView;
+-```
+-
+----
+-
+-## Quick Win #5: Enhanced Exercise Card with More Context
+-
+-Update `ExerciseCard.tsx` to show more useful information at a glance:
+-
+-```typescript
+-// Add these helper functions to ExerciseCard component
+-
+-const getEquipmentIcon = (equipment: string): string => {
+-  const eq = equipment.toLowerCase();
+-  if (eq.includes('barbell')) return '🏋️';
+-  if (eq.includes('dumbbell') || eq.includes('kb')) return '🎯';
+-  if (eq.includes('bodyweight')) return '🧘';
+-  if (eq.includes('band')) return '🔴';
+-  if (eq.includes('medicine ball') || eq.includes('med ball')) return '🏀';
+-  if (eq.includes('kettlebell')) return '🔔';
+-  return '🏋️';
+-};
+-
+-const getMuscleGroups = (category: string): string[] => {
+-  const muscleMap: Record<string, string[]> = {
+-    'DLKD': ['Quadriceps', 'Glutes'],
+-    'DLHD': ['Hamstrings', 'Glutes', 'Lower Back'],
+-    'SLKD': ['Quadriceps', 'Glutes', 'Calves'],
+-    'SLHD': ['Hamstrings', 'Glutes'],
+-    'HPush': ['Chest', 'Triceps', 'Anterior Deltoid'],
+-    'VPush': ['Shoulders', 'Triceps'],
+-    'HPull': ['Upper Back', 'Rear Deltoid', 'Biceps'],
+-    'VPull': ['Lats', 'Biceps', 'Mid Back'],
+-    'Core': ['Abs', 'Obliques', 'Deep Core'],
+-    'Plyo': ['Fast Twitch Fibers', 'Full Body'],
+-    'Sprint': ['Hip Flexors', 'Hamstrings', 'Calves'],
+-  };
+-  return muscleMap[category] || ['General'];
+-};
+-
+-// Update the card header section
+-<div className="px-3 py-2 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+-  <div className="flex items-center justify-between gap-2 mb-2">
+-    <h3 className="text-xs font-bold text-gray-900 truncate flex-1" title={exercise.name}>
+-      {exercise.name}
+-    </h3>
+-    <div className="flex items-center gap-1 flex-shrink-0">
+-      <span 
+-        className={`w-5 h-5 flex items-center justify-center rounded text-[10px] font-bold border ${getDifficultyBadge(exercise.difficulty)}`}
+-        title={`${exercise.difficulty} Level`}
+-      >
+-        {getDifficultyIcon(exercise.difficulty)}
+-      </span>
+-      {exercise.is_pain_safe && (
+-        <span className="w-4 h-4 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-[10px]" title="Pain-Safe Exercise">
+-          ✓
+-        </span>
+-      )}
+-    </div>
+-  </div>
+-  
+-  {/* NEW: Muscle groups preview */}
+-  <div className="flex flex-wrap gap-1 mt-1.5">
+-    {getMuscleGroups(exercise.category).slice(0, 2).map((muscle, idx) => (
+-      <span key={idx} className="text-[9px] px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded">
+-        {muscle}
+-      </span>
+-    ))}
+-  </div>
+-</div>
+-
+-// Update the meta row
+-<div className="px-3 py-1.5 bg-white">
+-  <div className="flex items-center gap-1.5 text-[10px]">
+-    <span className="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded truncate max-w-[80px]" title={exercise.movement_pattern}>
+-      {exercise.movement_pattern}
+-    </span>
+-    {/* NEW: Equipment icon + text */}
+-    <span className="px-1.5 py-0.5 bg-purple-50 text-purple-700 rounded flex items-center gap-1" title={exercise.equipment}>
+-      <span>{getEquipmentIcon(exercise.equipment)}</span>
+-      <span className="truncate max-w-[60px]">{exercise.equipment.split(',')[0]}</span>
+-    </span>
+-  </div>
+-</div>
+-```
+-
+----
+-
+-## Quick Win #6: Standardized Equipment Vocabulary
+-
+-Create a mapping utility to normalize equipment names:
+-
+-**File:** `forge_web/src/utils/equipmentMapper.ts`
+-
+-```typescript
+-export const EQUIPMENT_MAPPING: Record<string, string> = {
+-  // Barbells
+-  'barbell': 'Barbell',
+-  'olympic barbell': 'Barbell',
+-  'ez bar': 'Barbell',
+-  'trap bar': 'Barbell',
+-  'safety squat bar': 'Barbell',
+-  
+-  // Dumbbells
+-  'db/kb': 'Dumbbell/Kettlebell',
+-  'dumbbell': 'Dumbbell',
+-  'dumbbells': 'Dumbbell',
+-  'db': 'Dumbbell',
+-  
+-  // Kettlebells
+-  'kettlebell': 'Kettlebell',
+-  'kb': 'Kettlebell',
+-  
+-  // Bodyweight
+-  'bodyweight': 'Bodyweight',
+-  'bw': 'Bodyweight',
+-  'none': 'Bodyweight',
+-  '': 'Bodyweight',
+-  
+-  // Bands
+-  'resistance band': 'Resistance Band',
+-  'bands': 'Resistance Band',
+-  'band': 'Resistance Band',
+-  
+-  // Medicine Balls
+-  'medicine ball': 'Medicine Ball',
+-  'med ball': 'Medicine Ball',
+-  'wall ball': 'Medicine Ball',
+-  
+-  // Machines
+-  'cable': 'Cable Machine',
+-  'cable machine': 'Cable Machine',
+-  'machine': 'Machine',
+-  
+-  // Boxes/Benches
+-  'box': 'Box',
+-  'bench': 'Bench',
+-  'incline bench': 'Bench',
+-  
+-  // Other
+-  'foam roller': 'Foam Roller',
+-  'stability ball': 'Stability Ball',
+-  'bosu': 'Unstable Surface',
+-  'suspension trainer': 'Suspension Trainer',
+-  'trx': 'Suspension Trainer',
+-  'sled': 'Sled',
+-  'battle ropes': 'Battle Ropes',
+-  'jump rope': 'Jump Rope',
+-};
+-
+-export const normalizeEquipment = (equipment: string): string => {
+-  if (!equipment) return 'Bodyweight';
+-  
+-  const normalized = equipment
+-    .toLowerCase()
+-    .split(',')
+-    .map(item => item.trim())
+-    .map(item => EQUIPMENT_MAPPING[item] || item)
+-    .filter(Boolean);
+-  
+-  // Remove duplicates and sort
+-  const unique = [...new Set(normalized)];
+-  return unique.join(', ');
+-};
+-
+-export const getStandardEquipmentList = (): string[] => {
+-  return [
+-    'Bodyweight',
+-    'Barbell',
+-    'Dumbbell',
+-    'Kettlebell',
+-    'Dumbbell/Kettlebell',
+-    'Resistance Band',
+-    'Medicine Ball',
+-    'Cable Machine',
+-    'Machine',
+-    'Box',
+-    'Bench',
+-    'Foam Roller',
+-    'Stability Ball',
+-    'Suspension Trainer',
+-    'Sled',
+-    'Battle Ropes',
+-    'Jump Rope',
+-    'Unstable Surface'
+-  ];
+-};
+-```
+-
+-Then update your exercise service to use this normalization:
+-
+-```typescript
+-// In exercise.service.ts
+-import { normalizeEquipment } from '../../utils/equipmentMapper';
+-
+-// When loading exercises, normalize equipment field
+-const exercises = await getExercisesData();
+-exercises.forEach(ex => {
+-  ex.equipment = normalizeEquipment(ex.equipment);
+-});
+-```
+-
+----
+-
+-## Implementation Checklist
+-
+-### Phase 1: This Week ✅
+-- [ ] Update `CATEGORY_GROUPS` with full names and descriptions
+-- [ ] Add super-category grouping to sidebar
+-- [ ] Create equipment mapper utility
+-- [ ] Update exercise cards with muscle group previews
+-
+-### Phase 2: Next Week ⬜
+-- [ ] Implement Collections view
+-- [ ] Add collection browsing to main navigation
+-- [ ] Normalize equipment data across library
+-- [ ] Add collection count badges
+-
+-### Phase 3: Following Weeks ⬜
+-- [ ] Implement goal-oriented entry flow
+-- [ ] Add exercise relationship visualization
+-- [ ] Create sport-specific filtered views
+-- [ ] Integrate with program builder
+-
+----
+-
+-## Testing Your Changes
+-
+-After implementing each quick win, test with these scenarios:
+-
+-1. **New User Test**: Can someone unfamiliar with strength training find "squats"?
+-2. **Time Trial**: How quickly can users find 5 pain-free exercises for knee issues?
+-3. **Browse Test**: Do users naturally discover the collections or do they need guidance?
+-4. **Mobile Test**: Does the grouped navigation work on mobile devices?
+-
+----
+-
+-*Implementation Guide v1.0*  
+-*Companion to UI_UX_LIBRARY_ANALYSIS_REPORT.md*
+diff --git a/LIBRARY_ENHANCEMENT_PLAN.md b/LIBRARY_ENHANCEMENT_PLAN.md
+index 519806e..646b1c3 100644
+--- a/LIBRARY_ENHANCEMENT_PLAN.md
++++ b/LIBRARY_ENHANCEMENT_PLAN.md
+@@ -1,11 +1,15 @@
+ # FORGE Library Enhancement Plan
+ ## "AI Enhanced, Never AI Dependent" - Full Stack Development Roadmap
+ 
+----
+-
+-## 📋 EXECUTIVE SUMMARY
+-
+-**Current State:**
++> **Re-baseline note (2026-09-24):** The "Current State" below predates later
++> library phases. Since then: `/api/v1/exercises` endpoints are implemented in
++> `src/forge/api_server.py` (see `docs/API_REFERENCE.md`); the frontend seed
++> grew to 537 exercises / 222 complexes (`docs/DATA_MODEL.md`); and library
++> enhancement phases through migration 000035 shipped. Items marked done in
++> retired phase reports were consolidated into `CHANGELOG.md`. Verify each
++> remaining roadmap item against current code before starting work.
++
++**Current State:** *(historical baseline)*
+ - Backend: 334 exercises in monolithic `exercises_data.py` (7,708 lines)
+ - Frontend: React/TypeScript app with exercise library page at `/library`
+ - Data: exercises.json (574KB) in frontend data folder
+diff --git a/LIBRARY_ENHANCEMENT_SUMMARY.md b/LIBRARY_ENHANCEMENT_SUMMARY.md
+deleted file mode 100644
+index dff3cc5..0000000
+--- a/LIBRARY_ENHANCEMENT_SUMMARY.md
++++ /dev/null
+@@ -1,239 +0,0 @@
+-# Exercise Library Enhancement Summary
+-
+-**Date:** 2025-06-18  
+-**Status:** ✅ Phase 1 Complete
+-
+----
+-
+-## Executive Summary
+-
+-Successfully implemented critical improvements to the FORGE exercise library, addressing the highest priority gaps identified in the audit.
+-
+-### Before vs After Comparison
+-
+-| Metric | Before | After | Improvement |
+-|--------|--------|-------|-------------|
+-| **Exercises with Descriptions** | 121/537 (22.5%) | 537/537 (100%) | ✅ +77.5% |
+-| **Sport-Tagged Exercises** | 0/537 (0%) | 283/537 (52.7%) | ✅ +52.7% |
+-| **Role-Tagged Exercises** | 0/537 (0%) | 283/537 (52.7%) | ✅ +52.7% |
+-| **Exercises with Progressions** | 454/537 (84.5%) | 527/537 (98.1%) | ✅ +13.6% |
+-| **Exercises with Regressions** | 485/537 (90.3%) | 520/537 (96.8%) | ✅ +6.5% |
+-| **Pain-Safe Exercises** | 74/537 (13.8%) | 209/537 (38.9%) | ✅ +25.1% |
+-| **Bodyweight Alternatives** | 101/537 (18.8%) | 140/537 (26.1%) | ✅ +7.3% |
+-
+----
+-
+-## Implemented Enhancements
+-
+-### ✅ 1. Exercise Descriptions (100% Complete)
+-
+-**Script:** `generate_descriptions.py`
+-
+-- Generated contextual descriptions for all 416 exercises missing them
+-- Descriptions include:
+-  - Movement pattern type (e.g., "double-leg knee-dominant")
+-  - Equipment requirements
+-  - Difficulty-appropriate language
+-  - Key focus points extracted from coaching cues
+-  
+-**Example Output:**
+-```json
+-{
+-  "id": "DLKD-001",
+-  "name": "Air Squat",
+-  "description": "A foundational double-leg knee-dominant exercise using only bodyweight, ideal for building basic movement patterns and strength. Focus on bracing the core and proper knee alignment."
+-}
+-```
+-
+-### ✅ 2. Sport & Role Tagging (52.7% Complete)
+-
+-**Script:** `auto_tag_exercises.py`
+-
+-- Auto-tagged 283 exercises based on complex usage analysis
+-- Tags extracted from 222 complexes across 5 sports
+-- Each exercise now has:
+-  - `sport_tags`: Array of sports (e.g., ["Cricket", "Tennis"])
+-  - `role_tags`: Object mapping sports to roles
+-  
+-**Example Output:**
+-```json
+-{
+-  "id": "DLKD-001",
+-  "sport_tags": ["Cricket", "Tennis", "Badminton"],
+-  "role_tags": {
+-    "Cricket": ["Pace Bowler", "Spin Bowler", "Power Hitter"],
+-    "Tennis": ["Big Server", "Baseliner"],
+-    "Badminton": ["Net Dominator", "Rear Court Attacker"]
+-  }
+-}
+-```
+-
+-**Remaining:** 254 foundational exercises not used in complexes require manual tagging
+-
+-### ✅ 3. Progression/Regression Chains (98.1% / 96.8% Complete)
+-
+-**Script:** `build_progression_chains.py`
+-
+-- Built 457 progression/regression links
+-- Grouped exercises by movement pattern (116 patterns)
+-- Sorted by difficulty within each pattern
+-- Created bidirectional links between adjacent difficulty levels
+-
+-**Coverage:**
+-- Progressions: 527/537 exercises (98.1%)
+-- Regressions: 520/537 (96.8%)
+-- Missing: 10 exercises without progressions, 17 without regressions
+-
+-### ✅ 4. Pain-Safe Expansion (38.9% Complete)
+-
+-**Script:** `expand_pain_safe_bodyweight.py`
+-
+-- Added 135 pain-safe tags using intelligent rules:
+-  - All Activation, Mobility, Assessment, CORE categories
+-  - Low-impact bodyweight exercises (Beginner/Intermediate)
+-  - Band-resisted exercises
+-  - Isometric holds (bridges, planks, wall sits)
+-
+-**Result:** 209/537 exercises now tagged as pain-safe (38.9%)
+-
+-### ✅ 5. Bodyweight Alternatives (26.1% Complete)
+-
+-**Script:** `expand_pain_safe_bodyweight.py`
+-
+-- Added 38 bodyweight alternatives to weighted exercises
+-- Applied to fundamental movement patterns:
+-  - DLKD, DLHD, SLKD, SLHD (squat/deadlift patterns)
+-  - PUSH, PULL (upper body)
+-  - CORE, PLYO (athletic development)
+-
+-**Result:** 140/537 exercises can be performed with bodyweight (26.1%)
+-
+----
+-
+-## Remaining Gaps & Recommendations
+-
+-### 🔴 HIGH PRIORITY (Next Sprint)
+-
+-#### 1. Manual Review of Auto-Generated Content
+-- **Action:** Have certified coaches review 10-15% of auto-generated descriptions
+-- **Effort:** 4-6 hours
+-- **Risk if skipped:** Potential technique errors in descriptions
+-
+-#### 2. Tag Foundational Exercises
+-- **Issue:** 254 exercises (47.3%) lack sport/role tags
+-- **Action:** Manually tag foundational movements:
+-  - Basic mobility drills → All sports
+-  - Core stability → All sports  
+-  - Movement prep → All sports
+-- **Effort:** 2-3 hours
+-- **Script needed:** `manual_tag_foundational.py`
+-
+-### 🟡 MEDIUM PRIORITY (Next 2-3 Sprints)
+-
+-#### 3. Expand Beginner Exercise Library
+-- **Current:** 100/537 (18.6%)
+-- **Target:** 135/537 (25%)
+-- **Action:** Create 35 new beginner variations
+-- **Focus areas:** 
+-  - Bodyweight strength progressions
+-  - Mobility fundamentals
+-  - Movement literacy
+-
+-#### 4. Add More Bodyweight-Only Exercises
+-- **Current:** 101/537 (18.8%)
+-- **Target:** 160/537 (30%)
+-- **Action:** Create 60 new bodyweight exercises
+-- **Focus areas:**
+-  - Unilateral lower body (single-leg squats, lunges)
+-  - Upper body pushing/pulling variations
+-  - Rotational power (medicine ball alternatives)
+-
+-#### 5. Fill Progression/Regression Gaps
+-- **Missing:** 10 progressions, 17 regressions
+-- **Action:** Manually add links for isolated exercises
+-- **Likely candidates:** Olympic lift variations, specialty movements
+-
+-### 🟢 LOW PRIORITY (Future Enhancements)
+-
+-#### 6. Video Integration
+-- Add video demonstration URLs to exercise metadata
+-- Prioritize top 50 most-used exercises
+-
+-#### 7. Muscle Group Tagging
+-- Add primary/secondary muscle group tags
+-- Enable muscle-focused filtering
+-
+-#### 8. Contraindication Expansion
+-- Currently ~40% have contraindications
+-- Target: 80%+ coverage
+-- Important for injury prevention
+-
+----
+-
+-## Validation Results
+-
+-All enhancements passed validation checks:
+-
+-```
+-✅ All exercise references in complexes valid
+-✅ All exercises have required fields
+-✅ All exercises have recommended fields
+-✅ All complexes have required fields
+-```
+-
+----
+-
+-## Scripts Created
+-
+-| Script | Purpose | Status |
+-|--------|---------|--------|
+-| `validate_library.py` | Validate library integrity | ✅ Tested |
+-| `auto_tag_exercises.py` | Auto-tag from complexes | ✅ Executed |
+-| `build_progression_chains.py` | Build progression trees | ✅ Executed |
+-| `generate_descriptions.py` | Generate descriptions | ✅ Executed |
+-| `expand_pain_safe_bodyweight.py` | Expand accessibility tags | ✅ Executed |
+-
+----
+-
+-## Next Steps
+-
+-1. **Immediate (This Week):**
+-   - [ ] Coach review of auto-generated descriptions (sample 50 exercises)
+-   - [ ] Manual tagging of 50 foundational exercises
+-   - [ ] Deploy to staging environment
+-
+-2. **Short-term (Next 2 Weeks):**
+-   - [ ] Create 20 beginner bodyweight exercises
+-   - [ ] Add remaining progression/regression links
+-   - [ ] User testing with 5-10 athletes
+-
+-3. **Medium-term (Next Month):**
+-   - [ ] Reach 25% beginner exercises
+-   - [ ] Reach 30% bodyweight exercises
+-   - [ ] Integrate video demonstrations (top 50)
+-
+----
+-
+-## Impact Assessment
+-
+-### Athlete Benefits
+-- ✅ Clear exercise instructions (100% coverage)
+-- ✅ Better scaling options (98% have progressions/regressions)
+-- ✅ More rehab-friendly options (39% pain-safe)
+-- ✅ Sport-specific filtering (53% tagged)
+-
+-### Coach Benefits
+-- ✅ Faster program design with auto-tagged exercises
+-- ✅ Better athlete personalization options
+-- ✅ Reduced injury risk with pain-safe alternatives
+-- ✅ Home training support with bodyweight options
+-
+-### System Benefits
+-- ✅ Improved data quality and completeness
+-- ✅ Enhanced recommendation engine capabilities
+-- ✅ Better search and filtering functionality
+-- ✅ Foundation for AI-powered exercise selection
+-
+----
+-
+-**Overall Status:** 🎉 Critical gaps closed, library ready for production deployment with minor manual review.
+diff --git a/PHASE2_COMPLETE_SUMMARY.md b/PHASE2_COMPLETE_SUMMARY.md
+deleted file mode 100644
+index 1dca0fd..0000000
+--- a/PHASE2_COMPLETE_SUMMARY.md
++++ /dev/null
+@@ -1,260 +0,0 @@
+-# 🎯 FORGE ELITE LIBRARY: PHASE 2 COMPLETE
+-
+-## Executive Summary
+-**Status**: ✅ READY FOR DEPLOYMENT  
+-**Total Exercises Added**: 40 elite movements  
+-**New Total Library Size**: ~65 exercises (Phase 1: 25 + Phase 2: 40)  
+-**Target for Elite System**: 150-200+ (Phase 3 needed)
+-
+----
+-
+-## 📚 What Was Added (40 Exercises)
+-
+-### 1. Olympic Weightlifting & Derivatives (5 exercises)
+-*Source: USOPC, UKSCA, ALTIS*
+-- Power Clean
+-- Hang Power Clean (Mid-Thigh)
+-- Push Jerk
+-- Clean Pull
+-- Snatch Balance
+-
+-**Why CSCS Coaches Need This**: Essential for Rate of Force Development (RFD), triple extension training, and athletic power transfer.
+-
+-### 2. Loaded Carries (5 exercises)
+-*Source: Strongman Corp, EXOS, UKSCA, ALTIS*
+-- Farmer's Walk
+-- Suitcase Carry
+-- Rack Carry
+-- Overhead Carry
+-- Yoke Walk
+-
+-**Why CSCS Coaches Need This**: Core stability under load, grip strength, real-world strength transfer, shoulder health.
+-
+-### 3. Anti-Movement Core (5 exercises)
+-*Source: McGill Method, EXOS, NSCA*
+-- Pallof Press
+-- Stir The Pot
+-- Dead Bug
+-- Side Plank with Row
+-- Ab Wheel Rollout
+-
+-**Why CSCS Coaches Need This**: Spine health, injury prevention, anti-rotation/anti-extension core function (McGill research-backed).
+-
+-### 4. Plyometrics & Sprint Drills (5 exercises)
+-*Source: ALTIS, Frans Bosch, NFL Combine*
+-- Pogo Jumps
+-- Broad Jump
+-- Depth Jump
+-- A-Skip
+-- Bounding
+-
+-**Why CSCS Coaches Need This**: Elastic energy utilization, stretch-shortening cycle (SSC), speed development, horizontal/vertical power.
+-
+-### 5. Eccentric & Flywheel (4 exercises)
+-*Source: IOC Consensus, Swedish School*
+-- Nordic Hamstring Curl
+-- Copenhagen Plank
+-- Flywheel Squat
+-- Yo-Yo Hamstring Curl
+-
+-**Why CSCS Coaches Need This**: Hamstring injury prevention (IOC gold standard), eccentric strength, bulletproofing athletes.
+-
+-### 6. Mobility & Prehab (5 exercises)
+-*Source: FMS/SFMA, Gray Cook, MLB Sports Med*
+-- 90/90 Hip Switch
+-- World's Greatest Stretch
+-- Band Pull Apart
+-- Ankle Dorsiflexion Rock
+-- Thoracic Extension over Foam Roller
+-
+-**Why CSCS Coaches Need This**: Movement quality screening (FMS), thoracic mobility for overhead athletes, ankle dorsiflexion for squat mechanics.
+-
+-### 7. Strongman Implements (5 exercises)
+-*Source: WSM, Rugby S&C*
+-- Atlas Stone Load
+-- Sled Push
+-- Sandbag Shouldering
+-- Tire Flip
+-- Log Clean and Press
+-
+-**Why CSCS Coaches Need This**: Real-world strength, mental toughness, rugby/football specificity, conditioning under load.
+-
+-### 8. Conditioning MetCons (6 exercises)
+-*Source: CrossFit, MMA, Firefighter Prep*
+-- Burpee
+-- Thruster
+-- Man Maker
+-- Battle Ropes
+-- Assault Bike Sprint
+-
+-**Why CSCS Coaches Need This**: Energy system development, work capacity, sport-specific conditioning (MMA, firefighting, tactical).
+-
+----
+-
+-## 🔬 Evidence-Based Sources
+-
+-| Organization | Specialty | Exercises Contributed |
+-|--------------|-----------|----------------------|
+-| **USOPC** | Olympic Weightlifting | 3 |
+-| **UKSCA** | Strength & Conditioning | 3 |
+-| **ALTIS** | Sprint Mechanics | 3 |
+-| **EXOS** | Performance Therapy | 3 |
+-| **McGill Method** | Spine Biomechanics | 2 |
+-| **IOC Consensus** | Injury Prevention | 2 |
+-| **Frans Bosch** | Motor Learning | 2 |
+-| **FMS/SFMA** | Movement Screening | 3 |
+-| **NSCA** | Certification Body | 2 |
+-| **Strongman Corp** | Odd Object | 5 |
+-| **CrossFit** | Metabolic Conditioning | 2 |
+-| **MLB Sports Med** | Baseball Specific | 1 |
+-| **Rugby S&C** | Contact Sports | 3 |
+-| **MMA Conditioning** | Combat Sports | 2 |
+-| **Firefighter Prep** | Tactical Athletes | 1 |
+-
+----
+-
+-## 💡 Professional Metadata on EVERY Exercise
+-
+-Each exercise includes:
+-```json
+-{
+-  "coaching_cues": ["4 specific actionable cues"],
+-  "common_errors": ["4 mistakes to watch for"],
+-  "contraindications": ["When NOT to prescribe"],
+-  "regressions": ["How to make easier"],
+-  "progressions": ["How to advance"],
+-  "equipment_alternatives": ["Options when limited"],
+-  "primary_muscles": ["Target musculature"],
+-  "force_vector": ["Direction of force"]
+-}
+-```
+-
+----
+-
+-## 📊 Gap Analysis: What's Still Missing
+-
+-### ❌ Critical Gaps (Phase 3 Priority)
+-1. **Unilateral Lower Body** (8 exercises needed)
+-   - Bulgarian Split Squat variations
+-   - Step-Up variations
+-   - Single-leg RDL variations
+-   - Lunge matrix (all planes)
+-
+-2. **Upper Body Push/Pull** (10 exercises needed)
+-   - Bench Press variations (incline, decline, floor)
+-   - Overhead Press variations
+-   - Pull-Up/Chin-Up variations
+-   - Row variations (chest-supported, single-arm)
+-
+-3. **Knee-Dominant Strength** (6 exercises needed)
+-   - Front Squat
+-   - Goblet Squat
+-   - Safety Bar Squat
+-   - Belt Squat
+-
+-4. **Hip-Dominant Strength** (6 exercises needed)
+-   - Conventional Deadlift
+-   - Sumo Deadlift
+-   - Hip Thrust variations
+-   - Glute-Ham Raise
+-
+-5. **Complexes/Combos** (10 exercises needed)
+-   - Your original request: Lunge to Step-Up Knee Drive
+-   - Contrast training pairs
+-   - Flow sequences
+-
+-6. **Sport-Specific Drills** (15 exercises needed)
+-   - Cricket: Rotational power, lateral agility
+-   - Tennis: Change of direction, split-step
+-   - Football: Cutting, acceleration
+-   - Badminton: Lunges, jump smashes
+-
+-7. **Special Populations** (8 exercises needed)
+-   - Youth athlete progressions
+-   - Masters athlete modifications
+-   - Return-to-play protocols
+-   - Pregnancy-safe alternatives
+-
+-### Current Status
+-- **Exercises in Library**: ~65
+-- **Elite Target**: 150-200
+-- **Completion**: ~35-40%
+-- **Phases Remaining**: 2-3
+-
+----
+-
+-## 🚀 Deployment Instructions
+-
+-### Step 1: Apply Migration
+-```bash
+-psql -U forge_user -d forge_db -f /workspace/migrations/000027_elite_library_phase2.up.sql
+-```
+-
+-### Step 2: Verify Count
+-```bash
+-psql -U forge_user -d forge_db -c "SELECT COUNT(*) FROM exercises;"
+-# Expected: ~65 exercises
+-```
+-
+-### Step 3: Check New Categories
+-```bash
+-psql -U forge_user -d forge_db -c "
+-SELECT category, COUNT(*) 
+-FROM exercises 
+-WHERE source_organization IN ('USOPC', 'ALTIS', 'McGill Method', 'IOC Consensus')
+-GROUP BY category 
+-ORDER BY COUNT DESC;
+-"
+-```
+-
+-### Step 4: Test in Forge App
+-1. Navigate to http://localhost:3001
+-2. Create new program for elite athlete
+-3. Select "Olympic Derivative" or "Loaded Carry" category
+-4. Verify coaching cues display correctly
+-
+----
+-
+-## 🎯 Next Steps: Phase 3 Planning
+-
+-### Priority Order
+-1. **Unilateral Lower Body** (highest priority - injury prevention)
+-2. **Basic Barbell Movements** (foundation strength)
+-3. **Complexes/Combos** (your original request)
+-4. **Sport-Specific Drills** (cricket, tennis, football, badminton)
+-5. **Special Populations** (youth, masters, rehab)
+-
+-### Timeline Estimate
+-- Phase 3: 50 exercises (2 weeks)
+-- Phase 4: 50 exercises (2 weeks)
+-- **Total Elite Library**: 200+ exercises (complete)
+-
+----
+-
+-## 🏆 CSCS Coach Verdict
+-
+-**Would I use this now?**  
+-✅ **YES** - for basic programming with intermediate athletes
+-
+-**Is it complete for elite settings?**  
+-❌ **NO** - needs Phases 3-4 for comprehensive library
+-
+-**What makes it usable now:**
+-- Evidence-based sources cited
+-- Professional metadata (cues, errors, contraindications)
+-- Proper progressions/regressions
+-- Equipment alternatives included
+-- Force vector classification
+-
+-**What would make it elite:**
+-- More unilateral work
+-- Complete barbell movement library
+-- Sport-specific complexes
+-- Return-to-play protocols
+-
+----
+-
+-**Generated by**: FORGE S&C System  
+-**Date**: $(date +%Y-%m-%d)  
+-**Author**: CSCS-Certified AI Assistant  
+-**Sources**: 15 authoritative organizations
+diff --git a/PHASE3_COMPLETE_SUMMARY.md b/PHASE3_COMPLETE_SUMMARY.md
+deleted file mode 100644
+index d070e5f..0000000
+--- a/PHASE3_COMPLETE_SUMMARY.md
++++ /dev/null
+@@ -1,206 +0,0 @@
+-# ✅ FORGE ELITE LIBRARY: PHASE 3 COMPLETE
+-
+-## Executive Summary
+-**Status**: READY FOR DEPLOYMENT  
+-**Total New Exercises**: 50 (IDs 200-249)  
+-**Library Total**: ~115 exercises (Phase 1 + 2 + 3)  
+-**CSCS Coach Approval**: ✅ YES - Now includes foundational movements
+-
+----
+-
+-## What Was Added (50 Exercises)
+-
+-### Category 1: The Big 4 - Barbell Foundations (10 exercises)
+-**Source**: NSCA Essentials, UKSCA Professional Standards
+-- Back Squat (High Bar & Low Bar)
+-- Front Squat
+-- Conventional Deadlift
+-- Sumo Deadlift
+-- Romanian Deadlift (RDL)
+-- Bench Press (Competitive)
+-- Overhead Press (Strict)
+-- Pendlay Row
+-- Barbell Bent Over Row
+-
+-**Why This Matters**: These are the non-negotiable strength movements every S&C coach uses. Without these, programming was impossible for serious athletes.
+-
+-### Category 2: Unilateral Lower Body Dominance (10 exercises)
+-**Source**: ALTIS Track & Field, EXOS
+-- Bulgarian Split Squat
+-- Reverse Lunge
+-- Walking Lunge
+-- Step Up with Knee Drive ⭐ (Your specific request!)
+-- Single Leg RDL
+-- Cossack Squat
+-- Skater Squat
+-- Lateral Lunge
+-- Curtsy Lunge
+-- Single Leg Box Squat (Pistol progression)
+-
+-**Why This Matters**: Critical for sprinting, cutting sports (football, tennis, cricket), and injury prevention (ACL).
+-
+-### Category 3: Complexes & Flows (9 exercises)
+-**Source**: CrossFit Weightlifting, StrongFirst, EXOS
+-- Bear Complex (Olympic Flow)
+-- Dumbbell Man Maker
+-- KB Flow (Swing-Clean-Press)
+-- **Lunge Matrix Complex** ⭐
+-- Upper Body Flow (Row-Push-Carry)
+-- Posterior Chain Primer (RDL-Row-Swing)
+-- The Grind Complex (Squat-Press-Carry)
+-- Olympic Prep Flow
+-- Athletic Core Circuit
+-
+-**Why This Matters**: These are the "secret sauce" for conditioning, metabolic demand, and coordination under fatigue.
+-
+-### Category 4: Loaded Carries & Strongman (9 exercises)
+-**Source**: Strongman, StrongFirst
+-- Farmer's Walk
+-- Suitcase Carry
+-- Overhead Carry
+-- Zercher Carry
+-- Sandbag Shoulder Carry
+-- Heavy Sled Push
+-- Backwards Sled Drag
+-- Tire Flip
+-- Atlas Stone Load
+-
+-**Why This Matters**: Builds work capacity, structural integrity, and real-world strength transfer.
+-
+-### Category 5: Plyometrics & Power Progressions (8 exercises)
+-**Source**: ALTIS, Track & Field, NSCA
+-- Pogo Jumps (ankle stiffness)
+-- Broad Jump
+-- Depth Jump (reactive)
+-- Hurdle Hops (continuous)
+-- Single Leg Hop (Stick) - ACL rehab standard
+-- MB Rotational Throw
+-- Clap Push-Up
+-- Bounds (alternating leg)
+-
+-**Why This Matters**: Develops rate of force development (RFD), elastic energy utilization, and sport-specific power.
+-
+-### Category 6: Core Anti-Movement & Stability (4 exercises)
+-**Source**: Stuart McGill, Mike Boyle, Soccer Science
+-- Pallof Press (anti-rotation)
+-- Dead Bug (anti-extension)
+-- Stir The Pot (anti-extension/rotation)
+-- Copenhagen Plank (adductor/anti-lateral) ⭐
+-
+-**Why This Matters**: Injury prevention foundation, especially for groin strains (Copenhagen) and lower back health.
+-
+----
+-
+-## Library Status After Phase 3
+-
+-| Metric | Before Phase 3 | After Phase 3 | Target |
+-|--------|---------------|---------------|--------|
+-| Total Exercises | ~65 | **~115** | 200+ |
+-| Barbell Movements | 0 | 10 | 15 |
+-| Unilateral Lower | 3 | 13 | 20 |
+-| Complexes/Flows | 8 | 17 | 25 |
+-| Loaded Carries | 5 | 14 | 20 |
+-| Plyometrics | 8 | 16 | 25 |
+-| Core Stability | 4 | 8 | 15 |
+-| Sport-Specific | 10 | 15 | 30 |
+-
+-**Completion**: ~57% of elite library target (200 exercises)
+-
+----
+-
+-## CSCS Coach Assessment
+-
+-### Would I Use This Now?
+-**YES** - With caveats:
+-
+-✅ **Strengths:**
+-- Finally has the Big 4 lifts (Squat, Deadlift, Bench, Press)
+-- Excellent unilateral selection for team sports
+-- Complexes address conditioning needs
+-- Core work is evidence-based (McGill/Boyle)
+-- Proper metadata (cues, errors, contraindications) on every exercise
+-- Source attribution builds credibility
+-
+-⚠️ **Still Missing (Phase 4):**
+-- More Olympic lift variations (Hang Clean, Power Snatch, etc.)
+-- Additional accessory movements (face pulls, tricep work, calf work)
+-- More mobility/prehab drills (shoulder CARs, hip 90/90s)
+-- Sport-specific drills (bowling, serving, tackling prep)
+-- Eccentric overload methods (Nordic curl, flywheel)
+-- BFR-safe exercises
+-- Partner/resisted drills
+-
+----
+-
+-## Deployment Instructions
+-
+-```bash
+-# Apply Phase 3 Migration
+-psql -U forge_user -d forge_db -f /workspace/migrations/000028_foundational_strength_phase3.up.sql
+-
+-# Verify count
+-psql -U forge_user -d forge_db -c "SELECT COUNT(*) FROM exercises WHERE id BETWEEN 200 AND 249;"
+-
+-# Expected result: 50
+-```
+-
+-### Rollback (if needed)
+-```bash
+-psql -U forge_user -d forge_db -f /workspace/migrations/000028_foundational_strength_phase3.down.sql
+-```
+-
+----
+-
+-## Next Steps: Phase 4 Recommendations
+-
+-To reach the 200+ exercise elite standard, Phase 4 should add:
+-
+-1. **Olympic Lift Variations** (8 exercises)
+-   - Hang Power Clean
+-   - Hang High Pull
+-   - Power Snatch
+-   - Snatch Balance
+-   - Push Jerk
+-   - Split Jerk
+-   
+-2. **Accessory/Hypertrophy** (12 exercises)
+-   - Face Pull
+-   - Tricep Pushdown
+-   - Bicep Curl variations
+-   - Calf Raise (straight/bent knee)
+-   - Hip Thrust
+-   - Glute Bridge (single/double)
+-   
+-3. **Mobility/Prehab** (10 exercises)
+-   - 90/90 Hip Switch
+-   - World's Greatest Stretch
+-   - Shoulder CARs
+-   - Ankle CARs
+-   - Thoracic Extension over Foam Roller
+-   
+-4. **Sport-Specific Patterns** (10 exercises)
+-   - Cricket: Bowling load prep, batting rotational drills
+-   - Tennis: Serve preparation, split-step jumps
+-   - Football: Tackle prep, change of direction drills
+-   
+-5. **Eccentric/Flywheel** (5 exercises)
+-   - Nordic Hamstring Curl
+-   - Flywheel Squat
+-   - Eccentric Heel Drop (Achilles)
+-
+-**Target for Phase 4**: 45 exercises → Total library: ~160 exercises (80% of elite target)
+-
+----
+-
+-## Files Delivered
+-
+-1. `/workspace/migrations/000028_foundational_strength_phase3.up.sql` - Add 50 exercises
+-2. `/workspace/migrations/000028_foundational_strength_phase3.down.sql` - Rollback script
+-3. `/workspace/PHASE3_COMPLETE_SUMMARY.md` - This document
+-
+----
+-
+-**Prepared by**: FORGE AI System  
+-**Reviewed Against**: NSCA Essentials 4th Ed, UKSCA Professional Standards, EXOS XPS Network  
+-**Date**: 2024  
+-**Status**: ✅ READY FOR PRODUCTION
+diff --git a/PHASE6_ELITE_LOCKER_ROOM_SUMMARY.md b/PHASE6_ELITE_LOCKER_ROOM_SUMMARY.md
+deleted file mode 100644
+index 9e30e65..0000000
+--- a/PHASE6_ELITE_LOCKER_ROOM_SUMMARY.md
++++ /dev/null
+@@ -1,163 +0,0 @@
+-# ✅ PHASE 6 COMPLETE - THE ELITE LOCKER ROOM
+-
+-## 🎯 BRUTAL HONESTY ASSESSMENT
+-
+-**Would a CSCS coach use this NOW?**
+-**YES - FINALLY.** Here's why:
+-
+-### The Numbers Don't Lie:
+-- **Total Exercises**: ~270+ (was 28 in Phase 1)
+-- **Elite Target**: 250-300 exercises ✅ **HIT**
+-- **Completion**: 100% of minimum viable library
+-- **Sources**: 20+ authoritative organizations represented
+-
+-### What Makes This Different From Phase 1-5:
+-
+-#### 1. **Specialty Bars & Implements** (Finally!)
+-- Safety Bar Squat (for athletes with shoulder issues)
+-- Cambered Bar Bench (deeper ROM without impingement)
+-- Log Press (neutral grip, thick bar)
+-- Trap Bar Jump (safer than barbell jumps)
+-- Yoke Walk, Atlas Stones, Tire Flips
+-
+-#### 2. **Tissue-Specific Prehab** (Not Generic "Core")
+-- **Hamstrings**: Nordic Curl Eccentric (Askling research - 50% injury reduction)
+-- **Groin**: Copenhagen Plank (UEFA Medical protocol)
+-- **Patellar Tendon**: Spanish Squat Isometric (Rioja research)
+-- **Soleus/Achilles**: Seated Calf Raise (running economy)
+-- **Spine**: Dead Bug with Band (McGill biomechanics)
+-
+-#### 3. **Deceleration & COD** (Where Injuries Happen)
+-- Snap Down to Sprint (ALTIS acceleration mechanic)
+-- 5-10-5 Shuttle (NFL Combine standard)
+-- Drop Step Cut (Premier League agility)
+-- Curtsy Lunge to Lateral Step Up (multi-planar)
+-
+-#### 4. **Advanced Gymnastics/Calisthenics** (Bodyweight Mastery)
+-- Front/Back Lever progressions
+-- Planche, Maltese, Iron Cross
+-- Muscle-Up transitions
+-- One Arm Handstand
+-- Human Flag
+-
+-#### 5. **Sport-Specific Skills** (Named Moves)
+-- **Gymnastics**: Geinger, Tkachev, Kovacs, Cassina, Kolman, Gaylord, Jaeger
+-- **Vault**: Maroney, Produnova ("Vault of Death")
+-- **Floor**: Biles (Simone), Shirai
+-- These aren't just exercises - they're **progressions with names** coaches recognize
+-
+-#### 6. **Equipment-Agnostic Intelligence** (Your Request)
+-We treated movements as patterns, not equipment-specific:
+-- Single Leg RDL = Same pattern whether KB, DB, or Barbell
+-- Equipment is just a **variable**, not a different exercise
+-- Coaches can prescribe based on what's available
+-
+-### Movement Pattern Distribution (Balanced at Last):
+-
+-| Pattern | Count | Status |
+-|---------|-------|--------|
+-| Bilateral Knee Dominant | 28 | ✅ Excellent |
+-| Bilateral Hip Dominant | 26 | ✅ Excellent |
+-| Unilateral Knee Dominant | 32 | ✅ Excellent |
+-| Unilateral Hip Dominant | 24 | ✅ Fixed (was weak) |
+-| Push (Horizontal/Vertical) | 35 | ✅ Excellent |
+-| Pull (Horizontal/Vertical) | 28 | ✅ Excellent |
+-| Core/Anti-Movement | 22 | ✅ Excellent |
+-| Plyometric/Power | 30 | ✅ Excellent |
+-| Mobility/Prehab | 25 | ✅ Excellent |
+-| Strongman/Implement | 15 | ✅ Unique addition |
+-| Gymnastics/Skill | 20 | ✅ Elite differentiator |
+-
+-### Sources Represented (Credibility):
+-- NSCA (Essentials & Advanced)
+-- UKSCA Standards
+-- ASCA (Australian)
+-- EXOS (NFL, MLB, NBA)
+-- ALTIS (Track & Field)
+-- Premier League Medical (Askling, Haroy)
+-- UEFA Injury Studies
+-- IOC Consensus Statements
+-- Stuart McGill (Spine Biomechanics)
+-- Kelly Starrett (Mobility)
+-- Cal Dietz (Triphasic)
+-- Dan John (Functional)
+-- Pavel Tsatsouline (StrongFirst)
+-- Chinese Weightlifting Method
+-- Russian S&C
+-- World Strongman Federation
+-- MAG/WAG Gymnastics
+-- Postural Restoration Institute (PRI)
+-- Functional Movement Systems (FMS)
+-- British Olympic Association
+-
+-### CSCS Coach Workflow Now Possible:
+-
+-```
+-Scenario: Basketball Guard with Patellar Tendinopathy
+-Week 1-2: Spanish Squat Isometric (analgesic) + Seated Calf Raise
+-Week 3-4: Add Trap Bar Jump (low impact plyo)
+-Week 5-6: Progress to Depth Jump to Stick
+-Week 7-8: Full Plyometric Program
+-
+-Scenario: Rugby Forward with Shoulder Impingement
+-Week 1-2: Safety Bar Squat (no shoulder stress)
+-Week 3-4: Cambered Bar Bench (deep ROM safe)
+-Week 5-6: Landmine Press (scapular freedom)
+-Week 7-8: Log Press (thick bar, neutral grip)
+-
+-Scenario: Soccer Player with Hamstring Strain History
+-Week 1-2: Nordic Curl Eccentric (band assist)
+-Week 3-4: Full Nordic Negative
+-Week 5-6: Copenhagen Plank (groin too)
+-Week 7-8: Integrated into sprint program
+-```
+-
+-### What's Still Missing? (Full Transparency)
+-Nothing critical for 95% of athletes. Optional additions:
+-- More youth/long-term athlete development (LTAD) specific
+-- More adaptive/disabled sport variations
+-- More pregnant/postpartum modifications
+-- More extreme altitude/hypoxic training
+-- More blood flow restriction (BFR) protocols
+-
+-But these are **edge cases**, not core needs.
+-
+-## 📦 Files Created:
+-1. `/workspace/migrations/000030_elite_locker_room_phase6.up.sql` - 60 new exercises
+-2. `/workspace/migrations/000030_elite_locker_room_phase6.down.sql` - Rollback
+-3. `/workspace/PHASE6_ELITE_LOCKER_ROOM_SUMMARY.md` - This file
+-
+-## 🚀 Deployment:
+-```bash
+-psql -U forge_user -d forge_db -f /workspace/migrations/000030_elite_locker_room_phase6.up.sql
+-
+-# Verify
+-psql -U forge_user -d forge_db -c "SELECT COUNT(*) FROM exercises;"
+-# Should return ~270
+-
+-psql -U forge_user -d forge_db -c "SELECT category, COUNT(*) FROM exercises GROUP BY category ORDER BY COUNT DESC;"
+-```
+-
+-## 🏆 Final Verdict:
+-**This is now a professional-grade, CSCS-worthy exercise library.**
+-
+-A strength coach could:
+-- ✅ Program for any sport (team, individual, combat, power, endurance)
+-- ✅ Handle any injury scenario (prehab, rehab, return-to-play)
+-- ✅ Scale from youth to elite to masters
+-- ✅ Use any equipment setup (full gym, minimal, travel)
+-- ✅ Periodize across seasons (off-season, pre-season, in-season, post-season)
+-- ✅ Reference evidence-based sources for every exercise
+-- ✅ Progress/regress based on athlete capability
+-
+-**The system is READY FOR PRODUCTION.**
+-
+-Would I use this with my D1 athletes? **Yes.**
+-Would I use this with pro athletes? **Yes.**
+-Would I recommend it to other CSCS coaches? **Yes.**
+-
+-**Phase 6 closed the gap between "good idea" and "elite tool".**
+-
+----
+-
+-*Built with input from NSCA, UKSCA, EXOS, ALTIS, Premier League Medical, Olympic Centers, and professional team methodologies.*
+diff --git a/PHASE7_COMPLETE_SUMMARY.md b/PHASE7_COMPLETE_SUMMARY.md
+deleted file mode 100644
+index fa15930..0000000
+--- a/PHASE7_COMPLETE_SUMMARY.md
++++ /dev/null
+@@ -1,133 +0,0 @@
+-# ✅ PHASE 7 COMPLETE - Modular Architecture & Exercise Library Interface
+-
+-## Summary
+-Phase 7 has been successfully executed with a complete modular architecture and professional coach-facing exercise library interface.
+-
+-## Files Created/Modified
+-
+-### Backend (API Server)
+-- **Modified**: `/workspace/src/forge/api_server.py`
+-  - Added `/api/v1/exercises` endpoint with filtering support
+-  - Added `/api/v1/exercises/search` endpoint for search functionality  
+-  - Added `/api/v1/exercises/{id}` endpoint for single exercise retrieval
+-  - All endpoints parse JSON fields properly
+-
+-### Frontend Modules (Modular Architecture)
+-- **Created**: `/workspace/forge_web/src/modules/exercises/`
+-  - `exercise.service.ts` - API service layer with TypeScript interfaces
+-  - `ExerciseCard.tsx` - Reusable exercise card component with expandable details
+-  - `ExerciseLibrary.tsx` - Full library page with filters, search, and grid layout
+-  - `index.ts` - Module index for clean exports
+-
+-### Database Migrations
+-- **Created**: `/workspace/migrations/000032_phase7_bridge_and_pain_safe.up.sql`
+-  - Adds 35 exercises (Bridge: 15, Pain-Safe: 10, Re-Entry: 10)
+-  - Includes is_pain_safe flag for injury modification
+-- **Created**: `/workspace/migrations/000032_phase7_bridge_and_pain_safe.down.sql`
+-  - Rollback script
+-
+-## Exercise Library Features
+-
+-### Smart Filtering
+-- Filter by Category (Strength, Power, Core, Mobility, etc.)
+-- Filter by Movement Pattern (Bilateral Knee, Unilateral Hip, etc.)
+-- Filter by Difficulty (Beginner, Intermediate, Advanced)
+-- Filter by Equipment type
+-- Filter by Source Organization (NSCA, EXOS, UKSCA, etc.)
+-- **Pain-Safe Toggle** - Show only return-to-play exercises
+-
+-### Search Functionality
+-- Full-text search across exercise names and descriptions
+-- Instant results as you type
+-
+-### Exercise Details Display
+-Each exercise shows:
+-- Name, category, subcategory
+-- Difficulty badge (color-coded)
+-- Movement pattern tag
+-- Equipment required
+-- Source organization
+-- Pain-safe indicator (if applicable)
+-- **Expandable sections for:**
+-  - 4 Coaching cues
+-  - 4 Common errors
+-  - Contraindications
+-  - Regressions
+-  - Progressions
+-  - Equipment alternatives
+-
+-## Modular Architecture Benefits
+-
+-```
+-forge_web/src/
+-├── modules/
+-│   ├── exercises/          ← New Exercise Module
+-│   │   ├── exercise.service.ts
+-│   │   ├── ExerciseCard.tsx
+-│   │   ├── ExerciseLibrary.tsx
+-│   │   └── index.ts
+-│   ├── programming/        ← Future: Program Builder Module
+-│   └── athletes/           ← Future: Athlete Management Module
+-└── lib/                    ← Shared utilities
+-```
+-
+-**Benefits:**
+-- ✅ No refactoring needed later
+-- ✅ Easy to add new modules
+-- ✅ Clean separation of concerns
+-- ✅ Reusable components
+-- ✅ Type-safe interfaces
+-
+-## Total Exercise Count
+-
+-| Phase | Exercises Added | Cumulative Total |
+-|-------|----------------|------------------|
+-| Phase 1 | 25 | 25 |
+-| Phase 2 | 40 | 65 |
+-| Phase 3 | 50 | 115 |
+-| Phase 4 | 14 | 129 |
+-| Phase 5 | 12 | 141 |
+-| Phase 6 | 45 | 186 |
+-| **Phase 7** | **35** | **221** |
+-
+-## Deployment Instructions
+-
+-### 1. Apply Migration
+-```bash
+-psql -U forge_user -d forge_db -f /workspace/migrations/000032_phase7_bridge_and_pain_safe.up.sql
+-```
+-
+-### 2. Restart API Server
+-```bash
+-# Stop existing server (Ctrl+C if running)
+-# Then restart
+-cd /workspace
+-python -m src.forge.api_server
+-```
+-
+-### 3. Access Library Page
+-Navigate to: `http://localhost:3001/library`
+-
+-## API Endpoints Available
+-
+-```
+-GET /api/v1/exercises                      # List all with filters
+-GET /api/v1/exercises?category=Strength    # Filter by category
+-GET /api/v1/exercises?is_pain_safe=true    # Pain-safe only
+-GET /api/v1/exercises/search?q=squat       # Search
+-GET /api/v1/exercises/123                  # Single exercise
+-```
+-
+-## CSCS Coach Assessment
+-
+-**Would I use this system now?** 
+-✅ **YES** - The system now has:
+-- 221+ CSCS-certified exercises from authoritative sources
+-- Proper movement pattern classification
+-- Pain-safe variants for return-to-play
+-- Bridge movements for progression
+-- Complete coaching metadata (cues, errors, contraindications)
+-- Professional UI for browsing and filtering
+-- Modular architecture ready for expansion
+-
+-**Ready for production use with D1/pro athletes.**
+diff --git a/PHASE9_CONDITIONING_COMPLETE.md b/PHASE9_CONDITIONING_COMPLETE.md
+deleted file mode 100644
+index 8324b83..0000000
+--- a/PHASE9_CONDITIONING_COMPLETE.md
++++ /dev/null
+@@ -1,84 +0,0 @@
+-# Phase 9: Conditioning Library Complete ✅
+-
+-## Summary
+-Migration 000034 has been created adding **18 sport-specific conditioning exercises** to the FORGE exercise database.
+-
+-## Exercise Breakdown
+-
+-### Resisted Sprinting (7 exercises)
+-Develops acceleration, force production, and horizontal power:
+-
+-| ID | Name | Pattern | Equipment | Primary Muscles |
+-|---|---|---|---|---|
+-| sp_res_01 | Heavy Sled Push | EXPLOSIVE | Sled | Glutes, Quads, Calves, Core |
+-| sp_res_02 | Light Sled Sprint | EXPLOSIVE | Sled | Hip Flexors, Glutes, Quads, Calves |
+-| sp_res_03 | Band-Resisted Start | EXPLOSIVE | Band | Glutes, Quads, Calves, Core |
+-| sp_res_04 | Partner Resistance Sprint | EXPLOSIVE | Bodyweight | Glutes, Quads, Calves, Core |
+-| sp_res_05 | Weighted Vest Sprint | EXPLOSIVE | Bodyweight | Hip Flexors, Glutes, Quads, Calves |
+-| sp_res_06 | Resistance Band Sprint (waist) | EXPLOSIVE | Band | Hip Flexors, Glutes, Quads, Calves |
+-| sp_res_07 | Hill Sprint | EXPLOSIVE | Bodyweight | Glutes, Quads, Calves, Core |
+-
+-### Assisted Sprinting (5 exercises)
+-Achieves supramaximal velocities for neural adaptation:
+-
+-| ID | Name | Pattern | Equipment | Primary Muscles |
+-|---|---|---|---|---|
+-| sp_assist_01 | Band-Assisted Sprint | EXPLOSIVE | Band | Hip Flexors, Glutes, Quads, Calves |
+-| sp_assist_02 | Downhill Sprint (3-5° gradient) | EXPLOSIVE | Bodyweight | Quads, Glutes, Calves, Core |
+-| sp_assist_03 | Overspeed Stair Sprint | AGILITY | Bodyweight | Quads, Glutes, Calves, Hip Flexors |
+-| sp_assist_04 | Motor-Paced Sprint | SPORT_SPECIFIC | Bodyweight | Hip Flexors, Glutes, Quads, Calves |
+-| sp_assist_05 | Towel Overspeed | SPORT_SPECIFIC | Bodyweight | Hip Flexors, Glutes, Quads, Calves |
+-
+-### Deceleration Training (6 exercises)
+-Develops braking force absorption and change of direction:
+-
+-| ID | Name | Pattern | Equipment | Primary Muscles |
+-|---|---|---|---|---|
+-| sp_decel_01 | Stick Landing (single leg) | AGILITY | Box | Quads, Glutes, Core, Calves |
+-| sp_decel_02 | Sprint to Stop | AGILITY | Bodyweight | Quads, Glutes, Hamstrings, Core |
+-| sp_decel_03 | Single Leg Decel (knee soft) | AGILITY | Bodyweight | Quads, Glutes, Calves, Core |
+-| sp_decel_04 | Multi-Directional Decel | AGILITY | Bodyweight | Quads, Glutes, Hip Adductors, Core |
+-| sp_decel_05 | Drop Decel (box 12-24") | AGILITY | Box | Quads, Glutes, Calves, Core |
+-| sp_decel_06 | Penultimate Step Drill | AGILITY | Bodyweight | Quads, Glutes, Calves, Core |
+-
+-## Tags Created
+-- **Resisted Sprint**: Sprinting against external resistance to develop acceleration and force production
+-- **Assisted Sprint**: Sprinting with external assistance to achieve supramaximal velocities
+-- **Deceleration**: Training to absorb braking forces and rapidly reduce momentum
+-- **Speed Development**: Exercises focused on improving linear sprint performance
+-
+-## Features
+-Each exercise includes CSCS-standard metadata:
+-- ✅ Detailed coaching instructions
+-- ✅ Progression/regression pathways
+-- ✅ Common mistakes identification
+-- ✅ Sets/reps/rest prescriptions
+-- ✅ Primary muscle targeting
+-- ✅ Equipment requirements
+-- ✅ Automatic tagging system
+-
+-## Database Status
+-- **Total conditioning exercises**: 18
+-- **Migration file**: `000034_conditioning_library.up.sql`
+-- **Rollback file**: `000034_conditioning_library.down.sql`
+-- **Tags added**: 4 new conditioning-specific tags
+-
+-## Integration Notes
+-The conditioning exercises complement existing sprint family exercises in `exercises_data.py`:
+-- Existing: Sprint-015 (Sled Sprint heavy), Sprint-016 (Sled Sprint light), Sprint-017 (Resisted Sprint band)
+-- New additions provide comprehensive coverage of resisted, assisted, and deceleration modalities
+-- All exercises follow CSCS speed development protocols
+-
+-## Library Completeness
+-✅ Complex movements: 30+ exercises  
+-✅ Combo movements: 35+ exercises  
+-✅ **Conditioning library: 18 exercises**  
+-✅ Olympic lifts: Complete  
+-✅ Unilateral training: Complete  
+-✅ Core work: Complete  
+-✅ Plyometrics: Complete  
+-✅ Strongman implements: Complete  
+-✅ Recovery exercises: Complete  
+-✅ Sport-specific skills: Complete  
+-
+-**Total exercise library: ~430+ movements**
+diff --git a/PHASES_COMPLETE_SUMMARY.md b/PHASES_COMPLETE_SUMMARY.md
+deleted file mode 100644
+index 7639dfe..0000000
+--- a/PHASES_COMPLETE_SUMMARY.md
++++ /dev/null
+@@ -1,121 +0,0 @@
+-# FORGE Elite Exercise Library - Phases 3, 4, 5 Complete
+-
+-## Executive Summary
+-All three missing phases have been created with proper SQL migrations. The exercise library now contains **~280+ CSCS-certified exercises** organized by movement patterns and sourced from authoritative organizations.
+-
+-## Migration Files Created
+-
+-### Phase 3: Foundational Strength (000028)
+-- **File**: `/workspace/migrations/000028_foundational_strength_phase3.up.sql`
+-- **Exercises**: 20 exercises (IDs 200-219)
+-- **Focus**: Big 4 barbell foundations + unilateral lower body
+-- **Categories**:
+-  - Bilateral Knee Dominant: Back Squat (High/Low Bar), Front Squat
+-  - Bilateral Hip Dominant: Conventional/Sumo Deadlift, RDL
+-  - Upper Body Push/Pull: Bench Press, OHP, Pendlay Row, Bent Over Row
+-  - Unilateral Lower: BSS, Reverse/Walking/Curtsy/Lateral Lunge, Step-Up, SL RDL, Cossack/Skater Squat
+-
+-### Phase 4: Olympic & Accessories (000029)
+-- **File**: `/workspace/migrations/000029_olympic_accessories_phase4.up.sql`
+-- **Exercises**: 12 exercises (IDs 250-261)
+-- **Focus**: Olympic lift variations + complexes
+-- **Categories**:
+-  - Olympic Variations: Power Clean, Hang Clean, Push Jerk, Snatch Pull, Clean Deadlift
+-  - Technical Drills: Muscle Clean, Behind Neck Press, Hang/Power Snatch
+-  - Complexes: Clean & Press, Thruster, SDHP
+-
+-### Phase 5: Unilateral Hip Dominant (000031)
+-- **File**: `/workspace/migrations/000031_unilateral_hip_dominant_phase5.up.sql`
+-- **Exercises**: 10 exercises (IDs 300-309)
+-- **Focus**: Equipment-agnostic single-leg hip hinge patterns
+-- **Key Innovation**: Treats same movement pattern across different equipment types
+-- **Categories**:
+-  - Pattern-Based: Single Leg Deadlift (DB/KB/Barbell/Bodyweight)
+-  - Specialized: SL Good Morning, SL KB/Barbell DL
+-  - Activation: SL Glute Bridge, SL Hip Thrust
+-  - Eccentric: Nordic Hamstring Curl (FIFA 11+ proven)
+-  - Equipment-Specific: SL Back Extension, Cable Pull Through
+-
+-## Total Exercise Count
+-| Phase | Exercises Added | Cumulative Total |
+-|-------|----------------|------------------|
+-| Phase 1 (000026) | ~25 | ~25 |
+-| Phase 2 (000027) | ~40 | ~65 |
+-| Phase 3 (000028) | 20 | ~85 |
+-| Phase 6 (000030) | ~60 | ~145 |
+-| Phase 4 (000029) | 12 | ~157 |
+-| Phase 5 (000031) | 10 | ~167 |
+-
+-**Note**: Additional exercises from earlier migrations bring total to **~280+ exercises**
+-
+-## Movement Pattern Balance Achieved
+-```
+-Bilateral Knee Dominant:    28 exercises ✅
+-Bilateral Hip Dominant:     26 exercises ✅
+-Unilateral Knee Dominant:   32 exercises ✅
+-Unilateral Hip Dominant:    24 exercises ✅ (Was 5, now balanced)
+-Push Patterns:              35 exercises ✅
+-Pull Patterns:              28 exercises ✅
+-Core/Anti-Movement:         22 exercises ✅
+-Plyometrics:                30 exercises ✅
+-Mobility/Prehab:            25 exercises ✅
+-```
+-
+-## Authoritative Sources Used
+-- NSCA Essentials (4th Edition)
+-- USA Weightlifting Standards
+-- EXOS Performance System
+-- ALTIS Track & Field
+-- StrongFirst/RKC
+-- FIFA 11+ Research
+-- Bret Contreras Glute Lab
+-- Stuart McGill Spine Research
+-- Premier League Medical
+-- UFC Performance Institute
+-
+-## Deployment Instructions
+-
+-```bash
+-# Apply migrations in order
+-psql -U forge_user -d forge_db -f /workspace/migrations/000028_foundational_strength_phase3.up.sql
+-psql -U forge_user -d forge_db -f /workspace/migrations/000029_olympic_accessories_phase4.up.sql
+-psql -U forge_user -d forge_db -f /workspace/migrations/000031_unilateral_hip_dominant_phase5.up.sql
+-
+-# Verify count
+-psql -U forge_user -d forge_db -c "SELECT COUNT(*) FROM exercises;"
+-
+-# Check movement pattern distribution
+-psql -U forge_user -d forge_db -c "SELECT movement_pattern, COUNT(*) FROM exercises GROUP BY movement_pattern ORDER BY COUNT DESC;"
+-```
+-
+-## CSCS Coach Assessment
+-
+-**Would I use this system with D1/pro athletes?**
+-
+-**YES** - Because:
+-1. ✅ All foundational barbell movements present
+-2. ✅ Proper unilateral hip dominant balance achieved
+-3. ✅ Equipment-agnostic approach (smart programming)
+-4. ✅ Evidence-based exercise selection (FIFA 11+, McGill, Contreras)
+-5. ✅ Complete metadata (cues, errors, contraindications, progressions)
+-6. ✅ Sport-specific tagging for easy filtering
+-7. ✅ Proper periodization capabilities
+-
+-**Remaining Gaps (Minor)**:
+-- Could add more sport-specific skill drills (cricket bowling, tennis serves)
+-- Additional named gymnastics progressions
+-- More loaded carry variations
+-
+-These are optional enhancements, not critical for professional use.
+-
+-## Next Steps
+-1. Deploy migrations to production database
+-2. Test frontend library browsing interface
+-3. Validate exercise filtering by movement pattern
+-4. Create coach decision matrix UI
+-5. Run end-to-end program generation test
+-
+----
+-*Generated: $(date)*
+-*Total Migration Files: 6 (3 UP + 3 DOWN)*
+-*Ready for Production Deployment*
+diff --git a/PHASE_1A_COMPLETION_REPORT.md b/PHASE_1A_COMPLETION_REPORT.md
+deleted file mode 100644
+index 87df9c6..0000000
+--- a/PHASE_1A_COMPLETION_REPORT.md
++++ /dev/null
+@@ -1,114 +0,0 @@
+-# Phase 1A Completion Report: Enhanced Library Homepage
+-
+-## ✅ Phase Status: COMPLETE
+-
+-### Summary
+-Successfully enhanced the Forge Exercise Library homepage with new user-centric features while maintaining the "AI Enhanced, Never AI Dependent" offline-first architecture.
+-
+----
+-
+-## 🎯 Features Implemented
+-
+-### 1. **View Mode Toggle** (Grid/List)
+-- Users can switch between grid view (default) and list view
+-- Grid view: Card-based layout with quick actions at bottom
+-- List view: Compact horizontal layout with actions inline
+-- State persisted during session
+-
+-### 2. **Favorites System**
+-- **Star Icon Button**: Click to add/remove exercises from favorites
+-- **Favorites Filter**: Toggle button to show only favorited exercises
+-- **Persistence**: Favorites saved to localStorage (`forge_favorites`)
+-- **Counter**: Header shows total favorites count
+-- **Empty State**: Helpful message when no favorites exist
+-
+-### 3. **Quick Actions on Cards**
+-Both view modes include:
+-- ⭐ **Favorite Toggle**: Add/remove from favorites (yellow star when active)
+-- ➕ **Add to Workout**: Instantly add exercise to current workout plan
+-  - Saves to localStorage (`forge_current_workout`)
+-  - Default: 3 sets x 8-12 reps
+-  - Prevents duplicates
+-  - Confirmation alert shown
+-
+-### 4. **Enhanced User Feedback**
+-- Empty state messages differentiate between:
+-  - No exercises matching filters
+-  - No favorites saved (with helpful guidance)
+-- Visual feedback on favorite button (filled vs outline star)
+-- Hover states on all interactive elements
+-
+----
+-
+-## 🔧 Technical Implementation
+-
+-### Files Modified
+-1. **`/workspace/forge_web/src/app/library/page.tsx`**
+-   - Added state: `viewMode`, `favorites`, `showFavoritesOnly`
+-   - Added localStorage integration for persistence
+-   - Implemented `toggleFavorite()` function
+-   - Implemented `addToWorkout()` function
+-   - Enhanced header with view toggle and favorites filter
+-   - Redesigned exercise cards for both grid and list views
+-
+-2. **`/workspace/forge_web/src/modules/exercises/exerciseService.ts`**
+-   - Created compatibility layer for imports
+-   - Exports: `fetchExercises`, `EXERCISE_CATEGORIES`, `DIFFICULTY_LEVELS`, etc.
+-   - Re-exports from `exercise.service.ts`
+-
+-### Architecture Alignment
+-✅ **Offline-First**: All data stored in localStorage  
+-✅ **No AI Dependency**: Features work without any AI services  
+-✅ **Data Integrity**: Proper state management with React hooks  
+-✅ **User Control**: Users own their favorites and workout data  
+-
+----
+-
+-## 📊 Verification Checklist
+-
+-| Requirement | Status | Evidence |
+-|-------------|--------|----------|
+-| View mode toggle (grid/list) | ✅ | Implemented with state management |
+-| Favorites system | ✅ | localStorage persistence working |
+-| Add to workout quick action | ✅ | Creates workout entries with defaults |
+-| Knowledge display (coaching cues, etc.) | ✅ | Already existed in modal |
+-| Build succeeds | ✅ | `npm run build` completed successfully |
+-| TypeScript compiles | ✅ | Build output shows no errors |
+-| Offline-first maintained | ✅ | All data in localStorage + JSON |
+-
+----
+-
+-## 🚀 Next Steps (Phase 1B Options)
+-
+-Choose one of these enhancements for the next phase:
+-
+-1. **Exercise Detail Modal Enhancement**
+-   - Add video demonstrations (if available)
+-   - Show progression chains visually
+-   - Add "similar exercises" recommendations
+-
+-2. **Advanced Filtering**
+-   - Multi-select categories
+-   - Equipment-based filtering
+-   - Pain-safe only toggle in main filters
+-
+-3. **Workout Builder Integration**
+-   - Drag-and-drop from library to workout
+-   - Preview current workout in sidebar
+-   - Export workout as PDF/text
+-
+-4. **Content Quality Audit Tool**
+-   - Identify exercises missing descriptions
+-   - Find duplicate coaching cues
+-   - Flag exercises needing more progressions/regressions
+-
+----
+-
+-## 📝 Notes
+-
+-- Development server running on http://localhost:3005/forge/
+-- Production build successful (953KB JS bundle)
+-- All existing functionality preserved
+-- No breaking changes to API or data structures
+-
+-**Ready for Phase 1B or your next direction!**
+diff --git a/PHASE_1B_COMPLETION_REPORT.md b/PHASE_1B_COMPLETION_REPORT.md
+deleted file mode 100644
+index faff634..0000000
+--- a/PHASE_1B_COMPLETION_REPORT.md
++++ /dev/null
+@@ -1,192 +0,0 @@
+-# Phase 1B Complete ✅ - Home Screen Overhaul (The Command Center)
+-
+-## Summary
+-Successfully transformed the Forge home screen from a simple entry point into a dynamic **Command Center** that provides coaches with intelligent, context-aware access to their training tools and exercise library.
+-
+----
+-
+-## 🎯 What Was Delivered
+-
+-### 1. **Dynamic Hero Section** 
+-- Time-of-day greeting ("Good Morning/Afternoon/Evening, Coach")
+-- Quick stats dashboard showing:
+-  - Total programs created
+-  - Number of favorited exercises
+-  - Total exercises in library
+-- Gradient background for visual impact
+-
+-### 2. **Today's Focus Card** ⏰
+-Smart contextual recommendations based on time of day:
+-- **Morning (before 12pm)**: "Mobility & Prep" - Dynamic warmups and movement preparation
+-- **Afternoon (12-5pm)**: "Power Development" - Peak performance window for explosive work
+-- **Evening (after 5pm)**: "Core & Recovery" - Build resilience and prepare for tomorrow
+-
+-### 3. **Primary Action Buttons**
+-Two prominent cards for main workflows:
+-- **Team Template**: Create team structure, then adapt for individual athletes
+-- **Exercise Library**: Browse 334+ exercises with full coaching knowledge
+-
+-### 4. **Smart Collections Grid** 📊
+-Five curated exercise categories with live counts:
+-- **Mobility & Prep** (Emerald gradient) - Dynamic warmups
+-- **Power Development** (Orange gradient) - Ballistic, plyo, speed work
+-- **Upper Body** (Blue gradient) - Push, pull, shoulder health
+-- **Lower Body** (Purple gradient) - Squat, hinge, unilateral work
+-- **Core & Carry** (Cyan gradient) - Anti-rotation, bracing, loaded carries
+-
+-Each collection shows real-time exercise count from the database.
+-
+-### 5. **Quick Access Favorites** ⭐
+-- Displays up to 8 favorited exercises from localStorage
+-- Click to navigate directly to exercise in library
+-- Empty state with helpful CTA for new users
+-- "Manage" link to browse full library
+-
+-### 6. **Recent Programs** 📅
+-- Shows last 5 saved programs
+-- Each card displays: athlete name, blueprint label, sport, date
+-- Click to load and adapt existing program
+-- Empty state encourages first program creation
+-
+-### 7. **Role Templates Section**
+-Three pre-configured sport profiles:
+-- 🏉 Rugby Union - Tighthead Prop (Strength focus)
+-- 🎾 Tennis - Singles Player (Power focus)
+-- 🏏 Cricket - Fast Bowler (Power focus)
+-
+-### 8. **Start Fresh Option**
+-Minimal link-style button for building from scratch
+-
+----
+-
+-## 🔧 Technical Implementation
+-
+-### Files Created:
+-- `/workspace/forge_web/src/components/HomePage.tsx` (540 lines)
+-  - New React component with full dashboard functionality
+-  - Uses exercise.service for data access
+-  - Integrates with localStorage for favorites
+-  - Responsive grid layouts
+-
+-### Files Modified:
+-- `/workspace/forge_web/src/App.tsx`
+-  - Added HomePage import
+-  - Replaced EntryScreen with HomePage in idle state
+-  - Changed layout from centered to full-width scrollable
+-
+-### Architecture Alignment:
+-✅ **Offline-First**: All data from local JSON via exercise.service  
+-✅ **No AI Dependency**: Pure UI/UX enhancement  
+-✅ **Data Integrity**: Read-only access to exercise data  
+-✅ **User Control**: Favorites stored in localStorage  
+-
+-### Performance:
+-- Build size: 961KB (minimal increase from 953KB)
+-- No new external dependencies
+-- Efficient useEffect hooks prevent unnecessary re-renders
+-- Lazy loading of exercise data on mount
+-
+----
+-
+-## 🎨 UX Improvements
+-
+-### Before:
+-- Static entry screen with basic buttons
+-- No context or guidance
+-- No visibility into existing content
+-- Required manual navigation to find exercises
+-
+-### After:
+-- **Contextual Intelligence**: Time-based recommendations
+-- **At-a-Glance Stats**: Know your library size instantly
+-- **Curated Pathways**: Smart collections reduce decision fatigue
+-- **Quick Access**: Favorites and recent programs one click away
+-- **Visual Hierarchy**: Clear distinction between primary and secondary actions
+-- **Empty States**: Helpful CTAs guide new users
+-
+----
+-
+-## 📋 Verification Checklist
+-
+-| Feature | Status | Notes |
+-|---------|--------|-------|
+-| Hero section with greeting | ✅ Complete | Dynamic based on time |
+-| Quick stats display | ✅ Complete | Programs, favorites, exercises |
+-| Today's Focus card | ✅ Complete | Time-based logic working |
+-| Primary action buttons | ✅ Complete | Team template + library |
+-| Smart Collections (5) | ✅ Complete | Live counts from data |
+-| Favorites section | ✅ Complete | Loads from localStorage |
+-| Recent programs | ✅ Complete | Last 5 saved programs |
+-| Role templates | ✅ Complete | 3 sport profiles shown |
+-| Start fresh option | ✅ Complete | Minimal link style |
+-| Responsive design | ✅ Complete | Works mobile to desktop |
+-| Build succeeds | ✅ Verified | 961KB bundle |
+-| TypeScript compiles | ✅ Verified | No errors |
+-| Offline-first maintained | ✅ Verified | No API calls added |
+-
+----
+-
+-## 🚀 Next Phase Options (Phase 1C)
+-
+-### Option 1: Exercise Detail Modal Enhancement
+-- Add video demonstrations (if available)
+-- Show progression/regression chains visually
+-- Add "Add to Workout" quick action from library
+-- Improve contraindications display
+-
+-### Option 2: Advanced Filtering in Library
+-- Multi-select filters (equipment, difficulty, force vector)
+-- Save custom filter presets
+-- Enhanced search with fuzzy matching
+-- Sort by recently used, difficulty, etc.
+-
+-### Option 3: Collection Deep-Dive Views
+-- Click smart collection → filtered library view
+-- Pre-built workout templates per collection
+-- Exercise comparison tool
+-- Print/export collection as PDF
+-
+-### Option 4: Content Quality Audit Tool
+-- Python script to identify exercises missing fields
+-- Batch editing interface for coaching cues
+-- Standardize terminology across library
+-- Flag duplicate or similar exercises
+-
+----
+-
+-## 💡 Strategic Impact
+-
+-This overhaul transforms Forge from a **tool** into a **coach's companion**:
+-
+-1. **Reduces Cognitive Load**: Smart collections and recommendations eliminate decision paralysis
+-2. **Accelerates Workflows**: Quick access to favorites and recent programs saves time
+-3. **Encourages Exploration**: Visual collections invite coaches to discover new exercises
+-4. **Builds Confidence**: Stats and organization show the depth of available resources
+-5. **Respects Context**: Time-based focus shows understanding of training rhythms
+-
+-The home screen is now a true **Command Center** that embodies Forge's philosophy: **"AI Enhanced, Never AI Dependent"** — providing intelligent guidance without requiring AI, keeping the coach in full control.
+-
+----
+-
+-## 📝 Developer Notes
+-
+-### Key Design Decisions:
+-1. **Chose functional components over class**: Modern React best practices
+-2. **Used localStorage for favorites**: Maintains offline-first architecture
+-3. **Async exercise loading**: Prevents blocking UI on initial render
+-4. **Graceful empty states**: Better UX for new users than blank screens
+-5. **Consistent iconography**: Lucide-react icons match existing design system
+-
+-### Future Enhancements (Not Implemented):
+-- Filter parameters passed to library (currently logs to console)
+-- Exercise highlighting when navigating from favorites
+-- Collection-specific workout templates
+-- Drag-and-drop favorites reordering
+-
+----
+-
+-**Phase 1B Status**: ✅ COMPLETE  
+-**Build Status**: ✅ PASSING  
+-**Ready for Phase 1C**: YES  
+-
+-**Recommendation**: Proceed with **Option 2 (Advanced Filtering)** to maximize the value of the enhanced library homepage, or **Option 1 (Detail Modal Enhancement)** if video content is available.
+diff --git a/PHASE_1C_COMPLETION_REPORT.md b/PHASE_1C_COMPLETION_REPORT.md
+deleted file mode 100644
+index cec3253..0000000
+--- a/PHASE_1C_COMPLETION_REPORT.md
++++ /dev/null
+@@ -1,113 +0,0 @@
+-# Phase 1C Complete - Advanced Filtering in Library ✅
+-
+-## Summary
+-Successfully implemented multi-dimensional filtering for the Forge Exercise Library while maintaining offline-first architecture.
+-
+-## Features Delivered
+-
+-### 1. Enhanced Filter Sidebar
+-- **Collapsible Design**: Toggle button for mobile (hidden by default on small screens)
+-- **Dynamic Equipment Filter**: Loads unique equipment options from exercise data
+-- **Movement Pattern Filter**: Renamed "Category" to "Movement Pattern" for clarity
+-- **Difficulty Level Filter**: Beginner/Intermediate/Advanced
+-- **Force Vector Filter**: Vertical, Horizontal, Rotational, Multi-planar, N/A
+-- **Has Coaching Cues Toggle**: Filter exercises that include coaching knowledge
+-
+-### 2. New State Management
+-- `sidebarOpen`: Controls sidebar visibility (responsive)
+-- `filterOptions`: Stores dynamic filter dropdown options
+-- Extended `ExerciseFilters` interface with:
+-  - `equipment`: string
+-  - `movement_pattern`: string
+-  - `has_coaching_cues`: boolean
+-  - `search_query`: string (alias for search)
+-  - `difficulty_level`: string (alias for difficulty)
+-  - `force_vector`: string
+-
+-### 3. Enhanced Filtering Logic
+-Updated `filterExercises()` function to support:
+-- Equipment matching (case-insensitive partial match)
+-- Force vector filtering
+-- Coaching cues presence check
+-- Expanded search across name, category, equipment, and description
+-
+-### 4. UI Improvements
+-- Active filters counter in sidebar
+-- Mobile-friendly toggle button (🔍 icon)
+-- Disabled state for equipment dropdown while loading
+-- Clear visual hierarchy with labeled sections
+-
+-## Files Modified
+-
+-### `/workspace/forge_web/src/app/library/page.tsx` (582 lines)
+-- Added state for sidebar visibility and filter options
+-- Implemented useEffect to load filter options on mount
+-- Enhanced sidebar with collapsible design
+-- Added equipment filter dropdown
+-- Added "Has Coaching Cues" checkbox
+-- Added active filters count display
+-- Added mobile sidebar toggle button
+-
+-### `/workspace/forge_web/src/modules/exercises/exercise.service.ts`
+-- Extended `ExerciseFilters` interface with new fields
+-- Updated `filterExercises()` function to handle new filter types
+-- Enhanced search to cover multiple fields
+-
+-## Build Status
+-✅ Production build successful (962KB bundle)
+-✅ TypeScript compiles without errors
+-✅ No runtime errors
+-
+-## Architecture Alignment
+-- ✅ Offline-first (client-side filtering on local JSON)
+-- ✅ No AI dependency (deterministic filtering logic)
+-- ✅ Data integrity maintained
+-- ✅ User control preserved
+-
+-## Verification Checklist
+-
+-| Feature | Status |
+-|---------|--------|
+-| Equipment filter | ✅ Complete |
+-| Has coaching cues toggle | ✅ Complete |
+-| Collapsible sidebar | ✅ Complete |
+-| Mobile responsive | ✅ Complete |
+-| Active filters count | ✅ Complete |
+-| Dynamic filter options | ✅ Complete |
+-| Enhanced search | ✅ Complete |
+-| Build succeeds | ✅ Verified |
+-| TypeScript types | ✅ Complete |
+-
+-## Next Phase Recommendations (1D)
+-
+-### Option 1: Exercise Detail Modal Enhancement ⭐ RECOMMENDED
+-- Add visual progression/regression chains
+-- Improve typography and readability
+-- Add "Similar Exercises" section
+-- Video placeholder support
+-
+-### Option 2: Workout Builder Integration
+-- Drag-and-drop from library to workout
+-- Auto-populate sets/reps based on exercise type
+-- Save custom workouts to localStorage
+-
+-### Option 3: Content Quality Audit Tool
+-- Python script to analyze exercise data completeness
+-- Identify exercises missing coaching cues
+-- Generate improvement recommendations
+-
+-### Option 4: Smart Collections
+-- Pre-defined filtered views (e.g., "No Equipment", "Beginner Safe")
+-- One-click access to common filter combinations
+-
+-## User Impact
+-Coaches can now:
+-1. Find exercises by specific equipment availability
+-2. Filter for exercises with complete coaching knowledge
+-3. Use library effectively on mobile devices
+-4. See exactly how many filters are active
+-5. Search across exercise descriptions, not just names
+-
+----
+-**Phase Status**: COMPLETE ✅  
+-**Next Decision**: Select Phase 1D direction
+diff --git a/PHASE_1E_COMPLETION_REPORT.md b/PHASE_1E_COMPLETION_REPORT.md
+deleted file mode 100644
+index 42952e4..0000000
+--- a/PHASE_1E_COMPLETION_REPORT.md
++++ /dev/null
+@@ -1,155 +0,0 @@
+-# ✅ Phase 1E Complete - Exercise Detail Modal Enhancement
+-
+-**Date:** 2025-01-XX  
+-**Status:** ✅ COMPLETE & VERIFIED
+-
+-## Summary
+-
+-Successfully enhanced the Exercise Detail Modal in the Forge Library to provide a superior learning and application experience. The modal now properly handles missing data, provides clear visual hierarchy, and includes prominent action buttons for immediate workout integration.
+-
+----
+-
+-## 🎯 Features Delivered
+-
+-### 1. **Empty State Handling** ✅
+-- Progressions section shows "No progressions available" when data is missing
+-- Regressions section shows "No regressions available" when data is missing
+-- Prevents rendering of empty lists or undefined errors
+-- Maintains clean UI even with incomplete exercise data
+-
+-### 2. **Enhanced Action Buttons** ✅
+-- **"Add to Workout"** button prominently displayed at bottom
+-  - Primary blue color (bg-blue-600)
+-  - Full-width on mobile, flex layout on desktop
+-  - Adds exercise with default 3 sets x 8-12 reps
+-  - Closes modal after adding for smooth UX
+-  - Shows alert confirmation
+-
+-- **"Close"** button 
+-  - Secondary gray styling
+-  - Clear visual separation from primary action
+-  - Consistent padding and typography
+-
+-### 3. **Visual Improvements** ✅
+-- Border-top separator above action buttons
+-- Proper spacing and padding throughout
+-- Font weight emphasis on button text
+-- Hover states for better interactivity
+-- Responsive flex layout (stacks on mobile)
+-
+-### 4. **Data Integrity** ✅
+-- Safe null/undefined checks for all optional fields
+-- Graceful degradation when coaching cues, contraindications, or alternatives are missing
+-- No console errors or crashes from missing data
+-
+----
+-
+-## 🔧 Technical Implementation
+-
+-**File Modified:** `/workspace/forge_web/src/app/library/page.tsx`
+-
+-**Changes Made:**
+-1. Lines 667-675: Added conditional rendering for progressions with empty state
+-2. Lines 679-687: Added conditional rendering for regressions with empty state
+-3. Lines 707-724: Replaced single close button with dual-action button row
+-
+-**Code Quality:**
+-- ✅ TypeScript compiles without errors
+-- ✅ No linting warnings
+-- ✅ Production build successful (962KB bundle)
+-- ✅ Follows existing code patterns
+-- ✅ Maintains offline-first architecture
+-
+----
+-
+-## 📋 Verification Checklist
+-
+-| Feature | Status | Verified |
+-|---------|--------|----------|
+-| Empty state for missing progressions | ✅ | Yes |
+-| Empty state for missing regressions | ✅ | Yes |
+-| "Add to Workout" button visible | ✅ | Yes |
+-| "Close" button present | ✅ | Yes |
+-| Button click handlers work | ✅ | Yes |
+-| Alert notification on add | ✅ | Yes |
+-| Modal closes after adding | ✅ | Yes |
+-| Responsive layout | ✅ | Yes |
+-| Build succeeds | ✅ | Yes |
+-| No TypeScript errors | ✅ | Yes |
+-| Offline-first maintained | ✅ | Yes |
+-| No AI dependency | ✅ | Yes |
+-
+----
+-
+-## 🚀 User Experience Impact
+-
+-**Before:**
+-- Modal would crash or show blank sections if progression/regression data was missing
+-- Only a simple "Close" button at bottom
+-- No quick way to add exercise to workout from detail view
+-- Users had to navigate back to grid, find exercise again, then add
+-
+-**After:**
+-- Graceful handling of missing data with helpful messages
+-- Prominent "Add to Workout" button for immediate action
+-- One-click workflow: View → Learn → Add → Close
+-- Reduced friction in building workouts from library exploration
+-
+----
+-
+-## 📊 Metrics
+-
+-- **Lines Changed:** ~40 lines modified
+-- **Build Size:** +0KB (no significant increase)
+-- **Performance:** No impact (client-side rendering only)
+-- **Accessibility:** Improved with better semantic structure
+-
+----
+-
+-## 🔮 Next Phase Recommendations
+-
+-### Option 1: Workout Builder Integration ⭐ **RECOMMENDED**
+-Create a dedicated workout builder page that:
+-- Receives exercises from library "Add to Workout" actions
+-- Allows set/rep/weight customization
+-- Provides workout preview and editing
+-- Saves workouts to localStorage
+-- Exports/sharing capabilities
+-
+-### Option 2: Content Quality Audit Tool
+-Python script to analyze backend exercise data:
+-- Identify exercises missing coaching cues
+-- Find exercises without contraindications
+-- Flag incomplete progression chains
+-- Generate report for content enrichment
+-
+-### Option 3: Similar Exercises Feature
+-In modal, show related exercises based on:
+-- Same movement pattern
+-- Same equipment requirements
+-- Same force vector
+-- Clickable deep links to load in same modal
+-
+-### Option 4: Video Placeholder Integration
+-Prepare schema and UI for future video content:
+-- Add video URL field to Exercise interface
+-- Create video player component placeholder
+-- Add thumbnail generation logic
+-- Maintain offline-first with local video caching option
+-
+----
+-
+-## 🏁 Phase Completion Criteria Met
+-
+-✅ All planned features implemented  
+-✅ Build passes without errors  
+-✅ Empty states handled gracefully  
+-✅ Action buttons functional  
+-✅ Code follows project patterns  
+-✅ Offline-first architecture maintained  
+-✅ No AI dependencies introduced  
+-✅ User control preserved  
+-
+----
+-
+-**Ready for Phase 1F selection!**
+diff --git a/PHASE_7_COMPLETE_SUMMARY.md b/PHASE_7_COMPLETE_SUMMARY.md
+deleted file mode 100644
+index 6f76357..0000000
+--- a/PHASE_7_COMPLETE_SUMMARY.md
++++ /dev/null
+@@ -1,138 +0,0 @@
+-# ✅ PHASE 7 COMPLETE - Modular Architecture & Coach Library Interface
+-
+-## Files Created/Verified
+-
+-### Database Migrations (All Phases)
+-```
+-/workspace/migrations/
+-├── 000026_expert_exercise_library.up.sql    ✅ (37KB - 40 exercises)
+-├── 000026_expert_exercise_library.down.sql  ✅
+-├── 000027_elite_library_phase2.up.sql       ✅ (23KB - 40 exercises) 
+-├── 000027_elite_library_phase2.down.sql     ✅
+-├── 000028_foundational_strength_phase3.up.sql ✅ (20KB - 22 exercises)
+-├── 000028_foundational_strength_phase3.down.sql ✅
+-├── 000029_olympic_accessories_phase4.up.sql   ✅ (10KB - 14 exercises)
+-├── 000029_olympic_accessories_phase4.down.sql ✅
+-├── 000030_elite_locker_room_phase6.up.sql     ✅ (49KB - 40 exercises)
+-├── 000030_elite_locker_room_phase6.down.sql   ✅
+-└── 000031_unilateral_hip_dominant_phase5.up.sql ✅ (10KB - 12 exercises)
+-└── 000031_unilateral_hip_dominant_phase5.down.sql ✅
+-```
+-
+-**Total: 168 CSCS-Certified Exercises** from authoritative sources
+-
+-### Frontend Module Structure
+-```
+-/workspace/forge_web/src/
+-├── modules/
+-│   └── exercises/
+-│       └── exerciseService.ts        ✅ TypeScript service with types & filters
+-└── app/
+-    └── library/
+-        └── page.tsx                  ✅ Full exercise library UI
+-```
+-
+-## Exercise Library Features
+-
+-### Smart Filtering
+-- **Search**: By name, category, or equipment
+-- **Category Filter**: 13 categories (Olympic, Strongman, Core, Plyometric, etc.)
+-- **Difficulty**: Beginner → Intermediate → Advanced → Elite
+-- **Force Vector**: Vertical, Horizontal, Multi-planar, Rotation
+-- **Source Organization**: NSCA, UKSCA, EXOS, ALTIS, UEFA, IOC, etc.
+-
+-### Exercise Detail View
+-Each exercise displays:
+-- ✅ 4 Coaching Cues
+-- ⚠️ 4 Common Errors  
+-- 🚫 Contraindications
+-- 📈 Progressions
+-- 📉 Regressions
+-- 🏋️ Equipment Needed + Alternatives
+-- Source Attribution
+-
+-### Movement Pattern Balance
+-| Pattern | Count | Status |
+-|---------|-------|--------|
+-| Bilateral Knee Dominant | 28 | ✅ |
+-| Bilateral Hip Dominant | 26 | ✅ |
+-| Unilateral Knee Dominant | 32 | ✅ |
+-| Unilateral Hip Dominant | 24 | ✅ |
+-| Push Patterns | 35 | ✅ |
+-| Pull Patterns | 28 | ✅ |
+-| Core/Anti-Movement | 22 | ✅ |
+-| Plyometrics | 30 | ✅ |
+-| Mobility/Prehab | 25 | ✅ |
+-
+-## Deployment Steps
+-
+-### 1. Apply All Migrations
+-```bash
+-cd /workspace
+-
+-# Apply in sequence
+-psql -U forge_user -d forge_db -f migrations/000026_expert_exercise_library.up.sql
+-psql -U forge_user -d forge_db -f migrations/000027_elite_library_phase2.up.sql
+-psql -U forge_user -d forge_db -f migrations/000028_foundational_strength_phase3.up.sql
+-psql -U forge_user -d forge_db -f migrations/000029_olympic_accessories_phase4.up.sql
+-psql -U forge_user -d forge_db -f migrations/000030_elite_locker_room_phase6.up.sql
+-psql -U forge_user -d forge_db -f migrations/000031_unilateral_hip_dominant_phase5.up.sql
+-
+-# Verify count (should be ~168+)
+-psql -U forge_user -d forge_db -c "SELECT COUNT(*) FROM exercises;"
+-```
+-
+-### 2. Restart Backend Server
+-```bash
+-# If running, stop and restart
+-cd /workspace/forge_api
+-python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+-```
+-
+-### 3. Rebuild Frontend
+-```bash
+-cd /workspace/forge_web
+-npm run build
+-npm start
+-```
+-
+-### 4. Access Library
+-- **Web Interface**: http://localhost:3001/library
+-- **API Endpoint**: http://127.0.0.1:8000/api/exercises
+-
+-## CSCS Coach Assessment
+-
+-### Would I Use This System? **YES** ✅
+-
+-**Reasons:**
+-1. **Complete Exercise Library**: 168+ movements covering all training needs
+-2. **Evidence-Based Sources**: NSCA, UKSCA, EXOS, ALTIS, UEFA Medical, IOC Research
+-3. **Professional Metadata**: Coaching cues, errors, contraindications on every exercise
+-4. **Movement Pattern Balance**: Proper distribution across all patterns
+-5. **Progression/Regression Logic**: Scalable for any athlete level
+-6. **Equipment Flexibility**: Alternatives provided for limited facilities
+-7. **Sport-Specific Tags**: Cricket, Football, Tennis, Rugby, Track & Field
+-8. **Modular Architecture**: Easy to extend without refactoring
+-
+-### What Makes This Elite-Level:
+-- **Complexes/Combos**: Lunge to Step-Up Knee Drive, Bear Complex, KB Flow
+-- **Tissue-Specific Prehab**: Nordic Curl (hamstring injury reduction), Copenhagen Plank (groin prevention)
+-- **Deceleration Training**: Snap Down to Sprint, 5-10-5 Shuttle, Drop Step Cut
+-- **Specialty Implements**: Safety Bar, Log Press, Atlas Stones, Yoke Walk
+-- **Named Gymnastics Skills**: Geinger, Tkachev, Kovacs, Biles, Maroney progressions
+-- **Equipment-Agnostic**: Same movement patterns across different equipment types
+-
+-## Next Steps (Optional Phase 8)
+-- Video demonstrations for each exercise
+-- Coach's decision matrix wizard
+-- Drag-and-drop program builder
+-- Athlete exercise assignment portal
+-- Exercise performance tracking
+-
+----
+-
+-**System Status**: ✅ PRODUCTION READY FOR CSCS COACHES
+-**Exercise Count**: 168+ movements
+-**Sources**: 20+ authoritative organizations
+-**Frontend**: Complete library browsing interface
+-**Backend**: Modular API architecture
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..912277b
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,122 @@
++# FORGE — Elite Strength & Conditioning Program Generation System
++
++FORGE (Framework for Optimized Resistance & Ground-based Exercise) is a
++professional-grade Strength & Conditioning (S&C) platform that generates
++periodized, sport-specific training programs with an offline-first React
++coach console. Design philosophy: **"AI Enhanced, Never AI Dependent."**
++
++> This README is the single entry point for the project. Detailed facts live
++> in one authoritative document each (see [Documentation Map](#documentation-map)).
++
++## What FORGE Generates
++
++- 8-week periodized programs (Accumulation → Intensification → Realization → Test)
++- Full session structure: warm-up (Raise–Activate–Potentiate), main work, conditioning
++- Sport- and role-aware programming (e.g., Rugby Prop vs. Back)
++- Detailed prescriptions: sets × reps, loading method (RPE/%1RM/BW), rest intervals,
++  coach cues, and progression notes
++- Credibility scoring and safety/validation checks against athlete profile
++
++## Exercise Library (authoritative counts, as of 2026-09-24)
++
++| Store | Contents | File |
++|---|---|---|
++| Backend engine data | 334 exercises | `src/forge/exercises_data.py` |
++| Frontend library seed | 537 exercises, 222 complexes | `forge_web/src/data/exercises.json`, `complexes.json` |
++| SQL migrations | Library phases through migration `000035` | `migrations/` |
++
++See `docs/DATA_MODEL.md` for record schemas and how the stores relate.
++
++## Architecture
++
++```
++forge engine (Python)            FastAPI server              React console
++src/forge/                ->     src/forge/api_server.py ->  forge_web/
++  main.py       generation         /api/programs*             Vite + TypeScript
++  planning_engine.py               /api/teams/templates*      Tailwind
++  session_assembly.py              /api/v1/exercises*         dnd-kit
++  exercise_selector.py
++  prescription_rules.py            SQLite (forge.db)
++  progression_engine.py
++  warmup_engine.py
++  conditioning_engine.py
++  recovery_engine.py
++  substitution_engine.py
++  time_constraint_engine.py
++  role_profiles.py / blueprint_engine.py
++```
++
++## Quick Start
++
++### Prerequisites
++
++- Python 3.11+ with FastAPI/uvicorn installed
++- Node.js 22+ and npm
++- (Windows) helper scripts `start_forge.bat` / `stop_forge.bat` are provided
++
++### Run the backend API
++
++```bash
++python run_forge_api.py        # serves http://127.0.0.1:8000
++```
++
++### Run the frontend
++
++```bash
++cd forge_web
++npm install
++npm run dev                    # development server
++# or: npm run build && npm run preview -- --host 0.0.0.0 --port 3000
++```
++
++### Validate the environment / smoke test
++
++```bash
++python validate_forge_env.py
++python smoke_check_forge.py
++python run_forge_demo.py       # offline program generation demo
++```
++
++## Testing
++
++- Backend engine tests: `pytest src/ tests/` (see `docs/TESTING.md` for the map of suites)
++- Frontend tests: `npm run test` in `forge_web` (vitest)
++
++## Deployment
++
++The frontend deploys to GitHub Pages via `.github/workflows/deploy-pages.yml`
++(builds `forge_web` on push to `main`). See `GITHUB_PAGES_GUIDE.md`.
++
++## API Overview
++
++| Endpoint group | Purpose |
++|---|---|
++| `GET /api/health` | Liveness check |
++| `POST /api/programs/generate` | Generate a periodized program |
++| `GET/DELETE /api/programs/{id}`, `POST .../duplicate` | Program management |
++| `GET /api/teams/templates*` | Team template browsing/adaptation |
++| `GET /api/v1/exercises[/search|/{id}]` | Exercise library queries with filters |
++
++Full request/response schemas: `docs/API_REFERENCE.md`.
++
++## Documentation Map
++
++| Topic | Canonical document |
++|---|---|
++| System overview & verification checklist | `README_FORGE_SYSTEM.md`, `FORGE_SYSTEM_VERIFICATION.md` |
++| Data model & library status | `docs/DATA_MODEL.md`, `EXERCISE_LIBRARY_STATUS.md` |
++| Migration workflow | `docs/MIGRATIONS.md` |
++| API reference | `docs/API_REFERENCE.md` |
++| Frontend UI/responsive conventions | `docs/FRONTEND_UI_GUIDE.md` |
++| Open plans / roadmap | `LIBRARY_ENHANCEMENT_PLAN.md`, `EXERCISE_LIBRARY_COMPLETION_PLAN.md` |
++| Contribution workflow | `CONTRIBUTING.md` |
++| Release history | `CHANGELOG.md` |
++| Security policy | `SECURITY.md` |
++| Doc audit & standards | `docs/DOCUMENTATION_AUDIT.md` |
++| Historical reports (read-only) | `docs/archive/` |
++
++## Disclaimer
++
++FORGE outputs are training recommendations for qualified strength &
++conditioning professionals. They are not medical advice; screen athletes and
++adjust prescriptions per your organization's policies.
+diff --git a/README_FORGE_SYSTEM.md b/README_FORGE_SYSTEM.md
+index f9c2170..71e6728 100644
+--- a/README_FORGE_SYSTEM.md
++++ b/README_FORGE_SYSTEM.md
+@@ -1,6 +1,6 @@
+ # FORGE - Complete Strength & Conditioning System
+ 
+-## ✅ System Status: FULLY OPERATIONAL
++(See `CHANGELOG.md` for release status.)
+ 
+ The FORGE system is a professional-grade Strength & Conditioning (S&C) program generation engine that creates **real, complete workout programs** for athletes across different sports.
+ 
+diff --git a/SECURITY.md b/SECURITY.md
+new file mode 100644
+index 0000000..7aee25e
+--- /dev/null
++++ b/SECURITY.md
+@@ -0,0 +1,40 @@
++# Security Policy
++
++## Supported Versions
++
++| Version | Supported |
++|---|---|
++| Latest commit on `main` | Yes |
++| Older commits | Best effort |
++
++## Local-Only API — Read Before Deploying
++
++The FORGE FastAPI server (`src/forge/api_server.py`) implements **no
++authentication, authorization, or rate limiting**. It is designed to run on
++`127.0.0.1` for a single coach workstation.
++
++- Do **not** expose port 8000 to untrusted networks or the public internet.
++- If remote access is required, place it behind an authenticating reverse proxy
++  (e.g., nginx + basic auth/OIDC) and bind uvicorn to localhost only.
++- Program and athlete data persisted in `forge.db` (SQLite) may contain
++  personal health information; protect the file with OS permissions and encrypt
++  backups. Never commit real athlete data.
++
++## Dependencies
++
++- Backend: install from pinned requirements where available; review upgrades to
++  FastAPI/uvicorn/pydantic before merging.
++- Frontend: keep `forge_web/package-lock.json` committed; Dependabot/renovate
++  alerts should be triaged within 30 days.
++
++## Data & Content Safety
++
++Training output is decision support for qualified S&C professionals, not
++medical advice. Exercise records carry contraindication/pain-safe metadata
++(see `docs/DATA_MODEL.md`); do not remove these fields from migrations.
++
++## Reporting a Vulnerability
++
++Open a private security advisory on the repository (GitHub → Security → Report
++a vulnerability). Do not file public issues for security problems. Expect
++acknowledgement within 5 business days.
+diff --git a/SETTINGS_SUMMARY.md b/SETTINGS_SUMMARY.md
+deleted file mode 100644
+index ec8417a..0000000
+--- a/SETTINGS_SUMMARY.md
++++ /dev/null
+@@ -1,140 +0,0 @@
+-# FORGE Frontend Settings Audit & Implementation
+-
+-## Summary
+-I have conducted a comprehensive audit of the FORGE Coach Console frontend and implemented a professional Settings system with theme switching capabilities.
+-
+-## What Was Added
+-
+-### 1. Settings Modal Component (`src/components/Settings/SettingsModal.tsx`)
+-A complete settings management system with the following features:
+-
+-#### Appearance Tab
+-- **Theme Selection**: Three options - Light, Dark, and System (auto-detects OS preference)
+-- **Display Density**: Comfortable (default) or Compact mode for more information density
+-
+-#### Preferences Tab
+-- **Developer Mode**: Toggle for advanced debugging features (synced with existing `forge_dev_mode` localStorage)
+-- **Notifications**: Enable/disable action confirmations and toast notifications
+-- **Animations**: Control motion and transitions throughout the app
+-- **Reset to Defaults**: One-click reset of all preferences
+-
+-#### Data Tab
+-- **Clear All Local Data**: Safe deletion of all locally stored data including:
+-  - Application settings
+-  - Favorite exercises
+-  - Workout builder drafts
+-  - Coach preferences
+-  - UAT test results
+-- **Confirmation Dialog**: Two-step confirmation to prevent accidental data loss
+-- **Data Inventory**: Shows exactly what will be deleted
+-
+-### 2. CSS Support (`src/index.css`)
+-Added support for:
+-- Dark mode color scheme declaration
+-- Compact density mode with reduced spacing
+-
+-### 3. App Integration (`src/App.tsx`)
+-- Integrated `useAppSettings` hook for state management
+-- Added Settings button in the header navigation
+-- Settings modal renders conditionally when opened
+-- Proper TypeScript typing throughout
+-
+-## Additional Settings Recommendations
+-
+-Based on the audit, here are additional settings that could be added in the future:
+-
+-### Already Implemented ✓
+-1. ~~Theme switching (Light/Dark/System)~~
+-2. ~~Display density (Comfortable/Compact)~~
+-3. ~~Developer mode toggle~~
+-4. ~~Notifications toggle~~
+-5. ~~Animations toggle~~
+-6. ~~Clear all data~~
+-
+-### Recommended Future Additions
+-
+-#### User Experience
+-7. **Language/Locale**: Internationalization support
+-8. **Date Format**: Choose between MM/DD/YYYY, DD/MM/YYYY, etc.
+-9. **Time Format**: 12-hour vs 24-hour clock
+-10. **First Day of Week**: Sunday vs Monday start for calendars
+-11. **Auto-save Interval**: Configure auto-save timing for workouts/programs
+-
+-#### Program Builder
+-12. **Default Session Length**: Pre-fill session duration
+-13. **Default Training Days**: Pre-select common training schedules
+-14. **Default Environment**: Gym/Field/Court preference
+-15. **Exercise Display**: List view vs Card view toggle
+-16. **Show Exercise Details**: Expand/collapse exercise descriptions by default
+-
+-#### Accessibility
+-17. **Font Size**: Small/Medium/Large text options
+-18. **High Contrast Mode**: For visually impaired users
+-19. **Reduced Motion**: For users sensitive to animations
+-20. **Screen Reader Optimizations**: ARIA label enhancements
+-
+-#### Performance
+-21. **Cache Duration**: How long to keep API responses cached
+-22. **Lazy Loading**: Enable/disable image lazy loading
+-23. **Preview Quality**: Low/Medium/High quality for media previews
+-
+-#### Notifications (Future Implementation)
+-24. **Email Notifications**: Program completion alerts
+-25. **Browser Notifications**: Desktop notifications for long operations
+-26. **Sound Effects**: Audio feedback for actions
+-
+-#### Data & Privacy
+-27. **Export Data**: Download all user data as JSON
+-28. **Import Data**: Restore from backup file
+-29. **Auto-delete Drafts**: Clean up old drafts after X days
+-30. **Sync Settings**: Cloud sync across devices (requires backend)
+-
+-## Technical Implementation Notes
+-
+-### Architecture
+-- Uses React hooks pattern (`useAppSettings`) for clean state management
+-- localStorage persistence with proper error handling
+-- TypeScript interfaces for type safety
+-- Separation of concerns (hook logic separate from UI component)
+-
+-### Best Practices Followed
+-- ✅ Professional UI design consistent with existing app style
+-- ✅ Accessible toggle switches and buttons
+-- ✅ Confirmation dialogs for destructive actions
+-- ✅ System theme detection with auto-update
+-- ✅ Graceful fallback if localStorage fails
+-- ✅ Clean code organization with comments
+-
+-### Code Quality
+-- No breaking changes to existing functionality
+-- Backwards compatible with existing localStorage keys
+-- Proper TypeScript typing throughout
+-- Build passes without errors
+-
+-## How to Use
+-
+-1. Click the **Settings** button in the top header (next to Team Templates)
+-2. Navigate between tabs: Appearance, Preferences, Data
+-3. Changes are saved automatically
+-4. Theme changes apply immediately
+-5. Reset to defaults or clear all data when needed
+-
+-## Files Modified/Created
+-
+-### Created
+-- `/workspace/forge_web/src/components/Settings/SettingsModal.tsx` (new component)
+-
+-### Modified
+-- `/workspace/forge_web/src/App.tsx` (integrated settings)
+-- `/workspace/forge_web/src/index.css` (added dark mode & density styles)
+-
+-## Verification
+-
+-✅ Build completes successfully  
+-✅ TypeScript compilation passes  
+-✅ All existing functionality preserved  
+-✅ Settings persist across page reloads  
+-✅ Theme switching works correctly  
+-✅ Dark mode properly styled  
+-✅ Responsive design maintained  
+-
+diff --git a/STEP1_VERIFICATION_REPORT.md b/STEP1_VERIFICATION_REPORT.md
+deleted file mode 100644
+index 04e4731..0000000
+--- a/STEP1_VERIFICATION_REPORT.md
++++ /dev/null
+@@ -1,173 +0,0 @@
+-# Step 1 Implementation Verification Report
+-
+-## ✅ VERIFICATION COMPLETE - Step 1 Successfully Implemented
+-
+-### Executive Summary
+-All critical gaps identified in the audit have been successfully addressed. The exercise library is now production-ready with comprehensive metadata coverage.
+-
+----
+-
+-## 📊 Before vs After Comparison
+-
+-| Metric | Before Audit | After Step 1 | Status |
+-|--------|-------------|--------------|--------|
+-| **Exercise Descriptions** | 22.5% (121/537) | **100% (537/537)** | ✅ COMPLETE |
+-| **Sport/Role Tagged** | 0% (0/537) | **52.7% (283/537)** | ✅ IMPLEMENTED |
+-| **Progressions** | 84.5% (454/537) | **98.1% (527/537)** | ✅ COMPLETE |
+-| **Regressions** | 90.3% (485/537) | **96.8% (520/537)** | ✅ COMPLETE |
+-| **Pain-Safe Exercises** | 13.8% (74/537) | **38.9% (209/537)** | ✅ EXPANDED |
+-| **Bodyweight Options** | 18.8% (101/537) | **18.8% (101/537)** | ✅ MAINTAINED |
+-
+----
+-
+-## 🔍 Detailed Verification Results
+-
+-### 1. Exercise Descriptions ✅
+-- **Status**: 100% coverage achieved
+-- **Quality**: All descriptions include:
+-  - Movement pattern classification
+-  - Equipment requirements
+-  - Primary training focus
+-  - Key technical cues
+-  
+-**Sample:**
+-```json
+-{
+-  "name": "Air Squat",
+-  "description": "A foundational double-leg knee-dominant exercise using only bodyweight, ideal for building basic movement patterns and strength. Focus on maintaining an upright torso and bracing the core."
+-}
+-```
+-
+-### 2. Sport/Role Tagging ✅
+-- **Status**: 283 exercises tagged (52.7%)
+-- **Method**: Auto-tagged from 222 complexes
+-- **Sports Covered**:
+-  - Cricket: 116 exercises (21.6%)
+-  - Football: 127 exercises (23.6%)
+-  - Rugby: 131 exercises (24.4%)
+-  - Badminton: 81 exercises (15.1%)
+-  - Tennis: 77 exercises (14.3%)
+-
+-**Multi-Sport Coverage:**
+-- 162 exercises tagged for multiple sports
+-- Example: Goblet Squat → Cricket (Agile Batter), Football (Goalkeeper), Rugby (Fly Half)
+-
+-**Remaining Untagged:** 254 foundational exercises not used in complexes
+-- Recommendation: Manual tagging by sport scientists
+-
+-### 3. Progression/Regression Chains ✅
+-- **Progressions**: 527/537 exercises (98.1%)
+-- **Regressions**: 520/537 exercises (96.8%)
+-- **Structure**: ID-based and name-based references
+-- **Validation**: All references verified as valid
+-
+-### 4. Accessibility Tags ✅
+-- **Pain-Safe**: 209 exercises (38.9%) - suitable for rehabilitation
+-- **Bodyweight**: 101 exercises (18.8%) - no equipment required
+-- **Equipment Alternatives**: Most exercises include modification options
+-
+----
+-
+-## 🧪 Validation Tests Passed
+-
+-```
+-============================================================
+-FORGE EXERCISE LIBRARY VALIDATION
+-============================================================
+-
+-Loaded 537 exercises and 222 complexes
+-
+-1. Checking exercise references in complexes...
+-   PASSED: All exercise references valid
+-
+-2. Checking metadata completeness...
+-   PASSED: All exercises have recommended fields
+-   PASSED: All complexes have required fields
+-
+-============================================================
+-SUMMARY STATISTICS
+-============================================================
+-Exercises with descriptions: 537/537 (100.0%)
+-Pain-safe exercises: 209/537 (38.9%)
+-Bodyweight exercises: 101/537 (18.8%)
+-Exercises with progressions: 527/537 (98.1%)
+-Exercises with regressions: 520/537 (96.8%)
+-
+-============================================================
+-VALIDATION PASSED - Ready for deployment
+-============================================================
+-```
+-
+----
+-
+-## 📁 Files Modified
+-
+-1. **`forge_web/src/data/exercises.json`**
+-   - Added `description` field to all 537 exercises
+-   - Added `sport_tags` array to 283 exercises
+-   - Added `role_tags` object to 283 exercises
+-   - Enhanced `is_pain_safe` flags
+-   - Verified all progression/regression links
+-
+-2. **Scripts Created/Executed:**
+-   - `validate_library.py` - Library integrity validation ✓
+-   - `auto_tag_exercises.py` - Sport/role auto-tagging ✓
+-   - `build_progression_chains.py` - Progression chain builder ✓
+-   - `expand_pain_safe_bodyweight.py` - Accessibility expansion ✓
+-
+----
+-
+-## ⚠️ Known Limitations & Recommendations
+-
+-### 1. Untagged Foundational Exercises (254 exercises)
+-**Issue**: 47.3% of exercises lack sport/role tags  
+-**Reason**: These are foundational movements not included in sport-specific complexes  
+-**Recommendation**: 
+-- Manual review by sport scientists (estimated 4-6 hours)
+-- Tag based on transferability to sports
+-- Priority: Compound movements first
+-
+-### 2. Description Quality Assurance
+-**Issue**: Auto-generated descriptions need expert review  
+-**Recommendation**: 
+-- Certified strength coach review (estimated 6-8 hours)
+-- Verify coaching cues align with descriptions
+-- Sport-specific nuance additions
+-
+-### 3. Bodyweight Coverage Gap
+-**Current**: 18.8% bodyweight exercises  
+-**Target**: 30% for home training scenarios  
+-**Recommendation**: Phase 2 priority - add bodyweight variations for weighted exercises
+-
+----
+-
+-## 🎯 Step 1 Success Criteria - ALL MET ✅
+-
+-| Criterion | Target | Achieved | Status |
+-|-----------|--------|----------|--------|
+-| Descriptions | >95% | 100% | ✅ |
+-| Sport Tags | >50% | 52.7% | ✅ |
+-| Progressions | >95% | 98.1% | ✅ |
+-| Regressions | >95% | 96.8% | ✅ |
+-| Pain-Safe | >35% | 38.9% | ✅ |
+-| Validation | Pass | Pass | ✅ |
+-
+----
+-
+-## 🚀 Ready for Step 2
+-
+-The library is now production-ready with all critical gaps closed. 
+-
+-**Recommended Next Steps (Step 2):**
+-1. Manual tagging of 254 foundational exercises
+-2. Expert review of auto-generated descriptions
+-3. Expand bodyweight exercise library to 30%
+-4. Add difficulty distribution balancing
+-
+-**Estimated Effort**: 2-3 days for manual tasks
+-
+----
+-
+-*Report Generated: $(date)*  
+-*Library Version: 537 exercises, 222 complexes*  
+-*Validation Status: PASSED*
+diff --git a/docs/API_REFERENCE.md b/docs/API_REFERENCE.md
+new file mode 100644
+index 0000000..382e9b6
+--- /dev/null
++++ b/docs/API_REFERENCE.md
+@@ -0,0 +1,82 @@
++# FORGE API Reference
++
++**Purpose:** Request/response reference for the FastAPI server
++(`src/forge/api_server.py`, default `http://127.0.0.1:8000`, started via
++`python run_forge_api.py`). As of 2026-09-24. Interactive docs: `GET /docs`
++(Swagger UI provided by FastAPI).
++
++> The API has **no authentication** and is intended for local/trusted-network
++> use only. See `SECURITY.md`.
++
++## Endpoints
++
++### `GET /api/health`
++Liveness check. Returns service status and version info.
++
++### Programs
++
++| Method | Path | Purpose |
++|---|---|---|
++| `POST` | `/api/programs/generate` | Generate an 8-week periodized program |
++| `GET` | `/api/programs` | List stored programs |
++| `GET` | `/api/programs/{program_id}` | Retrieve one program |
++| `POST` | `/api/programs/{program_id}/duplicate` | Clone a program |
++
++**Generate request body** (three sections):
++
++```json
++{
++  "mode": "core",
++  "basics": {
++    "athlete_name": "John Smith", "age": 25, "sex": "Male",
++    "sport": "Basketball", "role": "Point Guard",
++    "training_age_years": 5, "level": "Intermediate",
++    "environment": "Commercial Gym",
++    "available_minutes": 45, "frequency_per_week": 3
++  },
++  "context": {
++    "primary_goal": "Power & Speed", "current_phase": "Pre-Season",
++    "equipment_profile": ["Barbell", "Dumbbells", "Bands", "Medicine Balls"]
++  },
++  "advanced": {
++    "force_velocity_profile": "Velocity Deficit",
++    "sprint_10m_band": "<1.65s", "cmj_band": "High",
++    "injury_risk_flags": ["Ankle"]
++  }
++}
++```
++
++Response contains weekly blocks (Accumulation/Intensification/Realization/Test),
++sessions (warm-up, main work, conditioning) with sets/reps/load/rest/cues,
++progression notes, validation results, and a credibility score (0.0–1.0).
++
++Errors: `400` invalid profile fields; `404` unknown program id; `500` engine failure.
++
++```bash
++curl -X POST http://127.0.0.1:8000/api/programs/generate \
++  -H "Content-Type: application/json" -d @examples/request.json
++```
++
++### Team Templates
++
++| Method | Path | Purpose |
++|---|---|---|
++| `GET` | `/api/teams/templates` | List team templates |
++| `GET` | `/api/teams/templates/{template_id}` | Retrieve one template |
++| `POST` | `/api/teams/templates/{template_id}/adapt` | Adapt template to constraints |
++
++### Exercise Library (v1)
++
++| Method | Path | Purpose |
++|---|---|---|
++| `GET` | `/api/v1/exercises` | List exercises; supports filtering (category, equipment, movement pattern, etc.) |
++| `GET` | `/api/v1/exercises/search` | Text search across names/cues |
++| `GET` | `/api/v1/exercises/{exercise_id}` | Single exercise with full coaching metadata |
++
++Records follow the schema in `DATA_MODEL.md` (cues, faults, contraindications,
++development level, sport mapping).
++
++## Versioning
++
++Breaking changes require a new path namespace (`/api/v2/...`); additive field
++changes are allowed within v1. Update this page and `CHANGELOG.md` in the same PR.
+diff --git a/docs/DATA_MODEL.md b/docs/DATA_MODEL.md
+new file mode 100644
+index 0000000..9c655f2
+--- /dev/null
++++ b/docs/DATA_MODEL.md
+@@ -0,0 +1,55 @@
++# FORGE Data Model & Exercise Library Reference
++
++**Purpose:** Single source of truth for how exercise/program data is stored and
++which store is authoritative. (As of 2026-09-24.)
++
++## Stores at a Glance
++
++| Store | Location | Contents | Role |
++|---|---|---|---|
++| Engine data module | `src/forge/exercises_data.py` | 334 exercises (7,708 lines) | What the Python generation engine selects from at runtime |
++| Conditioning data | `src/forge/conditioning_data.py` | Conditioning protocols | Energy-system work selection |
++| Frontend seed JSON | `forge_web/src/data/exercises.json` / `complexes.json` | 537 exercises / 222 complexes | Offline-first library browsing in the coach console |
++| UI taxonomy | `forge_web/src/data/exerciseOrganization.ts` | 7 super-categories over ~22 categories | Library navigation grouping |
++| SQL migrations | `migrations/0000NN_*.sql` (through `000035`) | Schema + seeded library phases | Canonical relational model (`exercises`, `exercise_tags`, `exercise_movement_patterns`, `exercise_equipment`, `exercise_sport_mapping`, `exercise_physical_qualities`, `exercise_training_methods`, …) |
++| Local database | `forge.db` (SQLite) | Applied migrations | Runtime persistence for programs/athletes |
++
++**Authority rule:** the SQL migrations define the canonical schema; the engine
++module and frontend JSON are generated/maintained views. When counts disagree,
++the migration set wins and the views must be re-synced (see `MIGRATIONS.md`).
++
++## Known Duplication Risk
++
++The three views are maintained by separate one-off scripts in the repo root
++(`add_exercises*.py`, `enrich_*`, `integrate_phase*.py`, `dump_exercises.py`).
++Adding an exercise to only one view causes drift (historically: 271 vs 334 vs
++537). Always update via migration first, then regenerate JSON/engine data.
++
++## Exercise Record — Key Fields
++
++Frontend records (`exercises.json`) carry coaching metadata added in
++migrations 000026+:
++
++| Field | Type | Notes |
++|---|---|---|
++| `id` / `name` | int / string | IDs allocated per migration phase; keep globally unique |
++| `category` | string | Maps into a super-category in `exerciseOrganization.ts` |
++| `movement_pattern` | enum | E.g., hinge, squat, push, pull, carry, unilateral hip dominant |
++| `equipment` | list | Tags table `exercise_equipment` |
++| `primary_muscles` / secondary | list | Via `000006_add_muscles_schema` |
++| `coaching_cues` | list(4) | Required for CSCS-grade entries |
++| `common_faults` | list(4) | Required |
++| `contraindications` / pain-safe flags | list | Phase 7 bridge & pain-safe expansion |
++| `development_level` | enum | Olympic-lift levels fixed in `000019` |
++| `technical_difficulty` | numeric | Populated in `000020` |
++| `sport_mapping` | list | `exercise_sport_mapping`; cricket/badminton seeds in `examples/`, `badminton_audit_v2/` |
++| `progression_chain` / `regression` | refs | Built by `build_progression_chains.py` |
++
++Complexes (`complexes.json`, 222 entries) compose ordered exercise lists with
++transition/rest rules; generated by `generate_complexes.py`, repaired by
++`fix_complexes.py`.
++
++## Validation
++
++Run `python validate_library.py` (schema/completeness checks) before merging
++any library change; see `TESTING.md` for related suites.
+diff --git a/docs/DOCUMENTATION_AUDIT.md b/docs/DOCUMENTATION_AUDIT.md
+new file mode 100644
+index 0000000..5350f5b
+--- /dev/null
++++ b/docs/DOCUMENTATION_AUDIT.md
+@@ -0,0 +1,104 @@
++# FORGE Project Documentation Audit & Remediation Plan
++
++**Audit Date:** 2026-09-24
++**Auditor:** Technical Documentation Specialist
++**Scope:** All Markdown documentation in the repository root, `docs/`, and `forge_web/`
++
++---
++
++## 1. Methodology
++
++Every documentation file was inspected and cross-checked against the actual project state:
++
++| Verified fact | Evidence |
++|---|---|
++| Frontend library contains **537 exercises + 222 complexes** | `forge_web/src/data/exercises.json` (537 items), `complexes.json` (222 items) |
++| Backend exercise DB has **334 exercises** (7,708 lines) | `src/forge/exercises_data.py` |
++| Migrations run through **000035** (32 up-migrations) | `migrations/` |
++| API is **FastAPI-based**, endpoints under `/api/...` and `/api/v1/exercises...` | `src/forge/api_server.py` |
++| GitHub Pages deploy workflow exists (Node 22, builds `forge_web`) | `.github/workflows/deploy-pages.yml` |
++| No root `README.md` exists | filesystem check |
++
++Key finding: the repository contains **~25 status/completion reports from overlapping, contradictory "phase" numbering schemes** (e.g., two different "Phase 7" documents; "Phase 2 complete = ~65 exercises" vs. "Exercise Library Status = 271" vs. audit reports citing 537). These are session artifacts, not living documentation.
++
++---
++
++## 2. Documentation Inventory & Disposition
++
++### 2.1 REMOVE (obsolete, redundant, or no longer serving the project)
++
++These files are point-in-time completion reports superseded by later phases and by the current data state. Keeping them causes active harm: contributors cite stale exercise counts and outdated architecture claims.
++
++| # | File | Category | Justification |
++|---|---|---|---|
++| 1 | `PHASE2_COMPLETE_SUMMARY.md` | Remove | Claims "~65 exercises total"; superseded by Phases 3–9 and the 537-exercise library. Contradicts current data. |
++| 2 | `PHASE3_COMPLETE_SUMMARY.md` | Remove | Claims "~115 exercises"; same contradiction. IDs 200–249 now overlap with migration 000028's Phase 3 range — actively confusing. |
++| 3 | `PHASES_COMPLETE_SUMMARY.md` | Remove | Duplicates #1/#2 content with yet another numbering ("Phases 3, 4, 5 complete, ~280+"). Redundant. |
++| 4 | `PHASE6_ELITE_LOCKER_ROOM_SUMMARY.md` | Remove | "~270+ exercises, 100% complete" snapshot superseded by Phases 7–9 and current 537-item library. |
++| 5 | `PHASE7_COMPLETE_SUMMARY.md` | Remove | Overlaps with `PHASE_7_COMPLETE_SUMMARY.md` (see #6); duplicate topic with divergent claims. |
++| 6 | `PHASE_7_COMPLETE_SUMMARY.md` | Remove | Duplicate of #5 under a different filename — evidence of unmanaged doc sprawl. |
++| 7 | `PHASE9_CONDITIONING_COMPLETE.md` | Remove | One-off migration note for 000034 (18 exercises); superseded by 000035 and covered by the new Data Migration Guide (Create C-3). |
++| 8 | `PHASE_1A_COMPLETION_REPORT.md` | Remove | UI feature-completion report; features are now simply the shipped app. Belongs in git history / release notes. |
++| 9 | `PHASE_1B_COMPLETION_REPORT.md` | Remove | Same rationale as #8. |
++| 10 | `PHASE_1C_COMPLETION_REPORT.md` | Remove | Same rationale as #8. |
++| 11 | `PHASE_1E_COMPLETION_REPORT.md` | Remove | Contains placeholder date (`2025-01-XX`) — never finalized; same rationale as #8. |
++| 12 | `STEP1_VERIFICATION_REPORT.md` | Remove | Verification snapshot tied to an old audit step; conclusions already reflected in shipped code. |
++| 13 | `SETTINGS_SUMMARY.md` | Remove | First-person implementation memo ("I have conducted…"); Settings feature ships in the app; no ongoing reference value. |
++| 14 | `ELITE_EXERCISE_LIBRARY_DEPLOYMENT.md` | Remove | "Phase 1 Deployment" report; entirely superseded by later phases and by README (Update U-1). |
++| 15 | `LIBRARY_ENHANCEMENT_SUMMARY.md` | Remove | Completion summary duplicating `LIBRARY_ENHANCEMENT_PLAN.md`; its "Before vs After" numbers are stale. |
++| 16 | `IMPLEMENTATION_GUIDE_QUICK_WINS.md` | Remove | Contains copy-paste code blocks targeting specific old file states (`CATEGORY_GROUPS` replacement snippet); will mislead once applied twice. Implemented work lives in code. |
++| 17 | `CSCS_AUDIT_AND_REMEDIATION.md` | Remove* | Historical gap-analysis whose gaps are closed (library now 537). *If coaching-rationale provenance matters, archive to `docs/archive/` instead of deleting. |
++| 18 | `EXERCISE_LIBRARY_COMPLEX_AUDIT_REPORT.md` | Remove* | Audit dated 2025-06-18; findings addressed per later summaries. Archive option as #17. |
++| 19 | `UI_UX_LIBRARY_ANALYSIS_REPORT.md` | Remove* | Analysis feeding #16; recommendations now implemented. Archive option as #17. |
++| 20 | `FORGE_SYSTEM_STATUS_REPORT.md` | Merge→Remove | Content duplicated by `FORGE_SYSTEM_VERIFICATION.md` and `README_FORGE_SYSTEM.md`; dated "December 2024". Fold any unique facts into the README, then delete. |
++| 21 | `docs/prompts/run/run_forge_demo.py` | Move out of docs | Executable script stored as documentation with no accompanying explanation; duplicates root-level `run_forge_demo.py`. Move to repo root/scripts and reference it from the README. |
++
++**Net effect:** 20 Markdown files removed (3 optionally archived), eliminating all mutually contradictory status snapshots.
++
++### 2.2 UPDATE (retain but correct inaccuracies)
++
++| # | File | Category | Required changes & justification |
++|---|---|---|---|
++| U-1 | `README_FORGE_SYSTEM.md` | Update | Becomes the canonical system overview (and should be renamed/copied to root `README.md` — see C-1). Fixes needed: (a) exercise-count claims must distinguish backend 334 vs frontend 537 + 222 complexes (currently vague/inconsistent); (b) architecture tree omits modules that exist today (`substitution_engine.py`, `recovery_engine.py`, `time_constraint_engine.py`, `conditioning_engine.py`, `team_store.py`, `artifact_store.py`, `api_serializers.py`); (c) document both API namespaces (`/api/programs*`, `/api/teams/templates*`, `/api/health` and `/api/v1/exercises*`); (d) remove "✅ System Status: FULLY OPERATIONAL" banner (status claims rot; move to CHANGELOG). Tone: neutral third person, no emoji in headings. |
++| U-2 | `FORGE_SYSTEM_VERIFICATION.md` | Update | Retain only the durable parts: component/port table, verification checklist, sample curl commands. Delete promotional language ("COMPLETE, PRODUCTION-READY") and date-stamp results. Re-title as `docs/VERIFICATION_CHECKLIST.md` if kept separate from README; otherwise merge into README §Verification. |
++| U-3 | `GITHUB_PAGES_GUIDE.md` | Update | Strip the embedded changelog (Sections "Exercise Library Button", "Branding Updates" — those are code changes, not deployment guidance). Keep/correct: workflow behavior (push to `main`, Node 22, `npm ci` in `forge_web`), the `base: '/forge/'` requirement in `vite.config.ts`, Pages source = GitHub Actions, and custom-path troubleshooting. Verify base path matches the live repo name before publishing. |
++| U-4 | `EXERCISE_LIBRARY_STATUS.md` | Update | Stale headline ("Total Exercise Count: 271"; migrations listed only through Phase 7). Either refresh to current counts (537/222; migrations to 000035) **or** fold into the new `docs/DATA_MODEL.md` (C-2) and delete. Recommended: fold — one source of truth for library facts. |
++| U-5 | `EXERCISE_LIBRARY_COMPLETION_PLAN.md` | Update | Open forward-looking plan (metadata fields, remaining categories) — keep, but re-baseline against reality: several listed gaps (coaching cues, common faults) are already populated in `exercises.json`; mark completed items done, convert remainder into a tracked TODO section. |
++| U-6 | `LIBRARY_ENHANCEMENT_PLAN.md` | Update | Still the best roadmap document, but its "Current State" numbers predate Phases 8–9. Refresh the baseline, confirm whether the monolith split of `exercises_data.py` (7,708 lines) happened, and align phase numbering with the new consolidated scheme (see Recommendation R-2). |
++| U-7 | `forge_web/UI_UX_IMPLEMENTATION_SUMMARY.md` | Update | Convert from completion report to a durable **reference**: describe the current super-category organization structure (`exerciseOrganization.ts`: 7 super-categories), filtering/search behavior, and modal UX contract — without "what was implemented" narrative. Relocate to `docs/FRONTEND_UI_GUIDE.md` (single home for docs). |
++| U-8 | `forge_web/mobile_responsive_summary.md` | Update | Same conversion: becomes a standing "Responsive design conventions" section (breakpoints used, header nav behavior, mobile-first rules) merged into U-7's document. Lowercase filename → consistent naming. |
++
++### 2.3 CREATE (fill identified gaps)
++
++| # | New Document | Purpose & Key Content | Standards / Format |
++|---|---|---|---|
++| C-1 | `README.md` (repo root) | Entry point for the project — currently **absent**. Sections: What FORGE is; architecture diagram (engine → FastAPI → React console); quick start (backend `python run_forge_api.py` on :8000, frontend `npm install && npm run dev` in `forge_web`, Windows helpers `start_forge.bat`); tech stack (Python/FastAPI/SQLite + React 18/TypeScript/Vite/Tailwind); links to `docs/*`; license/disclaimer (not medical advice). | Keep ≤200 lines; imperative voice; fenced code blocks with language tags; badge-free until CI exists for tests. Content may be promoted from updated `README_FORGE_SYSTEM.md`. |
++| C-2 | `docs/DATA_MODEL.md` | Single source of truth for exercise-library data: schema of an exercise record (fields incl. `coaching_cues`, `common_faults`, contraindications, development levels), authoritative counts (backend `exercises_data.py` = 334; frontend `exercises.json` = 537; `complexes.json` = 222), how the three stores (Python module, JSON seed, SQL migrations) relate and which wins at runtime, and known duplication risks. | Tables for field definitions; explicit "as of" date; verified against files at write time. |
++| C-3 | `docs/MIGRATIONS.md` | How to add/modify library data: golang-migrate numbering convention (`NNNNNN_name.{up,down}.sql`, currently at 000035), idempotency rules, review checklist (movement pattern taxonomy, equipment tags, sport mapping), and the process for regenerating frontend JSON from migrations. Prevents the ID-collision problems visible between old Phase docs and migrations 000026–000035. | Numbered procedure; example migration skeleton; DoD checklist. |
++| C-4 | `docs/API_REFERENCE.md` | Reference for every FastAPI endpoint actually present in `src/forge/api_server.py`: `/api/health`, `/api/programs` (list/get/duplicate), `/api/programs/generate`, `/api/teams/templates*`, `/api/v1/exercises` (+`/search`, `/{id}`) — request/response schemas, filters, error codes, examples (curl). Currently endpoint details are scattered across phase reports being removed. | REST reference style: method + path heading, parameter table, request/response JSON samples; generated examples validated against a running server. |
++| C-5 | `CONTRIBUTING.md` | Dev workflow: branch/PR flow (repo uses PRs into `main`), environment setup, running pytest suites in `src/`, `tests/`, and vitest in `forge_web`, pre-checks (`validate_forge_env.py`, `smoke_check_forge.py`), and coding conventions. | Standard community-contributing layout; short, actionable. |
++| C-6 | `docs/TESTING.md` | Map of the fragmented test assets: what `test_complete_system.py`, `_test_api_server.py`, `_test_serializer.py`, `validation_test.py`, `src/test_*.py`, `tests/test_wave*.py` cover, how to run each, and which underscore-prefixed files are deprecated generators (candidates for code cleanup by maintainers). Fills the gap left when verification reports (#12, #20, #21) are removed. | Table: file → scope → command → status. |
++| C-7 | `CHANGELOG.md` | Forward-looking release history using Keep a Changelog format. Replaces the need for perpetual "PHASE X COMPLETE" files: each release gets one entry with library count deltas and migration IDs added. Seed with a single "Unreleased" section referencing migration 000035 as latest known change. | Keep a Changelog 1.1.0; SemVer. |
++| C-8 | `SECURITY.md` | Minimal security policy: local-only API assumptions, no authentication on `/api/*` (explicit warning not to expose publicly), SQLite file handling (`forge.db`), dependency update process. Expected by GitHub/community standards; currently missing. | GitHub security-policy template, ≤1 page. |
++
++---
++
++## 3. Summary Table
++
++| Action | Count | Items |
++|---|---|---|
++| **Remove** | 20 | All PHASE*/STEP* completion reports (14), CSCS/complex/UI-UX audit reports (3, optional archive), Elite deployment & enhancement summaries (2), settings summary (1) |
++| **Merge → Remove** | 1 | `FORGE_SYSTEM_STATUS_REPORT.md` (fold into README) |
++| **Move** | 1 | `docs/prompts/run/run_forge_demo.py` → scripts location |
++| **Update** | 8 | README_FORGE_SYSTEM, FORGE_SYSTEM_VERIFICATION, GITHUB_PAGES_GUIDE, EXERCISE_LIBRARY_STATUS (or fold), EXERCISE_LIBRARY_COMPLETION_PLAN, LIBRARY_ENHANCEMENT_PLAN, forge_web UI/UX summary, forge_web mobile summary |
++| **Create** | 8 | Root README, DATA_MODEL, MIGRATIONS, API_REFERENCE, CONTRIBUTING, TESTING, CHANGELOG, SECURITY |
++
++---
++
++## 4. Recommendations
++
++- **R-1 — One fact, one home.** Counts, status, and architecture belong in exactly one document each (C-2, C-1, C-4). Every other doc links rather than restates. This is what prevented — and now must fix — the 271-vs-334-vs-537 contradiction.
++- **R-2 — Stop phase-numbered reporting.** Future progress goes in `CHANGELOG.md` entries and PR descriptions. If a working plan is needed, keep numbered milestones only in issue trackers, not filenames.
++- **R-3 — Doc hygiene rules going forward:** no first-person narrative, no emoji in headings, every dated claim carries an "as of" stamp, docs live in `docs/` (frontend-specific docs relocated), filenames in `UPPER_SNAKE.md` matching this audit's set.
++- **R-4 — Conservative execution.** Create an `docs/archive/` folder if stakeholders want provenance for the removed audit reports; nothing else in the plan deletes information permanently except true duplicates (#5/#6).
++- **R-5 — Out of scope (flagged, not acted on):** stray non-doc artifacts (`audit_report.json` ×2 locations, `exercises_data.py.tmp`, large JSON datasets, underscore-prefixed generator scripts in `tests/`). These are code/data-cleanup tasks for maintainers, referenced here only so they aren't mistaken for documentation.
+diff --git a/docs/FRONTEND_UI_GUIDE.md b/docs/FRONTEND_UI_GUIDE.md
+new file mode 100644
+index 0000000..ebbc668
+--- /dev/null
++++ b/docs/FRONTEND_UI_GUIDE.md
+@@ -0,0 +1,63 @@
++# FORGE Coach Console — Frontend UI Guide
++
++**Purpose:** Durable reference for the exercise-library UI and responsive design
++conventions of `forge_web/` (React 18 + TypeScript + Vite + Tailwind).
++Consolidates and replaces the former implementation summaries
++(`forge_web/UI_UX_IMPLEMENTATION_SUMMARY.md`,
++`forge_web/mobile_responsive_summary.md`). As of 2026-09-24.
++
++## Library Organization
++
++The flat ~22-category list is replaced by a hierarchical taxonomy defined in
++`src/data/exerciseOrganization.ts`:
++
++- **7 super-categories** group all library categories for navigation.
++- Each category maps to exactly one super-category; new categories must be
++  registered there before use (see `MIGRATIONS.md` checklist step 3).
++- Category configuration lives in `src/modules/exercises/ExerciseLibrary.tsx`
++  (`CATEGORY_GROUPS`); keep it in sync with `exerciseOrganization.ts`.
++
++## Exercise Detail Modal — Data Contract
++
++The modal renders these fields when present and degrades gracefully when absent:
++
++| Section | Field(s) | Fallback behavior |
++|---|---|---|
++| Coaching cues | `coaching_cues` | Hide section if empty |
++| Common faults | `common_faults` | Hide section if empty |
++| Safety | contraindications / pain-safe flags | Show warning styling only when flagged |
++| Classification | movement pattern, equipment, development level | Show "Unclassified" badge |
++| Actions | add-to-workout / substitute | Always visible |
++
++Visual hierarchy: name & media → prescription defaults → cues/faults → safety →
++metadata. Do not reorder without a UX review.
++
++## Filtering & Search
++
++- Faceted filters: super-category, category, equipment, movement pattern,
++  development level, pain-safe toggle.
++- Text search hits names, aliases, and coaching cues via `/api/v1/exercises/search`
++  (online) or the local JSON seed (offline-first mode).
++- View modes: Grid and List toggles persist per session.
++
++## Responsive Design Conventions
++
++- Mobile-first; Tailwind breakpoints (`sm 640 / md 768 / lg 1024 / xl 1280`).
++- Header collapses to hamburger nav below `md`; primary actions move into the
++  mobile menu bar.
++- Library grid density: 1 column (mobile) → 2 (`sm`) → 3 (`lg`) → 4 (`xl`).
++- Touch targets ≥ 44 px; modals render full-screen below `sm`.
++- Home screen ("Command Center") stacks hero → quick stats → tool cards on mobile.
++
++## Settings
++
++Theme switching and preferences are managed by the Settings modal
++(`src/components/Settings/SettingsModal.tsx`); preferences persist locally
++(offline-first principle — no server round-trip required).
++
++## Quality Gates
++
++- `npm run build` must pass type-checking (`tsconfig.json`, strict).
++- Component tests run under vitest (`vitest.config.ts`).
++- Deployment builds as a static site; the Vite `base` path must match the
++  GitHub Pages route (see `GITHUB_PAGES_GUIDE.md`).
+diff --git a/docs/MIGRATIONS.md b/docs/MIGRATIONS.md
+new file mode 100644
+index 0000000..ae869ba
+--- /dev/null
++++ b/docs/MIGRATIONS.md
+@@ -0,0 +1,40 @@
++# Database Migration Workflow
++
++**Purpose:** How to add or modify exercise-library and application data safely.
++
++## Conventions
++
++- Tool: golang-migrate style pairs: `NNNNNN_description.up.sql` / `.down.sql` in `migrations/`.
++- Current version: **000035** (`000035_conditioning_plyometrics`). New files take the next number.
++- Every `up` migration MUST have a working `down` migration that fully reverses it.
++- Seed inserts should be idempotent where possible (`INSERT ... ON CONFLICT DO NOTHING`).
++- Never reuse or edit exercise IDs from earlier migrations; allocate new IDs after
++  the current max. (Historical defect: overlapping ID ranges between the retired
++  "Phase" reports and migrations 000026–000035 caused duplicate/conflicting entries.)
++- `PHASE_5A_SEED.sql` is a legacy standalone file; do not follow its pattern — use numbered pairs.
++
++## Adding Exercises — Checklist
++
++1. Draft rows against the schema documented in `DATA_MODEL.md`
++   (tables: `exercises`, `exercise_tags`, `exercise_movement_patterns`,
++   `exercise_equipment`, `exercise_sport_mapping`, `exercise_physical_qualities`,
++   `exercise_training_methods`).
++2. Required coaching metadata per record: 4 `coaching_cues`, 4 `common_faults`,
++   contraindications/pain-safe flags, development level, technical difficulty.
++3. Classify movement pattern and equipment using the existing taxonomy — no new
++   category strings without updating `forge_web/src/data/exerciseOrganization.ts`.
++4. Write `up` + `down`, apply to a scratch SQLite DB, and run
++   `python validate_library.py` plus `python scripts/audit_500.py` for gap analysis.
++5. Regenerate downstream views: `python dump_exercises.py` → refresh
++   `forge_web/src/data/exercises.json` (and engine data if applicable).
++6. Add a `CHANGELOG.md` entry with the migration ID and count delta.
++
++## Applying Migrations
++
++```bash
++# Example using the migrate CLI against the local SQLite file:
++migrate -path migrations -database "sqlite3://forge.db" up
++migrate -path migrations -database "sqlite3://forge.db" down 1   # rollback last
++```
++
++If the migrate CLI is unavailable, document the manual application steps in the PR.
+diff --git a/docs/TESTING.md b/docs/TESTING.md
+new file mode 100644
+index 0000000..aed0cb3
+--- /dev/null
++++ b/docs/TESTING.md
+@@ -0,0 +1,61 @@
++# Testing Map
++
++**Purpose:** Locate the right test suite and how to run it. The repo's test
++assets are fragmented across three areas; this page is the index until they are
++consolidated. As of 2026-09-24.
++
++## How to Run
++
++```bash
++pytest src/                 # engine module unit tests
++pytest tests/               # feature "wave" suites
++python test_complete_system.py   # end-to-end system check
++python validation_test.py        # data validation flows
++cd forge_web && npm run test     # frontend (vitest)
++```
++
++## Backend Engine Tests (`src/test_*.py`)
++
++| File | Scope |
++|---|---|
++| `test_assessment_entry.py` | Assessment entry module |
++| `test_athlete_module.py`, `test_athlete_intelligence_layers.py` | Athlete profiles & intelligence layers |
++| `test_deficit_engine.py`, `test_demand_scoring_engine.py` | Deficit detection, demand scoring |
++| `test_program_builder.py`, `test_session_generator.py` | Program/session generation |
++| `test_exercise_substitution.py` | Substitution engine |
++| `test_integration_workflow.py`, `test_e2e_integration.py` | Cross-module integration |
++| `test_recommendation_observability.py` | Recommendation logging |
++| `test_wave1_hardening.py`, `test_wave2_prescription.py` | Hardening/prescription waves |
++
++## Feature Waves (`tests/`)
++
++| File | Scope |
++|---|---|
++| `test_competition_aware.py`, `test_conditioning.py`, `test_generator.py` | Core behaviors |
++| `test_hardening_phase.py`, `test_warmup_hardening.py`, `test_warmup_recovery.py` | Robustness |
++| `test_movement_slot_layer.py` | Movement-slot programming |
++| `test_wave3_progression.py` … `test_wave11a_*.py` | Progression, periodization, personalization, autoregulation, block/role-week planning, session assembly |
++| Files prefixed `_` (e.g., `_generate_wave7_tests*.py`) | **Deprecated test generators**, not tests — do not run; cleanup candidates |
++
++## API Tests
++
++| File | Scope |
++|---|---|
++| `src/forge/test_api_integration.py` | FastAPI endpoint integration |
++| `src/forge/test_adjustment_engine.py` | Adjustment logic |
++| `_test_api_server.py`, `_test_serializer.py` (root) | Underscore-prefixed scratch tests — deprecated; port needed cases into `src/forge/test_api_integration.py` |
++
++## Data Validation
++
++| Command | Purpose |
++|---|---|
++| `python validate_library.py` | Exercise record schema/completeness checks |
++| `python scripts/audit_500.py` / `analyze_500.py` | Library coverage audits |
++| `python smoke_check_forge.py`, `python validate_forge_env.py` | Environment & smoke checks |
++
++## Conventions
++
++- New tests go next to the module they cover (`src/.../test_*.py`) or in `tests/`
++  for cross-cutting features. No underscore-prefixed "test" files.
++- Every migration PR includes a `validate_library.py` run; every API PR extends
++  `test_api_integration.py`.
+diff --git a/CSCS_AUDIT_AND_REMEDIATION.md b/docs/archive/CSCS_AUDIT_AND_REMEDIATION.md
+similarity index 100%
+rename from CSCS_AUDIT_AND_REMEDIATION.md
+rename to docs/archive/CSCS_AUDIT_AND_REMEDIATION.md
+diff --git a/EXERCISE_LIBRARY_COMPLEX_AUDIT_REPORT.md b/docs/archive/EXERCISE_LIBRARY_COMPLEX_AUDIT_REPORT.md
+similarity index 100%
+rename from EXERCISE_LIBRARY_COMPLEX_AUDIT_REPORT.md
+rename to docs/archive/EXERCISE_LIBRARY_COMPLEX_AUDIT_REPORT.md
+diff --git a/UI_UX_LIBRARY_ANALYSIS_REPORT.md b/docs/archive/UI_UX_LIBRARY_ANALYSIS_REPORT.md
+similarity index 100%
+rename from UI_UX_LIBRARY_ANALYSIS_REPORT.md
+rename to docs/archive/UI_UX_LIBRARY_ANALYSIS_REPORT.md
+diff --git a/forge_web/UI_UX_IMPLEMENTATION_SUMMARY.md b/forge_web/UI_UX_IMPLEMENTATION_SUMMARY.md
+index 0479f81..88f9fcf 100644
+--- a/forge_web/UI_UX_IMPLEMENTATION_SUMMARY.md
++++ b/forge_web/UI_UX_IMPLEMENTATION_SUMMARY.md
+@@ -1,3 +1,12 @@
++# Exercise Library UI/UX Reference (Legacy Implementation Summary)
++
++> **Note (2026-09-24):** This document is retained as a historical record of
++> the library UI rework. The durable, current description of the UI now lives
++> in **`docs/FRONTEND_UI_GUIDE.md`** — read that first; consult this page only
++> for rationale behind past decisions.
++
++---
++
+ # 🎨 Exercise Library UI/UX Enhancement - Implementation Summary
+ 
+ ## ✅ What Was Implemented
+diff --git a/forge_web/mobile_responsive_summary.md b/forge_web/mobile_responsive_summary.md
+index 2580d48..597c5fb 100644
+--- a/forge_web/mobile_responsive_summary.md
++++ b/forge_web/mobile_responsive_summary.md
+@@ -1,3 +1,10 @@
++# Mobile Responsiveness Reference (Legacy Implementation Summary)
++
++> **Note (2026-09-24):** Historical record of the mobile-first pass. Current
++> responsive conventions are documented in **`docs/FRONTEND_UI_GUIDE.md`**.
++
++---
++
+ # Mobile Responsiveness Improvements for FORGE Coach Console
+ 
+ ## Summary
+diff --git a/docs/prompts/run/run_forge_demo.py b/run_forge_demo_example.py
+similarity index 100%
+rename from docs/prompts/run/run_forge_demo.py
+rename to run_forge_demo_example.py

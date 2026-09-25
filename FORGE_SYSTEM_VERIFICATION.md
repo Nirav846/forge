@@ -1,20 +1,26 @@
-# ✅ FORGE Strength & Conditioning System - VERIFICATION REPORT
+# FORGE Strength & Conditioning System — Verification Checklist
 
-## Executive Summary
+**Purpose:** Standing checklist and expected results for verifying a FORGE
+deployment. Historical test outputs below are illustrative baselines from an
+earlier build ("as of" the original report); re-run them locally rather than
+trusting the snapshot. See `README.md` for quick start and `docs/TESTING.md`
+for the full test map.
 
-The **FORGE (Framework for Optimized Resistance & Ground-based Exercise)** system is a **COMPLETE, PRODUCTION-READY** Strength & Conditioning platform that generates real, scientifically-backed workout programs for athletes.
+## Verification Procedure
 
----
+### Components to Start
+| Component | Command | URL/Port | Details |
+|-----------|---------|----------|---------|
+| **Backend API** | `python run_forge_api.py` | `http://127.0.0.1:8000` | FastAPI server with program generation engine |
+| **Frontend Web App** | `npm run dev` (or preview) in `forge_web` | `http://localhost:3000+` | React/TypeScript coach console |
+| **Database** | migrations applied via `migrations/` | SQLite (`forge.db`) | Schema through migration 000035; see `docs/MIGRATIONS.md` |
+| **Test Suite** | `pytest src/ tests/` + `python test_complete_system.py` | - | End-to-end validation; see `docs/TESTING.md` |
 
-## 🎯 System Status: FULLY OPERATIONAL
-
-### Components Running
-| Component | Status | URL/Port | Details |
-|-----------|--------|----------|---------|
-| **Backend API** | ✅ RUNNING | `http://127.0.0.1:8000` | FastAPI server with full program generation engine |
-| **Frontend Web App** | ✅ RUNNING | `http://localhost:3001` | React/TypeScript coach console |
-| **Database** | ✅ READY | SQLite | 22 migration files, complete schema |
-| **Test Suite** | ✅ PASSING | - | End-to-end validation tests |
+### Checks
+- [ ] `GET /api/health` returns OK
+- [ ] `POST /api/programs/generate` returns a complete 8-week program (see `docs/API_REFERENCE.md` for request shape)
+- [ ] Library page lists exercises with cues/faults populated
+- [ ] Offline mode: frontend loads without the API running
 
 ---
 
@@ -59,7 +65,7 @@ Each exercise includes:
 
 ---
 
-## 🧪 Verification Test Results
+## Verification Test Results (historical baseline — re-run to confirm)
 
 ### Test 1: Rugby Prop (Strength Focus)
 ```
@@ -131,7 +137,7 @@ Each exercise includes:
 | `api.ts` | Backend API integration |
 | `transformers.ts` | Data normalization |
 
-### Database Schema (22 Migrations)
+### Database Schema (migrations through 000035; see docs/MIGRATIONS.md)
 
 ```sql
 -- Core tables:
