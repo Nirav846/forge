@@ -18,10 +18,11 @@ interface Complex {
   intent: string;
   description: string;
   exercises: Array<{
-    id: string;
+    exerciseId: string | number;
+    exerciseName: string;
     sets: number;
     reps: string;
-    rest: number;
+    restSeconds: number;
   }>;
   coachingNotes: string;
   equipment: string[];
@@ -76,7 +77,45 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
     loadComplexes();
   }, []);
 
-  // Show loading state
+  // Extract unique values for filters
+  const sports = ['All', ...Array.from(new Set(complexesData.map(c => c.sport)))];
+  const planes = ['All', ...Array.from(new Set(complexesData.map(c => c.plane)))];
+  const intents = ['All', ...Array.from(new Set(complexesData.map(c => c.intent)))];
+
+  // Update available roles when sport changes
+  useEffect(() => {
+    if (filters.sport === 'All') {
+      setAvailableRoles(['All', ...Array.from(new Set(complexesData.map(c => c.role)))]);
+    } else {
+      const sportRoles = complexesData
+        .filter(c => c.sport === filters.sport)
+        .map(c => c.role);
+      setAvailableRoles(['All', ...Array.from(new Set(sportRoles))]);
+
+      // Reset role if current selection is not available
+      if (filters.role !== 'All' && !sportRoles.includes(filters.role)) {
+        setFilters(prev => ({ ...prev, role: 'All' }));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters.sport, complexesData]);
+
+  // Filter complexes
+  const filteredComplexes = useMemo(() => {
+    return complexesData.filter(complex => {
+      const matchesSport = filters.sport === 'All' || complex.sport === filters.sport;
+      const matchesRole = filters.role === 'All' || complex.role === filters.role;
+      const matchesPlane = filters.plane === 'All' || complex.plane === filters.plane;
+      const matchesIntent = filters.intent === 'All' || complex.intent === filters.intent;
+      const matchesSearch = filters.search === '' ||
+        complex.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+        complex.description.toLowerCase().includes(filters.search.toLowerCase());
+
+      return matchesSport && matchesRole && matchesPlane && matchesIntent && matchesSearch;
+    });
+  }, [complexesData, filters]);
+
+  // Show loading state (all hooks must run before any conditional return)
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
