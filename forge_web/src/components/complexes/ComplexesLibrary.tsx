@@ -61,7 +61,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
     const loadComplexes = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('/forge/data/complexes.json');
+        const response = await fetch('./data/complexes.json');
         if (!response.ok) throw new Error('Failed to load complexes');
         const data = await response.json();
         setComplexesData(data as Complex[]);

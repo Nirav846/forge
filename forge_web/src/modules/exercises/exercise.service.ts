@@ -51,7 +51,7 @@ async function getExercisesData(): Promise<Exercise[]> {
   }
   
   if (!exercisesLoadPromise) {
-    exercisesLoadPromise = fetch('/forge/data/exercises.json')
+    exercisesLoadPromise = fetch('./data/exercises.json')
       .then(response => {
         if (!response.ok) throw new Error('Failed to load exercises');
         return response.json();
