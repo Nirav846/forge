@@ -54,7 +54,21 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
   });
   
   const [selectedComplex, setSelectedComplex] = useState<Complex | null>(null);
+  // Per-card expansion state for the "+X more" links (opens inline instead of a modal)
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
   const [availableRoles, setAvailableRoles] = useState<string[]>([]);
+
+  const toggleCardExpanded = (id: string) => {
+    setExpandedCards(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
 
   // Lazy load complexes data using fetch
   useEffect(() => {
@@ -64,7 +78,30 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
         const response = await fetch('./data/complexes.json');
         if (!response.ok) throw new Error('Failed to load complexes');
         const data = await response.json();
-        setComplexesData(data as Complex[]);
+        const list: any[] = Array.isArray(data) ? data : (data?.complexes ?? []);
+        // Normalize each record defensively so a single malformed entry cannot
+        // crash rendering (which previously left the page blank).
+        const normalized: Complex[] = list.map((c: any) => ({
+          id: String(c?.id ?? crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)),
+          name: String(c?.name ?? 'Untitled complex'),
+          sport: String(c?.sport ?? 'Unknown'),
+          role: String(c?.role ?? 'Unknown'),
+          plane: String(c?.plane ?? 'Unknown'),
+          intent: String(c?.intent ?? 'Unknown'),
+          description: String(c?.description ?? ''),
+          coachingNotes: String(c?.coachingNotes ?? ''),
+          equipment: Array.isArray(c?.equipment) ? c.equipment.map((e: any) => String(e)) : [],
+          exercises: Array.isArray(c?.exercises)
+            ? c.exercises.map((e: any) => ({
+                exerciseId: e?.exerciseId ?? '',
+                exerciseName: String(e?.exerciseName ?? 'Unknown exercise'),
+                sets: Number(e?.sets ?? 0),
+                reps: String(e?.reps ?? '-'),
+                restSeconds: Number(e?.restSeconds ?? 0),
+              }))
+            : [],
+        }));
+        setComplexesData(normalized);
         setLoadError(null);
       } catch (error) {
         console.error('Failed to load complexes data:', error);
@@ -395,25 +432,42 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                   <div className="mb-4">
                     <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Exercises</h4>
                     <div className="space-y-2">
-                      {complex.exercises.slice(0, 3).map((exercise, idx) => (
-                        <div key={idx} className="flex items-center justify-between text-sm">
-                          <span className="text-gray-700 truncate flex-1">
-                            {idx + 1}. {exercise.exerciseName}
-                          </span>
-                          <span className="text-gray-500 text-xs ml-2">
-                            {exercise.sets}x{exercise.reps}
-                          </span>
-                        </div>
-                      ))}
-                      {complex.exercises.length > 3 && (
-                        <button
-                          onClick={() => setSelectedComplex(complex)}
-                          className="text-xs text-blue-600 hover:text-blue-700 font-medium italic flex items-center gap-1 w-full text-left"
-                        >
-                          +{complex.exercises.length - 3} more exercises
-                          <ChevronRight className="w-3 h-3" />
-                        </button>
-                      )}
+                      {(() => {
+                        // Defensive: tolerate malformed records so a single bad
+                        // entry can never blank out the whole page.
+                        const exercises = Array.isArray(complex.exercises) ? complex.exercises : [];
+                        const isExpanded = expandedCards.has(complex.id);
+                        const visible = isExpanded ? exercises : exercises.slice(0, 3);
+                        return (
+                          <>
+                            {visible.map((exercise, idx) => (
+                              <div key={idx} className="flex items-center justify-between text-sm">
+                                <span className="text-gray-700 truncate flex-1">
+                                  {idx + 1}. {String(exercise?.exerciseName ?? 'Unknown exercise')}
+                                </span>
+                                <span className="text-gray-500 text-xs ml-2">
+                                  {String(exercise?.sets ?? '-')}x{String(exercise?.reps ?? '-')}
+                                </span>
+                              </div>
+                            ))}
+                            {exercises.length > 3 && (
+                              <button
+                                type="button"
+                                aria-expanded={isExpanded}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  toggleCardExpanded(complex.id);
+                                }}
+                                className="text-xs text-blue-600 hover:text-blue-700 font-medium italic flex items-center gap-1 w-full text-left"
+                              >
+                                {isExpanded ? 'Show less' : `+${exercises.length - 3} more exercises`}
+                                <ChevronRight className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                              </button>
+                            )}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
 
