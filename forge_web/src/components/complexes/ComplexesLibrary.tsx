@@ -141,43 +141,6 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
     );
   }
 
-  // Extract unique values for filters
-  const sports = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.sport)))], [complexesData]);
-  const planes = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.plane)))], [complexesData]);
-  const intents = useMemo(() => ['All', ...Array.from(new Set(complexesData.map(c => c.intent)))], [complexesData]);
-
-  // Update available roles when sport changes
-  useEffect(() => {
-    if (filters.sport === 'All') {
-      setAvailableRoles(['All', ...Array.from(new Set(complexesData.map(c => c.role)))]);
-    } else {
-      const sportRoles = complexesData
-        .filter(c => c.sport === filters.sport)
-        .map(c => c.role);
-      setAvailableRoles(['All', ...Array.from(new Set(sportRoles))]);
-      
-      // Reset role if current selection is not available
-      if (filters.role !== 'All' && !sportRoles.includes(filters.role)) {
-        setFilters(prev => ({ ...prev, role: 'All' }));
-      }
-    }
-  }, [filters.sport]);
-
-  // Filter complexes
-  const filteredComplexes = useMemo(() => {
-    return complexesData.filter(complex => {
-      const matchesSport = filters.sport === 'All' || complex.sport === filters.sport;
-      const matchesRole = filters.role === 'All' || complex.role === filters.role;
-      const matchesPlane = filters.plane === 'All' || complex.plane === filters.plane;
-      const matchesIntent = filters.intent === 'All' || complex.intent === filters.intent;
-      const matchesSearch = filters.search === '' || 
-        complex.name.toLowerCase().includes(filters.search.toLowerCase()) ||
-        complex.description.toLowerCase().includes(filters.search.toLowerCase());
-      
-      return matchesSport && matchesRole && matchesPlane && matchesIntent && matchesSearch;
-    });
-  }, [filters]);
-
   const getBadgeColor = (type: string, value: string) => {
     const colors: Record<string, Record<string, string>> = {
       sport: {
