@@ -71,13 +71,13 @@ interface ExerciseLibraryProps {
   onExit?: () => void;
 }
 
-const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({ onExit }) => {
+const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({ onExit, initialCategory }) => {
   const [allExercises, setAllExercises] = useState<Exercise[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory || '');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('');
   const [isPainSafeOnly, setIsPainSafeOnly] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);

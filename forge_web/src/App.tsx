@@ -703,9 +703,14 @@ export default function App() {
       {/* Header - Mobile Responsive */}
       <header className="flex-none h-14 bg-slate-900 text-white flex items-center justify-between px-4 sm:px-6 border-b border-slate-800 shrink-0 shadow-sm z-10">
         <div className="flex items-center gap-2 sm:gap-3">
-          <Activity className="w-5 h-5 text-indigo-400" />
-          <h1 className="font-semibold tracking-wide text-sm hidden sm:block">FORGE <span className="text-slate-400 font-normal">| Coach Console</span></h1>
-          <h1 className="font-semibold tracking-wide text-sm sm:hidden">FORGE</h1>
+          <button
+            onClick={() => { setViewMode('entry'); setTeamStage(null); }}
+            className="flex items-center gap-2 sm:gap-3 hover:bg-slate-800 px-2 py-1 rounded-md transition-colors"
+          >
+            <Activity className="w-5 h-5 text-indigo-400" />
+            <h1 className="font-semibold tracking-wide text-sm hidden sm:block">FORGE <span className="text-slate-400 font-normal">| Coach Console</span></h1>
+            <h1 className="font-semibold tracking-wide text-sm sm:hidden">FORGE</h1>
+          </button>
         </div>
         
         {/* Desktop Navigation - Hidden on mobile */}

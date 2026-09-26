@@ -175,9 +175,14 @@ export function HomePage({
   const todaysFocus = getTodaysFocus();
   const FocusIcon = todaysFocus.icon;
 
+  const [collectionFilter, setCollectionFilter] = useState<(ex: any) => boolean | null>(null);
+
   const handleCollectionClick = (collectionId: string) => {
+    const collection = SMART_COLLECTIONS.find(c => c.id === collectionId);
+    if (collection) {
+      setCollectionFilter(collection.filter);
+    }
     onOpenLibrary();
-    console.log('Opening collection:', collectionId);
   };
 
   const handleFavoriteClick = (exercise: FavoriteExercise) => {
@@ -204,7 +209,10 @@ export function HomePage({
           <div className="w-24"></div>
         </div>
         <div className="flex-1 overflow-auto">
-          <ExerciseLibrary />
+          <ExerciseLibrary 
+            onExit={() => setLibraryOpen(false)}
+            filter={collectionFilter || undefined}
+          />
         </div>
       </div>
     );
