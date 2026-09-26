@@ -406,7 +406,13 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                         </div>
                       ))}
                       {complex.exercises.length > 3 && (
-                        <p className="text-xs text-gray-500 italic">+{complex.exercises.length - 3} more</p>
+                        <button
+                          onClick={() => setSelectedComplex(complex)}
+                          className="text-xs text-blue-600 hover:text-blue-700 font-medium italic flex items-center gap-1 w-full text-left"
+                        >
+                          +{complex.exercises.length - 3} more exercises
+                          <ChevronRight className="w-3 h-3" />
+                        </button>
                       )}
                     </div>
                   </div>
