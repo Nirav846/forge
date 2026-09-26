@@ -1,1204 +1,5 @@
 [
   {
-    "id": "CPLX-079",
-    "name": "Net Dominator - Preparation Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Preparation",
-    "focus": "Preparation for Net Dominator",
-    "description": "A frontal preparation complex designed specifically for net dominators in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-019",
-        "exerciseName": "A-Skip Drill",
-        "sets": 2,
-        "reps": "10-12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-010",
-        "exerciseName": "World's Greatest Stretch",
-        "sets": 2,
-        "reps": "8-10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-002",
-        "exerciseName": "Plank",
-        "sets": 2,
-        "reps": "30 sec hold",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quality movement patterns. Activate key muscle groups for Net Dominator demands. Move through full ROM.",
-    "equipment": [
-      "Barbell, Rack, Deficit Platform",
-      "Barbell",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-080",
-    "name": "Net Dominator - Power Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Power",
-    "focus": "Power for Net Dominator",
-    "description": "A multi-planar power complex designed specifically for net dominators in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "PLYO-101",
-        "exerciseName": "Approach Jump",
-        "sets": 3,
-        "reps": "3-5",
-        "restSeconds": 90
-      },
-      {
-        "exerciseId": "DLKD-009",
-        "exerciseName": "Paused Back Squat",
-        "sets": 3,
-        "reps": "5-8",
-        "restSeconds": 120
-      },
-      {
-        "exerciseId": 948,
-        "exerciseName": "Med Ball Wall Bounce Catch",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Maximize intent on every rep. Full recovery between sets. Quality over quantity.",
-    "equipment": [
-      "Sled",
-      "Ab-Wheel",
-      "Barbell"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-081",
-    "name": "Net Dominator - Stability Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Stability",
-    "focus": "Stability for Net Dominator",
-    "description": "A sagittal stability complex designed specifically for net dominators in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-020",
-        "exerciseName": "Peterson Step-Up",
-        "sets": 3,
-        "reps": "8-10/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Rot-006",
-        "exerciseName": "Rotational Med Ball Wall Slam",
-        "sets": 3,
-        "reps": "10-12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Carry-007",
-        "exerciseName": "Racked Carry",
-        "sets": 2,
-        "reps": "30-40m",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Control the eccentric. Maintain posture throughout. Focus on single-leg competency.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Rack",
-      "DB, Plate"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-082",
-    "name": "Net Dominator - Agility Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Agility",
-    "focus": "Agility for Net Dominator",
-    "description": "A frontal agility complex designed specifically for net dominators in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-972",
-        "exerciseName": "Pro Agility Shuttle (20-Yard Shuttle)",
-        "sets": 3,
-        "reps": "4-6 reps",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 939,
-        "exerciseName": "Single-Leg Romanian Deadlift to Landing",
-        "sets": 3,
-        "reps": "5-8 landings",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 955,
-        "exerciseName": "Flying 20s",
-        "sets": 3,
-        "reps": "20-30m",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Sharp cuts, quick deceleration. React to cues. Simulate game scenarios.",
-    "equipment": [
-      "Barbell, Platform",
-      "Barbell, Rack",
-      "Bodyweight"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-083",
-    "name": "Net Dominator - Conditioning Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Conditioning",
-    "focus": "Conditioning for Net Dominator",
-    "description": "A multi-planar conditioning complex designed specifically for net dominators in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "COND-1007",
-        "exerciseName": "Basketball Suicides",
-        "sets": 3,
-        "reps": "45 sec work",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Ball-010",
-        "exerciseName": "Med Ball Clean",
-        "sets": 3,
-        "reps": "10-15 reps",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Plyo-003",
-        "exerciseName": "Box Jump",
-        "sets": 3,
-        "reps": "8-10 reps",
-        "restSeconds": 15
-      }
-    ],
-    "coachingNotes": "Maintain work rate. Short rest periods. Build metabolic resilience.",
-    "equipment": [
-      "Barbell",
-      "Barbell, Rack",
-      "Pull-Up Bar, DB"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-084",
-    "name": "Net Dominator - Recovery Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Recovery",
-    "focus": "Recovery for Net Dominator",
-    "description": "A sagittal recovery complex designed specifically for net dominators in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "REC-005",
-        "exerciseName": "Dead Hang Shoulder Decompression",
-        "sets": 2,
-        "reps": "60 sec/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-035",
-        "exerciseName": "Leg Swings Side-to-Side",
-        "sets": 2,
-        "reps": "12-15 reps",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": 911,
-        "exerciseName": "Suitcase Carry (Heavy)",
-        "sets": 2,
-        "reps": "30-45 sec hold",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Gentle movement. Focus on breathing. Address tight areas specific to net dominator.",
-    "equipment": [
-      "Cable",
-      "Sled",
-      "Barbell"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-085",
-    "name": "Rear Court Attacker - Preparation Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Preparation",
-    "focus": "Preparation for Rear Court Attacker",
-    "description": "A sagittal preparation complex designed specifically for rear court attackers in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-006",
-        "exerciseName": "Ankle Hops (Pogo)",
-        "sets": 2,
-        "reps": "10-12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-007",
-        "exerciseName": "Ankle Dorsiflexion Rock",
-        "sets": 2,
-        "reps": "8-10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-001",
-        "exerciseName": "Dead Bug",
-        "sets": 2,
-        "reps": "30 sec hold",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quality movement patterns. Activate key muscle groups for Rear Court Attacker demands. Move through full ROM.",
-    "equipment": [
-      "Bodyweight",
-      "DB, Cable",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-086",
-    "name": "Rear Court Attacker - Power Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Transverse",
-    "intent": "Power",
-    "focus": "Power for Rear Court Attacker",
-    "description": "A transverse power complex designed specifically for rear court attackers in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-013",
-        "exerciseName": "Depth Jump",
-        "sets": 3,
-        "reps": "3-5",
-        "restSeconds": 90
-      },
-      {
-        "exerciseId": "DLKD-018",
-        "exerciseName": "Zercher Squat",
-        "sets": 3,
-        "reps": "5-8",
-        "restSeconds": 120
-      },
-      {
-        "exerciseId": 945,
-        "exerciseName": "Med Ball Side Throw (Kneeling)",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Maximize intent on every rep. Full recovery between sets. Quality over quantity.",
-    "equipment": [
-      "Barbell, Landmine",
-      "Barbell",
-      "Stability Ball"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-087",
-    "name": "Rear Court Attacker - Stability Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Stability",
-    "focus": "Stability for Rear Court Attacker",
-    "description": "A multi-planar stability complex designed specifically for rear court attackers in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-025",
-        "exerciseName": "Rear Foot Elevated Split Squat (KB)",
-        "sets": 3,
-        "reps": "8-10/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Rot-012",
-        "exerciseName": "Standing Pallof Press",
-        "sets": 3,
-        "reps": "10-12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Carry-012",
-        "exerciseName": "Heavy Farmer Carry",
-        "sets": 2,
-        "reps": "30-40m",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Control the eccentric. Maintain posture throughout. Focus on single-leg competency.",
-    "equipment": [
-      "Pull-Up Bar",
-      "Band, Anchor Point",
-      "Barbell, Platform"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-088",
-    "name": "Rear Court Attacker - Agility Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Agility",
-    "focus": "Agility for Rear Court Attacker",
-    "description": "A sagittal agility complex designed specifically for rear court attackers in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-107",
-        "exerciseName": "5-10-5 Shuttle",
-        "sets": 3,
-        "reps": "4-6 reps",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 928,
-        "exerciseName": "Reactive Landing to Sprint",
-        "sets": 3,
-        "reps": "5-8 landings",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "SPRINT-100",
-        "exerciseName": "Repeated Sprint Ability (RSA)",
-        "sets": 3,
-        "reps": "20-30m",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Sharp cuts, quick deceleration. React to cues. Simulate game scenarios.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Elevated Bench",
-      "Ab-Wheel"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-089",
-    "name": "Rear Court Attacker - Conditioning Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Transverse",
-    "intent": "Conditioning",
-    "focus": "Conditioning for Rear Court Attacker",
-    "description": "A transverse conditioning complex designed specifically for rear court attackers in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "COND-1006",
-        "exerciseName": "Alactic Power Repeats",
-        "sets": 3,
-        "reps": "45 sec work",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Ball-014",
-        "exerciseName": "Med Ball Overhead Slam (max)",
-        "sets": 3,
-        "reps": "10-15 reps",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Plyo-003",
-        "exerciseName": "Box Jump",
-        "sets": 3,
-        "reps": "8-10 reps",
-        "restSeconds": 15
-      }
-    ],
-    "coachingNotes": "Maintain work rate. Short rest periods. Build metabolic resilience.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Landmine",
-      "Machine"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-090",
-    "name": "Rear Court Attacker - Recovery Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Recovery",
-    "focus": "Recovery for Rear Court Attacker",
-    "description": "A multi-planar recovery complex designed specifically for rear court attackers in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "REC-001",
-        "exerciseName": "Foam Roller IT Band Release",
-        "sets": 2,
-        "reps": "60 sec/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-008",
-        "exerciseName": "Lateral Lunge Matrix",
-        "sets": 2,
-        "reps": "12-15 reps",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": 910,
-        "exerciseName": "Stir the Pot",
-        "sets": 2,
-        "reps": "30-45 sec hold",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Gentle movement. Focus on breathing. Address tight areas specific to rear court attacker.",
-    "equipment": [
-      "Cable",
-      "Barbell",
-      "Barbell, Box"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-091",
-    "name": "Defensive Specialist - Preparation Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Preparation",
-    "focus": "Preparation for Defensive Specialist",
-    "description": "A multi-planar preparation complex designed specifically for defensive specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-008",
-        "exerciseName": "Lateral Lunge Matrix",
-        "sets": 2,
-        "reps": "10-12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-003",
-        "exerciseName": "Couch Stretch",
-        "sets": 2,
-        "reps": "8-10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": 909,
-        "exerciseName": "Pallof Press (Half-Kneeling)",
-        "sets": 2,
-        "reps": "30 sec hold",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quality movement patterns. Activate key muscle groups for Defensive Specialist demands. Move through full ROM.",
-    "equipment": [
-      "Barbell/Suspension Trainer",
-      "Barbell, Rack",
-      "Bodyweight"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-092",
-    "name": "Defensive Specialist - Power Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Power",
-    "focus": "Power for Defensive Specialist",
-    "description": "A frontal power complex designed specifically for defensive specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "PLYO-101",
-        "exerciseName": "Approach Jump",
-        "sets": 3,
-        "reps": "3-5",
-        "restSeconds": 90
-      },
-      {
-        "exerciseId": "DLKD-020",
-        "exerciseName": "Spanish Squat",
-        "sets": 3,
-        "reps": "5-8",
-        "restSeconds": 120
-      },
-      {
-        "exerciseId": "Ball-009",
-        "exerciseName": "Med Ball Push Press",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Maximize intent on every rep. Full recovery between sets. Quality over quantity.",
-    "equipment": [
-      "Belt Squat Machine",
-      "DB, Bench",
-      "Pull-Up Bar"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-093",
-    "name": "Defensive Specialist - Stability Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Stability",
-    "focus": "Stability for Defensive Specialist",
-    "description": "A sagittal stability complex designed specifically for defensive specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-018",
-        "exerciseName": "Cossack Squat",
-        "sets": 3,
-        "reps": "8-10/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Rot-009",
-        "exerciseName": "Windmill",
-        "sets": 3,
-        "reps": "10-12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Carry-002",
-        "exerciseName": "Suitcase Carry",
-        "sets": 2,
-        "reps": "30-40m",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Control the eccentric. Maintain posture throughout. Focus on single-leg competency.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-094",
-    "name": "Defensive Specialist - Agility Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Agility",
-    "focus": "Agility for Defensive Specialist",
-    "description": "A multi-planar agility complex designed specifically for defensive specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-982",
-        "exerciseName": "Hexagon Agility Drill",
-        "sets": 3,
-        "reps": "4-6 reps",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Landing-009",
-        "exerciseName": "High-Ball Fielding",
-        "sets": 3,
-        "reps": "5-8 landings",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Sprint-018",
-        "exerciseName": "Flying 30s",
-        "sets": 3,
-        "reps": "20-30m",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Sharp cuts, quick deceleration. React to cues. Simulate game scenarios.",
-    "equipment": [
-      "Band",
-      "Bodyweight",
-      "Sled"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-095",
-    "name": "Defensive Specialist - Conditioning Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Conditioning",
-    "focus": "Conditioning for Defensive Specialist",
-    "description": "A frontal conditioning complex designed specifically for defensive specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "COND-1008",
-        "exerciseName": "Soccer Box-to-Box Intervals",
-        "sets": 3,
-        "reps": "45 sec work",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": 950,
-        "exerciseName": "Med Ball Lateral Step Throw",
-        "sets": 3,
-        "reps": "10-15 reps",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Plyo-004",
-        "exerciseName": "Broad Jump",
-        "sets": 3,
-        "reps": "8-10 reps",
-        "restSeconds": 15
-      }
-    ],
-    "coachingNotes": "Maintain work rate. Short rest periods. Build metabolic resilience.",
-    "equipment": [
-      "Band, Anchor Point",
-      "Pull-Up Bar, DB",
-      "Barbell, Platform"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-096",
-    "name": "Defensive Specialist - Recovery Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Recovery",
-    "focus": "Recovery for Defensive Specialist",
-    "description": "A sagittal recovery complex designed specifically for defensive specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "REC-012",
-        "exerciseName": "Adductor Rock Back",
-        "sets": 2,
-        "reps": "60 sec/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-035",
-        "exerciseName": "Leg Swings Side-to-Side",
-        "sets": 2,
-        "reps": "12-15 reps",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-003",
-        "exerciseName": "Side Plank",
-        "sets": 2,
-        "reps": "30-45 sec hold",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Gentle movement. Focus on breathing. Address tight areas specific to defensive specialist.",
-    "equipment": [
-      "Barbell, Platform",
-      "Kettlebell/Dumbbell",
-      "Barbell, Box"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-097",
-    "name": "Doubles Player - Preparation Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Preparation",
-    "focus": "Preparation for Doubles Player",
-    "description": "A frontal preparation complex designed specifically for doubles players in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-004",
-        "exerciseName": "Bird Dog",
-        "sets": 2,
-        "reps": "10-12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-005",
-        "exerciseName": "Dead Hang Shoulder Decompression",
-        "sets": 2,
-        "reps": "8-10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-020",
-        "exerciseName": "Side Plank Row",
-        "sets": 2,
-        "reps": "30 sec hold",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quality movement patterns. Activate key muscle groups for Doubles Player demands. Move through full ROM.",
-    "equipment": [
-      "Band",
-      "Band, Anchor Point",
-      "Bodyweight"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-098",
-    "name": "Doubles Player - Power Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Power",
-    "focus": "Power for Doubles Player",
-    "description": "A multi-planar power complex designed specifically for doubles players in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-001",
-        "exerciseName": "Pogo Jump",
-        "sets": 3,
-        "reps": "3-5",
-        "restSeconds": 90
-      },
-      {
-        "exerciseId": "DLKD-008",
-        "exerciseName": "Hack Squat",
-        "sets": 3,
-        "reps": "5-8",
-        "restSeconds": 120
-      },
-      {
-        "exerciseId": 947,
-        "exerciseName": "Med Ball Russian Twist Throw",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Maximize intent on every rep. Full recovery between sets. Quality over quantity.",
-    "equipment": [
-      "Bodyweight",
-      "DB",
-      "Cable Machine"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-099",
-    "name": "Doubles Player - Stability Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Transverse",
-    "intent": "Stability",
-    "focus": "Stability for Doubles Player",
-    "description": "A transverse stability complex designed specifically for doubles players in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-101",
-        "exerciseName": "Eccentric Step-Down",
-        "sets": 3,
-        "reps": "8-10/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Rot-016",
-        "exerciseName": "Reactive Pallof Press",
-        "sets": 3,
-        "reps": "10-12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Carry-014",
-        "exerciseName": "Single-Arm Farmer Carry",
-        "sets": 2,
-        "reps": "30-40m",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Control the eccentric. Maintain posture throughout. Focus on single-leg competency.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Elevated Bench",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-100",
-    "name": "Doubles Player - Agility Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Agility",
-    "focus": "Agility for Doubles Player",
-    "description": "A frontal agility complex designed specifically for doubles players in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-970",
-        "exerciseName": "5-0-5 Agility Test",
-        "sets": 3,
-        "reps": "4-6 reps",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 939,
-        "exerciseName": "Single-Leg Romanian Deadlift to Landing",
-        "sets": 3,
-        "reps": "5-8 landings",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Sprint-009",
-        "exerciseName": "Flying 10s",
-        "sets": 3,
-        "reps": "20-30m",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Sharp cuts, quick deceleration. React to cues. Simulate game scenarios.",
-    "equipment": [
-      "Cable",
-      "Barbell, Landmine",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-101",
-    "name": "Doubles Player - Conditioning Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Conditioning",
-    "focus": "Conditioning for Doubles Player",
-    "description": "A multi-planar conditioning complex designed specifically for doubles players in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "COND-1010",
-        "exerciseName": "Rowing 2k Time Trial",
-        "sets": 3,
-        "reps": "45 sec work",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": 941,
-        "exerciseName": "Med Ball Rotational Throw (Wall)",
-        "sets": 3,
-        "reps": "10-15 reps",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "PLYO-106",
-        "exerciseName": "Reactive Box Jump",
-        "sets": 3,
-        "reps": "8-10 reps",
-        "restSeconds": 15
-      }
-    ],
-    "coachingNotes": "Maintain work rate. Short rest periods. Build metabolic resilience.",
-    "equipment": [
-      "Bodyweight",
-      "Kettlebell/Dumbbell",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-102",
-    "name": "Doubles Player - Recovery Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Transverse",
-    "intent": "Recovery",
-    "focus": "Recovery for Doubles Player",
-    "description": "A transverse recovery complex designed specifically for doubles players in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "REC-008",
-        "exerciseName": "Lat Child's Pose Reach",
-        "sets": 2,
-        "reps": "60 sec/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Aparts",
-        "sets": 2,
-        "reps": "12-15 reps",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-010",
-        "exerciseName": "Weighted Sit-Up",
-        "sets": 2,
-        "reps": "30-45 sec hold",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Gentle movement. Focus on breathing. Address tight areas specific to doubles player.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Elevated Bench",
-      "Machine"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-103",
-    "name": "Mixed Doubles Specialist - Preparation Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Preparation",
-    "focus": "Preparation for Mixed Doubles Specialist",
-    "description": "A multi-planar preparation complex designed specifically for mixed doubles specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-033",
-        "exerciseName": "High Knee Skip",
-        "sets": 2,
-        "reps": "10-12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-010",
-        "exerciseName": "World's Greatest Stretch",
-        "sets": 2,
-        "reps": "8-10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-005",
-        "exerciseName": "Crunches",
-        "sets": 2,
-        "reps": "30 sec hold",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quality movement patterns. Activate key muscle groups for Mixed Doubles Specialist demands. Move through full ROM.",
-    "equipment": [
-      "Bodyweight",
-      "Cable Machine",
-      "Barbell, Box"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-104",
-    "name": "Mixed Doubles Specialist - Power Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Power",
-    "focus": "Power for Mixed Doubles Specialist",
-    "description": "A sagittal power complex designed specifically for mixed doubles specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-006",
-        "exerciseName": "Lateral Hop",
-        "sets": 3,
-        "reps": "3-5",
-        "restSeconds": 90
-      },
-      {
-        "exerciseId": "DLKD-020",
-        "exerciseName": "Spanish Squat",
-        "sets": 3,
-        "reps": "5-8",
-        "restSeconds": 120
-      },
-      {
-        "exerciseId": "Ball-002",
-        "exerciseName": "Chest Pass (wall)",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Maximize intent on every rep. Full recovery between sets. Quality over quantity.",
-    "equipment": [
-      "Cable",
-      "DB/KB",
-      "Barbell/Suspension Trainer"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-105",
-    "name": "Mixed Doubles Specialist - Stability Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Stability",
-    "focus": "Stability for Mixed Doubles Specialist",
-    "description": "A frontal stability complex designed specifically for mixed doubles specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-100",
-        "exerciseName": "Lateral Lunge to Recovery",
-        "sets": 3,
-        "reps": "8-10/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "ROT-100",
-        "exerciseName": "Rotational Cable Chop",
-        "sets": 3,
-        "reps": "10-12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Carry-016",
-        "exerciseName": "Single-Arm Overhead Carry",
-        "sets": 2,
-        "reps": "30-40m",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Control the eccentric. Maintain posture throughout. Focus on single-leg competency.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Elevated Bench",
-      "Barbell, Box"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-106",
-    "name": "Mixed Doubles Specialist - Agility Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Multi-Planar",
-    "intent": "Agility",
-    "focus": "Agility for Mixed Doubles Specialist",
-    "description": "A multi-planar agility complex designed specifically for mixed doubles specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-982",
-        "exerciseName": "Hexagon Agility Drill",
-        "sets": 3,
-        "reps": "4-6 reps",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 919,
-        "exerciseName": "Lateral Bound with Stick",
-        "sets": 3,
-        "reps": "5-8 landings",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Sprint-028",
-        "exerciseName": "Flying Sprint 20m",
-        "sets": 3,
-        "reps": "20-30m",
-        "restSeconds": 90
-      }
-    ],
-    "coachingNotes": "Sharp cuts, quick deceleration. React to cues. Simulate game scenarios.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell, Rack",
-      "Landmine/Barbell"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-107",
-    "name": "Mixed Doubles Specialist - Conditioning Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Sagittal",
-    "intent": "Conditioning",
-    "focus": "Conditioning for Mixed Doubles Specialist",
-    "description": "A sagittal conditioning complex designed specifically for mixed doubles specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "COND-1004",
-        "exerciseName": "Tabata Protocol",
-        "sets": 3,
-        "reps": "45 sec work",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Ball-004",
-        "exerciseName": "Rotational Slam",
-        "sets": 3,
-        "reps": "10-15 reps",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "Plyo-008",
-        "exerciseName": "Bounding",
-        "sets": 3,
-        "reps": "8-10 reps",
-        "restSeconds": 15
-      }
-    ],
-    "coachingNotes": "Maintain work rate. Short rest periods. Build metabolic resilience.",
-    "equipment": [
-      "Barbell",
-      "DB, Bench",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-108",
-    "name": "Mixed Doubles Specialist - Recovery Complex",
-    "sport": "Badminton",
-    "role": "Badminton Player",
-    "plane": "Frontal",
-    "intent": "Recovery",
-    "focus": "Recovery for Mixed Doubles Specialist",
-    "description": "A frontal recovery complex designed specifically for mixed doubles specialists in Badminton. This complex targets the unique demands of the position.",
-    "exercises": [
-      {
-        "exerciseId": "REC-002",
-        "exerciseName": "Foam Roller Thoracic Extension",
-        "sets": 2,
-        "reps": "60 sec/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-023",
-        "exerciseName": "90/90 Hip Switches",
-        "sets": 2,
-        "reps": "12-15 reps",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-016",
-        "exerciseName": "Hanging Leg Raise",
-        "sets": 2,
-        "reps": "30-45 sec hold",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Gentle movement. Focus on breathing. Address tight areas specific to mixed doubles specialist.",
-    "equipment": [
-      "Ab-Wheel",
-      "Cable Machine",
-      "Barbell, Rack"
-    ],
-    "duration": "9-15 minutes"
-  },
-  {
     "id": "CPLX-109",
     "name": "Center Back - Preparation Complex",
     "sport": "Football",
@@ -5746,1615 +4547,6 @@
       "Barbell, Rack"
     ],
     "duration": "9-15 minutes"
-  },
-  {
-    "id": "CPLX-TEN-001",
-    "name": "General Tennis Preparation",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Preparation",
-    "focus": "Full-body activation for tennis",
-    "description": "Comprehensive warm-up complex activating all major muscle groups used in tennis. Focuses on dynamic mobility, core activation, and movement preparation across all planes of motion.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-003",
-        "exerciseName": "Dead Bug",
-        "sets": 2,
-        "reps": "10-12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 2,
-        "reps": "8/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": 915,
-        "exerciseName": "Cable Woodchopper",
-        "sets": 2,
-        "reps": "12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Plyo-005",
-        "exerciseName": "Lateral Bound",
-        "sets": 2,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 2,
-        "reps": "8/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Move with control through full range of motion. Focus on quality over speed. Activate glutes and core before each movement. Maintain proper breathing throughout.",
-    "equipment": [
-      "Bodyweight",
-      "Cable Machine",
-      "Landmine",
-      "Barbell"
-    ],
-    "duration": "12-15 minutes"
-  },
-  {
-    "id": "CPLX-TEN-002",
-    "name": "Serve-Specific Preparation",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Transverse",
-    "intent": "Preparation",
-    "focus": "Shoulder and rotational activation for serve",
-    "description": "Shoulder and core activation complex specifically designed to prepare the serving motion. Focuses on rotator cuff activation, scapular stability, and rotational mobility.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 2,
-        "reps": "15",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-016",
-        "exerciseName": "T-Y-W Raises",
-        "sets": 2,
-        "reps": "10 each",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "REC-005",
-        "exerciseName": "Dead Hang",
-        "sets": 2,
-        "reps": "20-30 sec",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Rot-013",
-        "exerciseName": "Pallof Press",
-        "sets": 2,
-        "reps": "10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-013",
-        "exerciseName": "Ab Wheel Rollout",
-        "sets": 2,
-        "reps": "8-10",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on shoulder blade control. Move slowly and with control. Avoid shrugging shoulders. Maintain neutral spine throughout all movements.",
-    "equipment": [
-      "Resistance Bands",
-      "Ab Wheel",
-      "Cable Machine"
-    ],
-    "duration": "10-12 minutes"
-  },
-  {
-    "id": "CPLX-TEN-003",
-    "name": "Footwork Activation",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Frontal",
-    "intent": "Preparation",
-    "focus": "Lateral movement preparation",
-    "description": "Lateral movement and footwork activation complex. Prepares the hips, knees, and ankles for the side-to-side demands of tennis. Focuses on proper landing mechanics and quick direction changes.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-018",
-        "exerciseName": "Cossack Squat",
-        "sets": 2,
-        "reps": "8/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": 931,
-        "exerciseName": "Lateral Bound with Stick",
-        "sets": 2,
-        "reps": "5/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Landing-007",
-        "exerciseName": "Single-Leg Landing",
-        "sets": 2,
-        "reps": "5/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "AGI-105",
-        "exerciseName": "Lateral Shuffle",
-        "sets": 2,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 2,
-        "reps": "8/side",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Focus on soft landings with knees tracking over toes. Maintain athletic stance throughout. Control the lateral movement - don't let the knee cave in.",
-    "equipment": [
-      "Bodyweight"
-    ],
-    "duration": "10-12 minutes"
-  },
-  {
-    "id": "CPLX-TEN-004",
-    "name": "Explosive Preparation",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Preparation",
-    "focus": "Vertical and forward power activation",
-    "description": "Explosive movement preparation for forward and vertical movements in tennis. Activates the posterior chain and prepares the body for explosive serves, overheads, and forward lunges.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-001",
-        "exerciseName": "Pogo Hops",
-        "sets": 2,
-        "reps": "10",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Landing-006",
-        "exerciseName": "Depth Jump",
-        "sets": 2,
-        "reps": "5/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "DLKD-016",
-        "exerciseName": "Overhead Squat",
-        "sets": 2,
-        "reps": "8",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-013",
-        "exerciseName": "Pistol Squat",
-        "sets": 2,
-        "reps": "5/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 2,
-        "reps": "8",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Land softly with knees slightly bent. Focus on quick ground contact times. Maintain upright torso position. Progress from bodyweight to weighted variations.",
-    "equipment": [
-      "Bodyweight",
-      "Barbell",
-      "Dumbbells",
-      "Box (12-24 inches)"
-    ],
-    "duration": "12-15 minutes"
-  },
-  {
-    "id": "CPLX-TEN-005",
-    "name": "Injury Prevention Warm-up",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Preparation",
-    "focus": "Rotator cuff and elbow injury prevention",
-    "description": "Injury prevention-focused warm-up targeting common tennis overuse injuries. Includes rotator cuff activation, elbow tendons, and wrist mobility work.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 2,
-        "reps": "15",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-016",
-        "exerciseName": "T-Y-W Raises",
-        "sets": 2,
-        "reps": "10 each",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-003",
-        "exerciseName": "Dead Bug",
-        "sets": 2,
-        "reps": "10/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 2,
-        "reps": "8/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-006",
-        "exerciseName": "Doorway Pec Stretch",
-        "sets": 2,
-        "reps": "20-30 sec/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "REC-003",
-        "exerciseName": "Couch Stretch",
-        "sets": 2,
-        "reps": "20-30 sec/side",
-        "restSeconds": 20
-      }
-    ],
-    "coachingNotes": "Move slowly and with control. Focus on areas of tightness or previous injury. Stop if you feel pain (not to be confused with discomfort).",
-    "equipment": [
-      "Resistance Bands",
-      "Bodyweight"
-    ],
-    "duration": "12-15 minutes"
-  },
-  {
-    "id": "CPLX-TEN-006",
-    "name": "Serve Power Development",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Transverse",
-    "intent": "Power",
-    "focus": "Overhead power for serve velocity",
-    "description": "Rotational power complex designed to improve serve velocity through transverse plane movements. Focuses on explosive hip rotation, shoulder mobility, and core stability specific to the tennis serve motion.",
-    "exercises": [
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 3,
-        "reps": "8-10/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Rot-013",
-        "exerciseName": "Pallof Press",
-        "sets": 3,
-        "reps": "10-12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": 915,
-        "exerciseName": "Cable Woodchopper",
-        "sets": 3,
-        "reps": "12/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "DLKD-016",
-        "exerciseName": "Overhead Squat",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "SLKD-013",
-        "exerciseName": "Pistol Squat",
-        "sets": 2,
-        "reps": "6/side",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Focus on explosive rotation. Maintain shoulder stability throughout. Quality over quantity - each rep should mimic serve mechanics. Progress weight gradually while maintaining perfect form.",
-    "equipment": [
-      "Cable Machine",
-      "Landmine",
-      "Resistance Bands",
-      "Barbell",
-      "Dumbbells"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-007",
-    "name": "Forehand Power",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Transverse",
-    "intent": "Power",
-    "focus": "Rotational power for forehand stroke",
-    "description": "Rotational power complex for generating maximum forehand power. Focuses on hip-to-shoulder separation, core rotation, and deceleration strength for the follow-through.",
-    "exercises": [
-      {
-        "exerciseId": "919",
-        "exerciseName": "Medicine Ball Rotational Throw",
-        "sets": 4,
-        "reps": "8/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 945,
-        "exerciseName": "Med Ball Side Throw",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "DLKD-018",
-        "exerciseName": "Zercher Squat",
-        "sets": 3,
-        "reps": "6-8",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on sequential rotation: hips first, then torso, then shoulders. Generate power from the ground up. Control the eccentric (catch) phase of each throw.",
-    "equipment": [
-      "Medicine Ball (6-12 lbs)",
-      "Landmine",
-      "Barbell",
-      "Dumbbell"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-008",
-    "name": "Volley Power",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Power",
-    "focus": "Explosive forward power for volleys",
-    "description": "Forward power development for explosive net play. Focuses on quick forward movements, overhead strength, and reactive power needed for effective volleying.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 4,
-        "reps": "6",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Ball-014",
-        "exerciseName": "Medicine Ball Overhead Slam",
-        "sets": 4,
-        "reps": "8",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Plyo-009",
-        "exerciseName": "Single-Leg Box Jump",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "DLKD-016",
-        "exerciseName": "Overhead Squat",
-        "sets": 3,
-        "reps": "6",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Ball-005",
-        "exerciseName": "Medicine Ball Scoop Throw",
-        "sets": 3,
-        "reps": "8",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Focus on maximum height and explosive takeoff. Land softly and immediately reset for the next rep. Maintain overhead stability throughout.",
-    "equipment": [
-      "Medicine Ball (6-12 lbs)",
-      "Box (12-24 inches)",
-      "Barbell"
-    ],
-    "duration": "20 minutes"
-  },
-  {
-    "id": "CPLX-TEN-009",
-    "name": "Return of Serve Power",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Frontal",
-    "intent": "Power",
-    "focus": "Lateral power for return of serve",
-    "description": "Lateral power development for explosive return of serve. Focuses on quick lateral movements, explosive pushes off the ground, and generating power from a low position.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-005",
-        "exerciseName": "Lateral Bound",
-        "sets": 4,
-        "reps": "6/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": 931,
-        "exerciseName": "Lateral Bound with Stick",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "SLKD-013",
-        "exerciseName": "Pistol Squat",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "PLYO-102",
-        "exerciseName": "Depth Jump",
-        "sets": 3,
-        "reps": "5",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Core-014",
-        "exerciseName": "Side Plank (rotation)",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quick, explosive lateral movements. Stick each landing for 2-3 seconds. Maintain low center of gravity. Drive through the heel of the front foot.",
-    "equipment": [
-      "Bodyweight",
-      "Box (12-24 inches)",
-      "Dumbbell"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-010",
-    "name": "Overhead Power Circuit",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Power",
-    "focus": "Complete overhead power development",
-    "description": "Comprehensive overhead power circuit targeting serve, smash, and overhead clear. Combines rotational power, vertical jump, and overhead stability for complete overhead game development.",
-    "exercises": [
-      {
-        "exerciseId": "919",
-        "exerciseName": "Medicine Ball Rotational Throw",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Ball-014",
-        "exerciseName": "Medicine Ball Overhead Slam",
-        "sets": 3,
-        "reps": "8",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 3,
-        "reps": "6",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "DLKD-016",
-        "exerciseName": "Overhead Squat",
-        "sets": 3,
-        "reps": "6",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Perform as a circuit with minimal rest between exercises. Focus on explosive, powerful movements. Maintain perfect form even as fatigue sets in.",
-    "equipment": [
-      "Medicine Ball (6-12 lbs)",
-      "Barbell",
-      "Landmine"
-    ],
-    "duration": "18-22 minutes"
-  },
-  {
-    "id": "CPLX-TEN-011",
-    "name": "Shoulder Stability for Tennis",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Transverse",
-    "intent": "Stability",
-    "focus": "Rotator cuff and scapular stability",
-    "description": "Shoulder stability complex for injury prevention and performance. Focuses on rotator cuff endurance, scapular control, and maintaining shoulder health through high-repetition stability work.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 3,
-        "reps": "20",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-016",
-        "exerciseName": "T-Y-W Raises",
-        "sets": 3,
-        "reps": "12 each",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-005",
-        "exerciseName": "Dead Hang",
-        "sets": 3,
-        "reps": "30-45 sec",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "ACT-003",
-        "exerciseName": "Dead Bug",
-        "sets": 3,
-        "reps": "12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Move slowly and with perfect control. Focus on shoulder blade movement and position. Stop if you feel any shoulder pain. These are prevention exercises - consistency is key.",
-    "equipment": [
-      "Resistance Bands",
-      "Landmine"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-012",
-    "name": "Core Stability for Rotation",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Transverse",
-    "intent": "Stability",
-    "focus": "Anti-rotation and rotational core strength",
-    "description": "Core stability complex focusing on resisting and controlling rotation. Critical for maintaining posture during powerful tennis strokes and preventing energy leaks in the kinetic chain.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-005",
-        "exerciseName": "Pallof Press",
-        "sets": 3,
-        "reps": "12/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Rot-013",
-        "exerciseName": "Pallof Press",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Core-013",
-        "exerciseName": "Ab Wheel Rollout",
-        "sets": 3,
-        "reps": "8-10",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "ACT-030",
-        "exerciseName": "Stir the Pot",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on maintaining perfect posture - don't let the weight pull you off center. Brace the core as if preparing for a big serve. Control the eccentric (return) phase of each movement.",
-    "equipment": [
-      "Cable Machine",
-      "Ab Wheel",
-      "Landmine"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-013",
-    "name": "Single-Leg Stability",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Frontal",
-    "intent": "Stability",
-    "focus": "Lateral stability for court movement",
-    "description": "Single-leg stability complex for improved balance and control during lateral court movements. Focuses on hip stability, ankle strength, and maintaining posture on one leg.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-018",
-        "exerciseName": "Cossack Squat",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-013",
-        "exerciseName": "Pistol Squat",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Landing-007",
-        "exerciseName": "Single-Leg Landing",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Landing-008",
-        "exerciseName": "Single-Leg Landing",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on slow, controlled movements. Maintain upright torso position. Land softly with knee tracking over toes. If balance is an issue, use support or reduce range of motion.",
-    "equipment": [
-      "Bodyweight",
-      "Dumbbells"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-014",
-    "name": "Hip and Knee Stability",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Stability",
-    "focus": "Lower body joint stability for injury prevention",
-    "description": "Hip and knee stability complex for preventing common tennis lower body injuries. Focuses on controlling knee valgus, hip stability, and maintaining proper alignment during dynamic movements.",
-    "exercises": [
-      {
-        "exerciseId": "SLKD-013",
-        "exerciseName": "Pistol Squat",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "DLKD-018",
-        "exerciseName": "Zercher Squat",
-        "sets": 3,
-        "reps": "8",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "SLKD-006",
-        "exerciseName": "Walking Lunge",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": 939,
-        "exerciseName": "Single-Leg Romanian Deadlift",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-018",
-        "exerciseName": "Cossack Squat",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on maintaining knee alignment with toes. Control the descent phase. Keep weight in the heels. Stop if you feel knee pain (not to be confused with muscle fatigue).",
-    "equipment": [
-      "Dumbbells",
-      "Barbell"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-015",
-    "name": "Dynamic Stability Circuit",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Stability",
-    "focus": "Multi-planar stability for tennis movements",
-    "description": "Dynamic stability circuit targeting stability in all planes of motion. Combines upper body, core, and lower body stability exercises to create a comprehensive stability foundation for tennis.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-005",
-        "exerciseName": "Pallof Press",
-        "sets": 3,
-        "reps": "10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "SLKD-013",
-        "exerciseName": "Pistol Squat",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Core-015",
-        "exerciseName": "Landmine Press",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 3,
-        "reps": "15",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Perform as a circuit with minimal rest. Focus on maintaining perfect form even as fatigue increases. Breathe steadily throughout.",
-    "equipment": [
-      "Resistance Bands",
-      "Dumbbells",
-      "Landmine"
-    ],
-    "duration": "18-22 minutes"
-  },
-  {
-    "id": "CPLX-TEN-016",
-    "name": "Lateral Agility Ladder",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Frontal",
-    "intent": "Agility",
-    "focus": "Side-to-side movement speed",
-    "description": "Lateral agility complex for improving side-to-side court coverage. Focuses on quick feet, efficient lateral movement, and maintaining balance during rapid direction changes.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-019",
-        "exerciseName": "A-Skip Drill",
-        "sets": 4,
-        "reps": "20 yards",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "ACT-033",
-        "exerciseName": "High Knee Skip",
-        "sets": 4,
-        "reps": "20 yards",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Landing-007",
-        "exerciseName": "Single-Leg Landing",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "AGI-105",
-        "exerciseName": "Lateral Shuffle",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Plyo-006",
-        "exerciseName": "Lateral Jump",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on quick, light feet. Stay low and athletic. Push off the ground explosively. Maintain proper alignment - don't let the knee cave in during lateral movements.",
-    "equipment": [
-      "Agility Ladder",
-      "Cones"
-    ],
-    "duration": "18-22 minutes"
-  },
-  {
-    "id": "CPLX-TEN-017",
-    "name": "Forward-Backward Agility",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Agility",
-    "focus": "Forward and backward court movement",
-    "description": "Forward and backward agility complex for improving court positioning. Focuses on explosive starts, quick stops, and maintaining balance during forward and backward movements.",
-    "exercises": [
-      {
-        "exerciseId": "Sprint-014",
-        "exerciseName": "Stride Length Sprint",
-        "sets": 4,
-        "reps": "30 yards",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 3,
-        "reps": "8",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "AGI-105",
-        "exerciseName": "Lateral Shuffle",
-        "sets": 3,
-        "reps": "8/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Plyo-001",
-        "exerciseName": "Pogo Hops",
-        "sets": 3,
-        "reps": "12",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "AGI-984",
-        "exerciseName": "Illinois Agility Test",
-        "sets": 3,
-        "reps": "1",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Focus on explosive starts and quick stops. Maintain low center of gravity. Land softly and immediately prepare for the next movement. Use a partner or coach for timing.",
-    "equipment": [
-      "Cones",
-      "Stopwatch"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-018",
-    "name": "Multi-Directional Agility",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Agility",
-    "focus": "All-direction court coverage",
-    "description": "Multi-directional agility complex for complete court coverage. Combines lateral, forward, backward, and diagonal movements to prepare for any situation on the tennis court.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-019",
-        "exerciseName": "A-Skip Drill",
-        "sets": 3,
-        "reps": "20 yards",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "ACT-033",
-        "exerciseName": "High Knee Skip",
-        "sets": 3,
-        "reps": "20 yards",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "AGI-105",
-        "exerciseName": "Lateral Shuffle",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Landing-007",
-        "exerciseName": "Single-Leg Landing",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Plyo-006",
-        "exerciseName": "Lateral Jump",
-        "sets": 3,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "AGI-975",
-        "exerciseName": "Mirror Drill",
-        "sets": 3,
-        "reps": "30 sec",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Perform as a circuit. Focus on quick reactions and explosive movements. Maintain athletic stance throughout. Partner should change directions randomly for reactive training.",
-    "equipment": [
-      "Agility Ladder",
-      "Cones",
-      "Partner"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-019",
-    "name": "Split Step Agility",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Agility",
-    "focus": "Reaction and split step training",
-    "description": "Split step and reaction agility complex for improving the first movement in tennis. Focuses on quick reactions, explosive first steps, and maintaining balance during dynamic starts.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-975",
-        "exerciseName": "Mirror Drill",
-        "sets": 4,
-        "reps": "30 sec",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Sprint-014",
-        "exerciseName": "Stride Length Sprint",
-        "sets": 4,
-        "reps": "10 yards",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 3,
-        "reps": "6",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Landing-007",
-        "exerciseName": "Single-Leg Landing",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "AGI-996",
-        "exerciseName": "Dot Drill (5 dots)",
-        "sets": 3,
-        "reps": "30 sec",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on reacting to partner's movements with a quick split step. Explode out of the split step into the first movement. Partner should use quick, random movements to simulate match situations.",
-    "equipment": [
-      "Dot Drill Mat",
-      "Partner"
-    ],
-    "duration": "20 minutes"
-  },
-  {
-    "id": "CPLX-TEN-020",
-    "name": "Endurance Agility",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Agility",
-    "focus": "Agility under fatigue",
-    "description": "Agility endurance complex for maintaining quickness and coordination late in matches. Focuses on maintaining movement quality and speed as fatigue sets in.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-019",
-        "exerciseName": "A-Skip Drill",
-        "sets": 4,
-        "reps": "30 yards",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-033",
-        "exerciseName": "High Knee Skip",
-        "sets": 4,
-        "reps": "30 yards",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "AGI-105",
-        "exerciseName": "Lateral Shuffle",
-        "sets": 4,
-        "reps": "10/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "AGI-984",
-        "exerciseName": "Illinois Agility Test",
-        "sets": 3,
-        "reps": "1",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Plyo-001",
-        "exerciseName": "Pogo Hops",
-        "sets": 3,
-        "reps": "15",
-        "restSeconds": 45
-      }
-    ],
-    "coachingNotes": "Focus on maintaining perfect form even as you fatigue. Keep rest periods short to simulate match conditions. Mental toughness is as important as physical - push through the discomfort.",
-    "equipment": [
-      "Agility Ladder",
-      "Cones"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-021",
-    "name": "Tennis-Specific Conditioning",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Conditioning",
-    "focus": "Match simulation conditioning",
-    "description": "Tennis-specific conditioning complex simulating match demands. Combines short bursts of high-intensity work with active recovery to mimic the stop-and-go nature of tennis.",
-    "exercises": [
-      {
-        "exerciseId": "COND-999",
-        "exerciseName": "Zone 2 Cardio",
-        "sets": 1,
-        "reps": "20 min",
-        "restSeconds": 0
-      },
-      {
-        "exerciseId": "COND-1000",
-        "exerciseName": "Threshold Run",
-        "sets": 4,
-        "reps": "400m",
-        "restSeconds": 90
-      },
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 3,
-        "reps": "15",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "DLKD-014",
-        "exerciseName": "Sled Push",
-        "sets": 3,
-        "reps": "20 yards",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Focus on maintaining good running form throughout. The zone 2 run should be at a conversational pace. Tempo runs should be at 80-85% of max effort. Sled pushes should be explosive.",
-    "equipment": [
-      "Running Track",
-      "Sled",
-      "Weight Plates"
-    ],
-    "duration": "40-45 minutes"
-  },
-  {
-    "id": "CPLX-TEN-022",
-    "name": "Interval Conditioning",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Conditioning",
-    "focus": "High-intensity interval training",
-    "description": "High-intensity interval conditioning for tennis. Simulates the repeated sprints and recovery periods of a tennis match. Focuses on improving aerobic and anaerobic capacity.",
-    "exercises": [
-      {
-        "exerciseId": "COND-1000",
-        "exerciseName": "Threshold Run",
-        "sets": 6,
-        "reps": "1 min",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "COND-1004",
-        "exerciseName": "Tabata",
-        "sets": 4,
-        "reps": "20 sec on/10 sec off",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 4,
-        "reps": "12",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Sprint-014",
-        "exerciseName": "Stride Length Sprint",
-        "sets": 6,
-        "reps": "40 yards",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Go all-out during work periods. Use active recovery during rest periods (walk, light jog). Focus on quick transitions between work and rest. Monitor heart rate to ensure proper intensity.",
-    "equipment": [
-      "Running Track",
-      "Stopwatch",
-      "Heart Rate Monitor"
-    ],
-    "duration": "30-35 minutes"
-  },
-  {
-    "id": "CPLX-TEN-023",
-    "name": "Court Movement Conditioning",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Frontal",
-    "intent": "Conditioning",
-    "focus": "Lateral movement endurance",
-    "description": "Lateral movement conditioning for improved court coverage endurance. Focuses on building the specific endurance needed for side-to-side tennis movements.",
-    "exercises": [
-      {
-        "exerciseId": "AGI-105",
-        "exerciseName": "Lateral Shuffle",
-        "sets": 5,
-        "reps": "20 yards/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "Plyo-005",
-        "exerciseName": "Lateral Bound",
-        "sets": 4,
-        "reps": "10/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": 931,
-        "exerciseName": "Lateral Bound with Stick",
-        "sets": 4,
-        "reps": "8/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 4,
-        "reps": "12/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "COND-999",
-        "exerciseName": "Zone 2 Cardio",
-        "sets": 1,
-        "reps": "15 min",
-        "restSeconds": 0
-      }
-    ],
-    "coachingNotes": "Focus on maintaining proper form during lateral movements. Keep the chest up and hips back. Use controlled landings. The zone 2 run should be at a steady, maintainable pace.",
-    "equipment": [
-      "Cones",
-      "Running Track"
-    ],
-    "duration": "35-40 minutes"
-  },
-  {
-    "id": "CPLX-TEN-024",
-    "name": "Explosive Conditioning",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Conditioning",
-    "focus": "Power endurance",
-    "description": "Explosive conditioning complex for maintaining power output throughout long matches. Combines explosive movements with endurance training to build power endurance.",
-    "exercises": [
-      {
-        "exerciseId": "Plyo-002",
-        "exerciseName": "Squat Jump",
-        "sets": 5,
-        "reps": "10",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "Plyo-009",
-        "exerciseName": "Single-Leg Box Jump",
-        "sets": 4,
-        "reps": "6/side",
-        "restSeconds": 45
-      },
-      {
-        "exerciseId": "PLYO-102",
-        "exerciseName": "Depth Jump",
-        "sets": 4,
-        "reps": "6",
-        "restSeconds": 60
-      },
-      {
-        "exerciseId": "Plyo-001",
-        "exerciseName": "Pogo Hops",
-        "sets": 4,
-        "reps": "15",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "DLKD-014",
-        "exerciseName": "Sled Push",
-        "sets": 3,
-        "reps": "30 yards",
-        "restSeconds": 60
-      }
-    ],
-    "coachingNotes": "Focus on maximum explosiveness for each jump. Land softly and immediately prepare for the next rep. Maintain perfect form even as fatigue increases. Sled pushes should be heavy and explosive.",
-    "equipment": [
-      "Box (12-24 inches)",
-      "Sled",
-      "Weight Plates"
-    ],
-    "duration": "30-35 minutes"
-  },
-  {
-    "id": "CPLX-TEN-025",
-    "name": "Recovery Conditioning",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Conditioning",
-    "focus": "Active recovery and mobility",
-    "description": "Active recovery conditioning complex for days between matches or intense training sessions. Focuses on maintaining fitness while promoting recovery through low-intensity, mobility-focused movements.",
-    "exercises": [
-      {
-        "exerciseId": "COND-999",
-        "exerciseName": "Zone 2 Cardio",
-        "sets": 1,
-        "reps": "30 min",
-        "restSeconds": 0
-      },
-      {
-        "exerciseId": "ACT-021",
-        "exerciseName": "World's Greatest Stretch",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "REC-003",
-        "exerciseName": "Couch Stretch",
-        "sets": 3,
-        "reps": "30 sec/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "REC-006",
-        "exerciseName": "Doorway Pec Stretch",
-        "sets": 3,
-        "reps": "30 sec/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 3,
-        "reps": "15",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Keep intensity low - this should feel easy. Focus on breathing and relaxation. Use the stretches to work on areas of tightness. Stay hydrated throughout.",
-    "equipment": [
-      "Running Track",
-      "Resistance Bands"
-    ],
-    "duration": "40-45 minutes"
-  },
-  {
-    "id": "CPLX-TEN-026",
-    "name": "Post-Match Recovery",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Recovery",
-    "focus": "Immediate post-match recovery",
-    "description": "Immediate post-match recovery complex for reducing soreness and promoting recovery. Should be performed within 30-60 minutes after match completion. Focuses on light mobility work and active recovery.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-007",
-        "exerciseName": "Inchworm",
-        "sets": 3,
-        "reps": "8",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-021",
-        "exerciseName": "World's Greatest Stretch",
-        "sets": 3,
-        "reps": "5/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "REC-001",
-        "exerciseName": "Foam Rolling",
-        "sets": 1,
-        "reps": "2 min each leg",
-        "restSeconds": 0
-      },
-      {
-        "exerciseId": "COND-999",
-        "exerciseName": "Zone 2 Cardio",
-        "sets": 1,
-        "reps": "10 min",
-        "restSeconds": 0
-      },
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 2,
-        "reps": "15",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Move slowly and gently. Focus on breathing deeply. Don't push through pain - if something hurts, skip it. Hydrate well and consider adding electrolytes.",
-    "equipment": [
-      "Foam Roller",
-      "Resistance Bands",
-      "Running Track"
-    ],
-    "duration": "25-30 minutes"
-  },
-  {
-    "id": "CPLX-TEN-027",
-    "name": "Shoulder Recovery",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Transverse",
-    "intent": "Recovery",
-    "focus": "Shoulder and rotator cuff recovery",
-    "description": "Shoulder-specific recovery complex for maintaining shoulder health after heavy serving or overhead work. Focuses on mobility, blood flow, and gentle activation of the rotator cuff muscles.",
-    "exercises": [
-      {
-        "exerciseId": "REC-005",
-        "exerciseName": "Dead Hang",
-        "sets": 3,
-        "reps": "30-45 sec",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 3,
-        "reps": "20",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-016",
-        "exerciseName": "T-Y-W Raises",
-        "sets": 3,
-        "reps": "12 each",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "REC-006",
-        "exerciseName": "Doorway Pec Stretch",
-        "sets": 3,
-        "reps": "30 sec/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "COND-1017",
-        "exerciseName": "Contrast Therapy",
-        "sets": 1,
-        "reps": "10 min",
-        "restSeconds": 0
-      }
-    ],
-    "coachingNotes": "Move very gently and slowly. Focus on relaxation and breathing. If you feel any shoulder pain (not just discomfort), stop immediately. Ice after if shoulders feel inflamed.",
-    "equipment": [
-      "Resistance Bands",
-      "Access to cold water/ice"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-028",
-    "name": "Lower Body Recovery",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Sagittal",
-    "intent": "Recovery",
-    "focus": "Leg and hip recovery",
-    "description": "Lower body recovery complex for reducing leg soreness and promoting recovery after intense court work. Focuses on hip mobility, leg blood flow, and gentle activation.",
-    "exercises": [
-      {
-        "exerciseId": "REC-003",
-        "exerciseName": "Couch Stretch",
-        "sets": 3,
-        "reps": "45 sec/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 2,
-        "reps": "8/side",
-        "restSeconds": 30
-      },
-      {
-        "exerciseId": "REC-001",
-        "exerciseName": "Foam Rolling",
-        "sets": 1,
-        "reps": "2 min each leg",
-        "restSeconds": 0
-      },
-      {
-        "exerciseId": "COND-999",
-        "exerciseName": "Zone 2 Cardio",
-        "sets": 1,
-        "reps": "15 min",
-        "restSeconds": 0
-      },
-      {
-        "exerciseId": "SLKD-018",
-        "exerciseName": "Cossack Squat",
-        "sets": 2,
-        "reps": "6/side",
-        "restSeconds": 30
-      }
-    ],
-    "coachingNotes": "Focus on areas that feel particularly tight or sore. Use the foam roller to work out knots. Keep the run at a very easy pace - you should be able to carry on a conversation.",
-    "equipment": [
-      "Foam Roller",
-      "Running Track"
-    ],
-    "duration": "25-30 minutes"
-  },
-  {
-    "id": "CPLX-TEN-029",
-    "name": "Full Body Recovery Circuit",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Recovery",
-    "focus": "Complete recovery for all muscle groups",
-    "description": "Full body recovery circuit for comprehensive recovery after intense training or matches. Combines mobility work, light activation, and active recovery for all major muscle groups used in tennis.",
-    "exercises": [
-      {
-        "exerciseId": "ACT-007",
-        "exerciseName": "Inchworm",
-        "sets": 2,
-        "reps": "6",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-021",
-        "exerciseName": "World's Greatest Stretch",
-        "sets": 2,
-        "reps": "4/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "ACT-002",
-        "exerciseName": "Band Pull-Apart",
-        "sets": 2,
-        "reps": "15",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "SLKD-007",
-        "exerciseName": "Lateral Lunge",
-        "sets": 2,
-        "reps": "6/side",
-        "restSeconds": 20
-      },
-      {
-        "exerciseId": "COND-999",
-        "exerciseName": "Zone 2 Cardio",
-        "sets": 1,
-        "reps": "10 min",
-        "restSeconds": 0
-      }
-    ],
-    "coachingNotes": "Perform as a circuit with minimal rest. Focus on relaxation and breathing. Move slowly and with control. This should feel easy and refreshing, not challenging.",
-    "equipment": [
-      "Resistance Bands",
-      "Running Track"
-    ],
-    "duration": "20-25 minutes"
-  },
-  {
-    "id": "CPLX-TEN-030",
-    "name": "Mobility and Flexibility",
-    "sport": "Tennis",
-    "role": "Tennis Player",
-    "plane": "Multi-Planar",
-    "intent": "Recovery",
-    "focus": "Deep mobility and flexibility work",
-    "description": "Deep mobility and flexibility complex for maintaining and improving range of motion in all joints. Focuses on static stretching, deep mobility work, and relaxation techniques.",
-    "exercises": [
-      {
-        "exerciseId": "REC-003",
-        "exerciseName": "Couch Stretch",
-        "sets": 3,
-        "reps": "60 sec/side",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "REC-006",
-        "exerciseName": "Doorway Pec Stretch",
-        "sets": 3,
-        "reps": "45 sec/side",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "ACT-021",
-        "exerciseName": "World's Greatest Stretch",
-        "sets": 3,
-        "reps": "45 sec/side",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "REC-005",
-        "exerciseName": "Dead Hang",
-        "sets": 3,
-        "reps": "45 sec",
-        "restSeconds": 15
-      },
-      {
-        "exerciseId": "REC-001",
-        "exerciseName": "Foam Rolling",
-        "sets": 1,
-        "reps": "3 min each leg",
-        "restSeconds": 0
-      }
-    ],
-    "coachingNotes": "Hold each stretch for the full duration. Focus on deep breathing and relaxation. Don't bounce or force the stretch. Use foam roller on any particularly tight areas.",
-    "equipment": [
-      "Foam Roller",
-      "Pull-up Bar or sturdy anchor"
-    ],
-    "duration": "25-30 minutes"
   },
   {
     "id": "CPLX-401",
@@ -15216,5 +12408,3599 @@
       "Landmine"
     ],
     "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1001",
+    "name": "Net Play Preparation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Net play activation",
+    "description": "Preparation complex for net play in badminton. Activates quick reaction muscles, forearm strength, and close-quarters agility needed for net exchanges.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-009",
+        "exerciseName": "Arm Circles Progressive",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-006",
+        "exerciseName": "Walking Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Move with control through full range of motion. Focus on quality over speed. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Ball",
+      "Bodyweight",
+      "Dumbbells",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1002",
+    "name": "Rear Court Preparation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Rear court activation",
+    "description": "Preparation complex for rear court play. Activates overhead muscles, vertical jump preparation, and deep court movement patterns.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-009",
+        "exerciseName": "Arm Circles Progressive",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-019",
+        "exerciseName": "Band Shoulder External Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "DLKD-006",
+        "exerciseName": "Tempo Back Squat",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Move with control through full range of motion. Focus on quality over speed. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Rack",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1003",
+    "name": "Footwork Preparation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Lateral movement activation",
+    "description": "Footwork preparation complex for badminton. Activates lateral movement muscles and prepares for quick side-to-side transitions.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-021",
+        "exerciseName": "Crossover Step + Accelerate",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-011",
+        "exerciseName": "Skater Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Move with control through full range of motion. Focus on quality over speed. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Dumbbells",
+      "Ladder"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1004",
+    "name": "Serving Preparation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Transverse",
+    "intent": "Preparation",
+    "focus": "Overhead serve activation",
+    "description": "Serving preparation complex for badminton. Activates overhead throwing pattern, rotational power, and shoulder stability for effective serves.",
+    "exercises": [
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-019",
+        "exerciseName": "Band Shoulder External Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-008",
+        "exerciseName": "Rotational Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "VPush-002",
+        "exerciseName": "Half-Kneeling Landmine Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang Shoulder Decompression",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Move with control through full range of motion. Focus on quality over speed. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Landmine",
+      "Medicine Ball",
+      "Pull-up Bar",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1005",
+    "name": "Defensive Preparation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Preparation",
+    "focus": "Defensive movement activation",
+    "description": "Defensive preparation complex for badminton. Prepares muscles for quick defensive reactions, deep clears, and emergency returns.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-016",
+        "exerciseName": "Single-Leg Landing (soft)",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Move with control through full range of motion. Focus on quality over speed. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Ball",
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbells",
+      "Kettlebells",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1006",
+    "name": "Mobility & Activation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Preparation",
+    "focus": "Full-body mobility for badminton",
+    "description": "Comprehensive mobility and activation complex. Prepares all major muscle groups for the multi-directional demands of badminton.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-009",
+        "exerciseName": "Arm Circles Progressive",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-021",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Move with control through full range of motion. Focus on quality over speed. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1007",
+    "name": "Net Play Power",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Power",
+    "focus": "Explosive net play",
+    "description": "Power complex for net play. Develops explosive pushing and quick reaction power needed for net exchanges and drives.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-007",
+        "exerciseName": "Split Squat Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-006",
+        "exerciseName": "Walking Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-008",
+        "exerciseName": "Rotational Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on explosive, powerful movements. Generate maximum force in each rep. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells",
+      "Medicine Ball"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1008",
+    "name": "Smash Power",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Power",
+    "focus": "Overhead smash power",
+    "description": "Smash power complex for badminton. Develops the explosive overhead power needed for powerful smashes and clears.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-003",
+        "exerciseName": "Overhead Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "DLKD-009",
+        "exerciseName": "Paused Back Squat",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "VPush-003",
+        "exerciseName": "Standing Landmine Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on explosive, powerful movements. Generate maximum force in each rep. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Dumbbells",
+      "Kettlebells",
+      "Landmine",
+      "Medicine Ball",
+      "Rack"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1009",
+    "name": "Lateral Power",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Frontal",
+    "intent": "Power",
+    "focus": "Side-to-side explosive power",
+    "description": "Lateral power complex for badminton. Develops explosive side-to-side movements for cross-court shots and defensive returns.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-011",
+        "exerciseName": "Skater Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-006",
+        "exerciseName": "Side Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on explosive, powerful movements. Generate maximum force in each rep. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbells",
+      "Medicine Ball",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1010",
+    "name": "Rotational Power",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Rotational shot power",
+    "description": "Rotational power complex for badminton. Develops the rotational power needed for cross-court smashes and backhand clears.",
+    "exercises": [
+      {
+        "exerciseId": "Ball-008",
+        "exerciseName": "Rotational Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-007",
+        "exerciseName": "Cable Rotational Row",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Split Stance Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-001",
+        "exerciseName": "Med Ball Slam",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "VPush-002",
+        "exerciseName": "Half-Kneeling Landmine Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on explosive, powerful movements. Generate maximum force in each rep. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Cable Machine",
+      "Landmine",
+      "Medicine Ball"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1011",
+    "name": "Serving Power",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Explosive serve power",
+    "description": "Serving power complex for badminton. Develops the explosive overhead power and rotation needed for powerful serves.",
+    "exercises": [
+      {
+        "exerciseId": "Ball-003",
+        "exerciseName": "Overhead Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-008",
+        "exerciseName": "Rotational Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "VPush-003",
+        "exerciseName": "Standing Landmine Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-007",
+        "exerciseName": "Split Squat Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-019",
+        "exerciseName": "Band Shoulder External Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on explosive, powerful movements. Generate maximum force in each rep. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells",
+      "Landmine",
+      "Medicine Ball",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1012",
+    "name": "Power Endurance",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Maintain power throughout match",
+    "description": "Power endurance complex for badminton. Maintains explosive power output across long rallies and multiple games.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-008",
+        "exerciseName": "Rotational Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on explosive, powerful movements. Generate maximum force in each rep. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells",
+      "Kettlebells",
+      "Medicine Ball"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1013",
+    "name": "Net Play Stability",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Net play stability and control",
+    "description": "Stability complex for net play. Strengthens the muscles that provide stability during quick net exchanges and precise shots.",
+    "exercises": [
+      {
+        "exerciseId": "SLHD-008",
+        "exerciseName": "Single-Leg RDL (loaded)",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-006",
+        "exerciseName": "Walking Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining perfect posture. Control each movement with precision. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbells",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1014",
+    "name": "Overhead Stability",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Shoulder and overhead stability",
+    "description": "Overhead stability complex for badminton. Strengthens shoulder stabilizing muscles for overhead shots and serves.",
+    "exercises": [
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-019",
+        "exerciseName": "Band Shoulder External Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang Shoulder Decompression",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Anti-Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining perfect posture. Control each movement with precision. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Dumbbells",
+      "Kettlebells",
+      "Landmine",
+      "Pull-up Bar",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1015",
+    "name": "Lateral Stability",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Side-to-side stability",
+    "description": "Lateral stability complex for badminton. Strengthens muscles for controlled side-to-side movements and quick direction changes.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Split Stance Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLHD-001",
+        "exerciseName": "Single-Leg Glute Bridge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-014",
+        "exerciseName": "Side Plank (rotation)",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining perfect posture. Control each movement with precision. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1016",
+    "name": "Single-Leg Stability",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Balance and control on one leg",
+    "description": "Single-leg stability complex for badminton. Improves balance and control during single-leg landings and movements.",
+    "exercises": [
+      {
+        "exerciseId": "SLHD-008",
+        "exerciseName": "Single-Leg RDL (loaded)",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Weighted Pistol Squat",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLHD-001",
+        "exerciseName": "Single-Leg Glute Bridge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Lateral Single-Leg Landing",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining perfect posture. Control each movement with precision. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbells",
+      "Kettlebells",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1017",
+    "name": "Core Stability",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Transverse",
+    "intent": "Stability",
+    "focus": "Rotational core stability",
+    "description": "Core stability complex for badminton. Strengthens rotational core muscles for powerful shots and injury prevention.",
+    "exercises": [
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Anti-Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Split Stance Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-017",
+        "exerciseName": "Weighted Hollow Rock",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining perfect posture. Control each movement with precision. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbell",
+      "Landmine",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1018",
+    "name": "Full Body Stability",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Stability",
+    "focus": "Complete stability for badminton",
+    "description": "Full body stability complex. Strengthens all stabilizing muscles for the multi-directional demands of badminton.",
+    "exercises": [
+      {
+        "exerciseId": "SLHD-008",
+        "exerciseName": "Single-Leg RDL (loaded)",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Anti-Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining perfect posture. Control each movement with precision. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Cable Machine",
+      "Dumbbells",
+      "Landmine",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1019",
+    "name": "Net Play Agility",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Frontal",
+    "intent": "Agility",
+    "focus": "Quick net exchanges",
+    "description": "Net play agility complex for badminton. Develops the quick, precise footwork needed for effective net exchanges.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Sprint-021",
+        "exerciseName": "Crossover Step + Accelerate",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-011",
+        "exerciseName": "Skater Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on quick, light feet. Maintain low center of gravity. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Ball",
+      "Bodyweight",
+      "Cones",
+      "Ladder"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1020",
+    "name": "Rear Court Agility",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Agility",
+    "focus": "Deep court movement",
+    "description": "Rear court agility complex for badminton. Develops the footwork and quickness needed for deep court coverage.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Sprint-007",
+        "exerciseName": "A-Run",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-972",
+        "exerciseName": "Pro Agility Shuttle",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": 955,
+        "exerciseName": "Flying 20s",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on quick, light feet. Maintain low center of gravity. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1021",
+    "name": "Lateral Agility",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Frontal",
+    "intent": "Agility",
+    "focus": "Side-to-side quickness",
+    "description": "Lateral agility complex for badminton. Develops explosive side-to-side movements for cross-court coverage.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-011",
+        "exerciseName": "Skater Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-006",
+        "exerciseName": "Lateral Hop",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on quick, light feet. Maintain low center of gravity. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Dumbbells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1022",
+    "name": "Multi-Directional Agility",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "All-direction movement",
+    "description": "Multi-directional agility complex for badminton. Combines forward, backward, and lateral movements for complete court coverage.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-021",
+        "exerciseName": "Crossover Step + Accelerate",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Sprint-007",
+        "exerciseName": "A-Run",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on quick, light feet. Maintain low center of gravity. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Ball",
+      "Bodyweight",
+      "Cones",
+      "Ladder"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1023",
+    "name": "Reactive Agility",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Quick reactions to shuttle",
+    "description": "Reactive agility complex for badminton. Develops lightning-fast reactions to shuttle movements and opponent shots.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-972",
+        "exerciseName": "Pro Agility Shuttle",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-011",
+        "exerciseName": "Skater Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": 955,
+        "exerciseName": "Flying 20s",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on quick, light feet. Maintain low center of gravity. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Ball",
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1024",
+    "name": "Endurance Agility",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Maintain agility under fatigue",
+    "description": "Endurance agility complex for badminton. Maintains quickness and coordination during long rallies and late in matches.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-021",
+        "exerciseName": "Crossover Step + Accelerate",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-972",
+        "exerciseName": "Pro Agility Shuttle",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on quick, light feet. Maintain low center of gravity. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Ball",
+      "Bodyweight",
+      "Cones",
+      "Ladder"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1025",
+    "name": "Rally Conditioning",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "Match simulation conditioning",
+    "description": "Rally conditioning complex for badminton. Simulates the repeated explosive movements and active recovery of a badminton rally.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-972",
+        "exerciseName": "Pro Agility Shuttle",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining form as fatigue sets in. Push through mental barriers. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Dumbbells",
+      "Kettlebells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1026",
+    "name": "Interval Conditioning",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "High-intensity interval training",
+    "description": "Interval conditioning complex for badminton. Combines short bursts of high-intensity work with active recovery to mimic match demands.",
+    "exercises": [
+      {
+        "exerciseId": "COND-1007",
+        "exerciseName": "Suicides",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining form as fatigue sets in. Push through mental barriers. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Dumbbells",
+      "Kettlebells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1027",
+    "name": "Court Coverage Conditioning",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "Full court coverage endurance",
+    "description": "Court coverage conditioning complex. Builds the endurance needed to cover the entire badminton court throughout long matches.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-021",
+        "exerciseName": "Crossover Step + Accelerate",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Sprint-007",
+        "exerciseName": "A-Run",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "DLKD-002",
+        "exerciseName": "Wall Sit",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining form as fatigue sets in. Push through mental barriers. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Dumbbells",
+      "Kettlebells",
+      "Ladder"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1028",
+    "name": "Explosive Conditioning",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "Power endurance",
+    "description": "Explosive conditioning complex for badminton. Maintains explosive power output across long rallies.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-007",
+        "exerciseName": "Split Squat Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-001",
+        "exerciseName": "Med Ball Slam",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining form as fatigue sets in. Push through mental barriers. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells",
+      "Kettlebells",
+      "Medicine Ball"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1029",
+    "name": "Serving Conditioning",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Repeated serve endurance",
+    "description": "Serving conditioning complex for badminton. Builds endurance for repeated powerful serves throughout a match.",
+    "exercises": [
+      {
+        "exerciseId": "Ball-003",
+        "exerciseName": "Overhead Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "VPush-003",
+        "exerciseName": "Standing Landmine Press",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining form as fatigue sets in. Push through mental barriers. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells",
+      "Kettlebells",
+      "Landmine",
+      "Medicine Ball"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1030",
+    "name": "Match Simulation",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "Complete match simulation",
+    "description": "Match simulation complex for badminton. Combines all aspects of badminton fitness: power, agility, and endurance.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-972",
+        "exerciseName": "Pro Agility Shuttle",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-003",
+        "exerciseName": "Overhead Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on maintaining form as fatigue sets in. Push through mental barriers. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Dumbbells",
+      "Kettlebells",
+      "Medicine Ball"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1031",
+    "name": "Shoulder Recovery",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Shoulder and rotator cuff recovery",
+    "description": "Shoulder recovery complex for badminton. Promotes recovery in the shoulders and rotator cuff after the overhead demands of serves and smashes.",
+    "exercises": [
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-019",
+        "exerciseName": "Band Shoulder External Rotation",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang Shoulder Decompression",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-009",
+        "exerciseName": "Arm Circles Progressive",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Roller IT Band Release",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on relaxation and deep breathing. Move slowly and with control. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Foam Roller",
+      "Pull-up Bar",
+      "Resistance Bands"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1032",
+    "name": "Lower Body Recovery",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Sagittal",
+    "intent": "Recovery",
+    "focus": "Leg and hip recovery",
+    "description": "Lower body recovery complex for badminton. Promotes recovery in the legs and hips after explosive jumping and lateral movements.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLHD-001",
+        "exerciseName": "Single-Leg Glute Bridge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Roller IT Band Release",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on relaxation and deep breathing. Move slowly and with control. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Barbell",
+      "Bodyweight",
+      "Foam Roller",
+      "Wall"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1033",
+    "name": "Core Recovery",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Core and back recovery",
+    "description": "Core recovery complex for badminton. Promotes recovery in the core and lower back after the rotational demands of badminton.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Roller IT Band Release",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-006",
+        "exerciseName": "Pec Doorway Stretch",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on relaxation and deep breathing. Move slowly and with control. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Foam Roller"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1034",
+    "name": "Full Body Recovery",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Complete recovery after match",
+    "description": "Full body recovery complex for badminton. Promotes recovery in all major muscle groups used during badminton.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Roller IT Band Release",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on relaxation and deep breathing. Move slowly and with control. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Foam Roller",
+      "Resistance Bands",
+      "Wall"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1035",
+    "name": "Mobility Recovery",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Active mobility for recovery",
+    "description": "Mobility recovery complex for badminton. Uses gentle mobility work to promote recovery and maintain range of motion.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-009",
+        "exerciseName": "Arm Circles Progressive",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-021",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on relaxation and deep breathing. Move slowly and with control. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-1036",
+    "name": "Post-Match Recovery",
+    "sport": "Badminton",
+    "role": "Badminton Player",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Immediate post-match recovery",
+    "description": "Immediate post-match recovery complex for badminton. Should be performed within 30-60 minutes after match completion.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Roller IT Band Release",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive movements. Maintain balance during rapid direction changes. Focus on relaxation and deep breathing. Move slowly and with control. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Bodyweight",
+      "Foam Roller",
+      "Resistance Bands",
+      "Wall"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-001",
+    "name": "Full Body Warm-up",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Preparation",
+    "focus": "Full-body activation for tennis",
+    "description": "Comprehensive warm-up complex activating all major muscle groups used in tennis. Focuses on dynamic mobility, core activation, and movement preparation across all planes of motion.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10-12/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 2,
+        "reps": "8/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": 915,
+        "exerciseName": "Cable Woodchopper",
+        "sets": 2,
+        "reps": "12/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 2,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 2,
+        "reps": "8/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Move with control through full range of motion. Focus on quality over speed. Activate glutes and core before each movement. Maintain proper breathing throughout.",
+    "equipment": [
+      "Bodyweight",
+      "Cable Machine",
+      "Landmine",
+      "Barbell"
+    ],
+    "duration": "12-15 minutes"
+  },
+  {
+    "id": "CPLX-TEN-002",
+    "name": "Serve Activation",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Transverse",
+    "intent": "Preparation",
+    "focus": "Shoulder and rotational activation for serve",
+    "description": "Shoulder and core activation complex specifically designed to prepare the serving motion. Focuses on rotator cuff activation, scapular stability, and rotational mobility.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 2,
+        "reps": "15",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-016",
+        "exerciseName": "T-Y-W Raises",
+        "sets": 2,
+        "reps": "10 each",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang",
+        "sets": 2,
+        "reps": "20-30 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Pallof Press",
+        "sets": 2,
+        "reps": "10/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Core-013",
+        "exerciseName": "Ab Wheel Rollout",
+        "sets": 2,
+        "reps": "8-10",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on shoulder blade control. Move slowly and with control. Avoid shrugging shoulders. Maintain neutral spine throughout all movements.",
+    "equipment": [
+      "Resistance Bands",
+      "Ab Wheel",
+      "Cable Machine"
+    ],
+    "duration": "10-12 minutes"
+  },
+  {
+    "id": "CPLX-TEN-003",
+    "name": "Lateral Movement Prep",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Lateral movement preparation",
+    "description": "Lateral movement and footwork activation complex. Prepares the hips, knees, and ankles for the side-to-side demands of tennis. Focuses on proper landing mechanics and quick direction changes.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 2,
+        "reps": "8/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": 931,
+        "exerciseName": "Lateral Bound with Stick",
+        "sets": 2,
+        "reps": "5/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Single-Leg Landing",
+        "sets": 2,
+        "reps": "5/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Lateral Shuffle",
+        "sets": 2,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 2,
+        "reps": "8/side",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Focus on soft landings with knees tracking over toes. Maintain athletic stance throughout. Control the lateral movement - don't let the knee cave in.",
+    "equipment": [
+      "Bodyweight"
+    ],
+    "duration": "10-12 minutes"
+  },
+  {
+    "id": "CPLX-TEN-004",
+    "name": "Vertical Power Prep",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Vertical and forward power activation",
+    "description": "Explosive movement preparation for forward and vertical movements in tennis. Activates the posterior chain and prepares the body for explosive serves, overheads, and forward lunges.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-001",
+        "exerciseName": "Pogo Hops",
+        "sets": 2,
+        "reps": "10",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Landing-006",
+        "exerciseName": "Depth Jump",
+        "sets": 2,
+        "reps": "5/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "DLKD-016",
+        "exerciseName": "Overhead Squat",
+        "sets": 2,
+        "reps": "8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Pistol Squat",
+        "sets": 2,
+        "reps": "5/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 2,
+        "reps": "8",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Land softly with knees slightly bent. Focus on quick ground contact times. Maintain upright torso position. Progress from bodyweight to weighted variations.",
+    "equipment": [
+      "Bodyweight",
+      "Barbell",
+      "Dumbbells",
+      "Box (12-24 inches)"
+    ],
+    "duration": "12-15 minutes"
+  },
+  {
+    "id": "CPLX-TEN-005",
+    "name": "Shoulder & Elbow Prep",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Preparation",
+    "focus": "Rotator cuff and elbow injury prevention",
+    "description": "Injury prevention-focused warm-up targeting common tennis overuse injuries. Includes rotator cuff activation, elbow tendons, and wrist mobility work.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 2,
+        "reps": "15",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-016",
+        "exerciseName": "T-Y-W Raises",
+        "sets": 2,
+        "reps": "10 each",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 2,
+        "reps": "8/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-006",
+        "exerciseName": "Doorway Pec Stretch",
+        "sets": 2,
+        "reps": "20-30 sec/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "20-30 sec/side",
+        "restSeconds": 20
+      }
+    ],
+    "coachingNotes": "Move slowly and with control. Focus on areas of tightness or previous injury. Stop if you feel pain (not to be confused with discomfort).",
+    "equipment": [
+      "Resistance Bands",
+      "Bodyweight"
+    ],
+    "duration": "12-15 minutes"
+  },
+  {
+    "id": "CPLX-TEN-006",
+    "name": "Serve Power Chain",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Overhead power for serve velocity",
+    "description": "Rotational power complex designed to improve serve velocity through transverse plane movements. Focuses on explosive hip rotation, shoulder mobility, and core stability specific to the tennis serve motion.",
+    "exercises": [
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10-12/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": 915,
+        "exerciseName": "Cable Woodchopper",
+        "sets": 3,
+        "reps": "12/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "DLKD-016",
+        "exerciseName": "Overhead Squat",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Pistol Squat",
+        "sets": 2,
+        "reps": "6/side",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Focus on explosive rotation. Maintain shoulder stability throughout. Quality over quantity - each rep should mimic serve mechanics. Progress weight gradually while maintaining perfect form.",
+    "equipment": [
+      "Cable Machine",
+      "Landmine",
+      "Resistance Bands",
+      "Barbell",
+      "Dumbbells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-007",
+    "name": "Forehand Stroke Power",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Rotational power for forehand stroke",
+    "description": "Rotational power complex for generating maximum forehand power. Focuses on hip-to-shoulder separation, core rotation, and deceleration strength for the follow-through.",
+    "exercises": [
+      {
+        "exerciseId": "919",
+        "exerciseName": "Medicine Ball Rotational Throw",
+        "sets": 4,
+        "reps": "8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": 945,
+        "exerciseName": "Med Ball Side Throw",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "DLKD-018",
+        "exerciseName": "Zercher Squat",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on sequential rotation: hips first, then torso, then shoulders. Generate power from the ground up. Control the eccentric (catch) phase of each throw.",
+    "equipment": [
+      "Medicine Ball (6-12 lbs)",
+      "Landmine",
+      "Barbell",
+      "Dumbbell"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-008",
+    "name": "Net Play Power",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Power",
+    "focus": "Explosive forward power for volleys",
+    "description": "Forward power development for explosive net play. Focuses on quick forward movements, overhead strength, and reactive power needed for effective volleying.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 4,
+        "reps": "6",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Ball-014",
+        "exerciseName": "Medicine Ball Overhead Slam",
+        "sets": 4,
+        "reps": "8",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Plyo-009",
+        "exerciseName": "Single-Leg Box Jump",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "DLKD-016",
+        "exerciseName": "Overhead Squat",
+        "sets": 3,
+        "reps": "6",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Ball-005",
+        "exerciseName": "Medicine Ball Scoop Throw",
+        "sets": 3,
+        "reps": "8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Focus on maximum height and explosive takeoff. Land softly and immediately reset for the next rep. Maintain overhead stability throughout.",
+    "equipment": [
+      "Medicine Ball (6-12 lbs)",
+      "Box (12-24 inches)",
+      "Barbell"
+    ],
+    "duration": "20 minutes"
+  },
+  {
+    "id": "CPLX-TEN-009",
+    "name": "Return Power",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Frontal",
+    "intent": "Power",
+    "focus": "Lateral power for return of serve",
+    "description": "Lateral power development for explosive return of serve. Focuses on quick lateral movements, explosive pushes off the ground, and generating power from a low position.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 4,
+        "reps": "6/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": 931,
+        "exerciseName": "Lateral Bound with Stick",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Pistol Squat",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "PLYO-102",
+        "exerciseName": "Depth Jump",
+        "sets": 3,
+        "reps": "5",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-014",
+        "exerciseName": "Side Plank (rotation)",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, explosive lateral movements. Stick each landing for 2-3 seconds. Maintain low center of gravity. Drive through the heel of the front foot.",
+    "equipment": [
+      "Bodyweight",
+      "Box (12-24 inches)",
+      "Dumbbell"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-010",
+    "name": "Overhead Strength",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Complete overhead power development",
+    "description": "Comprehensive overhead power circuit targeting serve, smash, and overhead clear. Combines rotational power, vertical jump, and overhead stability for complete overhead game development.",
+    "exercises": [
+      {
+        "exerciseId": "919",
+        "exerciseName": "Medicine Ball Rotational Throw",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-014",
+        "exerciseName": "Medicine Ball Overhead Slam",
+        "sets": 3,
+        "reps": "8",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 3,
+        "reps": "6",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "DLKD-016",
+        "exerciseName": "Overhead Squat",
+        "sets": 3,
+        "reps": "6",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Perform as a circuit with minimal rest between exercises. Focus on explosive, powerful movements. Maintain perfect form even as fatigue sets in.",
+    "equipment": [
+      "Medicine Ball (6-12 lbs)",
+      "Barbell",
+      "Landmine"
+    ],
+    "duration": "18-22 minutes"
+  },
+  {
+    "id": "CPLX-TEN-011",
+    "name": "Shoulder Stability",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Transverse",
+    "intent": "Stability",
+    "focus": "Rotator cuff and scapular stability",
+    "description": "Shoulder stability complex for injury prevention and performance. Focuses on rotator cuff endurance, scapular control, and maintaining shoulder health through high-repetition stability work.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "20",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-016",
+        "exerciseName": "T-Y-W Raises",
+        "sets": 3,
+        "reps": "12 each",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang",
+        "sets": 3,
+        "reps": "30-45 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "12/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Move slowly and with perfect control. Focus on shoulder blade movement and position. Stop if you feel any shoulder pain. These are prevention exercises - consistency is key.",
+    "equipment": [
+      "Resistance Bands",
+      "Landmine"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-012",
+    "name": "Rotational Core",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Transverse",
+    "intent": "Stability",
+    "focus": "Anti-rotation and rotational core strength",
+    "description": "Core stability complex focusing on resisting and controlling rotation. Critical for maintaining posture during powerful tennis strokes and preventing energy leaks in the kinetic chain.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "12/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Core-013",
+        "exerciseName": "Ab Wheel Rollout",
+        "sets": 3,
+        "reps": "8-10",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "ACT-030",
+        "exerciseName": "Stir the Pot",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on maintaining perfect posture - don't let the weight pull you off center. Brace the core as if preparing for a big serve. Control the eccentric (return) phase of each movement.",
+    "equipment": [
+      "Cable Machine",
+      "Ab Wheel",
+      "Landmine"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-013",
+    "name": "Single-Leg Control",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Lateral stability for court movement",
+    "description": "Single-leg stability complex for improved balance and control during lateral court movements. Focuses on hip stability, ankle strength, and maintaining posture on one leg.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Pistol Squat",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Single-Leg Landing",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Landing-008",
+        "exerciseName": "Single-Leg Landing",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on slow, controlled movements. Maintain upright torso position. Land softly with knee tracking over toes. If balance is an issue, use support or reduce range of motion.",
+    "equipment": [
+      "Bodyweight",
+      "Dumbbells"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-014",
+    "name": "Lower Body Stability",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Lower body joint stability for injury prevention",
+    "description": "Hip and knee stability complex for preventing common tennis lower body injuries. Focuses on controlling knee valgus, hip stability, and maintaining proper alignment during dynamic movements.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Pistol Squat",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "DLKD-018",
+        "exerciseName": "Zercher Squat",
+        "sets": 3,
+        "reps": "8",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-006",
+        "exerciseName": "Walking Lunge",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": 939,
+        "exerciseName": "Single-Leg Romanian Deadlift",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on maintaining knee alignment with toes. Control the descent phase. Keep weight in the heels. Stop if you feel knee pain (not to be confused with muscle fatigue).",
+    "equipment": [
+      "Dumbbells",
+      "Barbell"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-015",
+    "name": "Full Body Stability",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Stability",
+    "focus": "Multi-planar stability for tennis movements",
+    "description": "Dynamic stability circuit targeting stability in all planes of motion. Combines upper body, core, and lower body stability exercises to create a comprehensive stability foundation for tennis.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 3,
+        "reps": "10/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Pistol Squat",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Core-015",
+        "exerciseName": "Landmine Press",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Perform as a circuit with minimal rest. Focus on maintaining perfect form even as fatigue increases. Breathe steadily throughout.",
+    "equipment": [
+      "Resistance Bands",
+      "Dumbbells",
+      "Landmine"
+    ],
+    "duration": "18-22 minutes"
+  },
+  {
+    "id": "CPLX-TEN-016",
+    "name": "Lateral Quickness",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Frontal",
+    "intent": "Agility",
+    "focus": "Side-to-side movement speed",
+    "description": "Lateral agility complex for improving side-to-side court coverage. Focuses on quick feet, efficient lateral movement, and maintaining balance during rapid direction changes.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-019",
+        "exerciseName": "A-Skip Drill",
+        "sets": 4,
+        "reps": "20 yards",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-033",
+        "exerciseName": "High Knee Skip",
+        "sets": 4,
+        "reps": "20 yards",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Single-Leg Landing",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Lateral Shuffle",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Plyo-006",
+        "exerciseName": "Lateral Jump",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on quick, light feet. Stay low and athletic. Push off the ground explosively. Maintain proper alignment - don't let the knee cave in during lateral movements.",
+    "equipment": [
+      "Agility Ladder",
+      "Cones"
+    ],
+    "duration": "18-22 minutes"
+  },
+  {
+    "id": "CPLX-TEN-017",
+    "name": "Court Movement",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Agility",
+    "focus": "Forward and backward court movement",
+    "description": "Forward and backward agility complex for improving court positioning. Focuses on explosive starts, quick stops, and maintaining balance during forward and backward movements.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-014",
+        "exerciseName": "Stride Length Sprint",
+        "sets": 4,
+        "reps": "30 yards",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 3,
+        "reps": "8",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Lateral Shuffle",
+        "sets": 3,
+        "reps": "8/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-001",
+        "exerciseName": "Pogo Hops",
+        "sets": 3,
+        "reps": "12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-984",
+        "exerciseName": "Illinois Agility Test",
+        "sets": 3,
+        "reps": "1",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Focus on explosive starts and quick stops. Maintain low center of gravity. Land softly and immediately prepare for the next movement. Use a partner or coach for timing.",
+    "equipment": [
+      "Cones",
+      "Stopwatch"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-018",
+    "name": "All-Direction Agility",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "All-direction court coverage",
+    "description": "Multi-directional agility complex for complete court coverage. Combines lateral, forward, backward, and diagonal movements to prepare for any situation on the tennis court.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-019",
+        "exerciseName": "A-Skip Drill",
+        "sets": 3,
+        "reps": "20 yards",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "ACT-033",
+        "exerciseName": "High Knee Skip",
+        "sets": 3,
+        "reps": "20 yards",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Lateral Shuffle",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Single-Leg Landing",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-006",
+        "exerciseName": "Lateral Jump",
+        "sets": 3,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-975",
+        "exerciseName": "Mirror Drill",
+        "sets": 3,
+        "reps": "30 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Perform as a circuit. Focus on quick reactions and explosive movements. Maintain athletic stance throughout. Partner should change directions randomly for reactive training.",
+    "equipment": [
+      "Agility Ladder",
+      "Cones",
+      "Partner"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-019",
+    "name": "Reaction Training",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Agility",
+    "focus": "Reaction and split step training",
+    "description": "Split step and reaction agility complex for improving the first movement in tennis. Focuses on quick reactions, explosive first steps, and maintaining balance during dynamic starts.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-975",
+        "exerciseName": "Mirror Drill",
+        "sets": 4,
+        "reps": "30 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-014",
+        "exerciseName": "Stride Length Sprint",
+        "sets": 4,
+        "reps": "10 yards",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 3,
+        "reps": "6",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Single-Leg Landing",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-996",
+        "exerciseName": "Dot Drill (5 dots)",
+        "sets": 3,
+        "reps": "30 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on reacting to partner's movements with a quick split step. Explode out of the split step into the first movement. Partner should use quick, random movements to simulate match situations.",
+    "equipment": [
+      "Dot Drill Mat",
+      "Partner"
+    ],
+    "duration": "20 minutes"
+  },
+  {
+    "id": "CPLX-TEN-020",
+    "name": "Agility Endurance",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility under fatigue",
+    "description": "Agility endurance complex for maintaining quickness and coordination late in matches. Focuses on maintaining movement quality and speed as fatigue sets in.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-019",
+        "exerciseName": "A-Skip Drill",
+        "sets": 4,
+        "reps": "30 yards",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-033",
+        "exerciseName": "High Knee Skip",
+        "sets": 4,
+        "reps": "30 yards",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Lateral Shuffle",
+        "sets": 4,
+        "reps": "10/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "AGI-984",
+        "exerciseName": "Illinois Agility Test",
+        "sets": 3,
+        "reps": "1",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Plyo-001",
+        "exerciseName": "Pogo Hops",
+        "sets": 3,
+        "reps": "15",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Focus on maintaining perfect form even as you fatigue. Keep rest periods short to simulate match conditions. Mental toughness is as important as physical - push through the discomfort.",
+    "equipment": [
+      "Agility Ladder",
+      "Cones"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-021",
+    "name": "Match Conditioning",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "Match simulation conditioning",
+    "description": "Tennis-specific conditioning complex simulating match demands. Combines short bursts of high-intensity work with active recovery to mimic the stop-and-go nature of tennis.",
+    "exercises": [
+      {
+        "exerciseId": "COND-999",
+        "exerciseName": "Zone 2 Cardio",
+        "sets": 1,
+        "reps": "20 min",
+        "restSeconds": 0
+      },
+      {
+        "exerciseId": "COND-1000",
+        "exerciseName": "Threshold Run",
+        "sets": 4,
+        "reps": "400m",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 3,
+        "reps": "15",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "DLKD-014",
+        "exerciseName": "Sled Push",
+        "sets": 3,
+        "reps": "20 yards",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Focus on maintaining good running form throughout. The zone 2 run should be at a conversational pace. Tempo runs should be at 80-85% of max effort. Sled pushes should be explosive.",
+    "equipment": [
+      "Running Track",
+      "Sled",
+      "Weight Plates"
+    ],
+    "duration": "40-45 minutes"
+  },
+  {
+    "id": "CPLX-TEN-022",
+    "name": "Interval Training",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "High-intensity interval training",
+    "description": "High-intensity interval conditioning for tennis. Simulates the repeated sprints and recovery periods of a tennis match. Focuses on improving aerobic and anaerobic capacity.",
+    "exercises": [
+      {
+        "exerciseId": "COND-1000",
+        "exerciseName": "Threshold Run",
+        "sets": 6,
+        "reps": "1 min",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "COND-1004",
+        "exerciseName": "Tabata",
+        "sets": 4,
+        "reps": "20 sec on/10 sec off",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 4,
+        "reps": "12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Sprint-014",
+        "exerciseName": "Stride Length Sprint",
+        "sets": 6,
+        "reps": "40 yards",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Go all-out during work periods. Use active recovery during rest periods (walk, light jog). Focus on quick transitions between work and rest. Monitor heart rate to ensure proper intensity.",
+    "equipment": [
+      "Running Track",
+      "Stopwatch",
+      "Heart Rate Monitor"
+    ],
+    "duration": "30-35 minutes"
+  },
+  {
+    "id": "CPLX-TEN-023",
+    "name": "Lateral Endurance",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Lateral movement endurance",
+    "description": "Lateral movement conditioning for improved court coverage endurance. Focuses on building the specific endurance needed for side-to-side tennis movements.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Lateral Shuffle",
+        "sets": 5,
+        "reps": "20 yards/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 4,
+        "reps": "10/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": 931,
+        "exerciseName": "Lateral Bound with Stick",
+        "sets": 4,
+        "reps": "8/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 4,
+        "reps": "12/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "COND-999",
+        "exerciseName": "Zone 2 Cardio",
+        "sets": 1,
+        "reps": "15 min",
+        "restSeconds": 0
+      }
+    ],
+    "coachingNotes": "Focus on maintaining proper form during lateral movements. Keep the chest up and hips back. Use controlled landings. The zone 2 run should be at a steady, maintainable pace.",
+    "equipment": [
+      "Cones",
+      "Running Track"
+    ],
+    "duration": "35-40 minutes"
+  },
+  {
+    "id": "CPLX-TEN-024",
+    "name": "Power Endurance",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Power endurance",
+    "description": "Explosive conditioning complex for maintaining power output throughout long matches. Combines explosive movements with endurance training to build power endurance.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-002",
+        "exerciseName": "Squat Jump",
+        "sets": 5,
+        "reps": "10",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Plyo-009",
+        "exerciseName": "Single-Leg Box Jump",
+        "sets": 4,
+        "reps": "6/side",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "PLYO-102",
+        "exerciseName": "Depth Jump",
+        "sets": 4,
+        "reps": "6",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Plyo-001",
+        "exerciseName": "Pogo Hops",
+        "sets": 4,
+        "reps": "15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "DLKD-014",
+        "exerciseName": "Sled Push",
+        "sets": 3,
+        "reps": "30 yards",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Focus on maximum explosiveness for each jump. Land softly and immediately prepare for the next rep. Maintain perfect form even as fatigue increases. Sled pushes should be heavy and explosive.",
+    "equipment": [
+      "Box (12-24 inches)",
+      "Sled",
+      "Weight Plates"
+    ],
+    "duration": "30-35 minutes"
+  },
+  {
+    "id": "CPLX-TEN-025",
+    "name": "Active Recovery",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Conditioning",
+    "focus": "Active recovery and mobility",
+    "description": "Active recovery conditioning complex for days between matches or intense training sessions. Focuses on maintaining fitness while promoting recovery through low-intensity, mobility-focused movements.",
+    "exercises": [
+      {
+        "exerciseId": "COND-999",
+        "exerciseName": "Zone 2 Cardio",
+        "sets": 1,
+        "reps": "30 min",
+        "restSeconds": 0
+      },
+      {
+        "exerciseId": "ACT-021",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 3,
+        "reps": "30 sec/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "REC-006",
+        "exerciseName": "Doorway Pec Stretch",
+        "sets": 3,
+        "reps": "30 sec/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Keep intensity low - this should feel easy. Focus on breathing and relaxation. Use the stretches to work on areas of tightness. Stay hydrated throughout.",
+    "equipment": [
+      "Running Track",
+      "Resistance Bands"
+    ],
+    "duration": "40-45 minutes"
+  },
+  {
+    "id": "CPLX-TEN-026",
+    "name": "Post-Match Recovery",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Recovery",
+    "focus": "Immediate post-match recovery",
+    "description": "Immediate post-match recovery complex for reducing soreness and promoting recovery. Should be performed within 30-60 minutes after match completion. Focuses on light mobility work and active recovery.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 3,
+        "reps": "8",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-021",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 3,
+        "reps": "5/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Rolling",
+        "sets": 1,
+        "reps": "2 min each leg",
+        "restSeconds": 0
+      },
+      {
+        "exerciseId": "COND-999",
+        "exerciseName": "Zone 2 Cardio",
+        "sets": 1,
+        "reps": "10 min",
+        "restSeconds": 0
+      },
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 2,
+        "reps": "15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Move slowly and gently. Focus on breathing deeply. Don't push through pain - if something hurts, skip it. Hydrate well and consider adding electrolytes.",
+    "equipment": [
+      "Foam Roller",
+      "Resistance Bands",
+      "Running Track"
+    ],
+    "duration": "25-30 minutes"
+  },
+  {
+    "id": "CPLX-TEN-027",
+    "name": "Shoulder Recovery",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Shoulder and rotator cuff recovery",
+    "description": "Shoulder-specific recovery complex for maintaining shoulder health after heavy serving or overhead work. Focuses on mobility, blood flow, and gentle activation of the rotator cuff muscles.",
+    "exercises": [
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang",
+        "sets": 3,
+        "reps": "30-45 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 3,
+        "reps": "20",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-016",
+        "exerciseName": "T-Y-W Raises",
+        "sets": 3,
+        "reps": "12 each",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "REC-006",
+        "exerciseName": "Doorway Pec Stretch",
+        "sets": 3,
+        "reps": "30 sec/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "COND-1017",
+        "exerciseName": "Contrast Therapy",
+        "sets": 1,
+        "reps": "10 min",
+        "restSeconds": 0
+      }
+    ],
+    "coachingNotes": "Move very gently and slowly. Focus on relaxation and breathing. If you feel any shoulder pain (not just discomfort), stop immediately. Ice after if shoulders feel inflamed.",
+    "equipment": [
+      "Resistance Bands",
+      "Access to cold water/ice"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-028",
+    "name": "Leg Recovery",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Sagittal",
+    "intent": "Recovery",
+    "focus": "Leg and hip recovery",
+    "description": "Lower body recovery complex for reducing leg soreness and promoting recovery after intense court work. Focuses on hip mobility, leg blood flow, and gentle activation.",
+    "exercises": [
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 3,
+        "reps": "45 sec/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 2,
+        "reps": "8/side",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Rolling",
+        "sets": 1,
+        "reps": "2 min each leg",
+        "restSeconds": 0
+      },
+      {
+        "exerciseId": "COND-999",
+        "exerciseName": "Zone 2 Cardio",
+        "sets": 1,
+        "reps": "15 min",
+        "restSeconds": 0
+      },
+      {
+        "exerciseId": "SLKD-018",
+        "exerciseName": "Cossack Squat",
+        "sets": 2,
+        "reps": "6/side",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Focus on areas that feel particularly tight or sore. Use the foam roller to work out knots. Keep the run at a very easy pace - you should be able to carry on a conversation.",
+    "equipment": [
+      "Foam Roller",
+      "Running Track"
+    ],
+    "duration": "25-30 minutes"
+  },
+  {
+    "id": "CPLX-TEN-029",
+    "name": "Full Body Recovery",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Complete recovery for all muscle groups",
+    "description": "Full body recovery circuit for comprehensive recovery after intense training or matches. Combines mobility work, light activation, and active recovery for all major muscle groups used in tennis.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "6",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-021",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 2,
+        "reps": "4/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 2,
+        "reps": "15",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 2,
+        "reps": "6/side",
+        "restSeconds": 20
+      },
+      {
+        "exerciseId": "COND-999",
+        "exerciseName": "Zone 2 Cardio",
+        "sets": 1,
+        "reps": "10 min",
+        "restSeconds": 0
+      }
+    ],
+    "coachingNotes": "Perform as a circuit with minimal rest. Focus on relaxation and breathing. Move slowly and with control. This should feel easy and refreshing, not challenging.",
+    "equipment": [
+      "Resistance Bands",
+      "Running Track"
+    ],
+    "duration": "20-25 minutes"
+  },
+  {
+    "id": "CPLX-TEN-030",
+    "name": "Mobility Recovery",
+    "sport": "Tennis",
+    "role": "Tennis Player",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Deep mobility and flexibility work",
+    "description": "Deep mobility and flexibility complex for maintaining and improving range of motion in all joints. Focuses on static stretching, deep mobility work, and relaxation techniques.",
+    "exercises": [
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 3,
+        "reps": "60 sec/side",
+        "restSeconds": 15
+      },
+      {
+        "exerciseId": "REC-006",
+        "exerciseName": "Doorway Pec Stretch",
+        "sets": 3,
+        "reps": "45 sec/side",
+        "restSeconds": 15
+      },
+      {
+        "exerciseId": "ACT-021",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 3,
+        "reps": "45 sec/side",
+        "restSeconds": 15
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang",
+        "sets": 3,
+        "reps": "45 sec",
+        "restSeconds": 15
+      },
+      {
+        "exerciseId": "REC-001",
+        "exerciseName": "Foam Rolling",
+        "sets": 1,
+        "reps": "3 min each leg",
+        "restSeconds": 0
+      }
+    ],
+    "coachingNotes": "Hold each stretch for the full duration. Focus on deep breathing and relaxation. Don't bounce or force the stretch. Use foam roller on any particularly tight areas.",
+    "equipment": [
+      "Foam Roller",
+      "Pull-up Bar or sturdy anchor"
+    ],
+    "duration": "25-30 minutes"
   }
 ]
