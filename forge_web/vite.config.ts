@@ -25,7 +25,6 @@ export default defineConfig(() => {
             'vendor-utils': ['axios'],
           },
         },
-        external: ['/forge/data/exercises.json', '/forge/data/complexes.json'],
       },
       chunkSizeWarningLimit: 600,
     },
