@@ -500,7 +500,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                           <div className="text-sm text-gray-600 mt-1">
                             <span className="font-medium">Sets:</span> {exercise.sets} • 
                             <span className="font-medium ml-2">Reps:</span> {exercise.reps} • 
-                            <span className="font-medium ml-2">Rest:</span> {exercise.rest}s
+                            <span className="font-medium ml-2">Rest:</span> {exercise.restSeconds}s
                           </div>
                         </div>
                       </div>
