@@ -398,7 +398,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                       {complex.exercises.slice(0, 3).map((exercise, idx) => (
                         <div key={idx} className="flex items-center justify-between text-sm">
                           <span className="text-gray-700 truncate flex-1">
-                            {idx + 1}. {exercise.id}
+                            {idx + 1}. {exercise.exerciseName}
                           </span>
                           <span className="text-gray-500 text-xs ml-2">
                             {exercise.sets}x{exercise.reps}
@@ -496,7 +496,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                           {idx + 1}
                         </div>
                         <div className="flex-1">
-                          <div className="font-medium text-gray-900">{exercise.id}</div>
+                          <div className="font-medium text-gray-900">{exercise.exerciseName}</div>
                           <div className="text-sm text-gray-600 mt-1">
                             <span className="font-medium">Sets:</span> {exercise.sets} • 
                             <span className="font-medium ml-2">Reps:</span> {exercise.reps} • 
