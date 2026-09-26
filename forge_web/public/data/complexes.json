@@ -8860,5 +8860,3641 @@
       "Barbell, Rack"
     ],
     "duration": "9-15 minutes"
+  },
+  {
+    "id": "CPLX-223",
+    "name": "Agile Batter - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Agile Batter",
+    "description": "A Sagittal preparation complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Aparts",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-002",
+        "exerciseName": "Band Pull-Apart",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-014",
+        "exerciseName": "Glute Bridge March",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Band",
+      "Resistance Band"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-224",
+    "name": "Agile Batter - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Agile Batter",
+    "description": "A Frontal preparation complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-016",
+        "exerciseName": "Weighted Hollow Hold",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-004",
+        "exerciseName": "90/90 Hip Switch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Plate/DB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-225",
+    "name": "Agile Batter - Power Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Agile Batter",
+    "description": "A Transverse power complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-005",
+        "exerciseName": "Lateral Bound",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "DLKD-012",
+        "exerciseName": "Paused Front Squat",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-002",
+        "exerciseName": "Chest Pass (wall)",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Barbell",
+      "Med Ball",
+      "Rack"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-226",
+    "name": "Agile Batter - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Agile Batter",
+    "description": "A Multi-Planar power complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-105",
+        "exerciseName": "Lineout Jump",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "DLKD-012",
+        "exerciseName": "Paused Front Squat",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Barbell",
+      "Med Ball",
+      "Rack"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-227",
+    "name": "Agile Batter - Stability Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Agile Batter",
+    "description": "A Sagittal stability complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-003",
+        "exerciseName": "Step-Up",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-019",
+        "exerciseName": "Weighted Side Plank",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-014",
+        "exerciseName": "Single-Arm Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Box",
+      "DB",
+      "DB/KB",
+      "Plate"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-228",
+    "name": "Agile Batter - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Agile Batter",
+    "description": "A Frontal stability complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-002",
+        "exerciseName": "Split Squat",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-001",
+        "exerciseName": "Dead Bug",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-003",
+        "exerciseName": "Overhead Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Bodyweight/DB",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-229",
+    "name": "Agile Batter - Agility Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Agile Batter",
+    "description": "A Transverse agility complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-103",
+        "exerciseName": "COD Drill",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-008",
+        "exerciseName": "B-Run",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "LANDING-100",
+        "exerciseName": "Single-Leg Landing Progression",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-230",
+    "name": "Agile Batter - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Agile Batter",
+    "description": "A Multi-Planar agility complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-018",
+        "exerciseName": "Flying 30s",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-004",
+        "exerciseName": "Single-Leg Box Jump Stick",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Box"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-231",
+    "name": "Agile Batter - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Agile Batter",
+    "description": "A Sagittal conditioning complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-023",
+        "exerciseName": "Acceleration Wall Drill",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-103",
+        "exerciseName": "COD Drill",
+        "sets": 3,
+        "reps": "8-10",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-232",
+    "name": "Agile Batter - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Agile Batter",
+    "description": "A Frontal conditioning complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-015",
+        "exerciseName": "Sled Sprint (heavy)",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "8-10",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Sled"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-233",
+    "name": "Agile Batter - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Agile Batter",
+    "description": "A Transverse recovery complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "REC-015",
+        "exerciseName": "Scapular Wall Slides",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Band",
+      "Cable",
+      "Wall"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-234",
+    "name": "Agile Batter - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Agile Batter",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Agile Batter",
+    "description": "A Multi-Planar recovery complex for Agile Batter targeting foot_speed, reaction_time.",
+    "exercises": [
+      {
+        "exerciseId": "REC-006",
+        "exerciseName": "Pec Doorway Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Rapid footwork adjustments. Needs reactive agility and dynamic balance.",
+    "equipment": [
+      "Bodyweight",
+      "Doorway"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-235",
+    "name": "All-Rounder - Preparation Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for All-Rounder",
+    "description": "A Sagittal preparation complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-006",
+        "exerciseName": "Ankle Hops (Pogo)",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-022",
+        "exerciseName": "Wall March",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-002",
+        "exerciseName": "Foam Roller Thoracic Extension",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Foam Roller"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-236",
+    "name": "All-Rounder - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for All-Rounder",
+    "description": "A Frontal preparation complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Aparts",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-025",
+        "exerciseName": "Seated Hip Flexor Raise",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-002",
+        "exerciseName": "Foam Roller Thoracic Extension",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Bench",
+      "Foam Roller",
+      "Resistance Band"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-237",
+    "name": "All-Rounder - Power Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for All-Rounder",
+    "description": "A Transverse power complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-012",
+        "exerciseName": "Single-Leg Bound",
+        "sets": 2,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-014",
+        "exerciseName": "Med Ball Overhead Slam (max)",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Rot-012",
+        "exerciseName": "Standing Pallof Press",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Cable/Band",
+      "Med Ball (heavy)"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-238",
+    "name": "All-Rounder - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for All-Rounder",
+    "description": "A Multi-Planar power complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-103",
+        "exerciseName": "Vertical Jump (approach)",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-005",
+        "exerciseName": "Scoop Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Rot-002",
+        "exerciseName": "Half-Kneeling Chop",
+        "sets": 3,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Cable/Band",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-239",
+    "name": "All-Rounder - Stability Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for All-Rounder",
+    "description": "A Sagittal stability complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-101",
+        "exerciseName": "Eccentric Step-Down",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-018",
+        "exerciseName": "Barbell Rollout",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-004",
+        "exerciseName": "Front Rack Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Barbell",
+      "KB/DB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-240",
+    "name": "All-Rounder - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for All-Rounder",
+    "description": "A Frontal stability complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Weighted Pistol Squat",
+        "sets": 2,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-003",
+        "exerciseName": "Side Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-010",
+        "exerciseName": "Bear Hug Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "DB",
+      "Med Ball/Sandbag"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-241",
+    "name": "All-Rounder - Agility Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for All-Rounder",
+    "description": "A Transverse agility complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Deceleration Shuffle",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-019",
+        "exerciseName": "Deceleration Sprint (drop-stop)",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-004",
+        "exerciseName": "Single-Leg Box Jump Stick",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Box"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-242",
+    "name": "All-Rounder - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for All-Rounder",
+    "description": "A Multi-Planar agility complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-101",
+        "exerciseName": "Split-Step Reaction Drill",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-002",
+        "exerciseName": "Wall Drill",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-010",
+        "exerciseName": "Lateral Dive Pattern",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Mat",
+      "Wall"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-243",
+    "name": "All-Rounder - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for All-Rounder",
+    "description": "A Sagittal conditioning complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-008",
+        "exerciseName": "B-Run",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-003",
+        "exerciseName": "Overhead Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-244",
+    "name": "All-Rounder - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for All-Rounder",
+    "description": "A Frontal conditioning complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-028",
+        "exerciseName": "Flying Sprint 20m",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-004",
+        "exerciseName": "Front Rack Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Cones",
+      "KB/DB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-245",
+    "name": "All-Rounder - Recovery Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for All-Rounder",
+    "description": "A Transverse recovery complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "REC-007",
+        "exerciseName": "Ankle Dorsiflexion Rock",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Wall"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-246",
+    "name": "All-Rounder - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "All-Rounder",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for All-Rounder",
+    "description": "A Multi-Planar recovery complex for All-Rounder targeting explosive_power, endurance.",
+    "exercises": [
+      {
+        "exerciseId": "REC-012",
+        "exerciseName": "Adductor Rock Back",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-008",
+        "exerciseName": "Lateral Lunge Matrix",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Must handle both bowling and batting workloads. Exceptional work capacity needed.",
+    "equipment": [
+      "Bodyweight",
+      "Mat"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-247",
+    "name": "Fielder - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Fielder",
+    "description": "A Sagittal preparation complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-008",
+        "exerciseName": "Lateral Lunge Matrix",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-023",
+        "exerciseName": "Dead Bug (Hip Flexor)",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-004",
+        "exerciseName": "90/90 Hip Switch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-248",
+    "name": "Fielder - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Fielder",
+    "description": "A Frontal preparation complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-005",
+        "exerciseName": "Weighted Calf Raise",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-011",
+        "exerciseName": "Hamstring Flossing",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Band",
+      "DB",
+      "Machine"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-249",
+    "name": "Fielder - Power Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Fielder",
+    "description": "A Transverse power complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-104",
+        "exerciseName": "Single-Leg Depth Jump",
+        "sets": 2,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-003",
+        "exerciseName": "Overhead Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "ROT-100",
+        "exerciseName": "Rotational Cable Chop",
+        "sets": 3,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Box",
+      "Cable",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-250",
+    "name": "Fielder - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Fielder",
+    "description": "A Multi-Planar power complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-008",
+        "exerciseName": "Bounding",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-003",
+        "exerciseName": "Overhead Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Rot-015",
+        "exerciseName": "Single-Leg Pallof Press",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Cable Machine",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-251",
+    "name": "Fielder - Stability Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Fielder",
+    "description": "A Sagittal stability complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-013",
+        "exerciseName": "Weighted Pistol Squat",
+        "sets": 2,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-009",
+        "exerciseName": "Weighted Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-008",
+        "exerciseName": "Cross-Body Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "DB",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-252",
+    "name": "Fielder - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Fielder",
+    "description": "A Frontal stability complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-011",
+        "exerciseName": "Single-Leg Box Squat",
+        "sets": 2,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-002",
+        "exerciseName": "Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-008",
+        "exerciseName": "Cross-Body Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-253",
+    "name": "Fielder - Agility Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Fielder",
+    "description": "A Transverse agility complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-026",
+        "exerciseName": "C-Skip",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-006",
+        "exerciseName": "Single-Leg Depth Jump Stick",
+        "sets": 2,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Box"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-254",
+    "name": "Fielder - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Fielder",
+    "description": "A Multi-Planar agility complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-106",
+        "exerciseName": "Reactive Agility Drill",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-009",
+        "exerciseName": "Flying 10s",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-002",
+        "exerciseName": "Box Jump Stick (moderate, 12-18in)",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-255",
+    "name": "Fielder - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Fielder",
+    "description": "A Sagittal conditioning complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-007",
+        "exerciseName": "A-Run",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-007",
+        "exerciseName": "Racked Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "KB/DB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-256",
+    "name": "Fielder - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Fielder",
+    "description": "A Frontal conditioning complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-021",
+        "exerciseName": "Crossover Step + Accelerate",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-013",
+        "exerciseName": "Heavy Suitcase Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Cones",
+      "Heavy DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-257",
+    "name": "Fielder - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Fielder",
+    "description": "A Transverse recovery complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "REC-013",
+        "exerciseName": "Breathing Diaphragmatic Reset",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-010",
+        "exerciseName": "Hip Flexor March",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Mat"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-258",
+    "name": "Fielder - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Fielder",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Fielder",
+    "description": "A Multi-Planar recovery complex for Fielder targeting sprint_speed, agility.",
+    "exercises": [
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang Shoulder Decompression",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-005",
+        "exerciseName": "Pallof Press",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Accelerate, change direction, throw. Needs eccentric strength and rotational power.",
+    "equipment": [
+      "Band",
+      "Cable",
+      "Pull-up Bar"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-259",
+    "name": "Pace Bowler - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Pace Bowler",
+    "description": "A Sagittal preparation complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-033",
+        "exerciseName": "Contact Carry",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang Shoulder Decompression",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Mat",
+      "Pull-up Bar",
+      "Shield"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-260",
+    "name": "Pace Bowler - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Pace Bowler",
+    "description": "A Frontal preparation complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-028",
+        "exerciseName": "Cable Face Pull",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-013",
+        "exerciseName": "Breathing Diaphragmatic Reset",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Cable Machine",
+      "Mat"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-261",
+    "name": "Pace Bowler - Power Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Pace Bowler",
+    "description": "A Transverse power complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-102",
+        "exerciseName": "Plyometric Depth Drop to Jump",
+        "sets": 2,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Rot-013",
+        "exerciseName": "Split Stance Pallof Press",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-006",
+        "exerciseName": "Side Throw",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Box",
+      "Cable/Band",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-262",
+    "name": "Pace Bowler - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Pace Bowler",
+    "description": "A Multi-Planar power complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-008",
+        "exerciseName": "Bounding",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Rot-005",
+        "exerciseName": "Standing Lift",
+        "sets": 3,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Cable/Band",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-263",
+    "name": "Pace Bowler - Stability Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Pace Bowler",
+    "description": "A Sagittal stability complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-102",
+        "exerciseName": "Box Step-Down",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-003",
+        "exerciseName": "Side Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-002",
+        "exerciseName": "Suitcase Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-264",
+    "name": "Pace Bowler - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Pace Bowler",
+    "description": "A Frontal stability complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-004",
+        "exerciseName": "Low Box Step-Up",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-005",
+        "exerciseName": "Crunches",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-006",
+        "exerciseName": "Waiter Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Box (low)",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-265",
+    "name": "Pace Bowler - Agility Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Pace Bowler",
+    "description": "A Transverse agility complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-106",
+        "exerciseName": "Reactive Agility Drill",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-020",
+        "exerciseName": "Reactive Lateral Shuffle",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-002",
+        "exerciseName": "Box Jump Stick (moderate, 12-18in)",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Box",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-266",
+    "name": "Pace Bowler - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Pace Bowler",
+    "description": "A Multi-Planar agility complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-106",
+        "exerciseName": "Reactive Agility Drill",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-013",
+        "exerciseName": "Flying 20s",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-009",
+        "exerciseName": "High-Ball Fielding",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Ball",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-267",
+    "name": "Pace Bowler - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Pace Bowler",
+    "description": "A Sagittal conditioning complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-015",
+        "exerciseName": "Sled Sprint (heavy)",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-017",
+        "exerciseName": "Bottom-Up KB Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Cones",
+      "Kettlebell",
+      "Sled"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-268",
+    "name": "Pace Bowler - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Pace Bowler",
+    "description": "A Frontal conditioning complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-018",
+        "exerciseName": "Flying 30s",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-001",
+        "exerciseName": "Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-269",
+    "name": "Pace Bowler - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Pace Bowler",
+    "description": "A Transverse recovery complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "REC-012",
+        "exerciseName": "Adductor Rock Back",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Mat"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-270",
+    "name": "Pace Bowler - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Pace Bowler",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Pace Bowler",
+    "description": "A Multi-Planar recovery complex for Pace Bowler targeting explosive_power, rotational_strength.",
+    "exercises": [
+      {
+        "exerciseId": "REC-015",
+        "exerciseName": "Scapular Wall Slides",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-008",
+        "exerciseName": "Lateral Lunge Matrix",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High eccentric loading. Needs posterior chain strength and rotational power.",
+    "equipment": [
+      "Bodyweight",
+      "Wall"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-271",
+    "name": "Power Hitter - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Power Hitter",
+    "description": "A Sagittal preparation complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-028",
+        "exerciseName": "Cable Face Pull",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Cable Machine",
+      "Wall"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-272",
+    "name": "Power Hitter - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Power Hitter",
+    "description": "A Frontal preparation complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-010",
+        "exerciseName": "Hip Flexor March",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-001",
+        "exerciseName": "Calf Raise",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-014",
+        "exerciseName": "Glute Bridge March",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-273",
+    "name": "Power Hitter - Power Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Power Hitter",
+    "description": "A Transverse power complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "Rot-009",
+        "exerciseName": "Windmill",
+        "sets": 2,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Plyo-006",
+        "exerciseName": "Lateral Hop",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight",
+      "KB/DB",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-274",
+    "name": "Power Hitter - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Power Hitter",
+    "description": "A Multi-Planar power complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "Rot-017",
+        "exerciseName": "Reactive Rotational Catch & Throw",
+        "sets": 2,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-002",
+        "exerciseName": "Chest Pass (wall)",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "PLYO-104",
+        "exerciseName": "Single-Leg Depth Jump",
+        "sets": 2,
+        "reps": "3-5",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Box",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-275",
+    "name": "Power Hitter - Stability Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Power Hitter",
+    "description": "A Sagittal stability complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "Core-010",
+        "exerciseName": "Weighted Sit-Up",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-007",
+        "exerciseName": "Lateral Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-005",
+        "exerciseName": "Goblet Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "DB",
+      "DB/Bodyweight",
+      "KB/DB",
+      "Plate"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-276",
+    "name": "Power Hitter - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Power Hitter",
+    "description": "A Frontal stability complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "Core-012",
+        "exerciseName": "Barbell Bird Dog",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-006",
+        "exerciseName": "Walking Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-017",
+        "exerciseName": "Bottom-Up KB Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Barbell",
+      "DB",
+      "Kettlebell"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-277",
+    "name": "Power Hitter - Agility Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Power Hitter",
+    "description": "A Transverse agility complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-020",
+        "exerciseName": "Reactive Lateral Shuffle",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-006",
+        "exerciseName": "Single-Leg Depth Jump Stick",
+        "sets": 2,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-278",
+    "name": "Power Hitter - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Power Hitter",
+    "description": "A Multi-Planar agility complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-107",
+        "exerciseName": "5-10-5 Shuttle",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-001",
+        "exerciseName": "Marching",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-002",
+        "exerciseName": "Box Jump Stick (moderate, 12-18in)",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-279",
+    "name": "Power Hitter - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Power Hitter",
+    "description": "A Sagittal conditioning complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "SPRINT-100",
+        "exerciseName": "Repeated Sprint Ability (RSA)",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-006",
+        "exerciseName": "Side Throw",
+        "sets": 3,
+        "reps": "8-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-010",
+        "exerciseName": "Bear Hug Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Cones",
+      "Med Ball",
+      "Med Ball/Sandbag"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-280",
+    "name": "Power Hitter - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Power Hitter",
+    "description": "A Frontal conditioning complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-008",
+        "exerciseName": "B-Run",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Ball-001",
+        "exerciseName": "Med Ball Slam",
+        "sets": 3,
+        "reps": "8-12",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-008",
+        "exerciseName": "Cross-Body Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight",
+      "DB/KB",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-281",
+    "name": "Power Hitter - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Power Hitter",
+    "description": "A Transverse recovery complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "REC-013",
+        "exerciseName": "Breathing Diaphragmatic Reset",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-004",
+        "exerciseName": "Bird Dog",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Mat"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-282",
+    "name": "Power Hitter - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Power Hitter",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Power Hitter",
+    "description": "A Multi-Planar recovery complex for Power Hitter targeting rotational_power, explosive_lower_body.",
+    "exercises": [
+      {
+        "exerciseId": "REC-002",
+        "exerciseName": "Foam Roller Thoracic Extension",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-010",
+        "exerciseName": "Hip Flexor March",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Force transfer from back foot to front foot. Transverse plane power is critical.",
+    "equipment": [
+      "Bodyweight",
+      "Foam Roller"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-283",
+    "name": "Slip Fielder - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Slip Fielder",
+    "description": "A Sagittal preparation complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-009",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Box",
+      "Mat",
+      "Wall"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-284",
+    "name": "Slip Fielder - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Slip Fielder",
+    "description": "A Frontal preparation complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-010",
+        "exerciseName": "Hip Flexor March",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-034",
+        "exerciseName": "Band-Resisted Distribution",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Band",
+      "Box",
+      "Wall"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-285",
+    "name": "Slip Fielder - Power Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Slip Fielder",
+    "description": "A Transverse power complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-009",
+        "exerciseName": "Single-Leg Box Jump",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Box",
+      "Med Ball"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-286",
+    "name": "Slip Fielder - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Slip Fielder",
+    "description": "A Multi-Planar power complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "Plyo-007",
+        "exerciseName": "Split Squat Jump",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Med Ball"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-287",
+    "name": "Slip Fielder - Stability Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Slip Fielder",
+    "description": "A Sagittal stability complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "Core-023",
+        "exerciseName": "Ruck Engagement",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-010",
+        "exerciseName": "Skater Squat",
+        "sets": 2,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Bodyweight/DB"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-288",
+    "name": "Slip Fielder - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Slip Fielder",
+    "description": "A Frontal stability complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "Core-022",
+        "exerciseName": "Cable Chop",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-012",
+        "exerciseName": "Pistol Squat",
+        "sets": 2,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Cable"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-289",
+    "name": "Slip Fielder - Agility Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Slip Fielder",
+    "description": "A Transverse agility complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-107",
+        "exerciseName": "5-10-5 Shuttle",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-004",
+        "exerciseName": "Fall-In Sprint",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-290",
+    "name": "Slip Fielder - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Slip Fielder",
+    "description": "A Multi-Planar agility complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-103",
+        "exerciseName": "COD Drill",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-003",
+        "exerciseName": "A-Skip",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-291",
+    "name": "Slip Fielder - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Slip Fielder",
+    "description": "A Sagittal conditioning complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-001",
+        "exerciseName": "Marching",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-292",
+    "name": "Slip Fielder - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Slip Fielder",
+    "description": "A Frontal conditioning complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-001",
+        "exerciseName": "Marching",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Cones"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-293",
+    "name": "Slip Fielder - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Slip Fielder",
+    "description": "A Transverse recovery complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "REC-004",
+        "exerciseName": "90/90 Hip Switch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Aparts",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Resistance Band"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-294",
+    "name": "Slip Fielder - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Slip Fielder",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Slip Fielder",
+    "description": "A Multi-Planar recovery complex for Slip Fielder targeting reaction_time, hand_speed.",
+    "exercises": [
+      {
+        "exerciseId": "REC-008",
+        "exerciseName": "Lat Child's Pose Reach",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-008",
+        "exerciseName": "Lateral Lunge Matrix",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Exceptional hand-eye coordination. Needs rapid hand speed and focus.",
+    "equipment": [
+      "Bodyweight",
+      "Mat"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-295",
+    "name": "Spin Bowler - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Spin Bowler",
+    "description": "A Sagittal preparation complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-016",
+        "exerciseName": "Weighted Hollow Hold",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-005",
+        "exerciseName": "Dead Hang Shoulder Decompression",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Mat",
+      "Plate/DB",
+      "Pull-up Bar"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-296",
+    "name": "Spin Bowler - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Spin Bowler",
+    "description": "A Frontal preparation complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-010",
+        "exerciseName": "Hip Flexor March",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "Acc-014",
+        "exerciseName": "Single-Leg Calf Raise",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-010",
+        "exerciseName": "World's Greatest Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Bodyweight",
+      "Bodyweight/DB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-297",
+    "name": "Spin Bowler - Power Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Spin Bowler",
+    "description": "A Transverse power complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Rot-005",
+        "exerciseName": "Standing Lift",
+        "sets": 3,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Core-024",
+        "exerciseName": "Kick-Specific Core",
+        "sets": 3,
+        "reps": "8-10",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-010",
+        "exerciseName": "Med Ball Clean",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Bodyweight",
+      "Cable/Band",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-298",
+    "name": "Spin Bowler - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Spin Bowler",
+    "description": "A Multi-Planar power complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Rot-018",
+        "exerciseName": "Landmine Rotation",
+        "sets": 3,
+        "reps": "6-8/side",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Core-016",
+        "exerciseName": "Hanging Leg Raise",
+        "sets": 2,
+        "reps": "8-10",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-004",
+        "exerciseName": "Rotational Slam",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Barbell",
+      "Landmine",
+      "Med Ball",
+      "Pull-Up Bar"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-299",
+    "name": "Spin Bowler - Stability Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Spin Bowler",
+    "description": "A Sagittal stability complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Core-016",
+        "exerciseName": "Hanging Leg Raise",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-100",
+        "exerciseName": "Lateral Lunge to Recovery",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-007",
+        "exerciseName": "Racked Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Bodyweight",
+      "KB/DB",
+      "Pull-Up Bar"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-300",
+    "name": "Spin Bowler - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Spin Bowler",
+    "description": "A Frontal stability complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "Core-004",
+        "exerciseName": "Bird Dog",
+        "sets": 3,
+        "reps": "10-12",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "SLKD-004",
+        "exerciseName": "Low Box Step-Up",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-014",
+        "exerciseName": "Single-Arm Farmer Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Bodyweight",
+      "Box (low)",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-301",
+    "name": "Spin Bowler - Agility Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Spin Bowler",
+    "description": "A Transverse agility complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-105",
+        "exerciseName": "Deceleration Shuffle",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Rot-014",
+        "exerciseName": "Pallof Walkout",
+        "sets": 2,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Lateral Single-Leg Landing",
+        "sets": 2,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Box",
+      "Cable Machine",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-302",
+    "name": "Spin Bowler - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Spin Bowler",
+    "description": "A Multi-Planar agility complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-107",
+        "exerciseName": "5-10-5 Shuttle",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Rot-002",
+        "exerciseName": "Half-Kneeling Chop",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-010",
+        "exerciseName": "Lateral Dive Pattern",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Cable/Band",
+      "Cones",
+      "Mat"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-303",
+    "name": "Spin Bowler - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Spin Bowler",
+    "description": "A Sagittal conditioning complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-002",
+        "exerciseName": "Half-Kneeling Chop",
+        "sets": 3,
+        "reps": "8-10",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-013",
+        "exerciseName": "Heavy Suitcase Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Cable/Band",
+      "Cones",
+      "Heavy DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-304",
+    "name": "Spin Bowler - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Spin Bowler",
+    "description": "A Frontal conditioning complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Rot-004",
+        "exerciseName": "Half-Kneeling Lift",
+        "sets": 3,
+        "reps": "8-10",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-008",
+        "exerciseName": "Cross-Body Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Cable/Band",
+      "Cones",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-305",
+    "name": "Spin Bowler - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Spin Bowler",
+    "description": "A Transverse recovery complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "REC-004",
+        "exerciseName": "90/90 Hip Switch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-006",
+        "exerciseName": "Ankle Hops (Pogo)",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Bodyweight"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-306",
+    "name": "Spin Bowler - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Spin Bowler",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Spin Bowler",
+    "description": "A Multi-Planar recovery complex for Spin Bowler targeting rotational_endurance, grip_strength.",
+    "exercises": [
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-009",
+        "exerciseName": "Arm Circles Progressive",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "High volume rotational work. Needs wrist/finger conditioning and anti-rotation core.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Wall"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-307",
+    "name": "Wicket Keeper - Preparation Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Sagittal",
+    "intent": "Preparation",
+    "focus": "Preparation for Wicket Keeper",
+    "description": "A Sagittal preparation complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-007",
+        "exerciseName": "Inchworm",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACC-101",
+        "exerciseName": "Overhead Band Pull-Apart",
+        "sets": 2,
+        "reps": "10-12",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-004",
+        "exerciseName": "90/90 Hip Switch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Band"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-308",
+    "name": "Wicket Keeper - Mobility Preparation Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Frontal",
+    "intent": "Preparation",
+    "focus": "Preparation for Wicket Keeper",
+    "description": "A Frontal preparation complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "ACT-002",
+        "exerciseName": "Band Pull-Aparts",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACC-100",
+        "exerciseName": "Single-Leg Balance with Reach",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "REC-015",
+        "exerciseName": "Scapular Wall Slides",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Resistance Band",
+      "Wall"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-309",
+    "name": "Wicket Keeper - Power Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Transverse",
+    "intent": "Power",
+    "focus": "Power for Wicket Keeper",
+    "description": "A Transverse power complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-101",
+        "exerciseName": "Approach Jump",
+        "sets": 3,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-002",
+        "exerciseName": "Chest Pass (wall)",
+        "sets": 3,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "DLKD-001",
+        "exerciseName": "Air Squat",
+        "sets": 3,
+        "reps": "5-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Med Ball"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-310",
+    "name": "Wicket Keeper - Maximal Power Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Multi-Planar",
+    "intent": "Power",
+    "focus": "Power for Wicket Keeper",
+    "description": "A Multi-Planar power complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "PLYO-104",
+        "exerciseName": "Single-Leg Depth Jump",
+        "sets": 2,
+        "reps": "3-5",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "Ball-009",
+        "exerciseName": "Med Ball Push Press",
+        "sets": 2,
+        "reps": "6-8",
+        "restSeconds": 90
+      },
+      {
+        "exerciseId": "DLKD-014",
+        "exerciseName": "Sled Push",
+        "sets": 2,
+        "reps": "5-8",
+        "restSeconds": 90
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Box",
+      "Med Ball",
+      "Sled"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-311",
+    "name": "Wicket Keeper - Stability Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Sagittal",
+    "intent": "Stability",
+    "focus": "Stability for Wicket Keeper",
+    "description": "A Sagittal stability complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-001",
+        "exerciseName": "Assisted Split Squat",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-003",
+        "exerciseName": "Side Plank",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-008",
+        "exerciseName": "Cross-Body Carry",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "DB/KB",
+      "Support"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-312",
+    "name": "Wicket Keeper - Single-Leg Stability Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Frontal",
+    "intent": "Stability",
+    "focus": "Stability for Wicket Keeper",
+    "description": "A Frontal stability complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "SLKD-006",
+        "exerciseName": "Walking Lunge",
+        "sets": 3,
+        "reps": "8-10/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Core-014",
+        "exerciseName": "Side Plank (rotation)",
+        "sets": 3,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Carry-016",
+        "exerciseName": "Single-Arm Overhead Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "DB",
+      "DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-313",
+    "name": "Wicket Keeper - Agility Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Transverse",
+    "intent": "Agility",
+    "focus": "Agility for Wicket Keeper",
+    "description": "A Transverse agility complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-107",
+        "exerciseName": "5-10-5 Shuttle",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-007",
+        "exerciseName": "A-Run",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Lateral Single-Leg Landing",
+        "sets": 2,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-314",
+    "name": "Wicket Keeper - Directional Agility Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Multi-Planar",
+    "intent": "Agility",
+    "focus": "Agility for Wicket Keeper",
+    "description": "A Multi-Planar agility complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "AGI-100",
+        "exerciseName": "Defensive Shuffle with Deceleration",
+        "sets": 3,
+        "reps": "5-8/side",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Sprint-006",
+        "exerciseName": "Pogo Sprint",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 60
+      },
+      {
+        "exerciseId": "Landing-007",
+        "exerciseName": "Lateral Single-Leg Landing",
+        "sets": 2,
+        "reps": "5-8",
+        "restSeconds": 60
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Cones"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-315",
+    "name": "Wicket Keeper - Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Sagittal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Wicket Keeper",
+    "description": "A Sagittal conditioning complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "Sprint-001",
+        "exerciseName": "Marching",
+        "sets": 3,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-013",
+        "exerciseName": "Heavy Suitcase Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Cones",
+      "Heavy DB/KB"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-316",
+    "name": "Wicket Keeper - Work Capacity Conditioning Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Frontal",
+    "intent": "Conditioning",
+    "focus": "Conditioning for Wicket Keeper",
+    "description": "A Frontal conditioning complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "SPRINT-100",
+        "exerciseName": "Repeated Sprint Ability (RSA)",
+        "sets": 2,
+        "reps": "20-40m",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "Carry-015",
+        "exerciseName": "Heavy Bear Hug Carry",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 45
+      },
+      {
+        "exerciseId": "COND-100",
+        "exerciseName": "Diagonal Shuttle Run",
+        "sets": 3,
+        "reps": "30-60s",
+        "restSeconds": 45
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Cones",
+      "Med Ball/Sandbag (heavy)"
+    ],
+    "duration": "14-21 minutes"
+  },
+  {
+    "id": "CPLX-317",
+    "name": "Wicket Keeper - Recovery Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Transverse",
+    "intent": "Recovery",
+    "focus": "Recovery for Wicket Keeper",
+    "description": "A Transverse recovery complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "REC-007",
+        "exerciseName": "Ankle Dorsiflexion Rock",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-003",
+        "exerciseName": "Dead Bug",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Mat",
+      "Wall"
+    ],
+    "duration": "12-18 minutes"
+  },
+  {
+    "id": "CPLX-318",
+    "name": "Wicket Keeper - Regeneration Recovery Complex",
+    "sport": "Cricket",
+    "role": "Wicket Keeper",
+    "plane": "Multi-Planar",
+    "intent": "Recovery",
+    "focus": "Recovery for Wicket Keeper",
+    "description": "A Multi-Planar recovery complex for Wicket Keeper targeting explosive_acceleration, deceleration.",
+    "exercises": [
+      {
+        "exerciseId": "REC-003",
+        "exerciseName": "Couch Stretch",
+        "sets": 2,
+        "reps": "30-60 sec",
+        "restSeconds": 30
+      },
+      {
+        "exerciseId": "ACT-006",
+        "exerciseName": "Ankle Hops (Pogo)",
+        "sets": 2,
+        "reps": "10-15",
+        "restSeconds": 30
+      }
+    ],
+    "coachingNotes": "Repeated explosive movements. Highest injury risk. Needs robust S&C.",
+    "equipment": [
+      "Bodyweight",
+      "Box",
+      "Wall"
+    ],
+    "duration": "12-18 minutes"
   }
 ]
