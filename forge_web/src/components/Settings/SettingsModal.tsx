@@ -12,9 +12,9 @@ export interface AppSettings {
   animations: boolean;
 }
 
-const DEFAULT_SETTINGS: AppSettings = {
-  theme: 'light',
-  density: 'comfortable',
+export const DEFAULT_SETTINGS: AppSettings = {
+  theme: 'dark',
+  density: 'compact',
   devMode: false,
   notifications: true,
   animations: true,
@@ -22,28 +22,29 @@ const DEFAULT_SETTINGS: AppSettings = {
 
 const STORAGE_KEY = 'forge_app_settings';
 
-export function useAppSettings() {
-  const [settings, setSettings] = useState<AppSettings>(DEFAULT_SETTINGS);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  // Load settings from localStorage on mount
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored) as Partial<AppSettings>;
-        setSettings(prev => ({ ...prev, ...parsed }));
-      }
-    } catch (e) {
-      console.error('Failed to load settings:', e);
+// Read persisted settings synchronously so the first render already has them.
+function readStoredSettings(): AppSettings {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored) as Partial<AppSettings>;
+      return { ...DEFAULT_SETTINGS, ...parsed };
     }
-    setIsLoaded(true);
-  }, []);
+  } catch (e) {
+    console.error('Failed to load settings:', e);
+  }
+  return DEFAULT_SETTINGS;
+}
 
-  // Apply theme to document
+export function useAppSettings() {
+  const [settings, setSettings] = useState<AppSettings>(readStoredSettings);
+  // Settings are read synchronously from localStorage in the initializer, so
+  // they are always loaded (this stays true for App.tsx compatibility).
+  const isLoaded = true;
+
+  // Apply theme to document (runs on every change, including first render,
+  // so default dark mode never flashes light).
   useEffect(() => {
-    if (!isLoaded) return;
-
     const root = document.documentElement;
     const applyTheme = (theme: ThemeMode) => {
       root.classList.remove('light', 'dark');
@@ -68,19 +69,17 @@ export function useAppSettings() {
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [settings.theme, isLoaded]);
+  }, [settings.theme]);
 
   // Apply density mode
   useEffect(() => {
-    if (!isLoaded) return;
-    
     const root = document.documentElement;
     if (settings.density === 'compact') {
       root.classList.add('density-compact');
     } else {
       root.classList.remove('density-compact');
     }
-  }, [settings.density, isLoaded]);
+  }, [settings.density]);
 
   // Save settings to localStorage
   const saveSettings = useCallback((newSettings: Partial<AppSettings>) => {
