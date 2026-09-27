@@ -69,9 +69,20 @@ const DIFFICULTY_COLORS = {
 
 interface ExerciseLibraryProps {
   onExit?: () => void;
+  initialCategory?: string;
+  /** Optional predicate (e.g. a home-page smart collection) applied on top of the UI filters */
+  customFilter?: (ex: Exercise) => boolean;
+  customFilterLabel?: string;
+  onClearCustomFilter?: () => void;
 }
 
-const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({ onExit, initialCategory }) => {
+const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({
+  onExit,
+  initialCategory,
+  customFilter,
+  customFilterLabel,
+  onClearCustomFilter,
+}) => {
   const [allExercises, setAllExercises] = useState<Exercise[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
@@ -142,14 +153,18 @@ const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({ onExit, initialCatego
     if (isPainSafeOnly) {
       result = result.filter(ex => ex.is_pain_safe);
     }
+    if (customFilter) {
+      result = result.filter(customFilter);
+    }
     setFilteredExercises(result);
-  }, [allExercises, searchQuery, selectedCategory, selectedDifficulty, isPainSafeOnly]);
+  }, [allExercises, searchQuery, selectedCategory, selectedDifficulty, isPainSafeOnly, customFilter]);
 
   const resetFilters = () => {
     setSearchQuery('');
     setSelectedCategory('');
     setSelectedDifficulty('');
     setIsPainSafeOnly(false);
+    onClearCustomFilter?.();
   };
 
   const exercisesByCategory = useMemo(() => {
@@ -247,9 +262,17 @@ const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({ onExit, initialCatego
                 </div>
               </div>
               <div className="flex items-center space-x-2">
+                {customFilter && (
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full font-medium flex items-center gap-1">
+                    ✦ {customFilterLabel || 'Smart Collection'}
+                    {onClearCustomFilter && (
+                      <button onClick={onClearCustomFilter} className="text-indigo-500 hover:text-indigo-800 font-bold" title="Remove smart collection filter" aria-label="Remove smart collection filter">✕</button>
+                    )}
+                  </span>
+                )}
                 {isPainSafeOnly && (<span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">✓ Pain-Safe Only</span>)}
                 {selectedDifficulty && (<span className={`px-3 py-1 text-sm rounded-full font-medium ${DIFFICULTY_COLORS[selectedDifficulty as keyof typeof DIFFICULTY_COLORS]}`}>{selectedDifficulty}</span>)}
-                {(searchQuery || selectedCategory || selectedDifficulty || isPainSafeOnly) && (<button onClick={resetFilters} className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full transition-colors">✕ Clear all</button>)}
+                {(searchQuery || selectedCategory || selectedDifficulty || isPainSafeOnly || customFilter) && (<button onClick={resetFilters} className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full transition-colors">✕ Clear all</button>)}
               </div>
             </div>
             <div className="flex items-center space-x-4">
