@@ -13,6 +13,22 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Apply persisted (or default: dark + compact) appearance before first paint -->
+    <script>
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem('forge_app_settings') || '{}');
+          var theme = s.theme || 'dark';
+          var cls = document.documentElement.classList;
+          if (theme === 'system') {
+            cls.add(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          } else {
+            cls.add(theme);
+          }
+          if ((s.density || 'compact') === 'compact') cls.add('density-compact');
+        } catch (e) {}
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
