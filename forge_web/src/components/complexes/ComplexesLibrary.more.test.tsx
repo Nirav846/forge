@@ -1,7 +1,7 @@
 import { render, waitFor, fireEvent, cleanup } from '@testing-library/react';
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import ComplexesLibrary from './ComplexesLibrary';
-import publicData from '../../../../../public/data/complexes.json';
+import publicData from '../../../public/data/complexes.json';
 
 const clone = () => JSON.parse(JSON.stringify(publicData));
 
