@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { SavedProgramArtifact } from '../../types/ui';
 import { SavedProgramsDrawer } from '../program/SavedProgramsDrawer';
@@ -93,6 +93,7 @@ export function HomePage({
 }: HomePageProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
+  const [activeCollectionId, setActiveCollectionId] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<FavoriteExercise[]>([]);
   const [recentWorkouts, setRecentWorkouts] = useState<RecentWorkout[]>([]);
   const [collectionCounts, setCollectionCounts] = useState<Record<string, number>>({});
@@ -175,19 +176,26 @@ export function HomePage({
   const todaysFocus = getTodaysFocus();
   const FocusIcon = todaysFocus.icon;
 
-  const [collectionFilter, setCollectionFilter] = useState<(ex: any) => boolean | null>(null);
+  const activeCollection = useMemo(
+    () => SMART_COLLECTIONS.find(c => c.id === activeCollectionId) ?? null,
+    [activeCollectionId],
+  );
 
   const handleCollectionClick = (collectionId: string) => {
-    const collection = SMART_COLLECTIONS.find(c => c.id === collectionId);
-    if (collection) {
-      setCollectionFilter(collection.filter);
-    }
-    onOpenLibrary();
+    setActiveCollectionId(collectionId);
+    setLibraryOpen(true);
   };
 
   const handleFavoriteClick = (exercise: FavoriteExercise) => {
-    onOpenLibrary();
+    setActiveCollectionId(null);
+    setLibraryOpen(true);
     console.log('Viewing favorite:', exercise.name);
+  };
+
+  // "View All" / generic library entry points open the full, unfiltered library
+  const handleOpenFullLibrary = () => {
+    setActiveCollectionId(null);
+    onOpenLibrary();
   };
 
   const handleRecentClick = (workout: RecentWorkout) => {
@@ -211,7 +219,9 @@ export function HomePage({
         <div className="flex-1 overflow-auto">
           <ExerciseLibrary 
             onExit={() => setLibraryOpen(false)}
-            filter={collectionFilter || undefined}
+            customFilter={activeCollection ? activeCollection.filter : undefined}
+            customFilterLabel={activeCollection?.name}
+            onClearCustomFilter={activeCollection ? () => setActiveCollectionId(null) : undefined}
           />
         </div>
       </div>
@@ -260,14 +270,14 @@ export function HomePage({
             smartCollections={SMART_COLLECTIONS}
             collectionCounts={collectionCounts}
             onCollectionClick={handleCollectionClick}
-            onOpenLibrary={onOpenLibrary}
+            onOpenLibrary={handleOpenFullLibrary}
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <FavoriteExercisesSection
               favorites={favorites}
               onFavoriteClick={handleFavoriteClick}
-              onOpenLibrary={onOpenLibrary}
+              onOpenLibrary={handleOpenFullLibrary}
             />
             <RecentWorkoutsSection
               recentWorkouts={recentWorkouts}

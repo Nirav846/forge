@@ -8,7 +8,7 @@ interface HomePageActionsProps {
   onOpenLibrary: () => void;
   onOpenComplexes?: () => void;
   onOpenWorkout?: () => void;
-  setLibraryOpen: (open: boolean) => void;
+  setLibraryOpen?: (open: boolean) => void;
 }
 
 export function HomePageActions({ 
@@ -19,6 +19,10 @@ export function HomePageActions({
   onOpenWorkout,
   setLibraryOpen 
 }: HomePageActionsProps) {
+  const openExerciseLibrary = () => {
+    if (setLibraryOpen) setLibraryOpen(true);
+    else onOpenLibrary();
+  };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* Team Template */}
@@ -41,7 +45,7 @@ export function HomePageActions({
 
       {/* Exercise Library */}
       <button
-        onClick={() => setLibraryOpen(true)}
+        onClick={openExerciseLibrary}
         className="flex items-center gap-4 p-5 bg-white border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 rounded-xl transition-all shadow-sm hover:shadow-md group text-left"
       >
         <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md">
@@ -58,7 +62,7 @@ export function HomePageActions({
       <button
         onClick={() => {
           if (onOpenComplexes) onOpenComplexes();
-          else setLibraryOpen(true); // Fallback
+          else openExerciseLibrary(); // Fallback
         }}
         className="flex items-center gap-4 p-5 bg-white border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 rounded-xl transition-all shadow-sm hover:shadow-md group text-left"
       >
@@ -76,7 +80,7 @@ export function HomePageActions({
       <button
         onClick={() => {
           if (onOpenWorkout) onOpenWorkout();
-          else setLibraryOpen(true); // Fallback
+          else openExerciseLibrary(); // Fallback
         }}
         className="flex items-center gap-4 p-5 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 rounded-xl transition-all shadow-sm hover:shadow-md group text-left"
       >
