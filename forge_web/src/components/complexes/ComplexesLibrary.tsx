@@ -81,8 +81,16 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
         const list: any[] = Array.isArray(data) ? data : (data?.complexes ?? []);
         // Normalize each record defensively so a single malformed entry cannot
         // crash rendering (which previously left the page blank).
-        const normalized: Complex[] = list.map((c: any) => ({
-          id: String(c?.id ?? crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)),
+        // Ensure ids are unique — duplicate keys in the dataset previously made
+        // React reconcile two cards as one, so clicking "View Protocol" on a
+        // colliding card could blank out the page.
+        const seenIds = new Set<string>();
+        const normalized: Complex[] = list.map((c: any) => {
+          let id = String(c?.id ?? crypto.randomUUID?.() ?? Math.random().toString(36).slice(2));
+          while (seenIds.has(id)) id = `${id}-dup`;
+          seenIds.add(id);
+          return {
+          id,
           name: String(c?.name ?? 'Untitled complex'),
           sport: String(c?.sport ?? 'Unknown'),
           role: String(c?.role ?? 'Unknown'),
@@ -100,7 +108,8 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                 restSeconds: Number(e?.restSeconds ?? 0),
               }))
             : [],
-        }));
+          };
+        });
         setComplexesData(normalized);
         setLoadError(null);
       } catch (error) {
@@ -152,6 +161,16 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
     });
   }, [complexesData, filters]);
 
+  // Allow closing the detail modal with the Escape key
+  useEffect(() => {
+    if (!selectedComplex) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedComplex(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedComplex]);
+
   // Show loading state (all hooks must run before any conditional return)
   if (isLoading) {
     return (
@@ -177,6 +196,12 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
       </div>
     );
   }
+  // Defensive views of the selected complex so the modal can never crash on a
+  // malformed record (a throw here previously blanked the whole page).
+  const selectedExercises: Complex['exercises'] =
+    Array.isArray(selectedComplex?.exercises) ? selectedComplex!.exercises : [];
+  const selectedEquipment: string[] =
+    Array.isArray(selectedComplex?.equipment) ? selectedComplex!.equipment : [];
 
   const getBadgeColor = (type: string, value: string) => {
     const colors: Record<string, Record<string, string>> = {
@@ -528,7 +553,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                   </div>
                   <div className="bg-green-50 p-3 rounded-lg">
                     <div className="text-xs font-medium text-green-600 uppercase">Exercises</div>
-                    <div className="text-sm font-semibold text-green-900">{selectedComplex.exercises.length}</div>
+                    <div className="text-sm font-semibold text-green-900">{selectedExercises.length}</div>
                   </div>
                   <div className="bg-purple-50 p-3 rounded-lg">
                     <div className="text-xs font-medium text-purple-600 uppercase">Duration</div>
@@ -536,7 +561,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                   </div>
                   <div className="bg-orange-50 p-3 rounded-lg">
                     <div className="text-xs font-medium text-orange-600 uppercase">Equipment</div>
-                    <div className="text-sm font-semibold text-orange-900">{selectedComplex.equipment.length}</div>
+                    <div className="text-sm font-semibold text-orange-900">{selectedEquipment.length}</div>
                   </div>
                 </div>
 
@@ -550,17 +575,17 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                 <div className="mb-6">
                   <h4 className="text-sm font-medium text-gray-900 mb-3">Protocol</h4>
                   <div className="space-y-3">
-                    {selectedComplex.exercises.map((exercise, idx) => (
+                    {selectedExercises.map((exercise, idx) => (
                       <div key={idx} className="flex items-start p-3 bg-gray-50 rounded-lg">
                         <div className="flex-shrink-0 h-8 w-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold mr-3">
                           {idx + 1}
                         </div>
                         <div className="flex-1">
-                          <div className="font-medium text-gray-900">{exercise.exerciseName}</div>
+                          <div className="font-medium text-gray-900">{String(exercise?.exerciseName ?? 'Unknown exercise')}</div>
                           <div className="text-sm text-gray-600 mt-1">
-                            <span className="font-medium">Sets:</span> {exercise.sets} • 
-                            <span className="font-medium ml-2">Reps:</span> {exercise.reps} • 
-                            <span className="font-medium ml-2">Rest:</span> {exercise.restSeconds}s
+                            <span className="font-medium">Sets:</span> {String(exercise?.sets ?? '-')} • 
+                            <span className="font-medium ml-2">Reps:</span> {String(exercise?.reps ?? '-')} • 
+                            <span className="font-medium ml-2">Rest:</span> {String(exercise?.restSeconds ?? '-')}s
                           </div>
                         </div>
                       </div>
@@ -580,7 +605,7 @@ const ComplexesLibrary: React.FC<ComplexesLibraryProps> = ({ onExit }) => {
                 <div>
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Equipment Needed</h4>
                   <div className="flex flex-wrap gap-2">
-                    {selectedComplex.equipment.map((item, idx) => (
+                    {selectedEquipment.map((item, idx) => (
                       <span key={idx} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                         <Dumbbell className="w-3 h-3 mr-1" />
                         {item}
