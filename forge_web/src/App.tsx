@@ -19,7 +19,7 @@ import CenterPanel from './components/CenterPanel';
 import RightPanel from './components/RightPanel';
 import InsightsPanel from './components/InsightsPanel';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Activity, Library, ClipboardCheck, AlertTriangle, Plus } from 'lucide-react';
+import { Activity, Library, ClipboardCheck, AlertTriangle, Plus, Moon, Sun } from 'lucide-react';
 import { SavedProgramsDrawer } from './components/program/SavedProgramsDrawer';
 import { ProgramDocumentView } from './components/program/ProgramDocumentView';
 import { UATRunner } from './components/UATRunner';
@@ -50,6 +50,12 @@ export default function App() {
   const [showInsights, setShowInsights] = useState(false);
   const devMode = localStorage.getItem('forge_dev_mode') === 'true';
   const [viewMode, setViewMode] = useState<ViewMode>('entry');
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('forge_dark_mode');
+    return saved ? JSON.parse(saved) : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+
   const [formSourceProgramId, setFormSourceProgramId] = useState<string | undefined>();
   const [formTemplateValues, setFormTemplateValues] = useState<Partial<ProgramRequest> | undefined>();
 
@@ -82,6 +88,16 @@ export default function App() {
         setUseMockFallback(true);
       });
   }, []);
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('forge_dark_mode', JSON.stringify(isDark));
+  }, [isDark]);
+
+
 
   const handleGenerate = useCallback(async (builtRequest?: ProgramRequest) => {
     const req = builtRequest || request;
@@ -730,6 +746,18 @@ export default function App() {
           <span className="text-slate-600">|</span>
           <button onClick={() => loadScenario('broken')} className="text-amber-400 hover:text-amber-300 transition-colors">Broken Data</button>
           <button onClick={() => loadScenario('error')} className="text-red-400 hover:text-red-300 transition-colors">API Error</button>
+           <button
+             onClick={() => setIsDark(prev => !prev)}
+             className="flex items-center gap-1.5 hover:text-indigo-300 transition-colors text-slate-400"
+             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+           >
+             {isDark ? (
+               <Sun className="w-4 h-4" />
+             ) : (
+               <Moon className="w-4 h-4" />
+             )}
+           </button>
+
         </div>
       </header>
 
