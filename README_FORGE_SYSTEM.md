@@ -1,6 +1,6 @@
 # FORGE - Complete Strength & Conditioning System
 
-## ✅ System Status: FULLY OPERATIONAL
+(See `CHANGELOG.md` for release status.)
 
 The FORGE system is a professional-grade Strength & Conditioning (S&C) program generation engine that creates **real, complete workout programs** for athletes across different sports.
 

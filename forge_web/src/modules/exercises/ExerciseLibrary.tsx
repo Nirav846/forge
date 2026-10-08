@@ -1,6 +1,7 @@
 /**
  * Exercise Library Page
  * Browse, filter, and search all exercises with left navigation panel
+ * Uses lazy-loaded data for better initial bundle size
  */
 
 import React, { useState, useEffect, useMemo } from 'react';
@@ -28,15 +29,36 @@ const CATEGORY_GROUPS: Record<string, { name: string; icon: string; description:
   'Plyo': { name: 'Plyometrics', icon: '💥', description: 'Jumps, bounds, explosive movements' },
   'Landing': { name: 'Landing Mechanics', icon: '🛬', description: 'Deceleration, landing technique' },
   'Ball': { name: 'Medicine Ball', icon: '🏀', description: 'Med ball throws and slams' },
+  // Explosive Performance (Olympic/Power)
+  'Explosive Performance': { name: 'Explosive Performance', icon: '⚡', description: 'Olympic derivatives, power exercises, ballistic movements' },
   // Speed & Agility
   'Sprint': { name: 'Sprinting', icon: '🏃', description: 'Acceleration, max velocity' },
   'Acc': { name: 'Acceleration', icon: '🚀', description: 'First step, initial acceleration' },
   'Agility': { name: 'Agility', icon: '⚡', description: 'Change of direction, reactive drills' },
   // Supportive
-  'Activation': { name: 'Activation', icon: '🔌', description: 'Glute, core, shoulder activation' },
-  'Assessment': { name: 'Assessment', icon: '📊', description: 'Movement screens, tests' },
+  'Activation': { name: 'Activation', icon: '🔌', description: 'Movement preparation and muscle activation' },
+  'Assessment': { name: 'Assessment', icon: '📊', description: 'Movement screens, performance tests' },
   'Cond': { name: 'Conditioning', icon: '❤️', description: 'Energy system development' },
   'Recovery': { name: 'Recovery', icon: '🧘', description: 'Mobility, regeneration work' },
+};
+
+// Subcategory icons and display names for better navigation
+const SUBCATEGORY_ICONS: Record<string, string> = {
+  // Activation subcategories
+  'Lower Body': '🦵',
+  'Upper Body': '💪',
+  'Core': '🎯',
+  'Plyometric Prep': '💥',
+  'Dynamic Mobility': '🔄',
+  // Assessment subcategories
+  'Movement Screen': '📋',
+  'Performance Test': '📈',
+  'Endurance Test': '⏱️',
+  'Mobility Screen': '📏',
+  'Balance/Stability': '⚖️',
+  // Explosive Performance subcategories
+  'Olympic Derivative': '🏋️',
+  'Power': '💥',
 };
 
 const DIFFICULTY_COLORS = {
@@ -45,13 +67,28 @@ const DIFFICULTY_COLORS = {
   Advanced: 'bg-red-100 text-red-800 border-red-200',
 };
 
-const ExerciseLibrary: React.FC = () => {
+interface ExerciseLibraryProps {
+  onExit?: () => void;
+  initialCategory?: string;
+  /** Optional predicate (e.g. a home-page smart collection) applied on top of the UI filters */
+  customFilter?: (ex: Exercise) => boolean;
+  customFilterLabel?: string;
+  onClearCustomFilter?: () => void;
+}
+
+const ExerciseLibrary: React.FC<ExerciseLibraryProps> = ({
+  onExit,
+  initialCategory,
+  customFilter,
+  customFilterLabel,
+  onClearCustomFilter,
+}) => {
   const [allExercises, setAllExercises] = useState<Exercise[]>([]);
   const [filteredExercises, setFilteredExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory || '');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('');
   const [isPainSafeOnly, setIsPainSafeOnly] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -116,14 +153,18 @@ const ExerciseLibrary: React.FC = () => {
     if (isPainSafeOnly) {
       result = result.filter(ex => ex.is_pain_safe);
     }
+    if (customFilter) {
+      result = result.filter(customFilter);
+    }
     setFilteredExercises(result);
-  }, [allExercises, searchQuery, selectedCategory, selectedDifficulty, isPainSafeOnly]);
+  }, [allExercises, searchQuery, selectedCategory, selectedDifficulty, isPainSafeOnly, customFilter]);
 
   const resetFilters = () => {
     setSearchQuery('');
     setSelectedCategory('');
     setSelectedDifficulty('');
     setIsPainSafeOnly(false);
+    onClearCustomFilter?.();
   };
 
   const exercisesByCategory = useMemo(() => {
@@ -136,6 +177,25 @@ const ExerciseLibrary: React.FC = () => {
     });
     return grouped;
   }, [filteredExercises]);
+
+  // Group exercises by subcategory for Activation and Assessment categories
+  const exercisesBySubcategory = useMemo(() => {
+    const grouped: Record<string, Record<string, Exercise[]>> = {};
+    filteredExercises.forEach(exercise => {
+      if (!grouped[exercise.category]) {
+        grouped[exercise.category] = {};
+      }
+      const subcat = exercise.subcategory || 'Other';
+      if (!grouped[exercise.category][subcat]) {
+        grouped[exercise.category][subcat] = [];
+      }
+      grouped[exercise.category][subcat].push(exercise);
+    });
+    return grouped;
+  }, [filteredExercises]);
+
+  // Categories that should display with subcategory grouping
+  const categorizedCategories = ['Activation', 'Assessment', 'Explosive Performance'];
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -189,6 +249,12 @@ const ExerciseLibrary: React.FC = () => {
           <div className="px-6 py-4">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-4">
+                {onExit && (
+                  <button onClick={onExit} className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors" title="Back to Dashboard">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                    Back to Dashboard
+                  </button>
+                )}
                 {!sidebarOpen && (<button onClick={() => setSidebarOpen(true)} className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="Open sidebar"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg></button>)}
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">Exercise Library</h1>
@@ -196,9 +262,17 @@ const ExerciseLibrary: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-2">
+                {customFilter && (
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full font-medium flex items-center gap-1">
+                    ✦ {customFilterLabel || 'Smart Collection'}
+                    {onClearCustomFilter && (
+                      <button onClick={onClearCustomFilter} className="text-indigo-500 hover:text-indigo-800 font-bold" title="Remove smart collection filter" aria-label="Remove smart collection filter">✕</button>
+                    )}
+                  </span>
+                )}
                 {isPainSafeOnly && (<span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">✓ Pain-Safe Only</span>)}
                 {selectedDifficulty && (<span className={`px-3 py-1 text-sm rounded-full font-medium ${DIFFICULTY_COLORS[selectedDifficulty as keyof typeof DIFFICULTY_COLORS]}`}>{selectedDifficulty}</span>)}
-                {(searchQuery || selectedCategory || selectedDifficulty || isPainSafeOnly) && (<button onClick={resetFilters} className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full transition-colors">✕ Clear all</button>)}
+                {(searchQuery || selectedCategory || selectedDifficulty || isPainSafeOnly || customFilter) && (<button onClick={resetFilters} className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full transition-colors">✕ Clear all</button>)}
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -232,6 +306,9 @@ const ExerciseLibrary: React.FC = () => {
             <div className="space-y-8">
               {Object.entries(exercisesByCategory).map(([category, exercises]) => {
                 const catInfo = CATEGORY_GROUPS[category];
+                const isCategorizedCategory = categorizedCategories.includes(category);
+                const subcategories = isCategorizedCategory ? exercisesBySubcategory[category] : null;
+                
                 return (
                   <div key={category} id={`category-${category}`} className="scroll-mt-32">
                     <div className="flex items-center space-x-3 mb-4 pb-3 border-b border-gray-200">
@@ -242,9 +319,34 @@ const ExerciseLibrary: React.FC = () => {
                       </div>
                       <span className="ml-auto px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full font-medium">{exercises.length} exercises</span>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3">
-                      {exercises.map((exercise) => (<ExerciseCard key={exercise.id} exercise={exercise} onClick={() => { console.log('Clicked exercise:', exercise.name); }} />))}
-                    </div>
+                    
+                    {isCategorizedCategory && subcategories ? (
+                      // Display with subcategory grouping for Activation and Assessment
+                      <div className="space-y-6">
+                        {Object.entries(subcategories).map(([subcat, subcatExercises]) => {
+                          const subcatIcon = SUBCATEGORY_ICONS[subcat] || '📋';
+                          return (
+                            <div key={subcat} className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                              <div className="flex items-center space-x-2 mb-3 pb-2 border-b border-gray-100">
+                                <span className="text-lg">{subcatIcon}</span>
+                                <h3 className="text-md font-semibold text-gray-800">{subcat}</h3>
+                                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">{subcatExercises.length}</span>
+                              </div>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3">
+                                {subcatExercises.map((exercise) => (
+                                  <ExerciseCard key={exercise.id} exercise={exercise} onClick={() => { console.log('Clicked exercise:', exercise.name); }} />
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      // Standard display for other categories
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3">
+                        {exercises.map((exercise) => (<ExerciseCard key={exercise.id} exercise={exercise} onClick={() => { console.log('Clicked exercise:', exercise.name); }} />))}
+                      </div>
+                    )}
                   </div>
                 );
               })}

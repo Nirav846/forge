@@ -1,11 +1,15 @@
-# FORGE Exercise Library - Complete Status Report
+# FORGE Exercise Library - Status Report
+
+**As of:** 2026-09-24 (refreshed during documentation audit; see `docs/DOCUMENTATION_AUDIT.md`).
+**Canonical data facts:** `docs/DATA_MODEL.md`. This page reports migration coverage only.
 
 ## Executive Summary
-**YES, the exercise library is COMPLETE and ready for CSCS coach use.**
+The migration-seeded library (SQL migrations 000026–000031) contains **271 movements**.
+Subsequent phases expanded coverage further; current authoritative counts are:
+backend engine data **334 exercises**, frontend seed **537 exercises / 222 complexes**,
+migrations through **000035** (`000034_conditioning_library`, `000035_conditioning_plyometrics`).
 
-## Total Exercise Count: 271 Movements
-
-### Migration Files Created (All Phases Complete):
+### Migration Files Created (Library Seed Phases):
 | Migration | Phase | Exercises | Category |
 |-----------|-------|-----------|----------|
 | 000026 | Phase 1 | 114 | Complexes, Olympic Variations, Core |
@@ -14,7 +18,8 @@
 | 000029 | Phase 4 | 12 | Olympic Accessories |
 | 000030 | Phase 6 | 75 | Elite Locker Room (Strongman, Gymnastics) |
 | 000031 | Phase 5 | 10 | Unilateral Hip Dominant |
-| **TOTAL** | **All** | **271** | **Complete Library** |
+| 000032+ | Phases 7–9 | — | Bridge/pain-safe, combo expansion, conditioning, plyometrics |
+| **Seed total (000026–000031)** | | **271** | |
 
 ### Movement Pattern Coverage (CSCS Standards):
 ✅ **Bilateral Knee Dominant**: 28 exercises

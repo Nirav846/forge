@@ -1,0 +1,1104 @@
+{
+  "summary": {
+    "total": 334,
+    "passed": 214,
+    "failed": 120
+  },
+  "exercises_needing_work": [
+    {
+      "id": "DLKD-002",
+      "name": "Wall Sit",
+      "category": "DLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "DLKD-012",
+      "name": "Paused Front Squat",
+      "category": "DLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "DLHD-001",
+      "name": "Glute Bridge",
+      "category": "DLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "DLHD-013",
+      "name": "Sumo Deadlift",
+      "category": "DLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "DLHD-014",
+      "name": "Deficit Deadlift",
+      "category": "DLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "SLKD-001",
+      "name": "Assisted Split Squat",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "SLKD-004",
+      "name": "Low Box Step-Up",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "SLKD-012",
+      "name": "Pistol Squat",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "SLHD-001",
+      "name": "Single-Leg Glute Bridge",
+      "category": "SLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "SLHD-008",
+      "name": "Single-Leg RDL (loaded)",
+      "category": "SLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "HPush-001",
+      "name": "Wall Push-Up",
+      "category": "HPush",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "HPush-008",
+      "name": "Incline Barbell Bench Press",
+      "category": "HPush",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "HPush-010",
+      "name": "Weighted Push-Up",
+      "category": "HPush",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "HPull-001",
+      "name": "Scapular Retraction",
+      "category": "HPull",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "HPull-011",
+      "name": "Pendlay Row",
+      "category": "HPull",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "VPush-001",
+      "name": "Band Overhead Press",
+      "category": "VPush",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "VPush-010",
+      "name": "Power Jerk",
+      "category": "VPush",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "VPull-012",
+      "name": "Muscle-Up",
+      "category": "VPull",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Plyo-001",
+      "name": "Pogo Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Plyo-006",
+      "name": "Lateral Hop",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Plyo-012",
+      "name": "Single-Leg Bound",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Plyo-014",
+      "name": "Weighted Depth Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Ball-001",
+      "name": "Med Ball Slam",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Ball-002",
+      "name": "Chest Pass (wall)",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Ball-009",
+      "name": "Med Ball Push Press",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Ball-010",
+      "name": "Med Ball Clean",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Ball-012",
+      "name": "Single-Arm Throw",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Ball-013",
+      "name": "Wall Ball (heavy)",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Sprint-001",
+      "name": "Marching",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Sprint-002",
+      "name": "Wall Drill",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Sprint-016",
+      "name": "Sled Sprint (light)",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Sprint-018",
+      "name": "Flying 30s",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Rot-001",
+      "name": "Pallof Press",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Rot-009",
+      "name": "Windmill",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Rot-010",
+      "name": "Rotational Throw (reactive)",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Carry-001",
+      "name": "Farmer Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Carry-011",
+      "name": "Suitcase Carry (offset)",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Carry-012",
+      "name": "Heavy Farmer Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Carry-013",
+      "name": "Heavy Suitcase Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Core-001",
+      "name": "Dead Bug",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Core-002",
+      "name": "Plank",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Core-004",
+      "name": "Bird Dog",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Core-005",
+      "name": "Crunches",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Core-015",
+      "name": "Landmine Anti-Rotation",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Core-020",
+      "name": "Side Plank Row",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Core-021",
+      "name": "Weighted Hanging Leg Raise",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-001",
+      "name": "Calf Raise",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-002",
+      "name": "Band Pull-Apart",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-003",
+      "name": "Hollow Body Hold",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-006",
+      "name": "Child's Pose",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-009",
+      "name": "Couch Stretch",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-010",
+      "name": "5-Way Hip",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-015",
+      "name": "Cable Face Pull",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-018",
+      "name": "Resisted Side Shuffle",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-020",
+      "name": "Cable External Rotation",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-021",
+      "name": "Weighted Single-Leg Calf Raise",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-022",
+      "name": "Wall March",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-023",
+      "name": "Dead Bug (Hip Flexor)",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-027",
+      "name": "Standing Cable Hip Flexion",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Rot-011",
+      "name": "Pallof Hold",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Rot-016",
+      "name": "Reactive Pallof Press",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Rot-017",
+      "name": "Reactive Rotational Catch & Throw",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Ball-014",
+      "name": "Med Ball Overhead Slam (max)",
+      "category": "Ball",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "HPush-011",
+      "name": "Barbell Floor Press",
+      "category": "HPush",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "SLHD-011",
+      "name": "Weighted Nordic Hamstring Curl",
+      "category": "SLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "VPull-013",
+      "name": "Band Lat Pulldown",
+      "category": "VPull",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Carry-014",
+      "name": "Single-Arm Farmer Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Carry-015",
+      "name": "Heavy Bear Hug Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "DLHD-015",
+      "name": "Prone Hip Extension",
+      "category": "DLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "DLKD-013",
+      "name": "Heel-Elevated Barbell Squat",
+      "category": "DLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "HPull-012",
+      "name": "Yates Row",
+      "category": "HPull",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Plyo-015",
+      "name": "Single-Leg Depth Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "SLHD-012",
+      "name": "Bird Dog Hip Extension",
+      "category": "SLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "SLKD-013",
+      "name": "Weighted Pistol Squat",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "VPull-014",
+      "name": "Archer Pull-Up",
+      "category": "VPull",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "VPush-011",
+      "name": "Half-Kneeling DB Overhead Press",
+      "category": "VPush",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "VPush-012",
+      "name": "Split Jerk",
+      "category": "VPush",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Carry-016",
+      "name": "Single-Arm Overhead Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Carry-017",
+      "name": "Bottom-Up KB Carry",
+      "category": "Carry",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-028",
+      "name": "Cable Face Pull",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Landing-001",
+      "name": "Box Jump Stick (low, 6-12in)",
+      "category": "Landing",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Landing-008",
+      "name": "Reactive Single-Leg Landing (unexpected)",
+      "category": "Landing",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Sprint-023",
+      "name": "Acceleration Wall Drill",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "Sprint-029",
+      "name": "Flying Sprint 30m",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "PLYO-102",
+      "name": "Plyometric Depth Drop to Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "SLKD-100",
+      "name": "Lateral Lunge to Recovery",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "COND-100",
+      "name": "Diagonal Shuttle Run",
+      "category": "Cond",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "ROT-100",
+      "name": "Rotational Cable Chop",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "ACC-100",
+      "name": "Single-Leg Balance with Reach",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "ACC-101",
+      "name": "Overhead Band Pull-Apart",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "AGI-102",
+      "name": "Carioca with Sprint Exit",
+      "category": "Agility",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "SPRINT-100",
+      "name": "Repeated Sprint Ability (RSA)",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "LANDING-100",
+      "name": "Single-Leg Landing Progression",
+      "category": "Landing",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "AGI-104",
+      "name": "Lateral Shuffle to Sprint",
+      "category": "Agility",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "DLHD-101",
+      "name": "Nordic Curl",
+      "category": "DLHD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "AGI-105",
+      "name": "Deceleration Shuffle",
+      "category": "Agility",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "SLKD-101",
+      "name": "Eccentric Step-Down",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Core-022",
+      "name": "Cable Chop",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "Rot-018",
+      "name": "Landmine Rotation",
+      "category": "Rot",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "SLKD-102",
+      "name": "Box Step-Down",
+      "category": "SLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "AGI-106",
+      "name": "Reactive Agility Drill",
+      "category": "Agility",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-029",
+      "name": "External Rotation (band)",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "PLYO-103",
+      "name": "Vertical Jump (approach)",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-030",
+      "name": "Collision Pad Drive",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "PLYO-104",
+      "name": "Single-Leg Depth Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Sprint-030",
+      "name": "Band Resisted Sprint",
+      "category": "Sprint",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Acc-031",
+      "name": "Isometric Neck Hold",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "DLKD-014",
+      "name": "Sled Push",
+      "category": "DLKD",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "PLYO-105",
+      "name": "Lineout Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Core-023",
+      "name": "Ruck Engagement",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-032",
+      "name": "Tackle Bag Drive",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "Core-024",
+      "name": "Kick-Specific Core",
+      "category": "Core",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-033",
+      "name": "Contact Carry",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "Landing-009",
+      "name": "High-Ball Fielding",
+      "category": "Landing",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "PLYO-106",
+      "name": "Reactive Box Jump",
+      "category": "Plyo",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "Landing-010",
+      "name": "Lateral Dive Pattern",
+      "category": "Landing",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "Acc-034",
+      "name": "Band-Resisted Distribution",
+      "category": "Acc",
+      "missing_critical": [],
+      "missing_important": [
+        "progression",
+        "regression"
+      ]
+    },
+    {
+      "id": "AGI-107",
+      "name": "5-10-5 Shuttle",
+      "category": "Agility",
+      "missing_critical": [],
+      "missing_important": [
+        "progression"
+      ]
+    },
+    {
+      "id": "REC-001",
+      "name": "Foam Roller IT Band Release",
+      "category": "Recovery",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    },
+    {
+      "id": "REC-013",
+      "name": "Breathing Diaphragmatic Reset",
+      "category": "Recovery",
+      "missing_critical": [],
+      "missing_important": [
+        "regression"
+      ]
+    }
+  ]
+}

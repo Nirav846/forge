@@ -34,13 +34,13 @@ export function EntryScreen({ onSelectSource, onSelectTemplate, onStartFresh, on
 
   return (
     <>
-      <div className="max-w-3xl mx-auto w-full h-full flex flex-col justify-center items-center text-center px-6 py-12">
+      <div className="max-w-3xl mx-auto w-full h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 py-8 sm:py-12">
         {/* Hero Section */}
-        <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200">
-          <FileEdit className="w-10 h-10 text-white" />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg shadow-indigo-200">
+          <FileEdit className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
         </div>
-        <h2 className="text-3xl font-bold text-slate-900 mb-3">Create New Program</h2>
-        <p className="text-slate-500 text-base mb-10 max-w-lg leading-relaxed">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Create New Program</h2>
+        <p className="text-slate-500 text-sm sm:text-base mb-8 sm:mb-10 max-w-lg leading-relaxed px-2">
           Build structured, periodized training blocks powered by FORGE's intelligent programming engine
         </p>
 

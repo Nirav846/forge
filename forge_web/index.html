@@ -2,12 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
     <title>FORGE - Elite Strength & Conditioning Coach Console</title>
     <meta name="description" content="Offline-first S&C application for creating credible workout plans with a comprehensive exercise library" />
+    <meta name="mobile-web-app-capable" content="yes" />
   </head>
   <body>
     <div id="root"></div>
+    <!-- Apply persisted (or default: dark + compact) appearance before first paint -->
+    <script>
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem('forge_app_settings') || '{}');
+          var theme = s.theme || 'dark';
+          var cls = document.documentElement.classList;
+          if (theme === 'system') {
+            cls.add(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          } else {
+            cls.add(theme);
+          }
+          if ((s.density || 'compact') === 'compact') cls.add('density-compact');
+        } catch (e) {}
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

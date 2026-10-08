@@ -1,28 +1,42 @@
 /// <reference types="vite/client" />
 import type { ProgramRequest } from '../types';
+import { errorLogger } from './errorLogger';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 async function apiFetch(path: string, options?: RequestInit): Promise<any> {
   const url = `${API_BASE}${path}`;
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers,
-    },
-  });
-  if (!res.ok) {
-    let detail = `HTTP ${res.status}`;
-    try {
-      const body = await res.json();
-      detail = body?.detail?.message || body?.message || JSON.stringify(body);
-    } catch {
-      detail = res.statusText || detail;
+  
+  try {
+    const res = await fetch(url, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options?.headers,
+      },
+    });
+    
+    if (!res.ok) {
+      let detail = `HTTP ${res.status}`;
+      try {
+        const body = await res.json();
+        detail = body?.detail?.message || body?.message || JSON.stringify(body);
+      } catch {
+        detail = res.statusText || detail;
+      }
+      
+      errorLogger.handleApiError(new Error(detail), path, options?.method || 'GET');
+      throw new Error(detail);
     }
-    throw new Error(detail);
+    
+    return res.json();
+  } catch (error) {
+    // Network errors or other fetch failures
+    if (error instanceof TypeError && error.message.includes('fetch')) {
+      errorLogger.handleApiError(error, path, options?.method || 'GET');
+    }
+    throw error;
   }
-  return res.json();
 }
 
 export async function generateProgram(request: ProgramRequest): Promise<any> {

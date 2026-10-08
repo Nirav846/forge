@@ -20,6 +20,7 @@ interface CenterPanelProps {
   onMarkReviewed: () => void;
   onOpenDocument: () => void;
   onDuplicate: () => void;
+  onBackToDashboard?: () => void;
   onUpdateNotes?: (notes: string, field: 'coach_notes' | 'internal_notes') => Promise<boolean> | void;
   coachNotes?: string;
   internalNotes?: string;
